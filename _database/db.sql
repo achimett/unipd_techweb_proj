@@ -16,7 +16,7 @@ SET FOREIGN_KEY_CHECKS=0;
 
 -- Ripulisce, eliminando le tabelle qualora esistesserò già
 
-Drop table if exists Utente;
+Drop table if exists Utente , Post , Commento , Img ;
 
 CREATE TABLE Utente(
                     ID  INT auto_increment PRIMARY KEY,
@@ -52,7 +52,16 @@ CREATE TABLE Commento(
                     Text TEXT not null,
                     FOREIGN KEY (ID_Autore) REFERENCES Utente(ID),
                     FOREIGN KEY (ID_Post) REFERENCES Post(ID)
-	                );	                   
+	                );	
+CREATE TABLE Img(
+                 ID  INT auto_increment PRIMARY KEY,
+                 ID_Autore INT NOT NULL,
+                 ID_Post INT NOT NULL,
+                 Data TIMESTAMP not null,
+                 Img_path VARCHAR(256) not null DEFAULT 'Immagini/post/default.jpg',
+                 FOREIGN KEY (ID_Autore) REFERENCES Utente(ID),
+                 FOREIGN KEY (ID_Post) REFERENCES Post(ID)
+	                );
                 
 -- Riabilita check
 
