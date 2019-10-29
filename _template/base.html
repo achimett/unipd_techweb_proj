@@ -15,7 +15,9 @@
 
     <meta name="author" content="Alessandro Chimetto, Daniele Bresciani, Francesco De Salvador, Stefano Biotto" />
 
-    <!-- link rel="stylesheet" href="/css/master.css" -->
+    <link rel="stylesheet" type="text/css" href="../css/mobile.css" />
+    <link rel="stylesheet" type="text/css" href="../css/desktop.css" media="screen and (min-width: 830px)" />
+    <link rel="stylesheet" type="text/css" href="../css/print.css" media="print"/>
   </head>
 
   <body>
@@ -26,6 +28,8 @@
         <img src="../img/menu_profilo_icon.png" alt="" />
         <p>Nome Cognome</p>
       </div>
+
+      <a id="hamburger" href=""><img src="../img/menu_espandi_icon.png" alt="Menù" /></a>
     </div>
 
     <div id="breadcrumb">
@@ -33,15 +37,13 @@
     </div>
 
     <div id="menu">
-      <ul>
-        <li id="menu_cerca"><a href="">Cerca</a></li>
+      <ul id="menu_up">
         <li id="menu_profilo"><a href="">Il mio profilo</a></li>
         <li id="menu_bacheca"><a href="">Bacheca</a></li>
         <li id="menu_nuovo_post"><a href="">Nuovo post</a></li>
         <li id="menu_help" xml:lang="en"><a href="">Help</a></li>
       </ul>
-      <!-- Due ul separati??????? -->
-      <ul>
+      <ul id="menu_down">
         <li id="menu_about" xml:lang="en"><a href="">About Us</a></li>
         <li id="menu_logout" xml:lang="en"><a href="">Log Out</a></li>
       </ul>
