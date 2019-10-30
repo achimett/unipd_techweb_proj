@@ -1,0 +1,139 @@
+* {
+  padding: 0em;
+  margin: 0em;
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+abbr[title] {
+  border-bottom: none;
+  text-decoration: none;
+}
+
+/********** HEADER **********/
+#header {
+  background-color: #339933;
+  color: #FFFFFF;
+  text-align: center;
+  padding-bottom: 0.2em;
+  padding-top: 0.2em;
+  line-height: 3em;
+}
+
+#info_utente {
+  float: left;
+  display: inline-block;
+}
+
+#info_utente img {
+  display: inline-block;
+  vertical-align: middle;
+  height: 3em;
+  width: 3em;
+}
+
+#info_utente p {
+  float: right;
+}
+
+#header h1 {
+  font-size: 2.5em;
+  width: 50%;
+  margin: 0 auto;
+}
+
+#hamburger {
+  display: none;
+}
+
+#breadcrumb {
+  background-color: #006837;
+  color: #FFFFFF;
+  text-align: center;
+  padding-bottom: 0.1em;
+  padding-top: 0.1em;
+}
+
+/********** PAGE-CENTRAL-PART **********/
+#page_central_part {
+  max-width: 1024px;
+  margin: auto;
+}
+
+/********** MENU **********/
+#menu {
+  width: 18%;
+  padding: 1em 0em 1em 1em;
+  border-left: 1pt solid #000000;
+  border-right: 1pt solid #000000;
+  border-bottom: 1pt solid #000000;
+  margin-bottom: 0.2em;
+  line-height: 2em;
+  float:left;
+  overflow: hidden;
+}
+
+#menu ul#menu_up {
+  margin-bottom: 20em;
+}
+
+#menu ul#menu_down {
+  padding-left: 1em;
+}
+
+#menu ul {
+    list-style-type: none;
+}
+
+#menu_profilo {
+    background-image: url("../img/menu_profilo_icon.png");
+    background-position: left center;
+    background-size: 2.5em;
+    background-repeat: no-repeat;
+    padding-left: 2.6em;
+}
+
+#menu_bacheca {
+    background-image: url("../img/menu_bacheca_icon.png");
+    background-position: left center;
+    background-size: 2.5em;
+    background-repeat: no-repeat;
+    padding-left: 2.6em;
+}
+
+#menu_nuovo_post {
+    background-image: url("../img/menu_nuovo_icon.png");
+    background-position: left center;
+    background-size: 2.5em;
+    background-repeat: no-repeat;
+    padding-left: 2.6em;
+}
+
+#menu_help {
+    background-image: url("../img/menu_help.png");
+    background-position: left center;
+    background-size: 2.5em;
+    background-repeat: no-repeat;
+    padding-left: 2.6em;
+}
+
+/********** CONTENT **********/
+#content {
+  margin-left: 20%;
+  padding: 1em;
+}
+
+/********** FOOTER **********/
+#footer {
+  clear: left;
+  background-color: #006837;
+  color: #FFFFFF;
+  border-radius: 0.75em;
+  text-align: center;
+  font-style: italic;
+  padding-top: 0.25em;
+}
+
+#footer a {
+  display: inline-block;
+  vertical-align: middle;
+}
