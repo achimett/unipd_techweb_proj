@@ -84,6 +84,19 @@ abbr[title] {
     list-style-type: none;
 }
 
+#menu a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#menu a:link {
+  color: #339933;
+}
+
+#menu a:visited {
+  color: #006837;
+}
+
 #menu_profilo {
     background-image: url("../img/menu_profilo_icon.png");
     background-position: left center;
