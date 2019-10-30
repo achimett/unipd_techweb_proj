@@ -27,7 +27,7 @@ CREATE TABLE Utente(
 	                DataNascita DATE NOT NULL,
 	                CF VARCHAR(16) NOT NULL,
 	                Bio TEXT NOT NULL,
-	                Img_path VARCHAR(256) not null DEFAULT 'Immagini/user/default.jpg'
+	                Img_path VARCHAR(256) not null DEFAULT 'images/default.jpg'
 	                );
 	                
 CREATE TABLE Post(
@@ -36,8 +36,8 @@ CREATE TABLE Post(
                     ID_Autore INT NOT NULL,
                     Data TIMESTAMP not null,
                     Text TEXT not null,
-                    Img_path VARCHAR(256) not null DEFAULT 'Immagini/post/default.jpg',
-                    Img_closed_path VARCHAR(256) not null DEFAULT 'Immagini/post/default_closed.jpg',
+                    Img_path VARCHAR(256) not null DEFAULT 'images/default.jpg',
+                    Img_closed_path VARCHAR(256) not null DEFAULT 'images/default_closed.jpg',
                     LAT DECIMAL(10,7),
                     LON DECIMAL(10,7),
                     Chiuso BOOLEAN not null default 0,
