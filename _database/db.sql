@@ -58,7 +58,7 @@ CREATE TABLE Img(
                  ID_Autore INT NOT NULL,
                  ID_Post INT NOT NULL,
                  Data TIMESTAMP not null,
-                 Img_path VARCHAR(256) not null DEFAULT 'Immagini/post/default.jpg',
+                 Img_path VARCHAR(256) not null DEFAULT 'images/default.jpg',
                  FOREIGN KEY (ID_Autore) REFERENCES Utente(ID),
                  FOREIGN KEY (ID_Post) REFERENCES Post(ID)
 	                );
