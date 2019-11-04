@@ -2,6 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <link rel="stylesheet" type="text/css" href="../css/desktop.css" media="handheld, screen"/>
+    <link rel="stylesheet" type="text/css" href="../css/mobile.css" media="handheld, screen and (max-width:800px), only screen and (max-device-width:800px)" />
+    <link rel="stylesheet" type="text/css" href="../css/print.css" media="print"/>
     <title>
       Post - Raccolta rifiuti
     </title>
@@ -9,111 +13,73 @@
   <body>
     <div id="content">
       <div id="core">
-        <h1>
-          Raccolta rifiuti
-        </h1>
-        <img src="../img/_template_foto/rifiuti1.jpg" alt="immagine di copertina" />
-        <h2>
-          Descrizione
-        </h2>
-        <p>
-          At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus
-        </p>
+        <h1>Raccolta rifiuti</h1>
+        <img id="foto_iniziale" src="../img/_template_foto/rifiuti1.jpg" alt="immagine di copertina" />
+        <h2>Descrizione</h2>
+        <p id="descrizione">At vero eos et accusamus et iusto odio dign: 10issimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus</p>
         <form action="/" method="post">
           <fieldset>
-            <input type="submit" value="DOIT" alt="do it" />
+            <input id="doit" type="submit" value="DOIT" alt="do it" />
           </fieldset>
         </form>
       </div> <!-- fine core -->
 
       <div id="info">
 
-        <img src="../img/info_icon.png" alt="icona info" />
-        <h2>
-          Informazioni generali
-        </h2>
-
-        <img src="../img/utentenero_icon.png" alt="icona profilo" />
-        <p>
-          Post di Paolo Bianchi
-        </p>
-        <img src="../img/post_calendario_icon.png" alt="icona calendario" />
-        <p>
-          Pubblicato il 12/02/2019
-        </p>
-        <p>
-          Alle ore 15.30
-        </p>
-        <img src="../img/volontari_icon.png" alt="icona volontari" />
-        <h2>
-          Volontari
-        </h2>
-        <p>
-          5 persone aiutano Paolo
-        </p>
-        <p>
-          Mario Rossi, Giuseppe Verdi, Carlo Rossi, Piero Bianchi, Gioia Sacchi, Pietro Manzi, Roberto Storti
-        </p>
-        <img src="../img/post_localizzazione_icon.png" alt="icona posizione" />
-        <h2>
-          Posizione
-        </h2>
-        <p>
-          Padova Centro
-        </p>
-        <p>
-          Via Luigi Luzzati 45
-        </p>
-        <img src="" alt="indicazioni per via Luigi Luzzati 45" /> <!-- qui ci va la mappa-->
-
+        <h2>Informazioni generali</h2>
+        <p>Post di Paolo Bianchi</p>
+        <p>Pubblicato il 12/02/2019<br />Alle ore 15.30</p>
+        <h2>Volontari</h2>
+        <p>5 persone aiutano Paolo</p>
+        <h2>Posizione</h2>
+        <p>Padova Centro<br />Via Luigi Luzzati 45</p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d89636.53398772895!2d11.821205683263111!3d45.406482347567035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477eda5841ab30cf%3A0xc18236edaa1a2e2c!2sPadova%20PD!5e0!3m2!1sit!2sit!4v1572906781194!5m2!1sit!2sit">mappa</iframe>
       </div> <!-- fine core -->
 
-
-      <div id="foto">
-
-        <h2>Foto dei partecipanti</h2>
-
-        <div class="utente_foto">
-          <div class="utente_info">
-            <img src="../img/utentenero_icon.png" alt="icona utente" />
-            <p>Paolo Rossi</p>
-          </div> <!-- fine utente_info -->
-            <img src="../img/_template_foto/rifiuti1.jpg" alt="foto" />
-        </div> <!-- fine utente_foto -->
-
-        <form action="/" method="post">
-          <fieldset>
-            <input type="submit" value="Carica" alt="carica" />
-          </fieldset>
-        </form>
-
-      </div> <!-- fine foto -->
+      <div id="social">
+        <h2>Foto e commenti</h2>
 
 
-      <div id="commenti">
-        <img src="../img/commenti_icon.png" alt="icona commenti" />
-        <h2>
-          Commenti
-        </h2>
+<form>
+  <fieldset>
 
-        <dl>
-          <dt class="utente_info">
-            <img src="../img/utentenero_icon.png" alt="icona profilo" />
-            Roberto Bianchi scrive,
-          </dt>
-          <dd class="commento">
-            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus
-          </dd>
-        </dl>
+    <textarea id="campo_msg" rows="4" cols="50">
+    </textarea>
+    <p id="path_foto">Scegli foto: /Documents/img/foto1.jpg</p>
+    <input id="sfoglia" type="submit" alt="Sfoglia" value="SFOGLIA"></input>
+    <input  id="invia" type="submit" alt="Invia" value="INVIA"></input>
+  </fieldset>
 
-        <form action="/" method="post">
-          <fieldset>
-            <input type="text" name="testo_commento" />
-            <input type="submit" value="Invia" alt="invia" />
-          </fieldset>
-        </form>
+
+
+
+</input>
+</form>
+
+          <p class="info_commento"><sto open in new windowtrong>Roberto Bianchi</strong> | Commento #1123232</p>
+          <p class="commento"><img src="../img/_template_foto/rifiuti1.jpg" alt="foto" />
+            At vero eos et accusamus et iusto odio dignissimos ducimus qui blandisdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus
+          </p>
+
+          <p class="info_commento"><strong>Roberto Bianchi</strong> | Commento #1123232</p>
+          <p class="commento"><img src="../img/_template_foto/rifiuti1.jpg" alt="foto" />
+            At vero eos et accusamus et iusto odio dignissimos ducimus qui blandisdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus
+          </p>
+
+<p class="info_issue"><strong>Roberto Bianchi</strong> | Issue #1123232</p>
+          <p class="issue">
+            At vero eos et accusamus et iusto odio dignissimos ducimus qui blandisdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus
+          </p>
+
+          <p class="info_commento"><strong>Roberto Bianchi</strong> | Commento #1123232</p>
+          <p class="commento"><img src="../img/_template_foto/rifiuti1.jpg" alt="foto" />
+            At vero eos et accusamus et iusto odio dignissimos ducimus qui blandisdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus
+          </p>
+
+
 
       </div> <!-- fine commenti -->
+
 
     </div> <!-- fine content -->
 

@@ -17,7 +17,7 @@ abbr[title] {
   padding-bottom: 0.2em;
   padding-top: 0.2em;
   line-height: 3em;
-}
+}: 10
 
 #info_utente {
   float: left;
@@ -56,6 +56,7 @@ abbr[title] {
 /********** PAGE-CENTRAL-PART **********/
 #page_central_part {
   max-width: 1024px;
+
   margin: auto;
 }
 
@@ -114,7 +115,7 @@ abbr[title] {
 }
 
 #menu_nuovo_post {
-    background-image: url("../img/menu_nuovo_icon.png");
+    background-: 10image: url("../img/menu_nuovo_icon.png");
     background-position: left center;
     background-size: 2.5em;
     background-repeat: no-repeat;
@@ -130,10 +131,172 @@ abbr[title] {
 }
 
 /********** CONTENT **********/
+
+
 #content {
   margin-left: 20%;
-  padding: 1em;
+  max-width: 1024px;
+  max-height: 768px;
 }
+
+input#doit{
+  font-size: 300%;
+  font-weight: bold;
+  color: #FFF;
+  background-color: #393;
+  padding: 1%;
+  width: 60%;
+  border: 0;
+  display: block;
+  margin: auto;
+
+}
+
+input#invia{
+  font-size: 100%;
+  font-weight: bold;
+  color: #FFF;
+  background-color: #393;
+  padding: 1%;
+  border: 0;
+  width: 15%;
+  float: right;
+  display: block;
+
+
+}
+
+input#sfoglia{
+  font-size: 90%;
+  font-weight: bold;
+  color: #FFF;
+  background-color: #393;
+  padding: 1%;
+  border: 0;
+  width: 20%;
+
+
+}
+
+#path_foto{
+  display: block;
+  margin: auto;
+}
+
+
+iframe{
+  width: 100%;
+  height: 9em;
+  border: 0;
+}
+
+h1, h2{
+  color: #393;
+  padding: 1%;
+  background: #eee;
+}
+#core{
+  float: left;
+  width: 60%;
+}
+#info{
+  display: inline-block;
+  width: 35%;
+  margin-left: 5%;
+}
+#social{
+  clear: both;
+  padding-top: 5%;
+}
+
+.info_commento, .info_issue{
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+  margin:1em 1em 0em 1em;
+  background-color: #ffbe3d;
+  padding: 1%;
+
+
+}
+
+img#foto_iniziale{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width:100%;
+}
+
+#info p{
+  padding: 2%;
+}
+
+#content fieldset{
+  border: 0;
+}
+
+#descrizione{
+  text-align: justify;
+text-justify: inter-word;
+padding: 3%;
+
+}
+
+
+#campo_msg{
+  width: 99.8%;
+  height: 10em;
+
+   resize: none;
+   border: 1px solid #393;
+   margin-top: 1%;
+
+}
+
+.commento, .issue, .closed_issue{
+  background-color: #fff1bc;
+  border: 1px solid #ffbe3d;
+  text-align: justify;
+text-justify: inter-word;
+
+  display: inline-block;
+  padding: 2%;
+  margin:0em 1em 1em 1em;
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+}
+
+.issue{
+  background-color: #ff5454;
+  color: #FFF;
+
+}
+.closed_issue{
+  background-color: #a0f7a0;
+
+}
+
+.info_issue{
+  background-color: #9b0c18;
+  color: #FFF;
+
+}
+
+
+
+.commento img{
+  float: left;
+  margin-right: 2%;
+}
+
+.social form{
+  clear: both;
+}
+
+
+
+
+
+
 
 /********** FOOTER **********/
 #footer {
