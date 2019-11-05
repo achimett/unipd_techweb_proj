@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>DOIT</title>
+		<link rel="stylesheet" type="text/css" href="desktop.css" media="handheld, screen"/>
+		<link rel="stylesheet" type="text/css" href="mobile.css" media="handheld, screen and (max-width:800px), only screen and (max-device-width:800px)" />
+		<link rel="stylesheet" type="text/css" href="print.css" media="print"/>
+	</head>
+
+	<body>
+
+		<div id="registrazione">
+			<h1>Registrazione</h1>
+			<form action="form_registrazione.php">
+				<fieldset> <!-- Tag usato per racchiudere gli input dei form, ditemi se è da togliere secondo voi -->
+					<ul>
+						<li><label for="registrazione_nome">Nome: </label><input type="text" id="registrazione_nome"></input></li>
+
+						<li><label for="registrazione_cognome">Cognome: </label><input type="text" id="registrazione_cognome"></input></li>
+
+						<li><label for="registrazione_email"><span xml:lang="en">E-mail: </span></label><input type="text" id="registrazione_email"></input></li>
+
+						<li><label for="registrazione_password"><span xml:lang="en">Password: </span></label><input type="password" id="registrazione_password"></input></li>
+
+						<li><label for="registrazione_data_di_nascita">Data di nascita: </label><input type="text" id="registrazione_data_di_nascita"></input></li>
+
+						<li><label for="registrazione_codice_fiscale">Codice fiscale: </label><input type="text" id="registrazione_codice_fiscale"></input></li>
+
+						<li><label for="registrazione_numero_di_telefono">Numero di telefono: </label><input type="text" id="registrazione_numero_di_telefono"></input></li>
+
+						<li><label for="registrazione_foto">Carica foto: </label><input type="file" id="registrazione_foto"></input></li> <!-- L'attributo file è supportato da IE, mentre Google, Firefox, Safari e Opera lo supportano dalla versione 1.0 -->
+
+						<li><label for="registrazione_biografia">Biografia: </label><br /><input type="text" id="registrazione_biografia"></input></li> <!-- Ho pensato di sostituire Bio con Biografia, perché per alcune persone Bio può essere poco intuitivo, una persona anziana è probabile che sappia il significato di Biografia ma non che Bio è la sua abbreviazione -->
+					</ul>
+				</fieldset>
+			</form>
+		</div>
+
+		<div xml:lang="en" id="login">
+			<h1>Login</h1>
+			<form action="form_login.php">
+				<fieldset> <!-- Tag usato per racchiudere gli input dei form, ditemi se è da togliere secondo voi -->
+					<ul>
+						<li><label for="login_email">E-mail: </label><input type="text" id="login_email"></input></li>
+
+						<li><label for="login_password">Password: </label><input type="password" id="login_password"></input></li>
+					</ul>
+				</fieldset>
+			</form>
+		</div>
+
+	</body>
+</html>
