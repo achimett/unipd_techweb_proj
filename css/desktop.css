@@ -2,6 +2,7 @@
   padding: 0em;
   margin: 0em;
   font-family: Verdana, Geneva, sans-serif;
+font-family: 'Averia Serif Libre', cursive;
 }
 
 abbr[title] {
@@ -17,10 +18,10 @@ abbr[title] {
   padding-bottom: 0.2em;
   padding-top: 0.2em;
   line-height: 3em;
-}: 10
+}
 
 #info_utente {
-  float: left;
+  float: left;3e8cbc
   display: inline-block;
 }
 
@@ -136,51 +137,53 @@ abbr[title] {
 #content {
   margin-left: 20%;
   max-width: 1024px;
-  max-height: 768px;
+  background-color: #FFF;
+  padding: 1em;
 }
 
-input#doit{
-  font-size: 300%;
+input{
   font-weight: bold;
   color: #FFF;
-  background-color: #393;
   padding: 1%;
-  width: 60%;
-  border: 0;
+
+  border: 1px outset #ccc;
   display: block;
   margin: auto;
+  margin-bottom: 5%;
+  background: linear-gradient(to bottom, #47c647, #393);
+  border-radius: 0.2em;
+  box-shadow: 2px 5px 5px 0px #444;
+}
+input#doit{
+  font-size: 300%;
+    width: 50%;
+}
 
+input#sfoglia{
+  font-size: 100%;
+    width: 20%;
+    float: left;
+    margin-left: 20%;
+    margin-top: 2%;
 }
 
 input#invia{
   font-size: 100%;
-  font-weight: bold;
-  color: #FFF;
-  background-color: #393;
-  padding: 1%;
-  border: 0;
-  width: 15%;
-  float: right;
-  display: block;
-
-
-}
-
-input#sfoglia{
-  font-size: 90%;
-  font-weight: bold;
-  color: #FFF;
-  background-color: #393;
-  padding: 1%;
-  border: 0;
   width: 20%;
+  display: inline-block;
+  float: right;
+  margin-right: 20%;
 
-
+  margin-top: 2%;
 }
+
+
 
 #path_foto{
+  margin-left: 20%;
   display: block;
-  margin: auto;
+  margin-top: 2%;
+
 }
 
 
@@ -188,35 +191,47 @@ iframe{
   width: 100%;
   height: 9em;
   border: 0;
+  border-top: 1px solid #393;
+
 }
 
-h1, h2{
-  color: #393;
-  padding: 1%;
-  background: #eee;
+#content h1, h2{
+  text-align: center;
+  background-color: #444;
+  color: #ccc;
+font-style: italic;
+padding: 0.5em;
 }
+
 #core{
   float: left;
-  width: 60%;
+  width: 58%;
+  background-color: #f1f1f1;
+  border: 1px dashed #000;
 }
 #info{
+  width: 38%;
   display: inline-block;
-  width: 35%;
-  margin-left: 5%;
+  background-color: #FFF;
+  border: 1px solid #393;
+  float: right;
 }
 #social{
   clear: both;
-  padding-top: 5%;
+  background-color: #FFF;
+
+  border: 1px solid #393;
+
 }
 
 .info_commento, .info_issue{
   border-top-left-radius: 0.5em;
-  border-top-right-radius: 0.5em;
+  border-top-ri-lefght-radius: 0.5em;
   margin:1em 1em 0em 1em;
   background-color: #ffbe3d;
   padding: 1%;
 
-
+-lef
 }
 
 img#foto_iniziale{
@@ -228,6 +243,7 @@ img#foto_iniziale{
 
 #info p{
   padding: 2%;
+  text-align: center;
 }
 
 #content fieldset{
@@ -237,14 +253,16 @@ img#foto_iniziale{
 #descrizione{
   text-align: justify;
 text-justify: inter-word;
-padding: 3%;
+padding: 2em;
 
 }
 
 
 #campo_msg{
-  width: 99.8%;
-  height: 10em;
+  width: 80%;
+  height: 15em;
+  margin: auto;
+  display: block;
 
    resize: none;
    border: 1px solid #393;
