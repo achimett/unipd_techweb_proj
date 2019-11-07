@@ -2,7 +2,7 @@
   padding: 0em;
   margin: 0em;
   font-family: Verdana, Geneva, sans-serif;
-font-family: 'Averia Serif Libre', cursive;
+  color: #004c07;
 }
 
 abbr[title] {
@@ -21,7 +21,7 @@ abbr[title] {
 }
 
 #info_utente {
-  float: left;3e8cbc
+  float: left;
   display: inline-block;
 }
 
@@ -116,7 +116,7 @@ abbr[title] {
 }
 
 #menu_nuovo_post {
-    background-: 10image: url("../img/menu_nuovo_icon.png");
+    background-image: url("../img/menu_nuovo_icon.png");
     background-position: left center;
     background-size: 2.5em;
     background-repeat: no-repeat;
@@ -135,180 +135,169 @@ abbr[title] {
 
 
 #content {
-  margin-left: 20%;
   max-width: 1024px;
-  background-color: #FFF;
-  padding: 1em;
-}
-
-input{
-  font-weight: bold;
-  color: #FFF;
-  padding: 1%;
-
-  border: 1px outset #ccc;
-  display: block;
-  margin: auto;
-  margin-bottom: 5%;
-  background: linear-gradient(to bottom, #47c647, #393);
-  border-radius: 0.2em;
-  box-shadow: 2px 5px 5px 0px #444;
-}
-input#doit{
-  font-size: 300%;
-    width: 50%;
-}
-
-input#sfoglia{
-  font-size: 100%;
-    width: 20%;
-    float: left;
-    margin-left: 20%;
-    margin-top: 2%;
-}
-
-input#invia{
-  font-size: 100%;
-  width: 20%;
-  display: inline-block;
-  float: right;
-  margin-right: 20%;
-
-  margin-top: 2%;
-}
-
-
-
-#path_foto{
   margin-left: 20%;
-  display: block;
-  margin-top: 2%;
-
-}
-
-
-iframe{
-  width: 100%;
-  height: 9em;
-  border: 0;
-  border-top: 1px solid #393;
+  padding: 1em;
 
 }
 
 #content h1, h2{
-  text-align: center;
-  background-color: #444;
-  color: #ccc;
-font-style: italic;
-padding: 0.5em;
-}
-
-#core{
-  float: left;
-  width: 58%;
-  background-color: #f1f1f1;
-  border: 1px dashed #000;
-}
-#info{
-  width: 38%;
-  display: inline-block;
-  background-color: #FFF;
-  border: 1px solid #393;
-  float: right;
-}
-#social{
   clear: both;
-  background-color: #FFF;
-
-  border: 1px solid #393;
-
-}
-
-.info_commento, .info_issue{
-  border-top-left-radius: 0.5em;
-  border-top-ri-lefght-radius: 0.5em;
-  margin:1em 1em 0em 1em;
-  background-color: #ffbe3d;
-  padding: 1%;
-
--lef
-}
-
-img#foto_iniziale{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width:100%;
-}
-
-#info p{
   padding: 2%;
   text-align: center;
+  background-color: #393;
+  color: #FFF;
+
 }
 
 #content fieldset{
   border: 0;
 }
 
-#descrizione{
-  text-align: justify;
-text-justify: inter-word;
-padding: 2em;
-
-}
-
-
-#campo_msg{
-  width: 80%;
-  height: 15em;
-  margin: auto;
+input{
   display: block;
-
-   resize: none;
-   border: 1px solid #393;
-   margin-top: 1%;
-
-}
-
-.commento, .issue, .closed_issue{
-  background-color: #fff1bc;
-  border: 1px solid #ffbe3d;
-  text-align: justify;
-text-justify: inter-word;
-
-  display: inline-block;
+  margin: auto;
   padding: 2%;
-  margin:0em 1em 1em 1em;
-  border-bottom-left-radius: 0.5em;
-  border-bottom-right-radius: 0.5em;
-}
-
-.issue{
-  background-color: #ff5454;
+  font-weight: bold;
   color: #FFF;
-
-}
-.closed_issue{
-  background-color: #a0f7a0;
-
-}
-
-.info_issue{
-  background-color: #9b0c18;
-  color: #FFF;
-
+  background: linear-gradient(to bottom, #393, #007f00);
+  border: 1px outset #444;
+  border-radius: 0.2em;
+  box-shadow: 2px 5px 5px 0px #333;
+  outline: none;
 }
 
+input:active{
+  box-shadow: 2px 5px 5px 0px #333 inset;
+}
 
+input#doit{
+  width: 50%;
+  margin-bottom: 5%;
+  font-size: 300%;
+}
 
-.commento img{
+img{
+  background-color: #fff;
+}
+#info iframe{
+  width: 100%;
+  border: 0;
+}
+
+.blocco{
+  background: #86d85d;
+}
+
+#core{
   float: left;
-  margin-right: 2%;
+  width: 59%;
+  margin-right: 3%;
+  margin-bottom: 3%;
+}
+#descrizione{
+  text-justify: inter-word;
+  padding: 5%;
+
 }
 
-.social form{
-  clear: both;
+img#foto_iniziale{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 92%;
+  padding: 2%;
+    margin: 2%;
 }
+
+#info{
+  width: 38%;
+  display: inline-block;
+  float: right;
+}
+
+#info p{
+  text-align: center;
+  padding-top: 15%;
+  padding-bottom: 3%;
+  margin-top: 1%;
+}
+
+#autore_label, #data_label, #posizione_label, #volontari_label{
+  background-position: top center;
+  background-size: 15%;
+  background-repeat: no-repeat;
+}
+
+#autore_label{
+    background-image: url("../img/utentenero_icon.png");
+        border-bottom: 2px dashed #393;
+}
+#data_label{
+    background-image: url("../img/post_calendario_icon.png");
+}
+#posizione_label{
+    background-image: url("../img/post_localizzazione_icon.png");
+}
+#volontari_label{
+    background-image: url("../img/volontari_icon.png");
+        border-bottom: 3px solid #393;
+}
+
+#social{
+  clear: both;
+  margin-bottom: 3%;
+}
+
+#campo_testo{
+  border: 0;
+  float: right;
+  margin-right: 3%;
+  width: 70.5%;
+  height: 17em;
+  resize: none;
+  vertical-align: middle;
+}
+
+input#invia{
+  clear: left;
+  display: inline-block;
+  width: 94%;
+  margin: 3%;
+    font-size: 200%;
+}
+
+input#sfoglia{
+  float: left;
+  width: 20.5%;
+  margin: 0% 1.5% 0% 3%;
+      font-size: 150%;
+}
+
+#foto_upload{
+  float: left;
+  width: 20.5%;
+  margin: 0% 3% 3% 3%;
+  max-height: 15em;
+}
+
+#social h3{
+  text-align: center;
+  padding: 3%;
+}
+
+
+
+.commento{
+
+}
+
+
+
+
+
+
+
 
 
 

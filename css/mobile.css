@@ -58,3 +58,67 @@
   -ms-transition: 0.5s;
   visibility: hidden;
 }
+
+/* ******************************** */
+
+#content{
+  margin-left: 0;
+}
+
+input#doit{
+  width: 50%;
+  margin-bottom: 5%;
+  font-size: 300%;
+}
+
+#core{
+  width: 94%;
+  text-align: center;
+
+  margin: 0% 3% 0% 3%;
+}
+
+
+#info{
+  width: 94%;
+  margin: 3%;
+}
+
+#info p{
+  text-align: center;
+  padding-top: 15%;
+  padding-bottom: 3%;
+  margin-top: 1%;
+  font-size: 200%;
+}
+
+
+#social{
+    margin: 0% 3% 0% 3%;
+}
+
+
+#social h3{
+  font-size: 200%;
+}
+
+#campo_testo{
+  border: 0;
+  margin-right: 3%;
+  width: 94%;
+  height: 17em;
+  resize: none;
+}
+
+
+input#sfoglia{
+  width: 94%;
+  margin: 3% 3% 0% 3%;
+    font-size: 200%;
+}
+
+
+#foto_upload{
+  width: 94%;
+  max-height: 100%;
+}
