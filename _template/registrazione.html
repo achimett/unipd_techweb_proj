@@ -56,47 +56,46 @@
 					<form action="form_registrazione.php">
 						<fieldset id="fieldset_dati_anagrafici">
 							<legend>Dati Anagrafici</legend>
-							<label for="registrazione_nome">Nome: </label><input type="text" id="registrazione_nome"></input>
-
-							<label for="registrazione_cognome">Cognome: </label><input type="text" id="registrazione_cognome"></input>
-
-							<label for="registrazione_data_di_nascita">Data di nascita: </label><input type="text" id="registrazione_data_di_nascita"></input>
-
-							<label for="registrazione_codice_fiscale">Codice fiscale: </label><input type="text" id="registrazione_codice_fiscale"></input>
-						</fieldset>
+              <label for="registrazione_nome">Nome: </label><input type="text" id="registrazione_nome"></input>
+              <label for="registrazione_cognome">Cognome: </label><input type="text" id="registrazione_cognome"></input>
+              <label for="registrazione_data_di_nascita">Data di nascita: </label><input type="text" id="registrazione_data_di_nascita"></input>
+              <label for="registrazione_codice_fiscale">Codice fiscale: </label><input type="text" id="registrazione_codice_fiscale"></input>
+            </fieldset>
 						<fieldset id="fieldset_dati_di_contatto">
-						<legend>Dati di Contatto</legend>
+						    <legend>Dati di Contatto</legend>
 								<label for="registrazione_email"><span xml:lang="en">E-mail: </span></label><input type="text" id="registrazione_email"></input>
-
 								<label for="registrazione_numero_di_telefono">Numero di telefono: </label><input type="text" id="registrazione_numero_di_telefono"></input>
-
 								<label for="registrazione_password"><span xml:lang="en">Password: </span></label><input type="password" id="registrazione_password"></input>
-
 								<label for="registrazione_conferma_password">Conferma <span xml:lang="en">password: </span></label><input type="password" id="registrazione_conferma_password"></input>
-						</fieldset>
+            </fieldset>
 						<fieldset id="fieldset_carica_una_foto">
-						<legend>Fatti vedere!</legend>
-								<label for="registrazione_foto">Carica foto: </label><input type="file" id="registrazione_foto"></input> <!-- L'attributo file è supportato da IE, mentre Google, Firefox, Safari e Opera lo supportano dalla versione 1.0 -->
+  						<legend>Fatti vedere!</legend>
+              <img id="registrazione_immagine_profilo" src="../img/utentenero_icon.png" alt="" /> <br />
+  						<label for="registrazione_foto">Carica foto: </label><input type="file" id="registrazione_foto"></input> <!-- L'attributo file è supportato da IE, mentre Google, Firefox, Safari e Opera lo supportano dalla versione 1.0 -->
 						</fieldset>
 						<fieldset id="fieldset_biografia">
 						<legend>Raccontaci di te</legend>
-								<label for="registrazione_biografia">Biografia: </label><br /><input type="text" id="registrazione_biografia"></input> <!-- Ho pensato di sostituire Bio con Biografia, perché per alcune persone Bio può essere poco intuitivo, una persona anziana è probabile che sappia il significato di Biografia ma non che Bio è la sua abbreviazione -->
+								<label for="registrazione_biografia">Biografia: </label><br /><textarea id="registrazione_biografia" rows="5" cols="25"></textarea> <!-- Ho pensato di sostituire Bio con Biografia, perché per alcune persone Bio può essere poco intuitivo, una persona anziana è probabile che sappia il significato di Biografia ma non che Bio è la sua abbreviazione -->
 						</fieldset>
-					</form>
+          </form>
+          <div id="registrazione_conferma">
+            <input type="submit" id="registrazione_input_conferma" value="Conferma Registrazione" />
+          </div>
 				</div>
 
-				<p> Oppure</p> <!-- Sarebbe bello mettere la scitta oppure al centro tra due linee orizzontali, in tal caso si potrebbe assegnare un id ad oppure ed ingrandire la scritta tramite css -->
-
-				<div xml:lang="en" id="login">
+        				<div xml:lang="en" id="login">
 					<h1><span xml:lang="it">Effettua il </span>login</h1>
 					<form action="form_login.php">
-						<fieldset> <!-- Tag usato per racchiudere gli input dei form, ditemi se è da togliere secondo voi -->
+						<fieldset id="fieldset_login"> <!-- Tag usato per racchiudere gli input dei form, ditemi se è da togliere secondo voi -->
 							<legend>Login</legend>
 								<label for="login_email">E-mail: </label><input type="text" id="login_email"></input>
 
 								<label for="login_password">Password: </label><input type="password" id="login_password"></input>
 						</fieldset>
-					</form>
+            <div id="login_conferma">
+              <input type="submit" id="login_input_conferma" value="Effettua il Login" /> <!-- Come legge login lo screen reader nel caso dei submit? -->
+            </div>
+          </form>
 				</div>
       </div>
 
