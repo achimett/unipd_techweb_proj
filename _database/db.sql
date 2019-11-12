@@ -17,7 +17,7 @@ CREATE TABLE utente (
 	            datanascita DATE NOT NULL,
 	            cf          VARCHAR(16) NOT NULL,
 	            bio TEXT    NOT NULL,
-	            img_path    VARCHAR(256) not null DEFAULT 'images/default.jpg'
+	            img_path    VARCHAR(256) NOT NULL DEFAULT 'images/default.jpg'
 	            );
 	                
 CREATE TABLE post (
