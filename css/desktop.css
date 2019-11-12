@@ -134,7 +134,29 @@ abbr[title] {
   margin-left: 20%;
   padding: 1em;
 }
+/********** CONTENT-PROFILO**********/
+#profilo_nome_cognome {
+  float: left;
+  width: 30%;
+}
 
+#profilo_data_di_nascita ul {
+  list-style-type: none;
+}
+
+#profilo_data_di_nascita {
+  float: right;
+  width: 30%;
+  word-break: break-all;
+}
+
+#profilo_biografia {
+  padding-top: 10em;
+}
+
+#profilo_table_attivita {
+  margin-top: 3em;
+}
 /********** FOOTER **********/
 #footer {
   clear: left;

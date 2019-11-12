@@ -49,3 +49,36 @@ abbr[title] {
 #footer a {
   display: none;
 }
+
+/******* CSS PROFILO *******/
+#breadcrumb{
+  display: none;
+}
+
+#header > h1:nth-child(3) > abbr:nth-child(1) { /*Ho provato ha scrivere solo #header, ma non funziona, non so come mai*/
+  display: none;
+}
+
+#profilo_nome_cognome {
+  float: left;
+  width: 30%;
+}
+
+#profilo_data_di_nascita ul {
+  list-style-type: none;
+}
+
+#profilo_data_di_nascita {
+  float: right;
+  width: 40%;
+  word-break: break-all;
+}
+
+#profilo_biografia {
+  padding-top: 10em;
+}
+
+#profilo_table_attivita {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}

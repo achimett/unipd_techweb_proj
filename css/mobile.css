@@ -37,6 +37,38 @@
   margin: 0em;
 }
 
+/********** PAGE-CENTRAL-PART-PROFILO**********/
+#profilo_nome_cognome {
+  width:100%;
+}
+
+#profilo_nome_cognome h1{
+  float: left;
+  width: 30%;
+}
+#profilo_nome_cognome img{
+  float: right;
+}
+
+#profilo_data_di_nascita ul {
+  list-style-type: none;
+}
+
+#profilo_data_di_nascita {
+  float: none;
+  width: 100%;
+  word-break: break-all;
+}
+
+#profilo_biografia {
+  padding-top: 2em;
+}
+
+#profilo_table_attivita {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
 /********** MENU **********/
 #hamburger:hover + #menu {
   visibility: visible;
