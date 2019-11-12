@@ -1,3 +1,8 @@
+* {
+  font-size: 2vw;
+}
+
+
 /********** HEADER **********/
 #header {
   line-height: 2em;
@@ -61,64 +66,35 @@
 
 /* ******************************** */
 
-#content{
-  margin-left: 0;
-}
+.content {
 
-input#doit{
-  width: 50%;
-  margin-bottom: 5%;
-  font-size: 300%;
+  margin: 0%; /*no spazio per menu a sx*/
 }
 
 #core{
-  width: 94%;
-  text-align: center;
-
-  margin: 0% 3% 0% 3%;
+  width: 100%;
 }
 
-
 #info{
-  width: 94%;
-  margin: 3%;
+  width: 100%;
+}
+
+#autore_label, #data_label, #posizione_label, #volontari_label{
+  background-size: 10%;
 }
 
 #info p{
-  text-align: center;
-  padding-top: 15%;
-  padding-bottom: 3%;
-  margin-top: 1%;
-  font-size: 200%;
+  padding-top: 10%;
 }
 
-
-#social{
-    margin: 0% 3% 0% 3%;
+input#sfoglia{
+  width: 96%;
 }
 
-
-#social h3{
-  font-size: 200%;
+#foto_upload{
+  width: 96%;
 }
 
 #campo_testo{
-  border: 0;
-  margin-right: 3%;
-  width: 94%;
-  height: 17em;
-  resize: none;
-}
-
-
-input#sfoglia{
-  width: 94%;
-  margin: 3% 3% 0% 3%;
-    font-size: 200%;
-}
-
-
-#foto_upload{
-  width: 94%;
-  max-height: 100%;
+  width: 92%;
 }

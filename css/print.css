@@ -2,6 +2,7 @@
     padding: 0em;
     margin: 0em;
     font-family: "Times New Roman", Times, serif;
+    color: #000;
 }
 
 body {
@@ -39,6 +40,67 @@ abbr[title] {
 #menu {
   display: none;
 }
+
+#social{
+  page-break-before: always;
+}
+
+
+
+.content h1, h2, h3, h4{
+  padding: 2% 0% 2% 0%;
+}
+
+
+.content fieldset{
+  display: none;
+}
+
+
+
+#info iframe{
+  display: none;
+}
+
+
+
+#descrizione{
+  text-justify: inter-word;
+}
+
+img#foto_iniziale{
+  display: none;
+}
+
+
+#info p{
+}
+
+
+
+
+
+
+#foto_upload{
+display: none;
+}
+#campo_testo{
+  display: none;
+}
+
+
+
+.commit{
+}
+
+.commit img{
+  display: none;
+}
+
+.commit p{
+
+}
+
 
 #footer {
   text-align: center;

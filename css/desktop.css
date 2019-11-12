@@ -3,6 +3,8 @@
   margin: 0em;
   font-family: Verdana, Geneva, sans-serif;
   color: #004c07;
+  outline: 0;
+      font-size:1vw;
 }
 
 abbr[title] {
@@ -49,6 +51,7 @@ abbr[title] {
 #breadcrumb {
   background-color: #006837;
   color: #FFFFFF;
+  margin: 1.5%;
   text-align: center;
   padding-bottom: 0.1em;
   padding-top: 0.1em;
@@ -134,23 +137,22 @@ abbr[title] {
 /********** CONTENT **********/
 
 
-#content {
+.content {
   max-width: 1024px;
   margin-left: 20%;
-  padding: 1em;
-
+  padding: 0% 0.5% 0.5% 0.5%;
 }
 
-#content h1, h2{
-  clear: both;
+.content h1, h2, h3, h4{
   padding: 2%;
   text-align: center;
+}
+.content h1, h2{
   background-color: #393;
   color: #FFF;
-
 }
 
-#content fieldset{
+.content fieldset{
   border: 0;
 }
 
@@ -163,8 +165,13 @@ input{
   background: linear-gradient(to bottom, #393, #007f00);
   border: 1px outset #444;
   border-radius: 0.2em;
+  outline: none;
   box-shadow: 2px 5px 5px 0px #333;
   outline: none;
+}
+
+input::-moz-focus-inner {
+  border: 0;
 }
 
 input:active{
@@ -172,14 +179,12 @@ input:active{
 }
 
 input#doit{
+  margin: 0 auto;
   width: 50%;
   margin-bottom: 5%;
-  font-size: 300%;
+  font-size:3vw;
 }
 
-img{
-  background-color: #fff;
-}
 #info iframe{
   width: 100%;
   border: 0;
@@ -191,36 +196,35 @@ img{
 
 #core{
   float: left;
-  width: 59%;
-  margin-right: 3%;
-  margin-bottom: 3%;
+  width: 70%;
+  margin: 0% auto 1% auto;
+
 }
+
 #descrizione{
   text-justify: inter-word;
   padding: 5%;
-
 }
 
 img#foto_iniziale{
   display: block;
-  margin-left: auto;
-  margin-right: auto;
   width: 92%;
   padding: 2%;
-    margin: 2%;
+  margin: 2% auto;
+  background-color: #fff;
+  border-radius: 0.4em;
 }
 
 #info{
-  width: 38%;
+  width: 29%;
   display: inline-block;
   float: right;
+  margin: 0% auto 1% auto;
 }
 
 #info p{
   text-align: center;
-  padding-top: 15%;
-  padding-bottom: 3%;
-  margin-top: 1%;
+  padding: 15% 2% 2% 2%;
 }
 
 #autore_label, #data_label, #posizione_label, #volontari_label{
@@ -246,53 +250,86 @@ img#foto_iniziale{
 
 #social{
   clear: both;
-  margin-bottom: 3%;
+  width: 70%;
+  margin: 0;
+}
+
+input#sfoglia{
+  clear: left;
+  float: left;
+  width: 20%;
+  margin: 1% 1% 1% 2%;
+  font-size: 1vw;
+}
+
+#foto_upload{
+  float: left;
+  width: 20%;
+  margin: 1% 1% 1% 2%;
 }
 
 #campo_testo{
   border: 0;
   float: right;
-  margin-right: 3%;
-  width: 70.5%;
-  height: 17em;
+  width: 70%;
+  height: 8em;
+  margin: 1% 2% 1% 1%;
+  padding: 2%;
+  border-radius: 0.4em;
   resize: none;
-  vertical-align: middle;
 }
 
 input#invia{
-  clear: left;
   display: inline-block;
-  width: 94%;
-  margin: 3%;
-    font-size: 200%;
+  clear: left;
+  width: 96%;
+  margin: 1% 2% 2% 2%;
+  font-size:2vw;
 }
 
-input#sfoglia{
+.commit{
+  width: 90%;
+  margin: 1% auto 1% auto;
+}
+
+.commit img{
+  width: 96%;
+  margin: 1% 2% 1% 2%;
+}
+
+.commit p{
+  padding: 1% 2% 1% 2%;
+
+}
+
+.core_postcard{
+  width: 100%;
+  margin: 0% auto 1% auto;
+}
+
+.info_postcard{
+  width: 100%;
+  margin: 0% auto 1% auto;
+}
+
+.foto_postcard{
+  display: block;
+  width: 40%;
+  padding: 2%;
+  margin: 2% auto;
+  background-color: #fff;
+  border-radius: 0.4em;
+}
+
+.info_postcard p{
   float: left;
-  width: 20.5%;
-  margin: 0% 1.5% 0% 3%;
-      font-size: 150%;
+  width: 25%;
 }
 
-#foto_upload{
-  float: left;
-  width: 20.5%;
-  margin: 0% 3% 3% 3%;
-  max-height: 15em;
+.postcard{
+  width: 33%;
+  background-color: #393;
 }
-
-#social h3{
-  text-align: center;
-  padding: 3%;
-}
-
-
-
-.commento{
-
-}
-
-
 
 
 
