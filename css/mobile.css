@@ -58,3 +58,58 @@
   -ms-transition: 0.5s;
   visibility: hidden;
 }
+
+/********** CONTENT_REGISTRAZIONE**********/
+#registrazione_e_login {
+  float: none;
+  width: 100%;
+  display: block;
+}
+
+/*#registrazione_conferma {
+  clear: both;
+}*/
+
+/*#registrazione_immagine_profilo {
+  margin-left: 30%;
+}*/
+
+#registrazione_e_login h1 {
+  margin-left: -0.33em;
+  width: 98%;
+  font-size: 1em;
+}
+
+#registrazione_e_login legend {
+  font-size: 1em;
+}
+
+#registrazione_e_login input[type=submit]{
+  font-size: 0.55em;
+}
+
+#registrazione_e_login input[type=submit]:active{
+  font-size: 0.55em;
+}
+
+#fieldset_dati_anagrafici {
+  float: none;
+  width: 96%;
+}
+#fieldset_dati_di_contatto {
+  float: none;
+  width: 96%;
+}
+#fieldset_carica_una_foto {
+  float: none;
+  width: 96%;
+}
+#fieldset_biografia {
+  float: none;
+  width: 96%;
+}
+
+/********** FOOTER **********/
+#footer {
+  margin-top: 0em;
+}

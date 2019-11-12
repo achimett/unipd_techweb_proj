@@ -49,3 +49,73 @@ abbr[title] {
 #footer a {
   display: none;
 }
+
+/******* REGISTRAZIONE *******/
+#header {
+  display: none;
+}
+#breadcrumb {
+  display: none;
+}
+
+#registrazione_e_login h1 {
+  display: none;
+}
+
+#registrazione_e_login input[type=submit] {
+  display: none;
+}
+
+#registrazione_e_login fieldset {
+  border: 0pt;
+}
+
+#fieldset_carica_una_foto legend {
+  display: none;
+}
+
+#fieldset_carica_una_foto label {
+  display: none;
+}
+
+#fieldset_carica_una_foto img {
+  margin-left: 17em;
+}
+
+#registrazione_foto {
+  display: none;
+}
+
+#fieldset_biografia legend {
+  display: none;
+}
+
+#registrazione_biografia {
+  width: 100%;
+}
+
+#fieldset_dati_anagrafici legend {
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+#fieldset_dati_di_contatto legend {
+  font-size: 2em;
+  font-weight: bold;
+  margin-top: 0.1em;
+  margin-bottom: 0.5em;
+}
+
+#fieldset_biografia label {
+  font-size: 2em;
+  font-weight: bold;
+  margin-top: 0.1em;
+}
+
+#fieldset_login legend {
+  font-size: 2em;
+  font-weight: bold;
+  margin-top: 0.1em;
+  margin-bottom: 0.5em;
+}
