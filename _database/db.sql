@@ -16,7 +16,7 @@ CREATE TABLE utente (
        	            cognome     VARCHAR(30) NOT NULL,
 	            datanascita DATE NOT NULL,
 	            cf          VARCHAR(16) NOT NULL,
-	            bio TEXT    NOT NULL,
+	            bio 	TEXT NOT NULL,
 	            img_path    VARCHAR(256) NOT NULL DEFAULT 'images/default.jpg'
 	            );
 	                
@@ -33,7 +33,7 @@ CREATE TABLE post (
                     chiuso      BOOLEAN NOT NULL DEFAULT 0,
                                 
                     FOREIGN KEY (id_autore) REFERENCES utente(id)
-	              );	                
+	          );	                
                    
 CREATE TABLE commento (
                     id          INT AUTO_INCREMENT PRIMARY KEY,
