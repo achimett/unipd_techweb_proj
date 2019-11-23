@@ -51,12 +51,6 @@ abbr[title] {
 }
 
 /******* REGISTRAZIONE *******/
-#header {
-  display: none;
-}
-#breadcrumb {
-  display: none;
-}
 
 #registrazione_e_login h1 {
   display: none;
@@ -79,7 +73,8 @@ abbr[title] {
 }
 
 #fieldset_carica_una_foto img {
-  margin-left: 17em;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #registrazione_foto {

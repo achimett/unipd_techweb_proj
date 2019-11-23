@@ -60,53 +60,56 @@
 }
 
 /********** CONTENT_REGISTRAZIONE**********/
+
 #registrazione_e_login {
-  float: none;
-  width: 100%;
-  display: block;
+  max-width: 1024px;
+  margin-left: 0%;
+  padding: 0em;
 }
 
-/*#registrazione_conferma {
-  clear: both;
-}*/
-
-/*#registrazione_immagine_profilo {
-  margin-left: 30%;
-}*/
-
-#registrazione_e_login h1 {
-  margin-left: -0.33em;
-  width: 98%;
-  font-size: 1em;
+#registrazione_biografia {
+  width: 95%;
 }
 
-#registrazione_e_login legend {
-  font-size: 1em;
+#registrazione_e_login h1, h2{
+  font-size: 4.5vw;
 }
 
-#registrazione_e_login input[type=submit]{
-  font-size: 0.55em;
+#row_login_email, #row_login_password, #row_registrazione_nome, #row_registrazione_cognome, #row_registrazione_data_di_nascita, #row_registrazione_codice_fiscale, #row_registrazione_email, #row_registrazione_numero_di_telefono, #row_registrazione_password, #row_registrazione_conferma_password{
+	margin-top: 0.5vw;
+	margin-bottom: 0.5vw;
+}
+input[type=text] {
+  padding: 1%;
 }
 
-#registrazione_e_login input[type=submit]:active{
-  font-size: 0.55em;
+input[type=password] {
+  padding: 1%;
+}
+
+input[type=submit] {
+  margin-top: 3.5vw;
+  margin-bottom: 3.5vw;
 }
 
 #fieldset_dati_anagrafici {
   float: none;
-  width: 96%;
+  width: 100%;
 }
+
 #fieldset_dati_di_contatto {
   float: none;
-  width: 96%;
+  width: 100%;
 }
+
 #fieldset_carica_una_foto {
   float: none;
-  width: 96%;
+  width: 100%;
 }
+
 #fieldset_biografia {
   float: none;
-  width: 96%;
+  width: 100%;
 }
 
 /********** FOOTER **********/

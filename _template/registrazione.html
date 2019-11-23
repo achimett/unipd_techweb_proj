@@ -1,112 +1,130 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-    <title>DOIT</title>
+		<title>DOIT</title>
 
-    <meta name="title" content="DOIT - Volontariato per tutti" />
+		<meta name="title" content="DOIT - Volontariato per tutti" />
 
-    <meta name="description" content="Il social network dove segnalare e/o partecipare ad atti di volontariato per il bene della propria comunità e non solo" />
+		<meta name="description" content="Il social network dove segnalare e/o partecipare ad atti di volontariato per il bene della propria comunità e non solo" />
 
-    <meta name="keywords" content="volontariato, segnalazione, social network, comunità, buone azioni" />
+		<meta name="keywords" content="volontariato, segnalazione, social network, comunità, buone azioni" />
 
-    <meta name="language" content="italian it" />
+		<meta name="language" content="italian it" />
 
-    <meta name="author" content="Alessandro Chimetto, Daniele Bresciani, Francesco De Salvador, Stefano Biotto" />
+		<meta name="author" content="Alessandro Chimetto, Daniele Bresciani, Francesco De Salvador, Stefano Biotto" />
 
-    <link rel="stylesheet" type="text/css" href="../css/desktop.css" media="handheld, screen"/>
-    <link rel="stylesheet" type="text/css" href="../css/mobile.css" media="handheld, screen and (max-width:800px), only screen and (max-device-width:800px)" />
-    <link rel="stylesheet" type="text/css" href="../css/print.css" media="print"/>
-  </head>
+		<link rel="stylesheet" type="text/css" href="../css/desktop.css" media="handheld, screen"/>
+		<link rel="stylesheet" type="text/css" href="../css/mobile.css" media="handheld, screen and (max-width:800px), only screen and (max-device-width:800px)" />
+		<link rel="stylesheet" type="text/css" href="../css/print.css" media="print"/>
+	</head>
 
-  <body>
-    <div id="header">
-      <div id="info_utente">
-        <img src="../img/utentebianco_icon.png" alt="" />
-        <p>Nome Cognome</p>
-      </div>
+	<body>
 
-      <a id="hamburger" href="#hamburger"><img src="../img/menu_espandi_icon.png" alt="Menù" /></a>
+		<div id="header">
+			<div id="info_utente">
+				<img src="../img/utentebianco_icon.png" alt="" />
+				<p>Nome Cognome</p>
+			</div>
+			<a id="hamburger" href="#hamburger"><img src="../img/menu_espandi_icon.png" alt="Menù" /></a>
+			<h1 xml:lang="en"><abbr title="do it">DOIT</abbr></h1>
+		</div>
 
-      <h1 xml:lang="en"><abbr title="do it">DOIT</abbr></h1>
-    </div>
+		<div id="breadcrumb">
+			<p>PAGINA_CORRENTE</p>
+		</div>
 
-    <div id="breadcrumb">
-      <p>PAGINA_CORRENTE</p>
-    </div>
+		<div id="page_central_part">
+			<div id="menu">
+				<ul id="menu_up">
+					<li id="menu_profilo"><a href="">Il mio profilo</a></li>
+					<li id="menu_bacheca"><a href="">Bacheca</a></li>
+					<li id="menu_nuovo_post"><a href="">Nuovo post</a></li>
+					<li id="menu_help" xml:lang="en"><a href="">Help</a></li>
+				</ul>
+				<ul id="menu_down">
+					<li id="menu_about" xml:lang="en"><a href="about.html">About Us</a></li>
+					<li id="menu_logout" xml:lang="en"><a href="">Log Out</a></li>
+				</ul>
+			</div>
 
-    <div id="page_central_part">
-      <div id="menu">
-        <ul id="menu_up">
-          <li id="menu_profilo"><a href="">Il mio profilo</a></li>
-          <li id="menu_bacheca"><a href="">Bacheca</a></li>
-          <li id="menu_nuovo_post"><a href="">Nuovo post</a></li>
-          <li id="menu_help" xml:lang="en"><a href="">Help</a></li>
-        </ul>
-        <ul id="menu_down">
-          <li id="menu_about" xml:lang="en"><a href="about.html">About Us</a></li>
-          <li id="menu_logout" xml:lang="en"><a href="">Log Out</a></li>
-        </ul>
-      </div>
+			<div id="registrazione_e_login" class="content">
+				<div xml:lang="en" id="login">
+					<h1><span xml:lang="it">Effettua il </span>login</h1>
+					<form action="form_login.php">
+						<fieldset id="fieldset_login">
+							<div id="row_login_email">
+								<label for="login_email">E-mail: </label><input type="text" id="login_email"></input>
+							</div>
+							<div id="row_login_password">
+								<label for="login_password">Password: </label><input type="password" id="login_password"></input>
+							</div>
+						</fieldset>
+						<div id="login_conferma">
+							<input type="submit" id="login_input_conferma" value="Effettua il Login" /> <!-- Come legge login lo screen reader nel caso dei submit? -->
+						</div>
+					</form>
+				</div>
 
-      <div id="registrazione_e_login" class="content">
 				<div id="registrazione">
 					<h1>Vuoi essere un volontario? Unisciti a noi!</h1>
 					<form action="form_registrazione.php">
 						<fieldset id="fieldset_dati_anagrafici">
 							<legend>Dati Anagrafici</legend>
-              <label for="registrazione_nome">Nome: </label><input type="text" id="registrazione_nome"></input>
-              <label for="registrazione_cognome">Cognome: </label><input type="text" id="registrazione_cognome"></input>
-              <label for="registrazione_data_di_nascita">Data di nascita: </label><input type="text" id="registrazione_data_di_nascita"></input>
-              <label for="registrazione_codice_fiscale">Codice fiscale: </label><input type="text" id="registrazione_codice_fiscale"></input>
-            </fieldset>
+							<div id="row_registrazione_nome">
+								<label for="registrazione_nome">Nome: </label><input type="text" id="registrazione_nome"></input>
+							</div>
+							<div id="row_registrazione_cognome">
+								<label for="registrazione_cognome">Cognome: </label><input type="text" id="registrazione_cognome"></input>
+							</div>
+							<div id="row_registrazione_data_di_nascita">
+								<label for="registrazione_data_di_nascita">Data di nascita: </label><input type="text" id="registrazione_data_di_nascita"></input>
+							</div>
+							<div id="row_registrazione_codice_fiscale">
+								<label for="registrazione_codice_fiscale">Codice fiscale: </label><input type="text" id="registrazione_codice_fiscale"></input>
+							</div>
+						</fieldset>
 						<fieldset id="fieldset_dati_di_contatto">
-						    <legend>Dati di Contatto</legend>
+							<legend>Dati di Contatto</legend>
+							<div id="row_registrazione_email">
 								<label for="registrazione_email"><span xml:lang="en">E-mail: </span></label><input type="text" id="registrazione_email"></input>
+							</div>
+							<div id="row_registrazione_numero_di_telefono">
 								<label for="registrazione_numero_di_telefono">Numero di telefono: </label><input type="text" id="registrazione_numero_di_telefono"></input>
+							</div>
+							<div id="row_registrazione_password">
 								<label for="registrazione_password"><span xml:lang="en">Password: </span></label><input type="password" id="registrazione_password"></input>
+							</div>
+							<div id="row_registrazione_conferma_password">
 								<label for="registrazione_conferma_password">Conferma <span xml:lang="en">password: </span></label><input type="password" id="registrazione_conferma_password"></input>
-            </fieldset>
+							</div>
+						</fieldset>
 						<fieldset id="fieldset_carica_una_foto">
-  						<legend>Fatti vedere!</legend>
-              <img id="registrazione_immagine_profilo" src="../img/utentenero_icon.png" alt="" /> <br />
-  						<label for="registrazione_foto">Carica foto: </label><input type="file" id="registrazione_foto"></input> <!-- L'attributo file è supportato da IE, mentre Google, Firefox, Safari e Opera lo supportano dalla versione 1.0 -->
+							<legend>Fatti vedere!</legend>
+							<img id="registrazione_immagine_profilo" src="../img/utentenero_icon.png" alt="" /> <br />
+							<label for="registrazione_foto">Carica foto: </label><input type="file" id="registrazione_foto"></input>
 						</fieldset>
 						<fieldset id="fieldset_biografia">
-						<legend>Raccontaci di te</legend>
-								<label for="registrazione_biografia">Biografia: </label><br /><textarea id="registrazione_biografia" rows="5" cols="25"></textarea> <!-- Ho pensato di sostituire Bio con Biografia, perché per alcune persone Bio può essere poco intuitivo, una persona anziana è probabile che sappia il significato di Biografia ma non che Bio è la sua abbreviazione -->
+							<legend>Raccontaci di te</legend>
+							<label for="registrazione_biografia">Biografia: </label><br /><textarea id="registrazione_biografia" rows="13" cols="31"></textarea> <!-- Ho pensato di sostituire Bio con Biografia, perché per alcune persone Bio può essere poco intuitivo, una persona anziana è probabile che sappia il significato di Biografia ma non che Bio è la sua abbreviazione -->
 						</fieldset>
-          </form>
-          <div id="registrazione_conferma">
-            <input type="submit" id="registrazione_input_conferma" value="Conferma Registrazione" />
-          </div>
+						<div id="registrazione_conferma">
+							<input type="submit" id="registrazione_input_conferma" value="Conferma Registrazione" />
+						</div>
+					</form>
 				</div>
+			</div>
 
-        				<div xml:lang="en" id="login">
-					<h1><span xml:lang="it">Effettua il </span>login</h1>
-					<form action="form_login.php">
-						<fieldset id="fieldset_login"> <!-- Tag usato per racchiudere gli input dei form, ditemi se è da togliere secondo voi -->
-							<legend>Login</legend>
-								<label for="login_email">E-mail: </label><input type="text" id="login_email"></input>
 
-								<label for="login_password">Password: </label><input type="password" id="login_password"></input>
-						</fieldset>
-            <div id="login_conferma">
-              <input type="submit" id="login_input_conferma" value="Effettua il Login" /> <!-- Come legge login lo screen reader nel caso dei submit? -->
-            </div>
-          </form>
-				</div>
-      </div>
-
-      <div id="footer">
-        <p>
-          <a href="http://validator.w3.org/check?uri=referer" xml:lang="en">
-          <img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" />
-          </a>
-          &copy; Alessandro Chimetto, Daniele Bresciani, Francesco De Salvador, Stefano Biotto
-        </p>
-      </div>
-    </div>
-  </body>
+			<div id="footer">
+				<p>
+					<a href="http://validator.w3.org/check?uri=referer" xml:lang="en">
+					<img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" />
+					</a>
+					&copy; Alessandro Chimetto, Daniele Bresciani, Francesco De Salvador, Stefano Biotto
+				</p>
+			</div>
+		</div>
+	</body>
 </html>
