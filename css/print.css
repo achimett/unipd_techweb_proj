@@ -51,34 +51,45 @@ abbr[title] {
 }
 
 /******* CSS PROFILO *******/
-#breadcrumb{
-  display: none;
-}
-
-#header > h1:nth-child(3) > abbr:nth-child(1) { /*Ho provato ha scrivere solo #header, ma non funziona, non so come mai*/
-  display: none;
-}
 
 #profilo_nome_cognome {
   float: left;
-  width: 30%;
+  width: 47%;
+}
+
+#profilo_nome_cognome h1 {
+  float: right;
+}
+
+#profilo_nome_cognome img {
+  height: 200px;
+  width: 200px;
+  float: left;
+}
+
+#profilo_biografia {
+  padding-top: 45%;
 }
 
 #profilo_data_di_nascita ul {
   list-style-type: none;
 }
 
+#profilo_data_di_nascita img {
+  width: 10%;
+}
+
 #profilo_data_di_nascita {
   float: right;
-  width: 40%;
+  width: 30%;
   word-break: break-all;
 }
 
-#profilo_biografia {
-  padding-top: 10em;
+#profilo_table_attivita, #profilo_contributi form,  #profilo_contributi h2{
+  margin-left: auto;
+  margin-right: auto;
 }
 
-#profilo_table_attivita {
-  margin-top: 2em;
-  margin-bottom: 2em;
+#profilo_table_attivita tr:nth-child(even) {
+  background: #CCCCCC;
 }

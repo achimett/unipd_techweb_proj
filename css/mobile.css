@@ -39,34 +39,37 @@
 
 /********** PAGE-CENTRAL-PART-PROFILO**********/
 #profilo_nome_cognome {
-  width:100%;
+  width: 100%;
 }
 
-#profilo_nome_cognome h1{
-  float: left;
-  width: 30%;
-}
-#profilo_nome_cognome img{
+#profilo_nome_cognome h1 {
   float: right;
+}
+
+#profilo_nome_cognome img {
+  height: 200px;
+  width: 200px;
+  float: left;
+}
+
+#profilo_biografia {
+  padding-top: 80%;
+}
+
+#profilo_contributi {
+  padding-top: 5%;
 }
 
 #profilo_data_di_nascita ul {
   list-style-type: none;
 }
 
+#profilo_data_di_nascita img {
+  width: 10%;
+}
+
 #profilo_data_di_nascita {
-  float: none;
   width: 100%;
-  word-break: break-all;
-}
-
-#profilo_biografia {
-  padding-top: 2em;
-}
-
-#profilo_table_attivita {
-  margin-top: 2em;
-  margin-bottom: 2em;
 }
 
 /********** MENU **********/

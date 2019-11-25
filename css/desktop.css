@@ -137,11 +137,29 @@ abbr[title] {
 /********** CONTENT-PROFILO**********/
 #profilo_nome_cognome {
   float: left;
-  width: 30%;
+  width: 47%;
+}
+
+#profilo_nome_cognome h1 {
+  float: right;
+}
+
+#profilo_nome_cognome img {
+  height: 200px;
+  width: 200px;
+  float: left;
+}
+
+#profilo_biografia {
+  padding-top: 30%;
 }
 
 #profilo_data_di_nascita ul {
   list-style-type: none;
+}
+
+#profilo_data_di_nascita img {
+  width: 10%;
 }
 
 #profilo_data_di_nascita {
@@ -150,13 +168,15 @@ abbr[title] {
   word-break: break-all;
 }
 
-#profilo_biografia {
-  padding-top: 10em;
+#profilo_table_attivita, #profilo_contributi form,  #profilo_contributi h2{
+  margin-left: auto;
+  margin-right: auto;
 }
 
-#profilo_table_attivita {
-  margin-top: 3em;
+#profilo_table_attivita tr:nth-child(even) {
+  background: #CCCCCC;
 }
+
 /********** FOOTER **********/
 #footer {
   clear: left;

@@ -53,7 +53,7 @@
       <div id="profilo" class="content">
         <div id="profilo_nome_cognome">
           <h1>Franco Rossi</h1>
-          <img src="utentenero_icon.png" alt="Immagine profilo" />
+          <img src="../img/utentenero_icon.png" alt="Immagine profilo" />
         </div>
 
         <div id="profilo_data_di_nascita">
@@ -69,33 +69,45 @@
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sed tortor eu enim gravida consequat. Nullam volutpat nunc in mauris vehicula aliquam. Nam ante tortor, sollicitudin eu tempor id, accumsan et elit. In laoreet, nulla quis sagittis gravida, sem lacus ultrices libero, a consectetur purus libero sit amet tellus. Morbi scelerisque venenatis laoreet. Sed ultricies lacus sed efficitur rhoncus. Sed vitae faucibus magna.
           </p>
-          <table id="profilo_table_attivita">
-            <tr>
-              <th colspan="2">Attivit&agrave;</th>
-            </tr>
-            <tr>
-              <td colspan="2">
-              <form action="pagina_attivita.php">
-                <div id="profilo_attivita">
-                  <input type="radio" name="attivita" id="attivita_svolte" /> <label for="attivita_svolte">Attivit&agrave; svolte</label> <!-- Per fare in modo che questo radio sia checked serve Javascript -->
-                  <input type="radio" name="attivita" id="attivita_future" /> <label for="attivita_future">Attivit&agrave; future</label>
-                </div>
-              </form>
-              </td>
-            </tr>
-            <tr>
-              <td><a href="link.html">Spazzatura</a></td> <!-- Link temporaneo -->
-              <td>02/07/19</td>
-            </tr>
-            <tr>
-              <td><a href="link.html">Coperte ai bisognosi</a></td> <!-- Link temporaneo -->
-              <td>10/10/19</td>
-            </tr>
-            <tr>
-              <td><a href="link.html">Pulizia strade</a></td> <!-- Link temporaneo -->
-              <td>04/05/20</td>
-            </tr>
-          </table>
+          <div id="profilo_contributi">
+            <h2>Contributi</h2>
+            <form action="action_page.php">
+              <input type="radio" name="radio_contibuti" value="storico"> Storico
+              <input type="radio" name="radio_contibuti" value="in_programma"> In programma
+            </form>
+            <table id="profilo_table_attivita">
+              <th>Attivit&agrave;</th>
+              <th>Data</th>
+              <tr>
+                <td><a href="link.html">Spazzatura</a></td> <!-- Link temporaneo -->
+                <td>02/07/19</td>
+              </tr>
+              <tr>
+                <td><a href="link.html">Coperte ai bisognosi</a></td> <!-- Link temporaneo -->
+                <td>10/10/19</td>
+              </tr>
+              <tr>
+                <td><a href="link.html">Pulizia strade</a></td> <!-- Link temporaneo -->
+                <td>04/05/20</td>
+              </tr>
+              <tr>
+                <td><a href="link.html">Attivit&agrave; 1</a></td> <!-- Link temporaneo -->
+                <td>11/10/19</td>
+              </tr>
+              <tr>
+                <td><a href="link.html">Attivit&agrave; 2</a></td> <!-- Link temporaneo -->
+                <td>05/05/20</td>
+              </tr>
+              <tr>
+                <td><a href="link.html">Attivit&agrave; 3</a></td> <!-- Link temporaneo -->
+                <td>12/10/19</td>
+              </tr>
+              <tr>
+                <td><a href="link.html">Attivit&agrave; 4</a></td> <!-- Link temporaneo -->
+                <td>06/05/20</td>
+              </tr>
+            </table>
+          </div>
         </div>
       </div>
 
