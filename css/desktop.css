@@ -4,7 +4,7 @@
   font-family: Verdana, Geneva, sans-serif;
   color: #004c07;
   outline: 0;
-      font-size:1vw;
+  font-size: 100%;
 }
 
 abbr[title] {
@@ -48,10 +48,9 @@ abbr[title] {
   display: none;
 }
 
-#breadcrumb {
+#breadcrumb p{
   background-color: #006837;
   color: #FFFFFF;
-  margin: 1.5%;
   text-align: center;
   padding-bottom: 0.1em;
   padding-top: 0.1em;
@@ -66,11 +65,11 @@ abbr[title] {
 
 /********** MENU **********/
 #menu {
-  width: 18%;
-  padding: 1em 0em 1em 1em;
-  border-left: 1pt solid #000000;
+  width: 20%;
+  /*  padding: 1em 0em 1em 1em;*/
+  /*border-left: 1pt solid #000000;
   border-right: 1pt solid #000000;
-  border-bottom: 1pt solid #000000;
+  border-bottom: 1pt solid #000000;*/
   margin-bottom: 0.2em;
   line-height: 2em;
   float:left;
@@ -86,12 +85,12 @@ abbr[title] {
 }
 
 #menu ul {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 #menu a {
   text-decoration: none;
-  font-weight: bold;
+  font-weight:css print dont change font bold;
 }
 
 #menu a:link {
@@ -103,35 +102,35 @@ abbr[title] {
 }
 
 #menu_profilo {
-    background-image: url("../img/menu_profilo_icon.png");
-    background-position: left center;
-    background-size: 2.5em;
-    background-repeat: no-repeat;
-    padding-left: 2.6em;
+  background-image: url("../img/menu_profilo_icon.png");
+  background-position: left center;
+  background-size: 2.5em;
+  background-repeat: no-repeat;
+  padding-left: 2.6em;
 }
 
 #menu_bacheca {
-    background-image: url("../img/menu_bacheca_icon.png");
-    background-position: left center;
-    background-size: 2.5em;
-    background-repeat: no-repeat;
-    padding-left: 2.6em;
+  background-image: url("../img/menu_bacheca_icon.png");
+  background-position: left center;
+  background-size: 2.5em;
+  background-repeat: no-repeat;
+  padding-left: 2.6em;
 }
 
 #menu_nuovo_post {
-    background-image: url("../img/menu_nuovo_icon.png");
-    background-position: left center;
-    background-size: 2.5em;
-    background-repeat: no-repeat;
-    padding-left: 2.6em;
+  background-image: url("../img/menu_nuovo_icon.png");
+  background-position: left center;
+  background-size: 2.5em;
+  background-repeat: no-repeat;
+  padding-left: 2.6em;
 }
 
 #menu_help {
-    background-image: url("../img/menu_help.png");
-    background-position: left center;
-    background-size: 2.5em;
-    background-repeat: no-repeat;
-    padding-left: 2.6em;
+  background-image: url("../img/menu_help.png");
+  background-position: left center;
+  background-size: 2.5em;
+  background-repeat: no-repeat;
+  padding-left: 2.6em;
 }
 
 /********** CONTENT **********/
@@ -139,27 +138,31 @@ abbr[title] {
 
 .content {
   max-width: 1024px;
-  margin-left: 20%;
-  padding: 0% 0.5% 0.5% 0.5%;
+  margin: 0% 0% 0% 20%;
 }
 
-.content h1, h2, h3, h4{
+.content h1, h2, h3, h4 {
   padding: 2%;
   text-align: center;
 }
-.content h1, h2{
+
+.content h1, h2 {
   background-color: #393;
   color: #FFF;
 }
 
-.content fieldset{
+.content fieldset {
   border: 0;
 }
 
-input{
+.content{
+display: block;
+}
+
+input {
   display: block;
   margin: auto;
-  padding: 2%;
+  padding: 1%;
   font-weight: bold;
   color: #FFF;
   background: linear-gradient(to bottom, #393, #007f00);
@@ -174,39 +177,38 @@ input::-moz-focus-inner {
   border: 0;
 }
 
-input:active{
+input:active {
   box-shadow: 2px 5px 5px 0px #333 inset;
 }
 
-input#doit{
+input#doit {
   margin: 0 auto;
   width: 50%;
   margin-bottom: 5%;
-  font-size:3vw;
+  font-size: 300%;
 }
 
-#info iframe{
+#info iframe {
   width: 100%;
   border: 0;
 }
 
-.blocco{
+.blocco {
   background: #86d85d;
 }
 
-#core{
+#core {
   float: left;
   width: 70%;
-  margin: 0% auto 1% auto;
 
 }
 
-#descrizione{
+#descrizione {
   text-justify: inter-word;
   padding: 5%;
 }
 
-img#foto_iniziale{
+img#foto_iniziale {
   display: block;
   width: 92%;
   padding: 2%;
@@ -215,60 +217,54 @@ img#foto_iniziale{
   border-radius: 0.4em;
 }
 
-#info{
-  width: 29%;
-  display: inline-block;
+#info {
+
+  width: 28%;
   float: right;
-  margin: 0% auto 1% auto;
 }
 
-#info p{
+#info p {
   text-align: center;
   padding: 15% 2% 2% 2%;
 }
 
-#autore_label, #data_label, #posizione_label, #volontari_label{
+#autore_label, #data_label, #posizione_label, #volontari_label {
   background-position: top center;
   background-size: 15%;
   background-repeat: no-repeat;
 }
 
-#autore_label{
-    background-image: url("../img/utentenero_icon.png");
-        border-bottom: 2px dashed #393;
-}
-#data_label{
-    background-image: url("../img/post_calendario_icon.png");
-}
-#posizione_label{
-    background-image: url("../img/post_localizzazione_icon.png");
-}
-#volontari_label{
-    background-image: url("../img/volontari_icon.png");
-        border-bottom: 3px solid #393;
+#autore_label {
+  background-image: url("../img/utentenero_icon.png");
 }
 
-#social{
-  clear: both;
-  width: 70%;
-  margin: 0;
+#data_label {
+  background-image: url("../img/post_calendario_icon.png");
 }
 
-input#sfoglia{
+#posizione_label {
+  background-image: url("../img/post_localizzazione_icon.png");
+}
+
+#volontari_label {
+  background-image: url("../img/volontari_icon.png");
+}
+
+input#sfoglia {
   clear: left;
   float: left;
   width: 20%;
   margin: 1% 1% 1% 2%;
-  font-size: 1vw;
+  font-size: 100%;
 }
 
-#foto_upload{
+#foto_upload {
   float: left;
   width: 20%;
   margin: 1% 1% 1% 2%;
 }
 
-#campo_testo{
+#campo_testo {
   border: 0;
   float: right;
   width: 70%;
@@ -279,40 +275,77 @@ input#sfoglia{
   resize: none;
 }
 
-input#invia{
+input#invia {
   display: inline-block;
   clear: left;
   width: 96%;
   margin: 1% 2% 2% 2%;
-  font-size:2vw;
+  font-size: 100%;
 }
 
-.commit{
+#lista_utenti {
+  list-style-type: none;
+  overflow: hidden;
+  white-space: pre-line;
+  /*padding: 3%;*/
   width: 90%;
-  margin: 1% auto 1% auto;
+
+}
+#lista_utenti li {
+  /*  padding: 2% 0% 2% 0%;*/
+  margin: 2%;
+
 }
 
-.commit img{
+#lista_utenti img {
+  width: 3em;
+  height: 3em;
+  overflow: hidden;
+  border-radius: 50%;
+}
+#lista_utenti a img {
+  vertical-align: middle;
+}
+
+#social {
+  width: 70%;
+  float: left;
+
+}
+
+#descrizione_commenti {
+  float: left;
+  width: 70%;
+  padding: 0.5% 0% 0.5% 0%;
+}
+
+.commit {
+  float: left;
+  width: 70%;
+  /*margin: 0.5% 0.5% 0.5% 0.5%;*/
+}
+
+.commit img {
   width: 96%;
   margin: 1% 2% 1% 2%;
 }
 
-.commit p{
+.commit p {
   padding: 1% 2% 1% 2%;
 
 }
 
-.core_postcard{
+.core_postcard {
   width: 100%;
   margin: 0% auto 1% auto;
 }
 
-.info_postcard{
+.info_postcard {
   width: 100%;
   margin: 0% auto 1% auto;
 }
 
-.foto_postcard{
+.foto_postcard {
   display: block;
   width: 40%;
   padding: 2%;
@@ -321,26 +354,15 @@ input#invia{
   border-radius: 0.4em;
 }
 
-.info_postcard p{
+.info_postcard p {
   float: left;
   width: 25%;
 }
 
-.postcard{
+.postcard {
   width: 33%;
   background-color: #393;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 /********** FOOTER **********/
 #footer {

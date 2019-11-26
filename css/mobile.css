@@ -1,5 +1,5 @@
 * {
-  font-size: 2vw;
+  font-size: 100%;
 }
 
 
@@ -97,4 +97,76 @@ input#sfoglia{
 
 #campo_testo{
   width: 92%;
+}
+
+
+#social {
+  float: left;
+  width: 100%;
+}
+
+
+.commit{
+  float: left;
+  width: 100%;
+  margin: 0.5% 0% 0.5% 0%;
+}
+
+
+#descrizione_commenti{
+  float: left;
+  width: 100%;
+  padding: 0.5% 0% 0.5% 0%;
+}
+
+#info p{
+  text-align: center;
+  padding: 20% 2% 2% 2%;
+}
+
+#autore_label, #data_label, #posizione_label, #volontari_label{
+  margin: 0 auto;
+  width: 100%;
+  background-position: top center;
+  background-size: 3em;
+  background-repeat: no-repeat;
+
+}
+
+.info_box iframe{
+  display: none;
+}
+
+#autore_label{
+  margin: 5%;
+  width: 40%;
+  float: left;
+
+}
+
+#data_label{
+  width: 40%;
+  float: right;
+}
+
+
+
+.info_box #lista_utenti{
+  display: none;
+}
+
+.info_box{
+
+  width: 33.3333%;
+  float: left;
+
+}
+
+.info_box p{
+  font-size: 2vw;
+}
+
+
+.titolo_info{
+  width: 30%;
 }
