@@ -38,23 +38,32 @@
 }
 
 /********** MENU **********/
-#hamburger:hover + #menu {
-  visibility: visible;
-  right: 0%;
+#menu {
+  display: none;
+  width: 50%;
+  float: none;
+  border: 0;
+  text-align: center;
+  padding: 0;
+  margin: 0 auto;
 }
 
-#menu {
-  background-color: #FFFFFF;
-  height: 100%;
-  position: fixed;
-  z-index: 10;
-  top: 0;
-  right: -125%;
-  float:none;
-  transition: 0.5s;
-  -webkit-transition: 0.5s;
-  -moz-transition: 0.5s;
-  -o-transition: 0.5s;
-  -ms-transition: 0.5s;
-  visibility: hidden;
+#menu ul#menu_up {
+  margin-bottom: 3em;
+}
+
+#menu ul#menu_down {
+  padding-left: 0;
+}
+
+#menu_help, #menu_profilo, #menu_bacheca, #menu_nuovo_post {
+  padding-left: 0;
+}
+
+/********** FOOTER **********/
+#footer {
+  font-size: 0.5em;
+}
+#footer a {
+  display: none;
 }

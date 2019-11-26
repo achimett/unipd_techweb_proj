@@ -130,17 +130,14 @@ abbr[title] {
 }
 
 /********** CONTENT **********/
-#content {
-  margin-left: 20%;
-  padding: 1em;
-}
+
 
 /********** FOOTER **********/
 #footer {
   clear: left;
   background-color: #006837;
   color: #FFFFFF;
-  border-radius: 0.75em;
+  border-radius: 0.25em;
   text-align: center;
   font-style: italic;
   padding-top: 0.25em;
