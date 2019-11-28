@@ -52,14 +52,13 @@
 
       <div id="profilo" class="content">
         <div id="profilo_nome_cognome">
-          <h1>Franco Rossi</h1>
-          <img src="../img/utentenero_icon.png" alt="Immagine profilo" />
+          <h1><img src="../img/utentenero_icon.png" alt="Immagine profilo" />Mariaddolorata Quondamangelomaria</h1>
         </div>
 
         <div id="profilo_data_di_nascita">
           <ul>
             <li><img src="../img/compleanno_icon.png" alt="Compleanno: " /> 20/12/1954</li>
-            <li><img src="../img/email-icon.png" alt="Email: " /> franco.rossi@gmail.com</li>
+            <li><img src="../img/email-icon.png" alt="Email: " /> mariaddolorata.quondamangelomaria@gmail.com</li>
             <li><img src="../img/Tavola disegno 28.png" alt="Telefono: " /> 383 333333333</li>
           </ul>
         </div>
@@ -69,45 +68,61 @@
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sed tortor eu enim gravida consequat. Nullam volutpat nunc in mauris vehicula aliquam. Nam ante tortor, sollicitudin eu tempor id, accumsan et elit. In laoreet, nulla quis sagittis gravida, sem lacus ultrices libero, a consectetur purus libero sit amet tellus. Morbi scelerisque venenatis laoreet. Sed ultricies lacus sed efficitur rhoncus. Sed vitae faucibus magna.
           </p>
-          <div id="profilo_contributi">
-            <h2>Contributi</h2>
-            <form action="action_page.php">
-              <input type="radio" name="radio_contibuti" value="storico"> Storico
-              <input type="radio" name="radio_contibuti" value="in_programma"> In programma
-            </form>
-            <table id="profilo_table_attivita">
-              <th>Attivit&agrave;</th>
-              <th>Data</th>
-              <tr>
-                <td><a href="link.html">Spazzatura</a></td> <!-- Link temporaneo -->
-                <td>02/07/19</td>
-              </tr>
-              <tr>
-                <td><a href="link.html">Coperte ai bisognosi</a></td> <!-- Link temporaneo -->
-                <td>10/10/19</td>
-              </tr>
-              <tr>
-                <td><a href="link.html">Pulizia strade</a></td> <!-- Link temporaneo -->
-                <td>04/05/20</td>
-              </tr>
-              <tr>
-                <td><a href="link.html">Attivit&agrave; 1</a></td> <!-- Link temporaneo -->
-                <td>11/10/19</td>
-              </tr>
-              <tr>
-                <td><a href="link.html">Attivit&agrave; 2</a></td> <!-- Link temporaneo -->
-                <td>05/05/20</td>
-              </tr>
-              <tr>
-                <td><a href="link.html">Attivit&agrave; 3</a></td> <!-- Link temporaneo -->
-                <td>12/10/19</td>
-              </tr>
-              <tr>
-                <td><a href="link.html">Attivit&agrave; 4</a></td> <!-- Link temporaneo -->
-                <td>06/05/20</td>
-              </tr>
-            </table>
-          </div>
+        </div>
+        <div id="profilo_contributi">
+          <h2>Contributi</h2>
+          <form id="profilo_radio_button" action="action_page.php">
+            <div> <!-- div utile esclusivamente allo scopo di avere il documento xhtml validato-->
+              <input type="radio" name="radio_contibuti" value="value_tutte_le_attivita" checked="checked" id="tutte_le_attivita" />
+              <label for="tutte_le_attivita"> Tutte le attivit&agrave;</label>
+              <input type="radio" name="radio_contibuti" value="value_aperte" id="aperte" />
+              <label for="aperte"> Aperte</label>
+              <input type="radio" name="radio_contibuti" value="value_chiuse" id="chiuse" />
+              <label for="chiuse"> Chiuse</label>
+            </div>
+          </form>
+          <table id="profilo_table_contributi">
+            <tr>
+              <th id="profilo_colonna_attivita">Attivit&agrave;</th>
+              <th id="profilo_colonna_data">Data</th>
+              <th id="profilo_colonna_stato_attivita">Stato Attivit&agrave;</th>
+            </tr>
+            <tr>
+              <td><a href="link.html">Spazzatura</a></td>
+              <td>02/07/19</td>
+              <td>Aperta</td>
+            </tr>
+            <tr>
+              <td><a href="link.html">Coperte ai bisognosi</a></td>
+              <td>10/10/19</td>
+              <td>Chiusa</td>
+            </tr>
+            <tr>
+              <td><a href="link.html">Pulizia strade</a></td>
+              <td>04/05/20</td>
+              <td>Aperta</td>
+            </tr>
+            <tr>
+              <td><a href="link.html">Attivit&agrave; 1</a></td>
+              <td>11/10/19</td>
+              <td>Aperta</td>
+            </tr>
+            <tr>
+              <td><a href="link.html">Attivit&agrave; 2</a></td>
+              <td>05/05/20</td>
+              <td>Chiusa</td>
+            </tr>
+            <tr>
+              <td><a href="link.html">Attivit&agrave; 3</a></td>
+              <td>12/10/19</td>
+              <td>Aperta</td>
+            </tr>
+            <tr>
+              <td><a href="link.html">Attivit&agrave; 4</a></td>
+              <td>06/05/20</td>
+              <td>Aperta</td>
+            </tr>
+          </table>
         </div>
       </div>
 

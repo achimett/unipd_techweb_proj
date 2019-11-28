@@ -52,23 +52,18 @@ abbr[title] {
 
 /******* CSS PROFILO *******/
 
-#profilo_nome_cognome {
-  float: left;
-  width: 47%;
+#profilo h1 {
+  font-size: 3vw;
 }
 
-#profilo_nome_cognome h1 {
-  float: right;
+#profilo_nome_cognome {
+  width: 100%;
 }
 
 #profilo_nome_cognome img {
-  height: 200px;
-  width: 200px;
-  float: left;
-}
-
-#profilo_biografia {
-  padding-top: 45%;
+  vertical-align: middle;
+  height: 400px;
+  width: auto;
 }
 
 #profilo_data_di_nascita ul {
@@ -76,20 +71,42 @@ abbr[title] {
 }
 
 #profilo_data_di_nascita img {
-  width: 10%;
+  width: 2%;
 }
 
 #profilo_data_di_nascita {
-  float: right;
-  width: 30%;
-  word-break: break-all;
+  width: 100%;
 }
 
-#profilo_table_attivita, #profilo_contributi form,  #profilo_contributi h2{
+#profilo_biografia {
+  padding-top: 2%;
+}
+
+#profilo_contributi {
+  margin-top: 2%;
+}
+
+#profilo_radio_button {
+  display: none;
+}
+
+#profilo_table_contributi {
+  width: 100%;
+  border-collapse: collapse;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
 }
 
-#profilo_table_attivita tr:nth-child(even) {
-  background: #CCCCCC;
+#profilo_colonna_data, #profilo_colonna_stato_attivita {
+  width: 20%;
+}
+
+#profilo_table_contributi tr:nth-child(even) {
+  background: rgba(0, 0, 0, 0.3); /*Durante la stampa questa istruzione viene ignorata*/
+}
+
+#profilo_table_contributi td:nth-child(2), td:nth-child(3) {
+  text-align: center;
 }
