@@ -52,41 +52,40 @@ abbr[title] {
 
 /******* REGISTRAZIONE *******/
 
-#registrazione_e_login h1 {
+#login, #registrazione_e_login h1, #registrazione_e_login input[type=submit], #fieldset_carica_una_foto legend, #fieldset_carica_una_foto label, #fieldset_biografia legend, #registrazione_foto {
   display: none;
 }
 
-#registrazione_e_login input[type=submit] {
-  display: none;
+#login_email, #login_password, #registrazione_nome, #registrazione_cognome, #registrazione_data_di_nascita, #registrazione_codice_fiscale, #registrazione_email, #registrazione_telefono, #registrazione_password, #registrazione_conferma_password {
+  clear: both;
+  float: right;
+  width: 70%;
+  padding: 2%;
+  margin-top: 1mm;
+  margin-bottom: 1mm;
+}
+
+#label_login_email, #label_login_password, #label_registrazione_nome, #label_registrazione_cognome, #label_registrazione_data_di_nascita, #label_registrazione_codice_fiscale, #label_registrazione_email, #label_registrazione_telefono, #label_registrazione_password, #label_registrazione_conferma_password {
+  display: block;
+  clear: left;
+  padding: 2%;
+  margin-top: 1.5mm;
+  margin-bottom: 1.5mm;
 }
 
 #registrazione_e_login fieldset {
   border: 0pt;
 }
 
-#fieldset_carica_una_foto legend {
-  display: none;
-}
-
-#fieldset_carica_una_foto label {
-  display: none;
-}
-
-#fieldset_carica_una_foto img {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#registrazione_foto {
-  display: none;
-}
-
-#fieldset_biografia legend {
-  display: none;
+#registrazione_immagine_profilo {
+  margin-left: 30mm;
+  height: 400px;
+  width: auto;
 }
 
 #registrazione_biografia {
   width: 100%;
+  resize: none;
 }
 
 #fieldset_dati_anagrafici legend {
