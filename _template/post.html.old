@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <link rel="stylesheet" type="text/css" href="../css/desktop.css" media="handheld, screen"/>
+    <link rel="stylesheet" type="text/css" href="../css/mobile.css" media="handheld, screen and (max-width:800px), only screen and (max-device-width:800px)" />
+    <link rel="stylesheet" type="text/css" href="../css/print.css" media="print"/>
+    <title>
+      Post - Raccolta rifiuti
+    </title>
+  </head>
+  <body>
+
+    <div class="content">
+
+      <div id="core" class="blocco">
+
+        <h1>Raccolta rifiuti</h1>
+        <img id="foto_iniziale" src="../img/_template_foto/rifiuti1.jpg" alt="immagine di copertina" />
+        <h2>Descrizione</h2>
+        <p id="descrizione">At vero eos et accusamus et iusto odio dign: 10issimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus</p>
+
+        <form action="#" method="post">
+
+          <fieldset>
+            <input id="doit" type="submit" value="DOIT" alt="do it" />
+          </fieldset>
+
+        </form>
+    </div> <!-- fine core -->
+
+      <div id="info" class="blocco">
+
+        <h2>Informazioni generali</h2>
+        <p id="autore_label">Post di Paolo Bianchi</p>
+        <p id="data_label">Pubblicato il 12/02/2019<br />Alle ore 15.30</p>
+        <h2>Posizione</h2>
+        <p id="posizione_label">Padova Centro<br />Via Luigi Luzzati 45</p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d89636.53398772895!2d11.821205683263111!3d45.406482347567035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477eda5841ab30cf%3A0xc18236edaa1a2e2c!2sPadova%20PD!5e0!3m2!1sit!2sit!4v1572906781194!5m2!1sit!2sit">mappa</iframe>
+
+        <h2>Volontari</h2>
+        <p id="volontari_label">5 persone aiutano Paolo</p>
+        </div> <!-- fine core -->
+
+      <div id="social" class="blocco">
+        <h2>Foto e commenti</h2>
+        <form action="#">
+          <fieldset title="Commento">
+            <h3>Carica una foto e condividi il tuo commento</h3>
+            <textarea id="campo_testo">[Messaggio] </textarea>
+            <input id="sfoglia" type="submit" alt="Sfoglia" value="SFOGLIA"></input>
+            <img id="foto_upload" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
+            <input  id="invia" type="submit" alt="Invia" value="INVIA"></input>
+          </fieldset>
+        </form>
+      </div> <!-- fine commenti -->
+
+      <h4>Commenti degli utenti</h4>
+
+      <div class="commit blocco">
+        <h4><strong>Paolo Rossi</strong></h4>
+        <p>Cera una vota maria che si chiamafs pina che aas detto a sara comse sei blla oggi perche dviedo d odddf eera una vota maria che si chiamafs pina che aas detto a sara comse sei blla oggi perche dviedo d odddf eera una vota maria che si chiamafs pina che aas detto a sara comse sei blla oggi perche dviedo d odddf eera una vota maria che si chiamafs pina che aas detto a sara comse sei blla oggi perche dviedo d odddf eera una vota maria che si chiamafs pina che aas detto a sara comse sei blla oggi perche dviedo d odddf eera una vota maria che si chiamafs pina che aas detto a sara comse sei blla oggi perche dviedo d odddf eera una vota maria che si chiamafs pina che aas detto a sara comse sei blla oggi perche dviedo d odddf eera una vota maria che si chiamafs pina che aas detto a sara comse sei blla oggi perche dviedo d odddf eera una vota maria che si chiamafs pina che aas detto a sara comse sei blla oggi perche dviedo d odddf eera una vota maria che si chiamafs pina che aas detto a sara comse sei blla oggi perche dviedo d odddf eera una vota maria che si chiamafs pina che aas detto a sara comse sei blla oggi perche dviedo d odddf eera una vota maria che si chiamafs pina che aas detto a sara comse sei blla oggi perche dviedo d odddf eera una vota maria che si chiamafs pina che aas detto a sara comse sei blla oggi perche dviedo d odddf eera una vota maria che si chiamafs pina che aas detto a sara comse sei blla oggi perche dviedo d odddf eera una vota maria che si chiamafs pina che aas detto a sara comse sei blla oggi perche dviedo d odddf e
+        </p>
+        <img src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
+      </div>
+
+    </div> <!-- fine content -->
+
+  </body>
+</html>

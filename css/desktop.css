@@ -156,7 +156,7 @@ abbr[title] {
 }
 
 .content{
-display: block;
+  display: block;
 }
 
 input {
@@ -309,18 +309,15 @@ input#invia {
 
 #social {
   width: 70%;
-  float: left;
 
 }
 
 #descrizione_commenti {
-  float: left;
   width: 70%;
   padding: 0.5% 0% 0.5% 0%;
 }
 
 .commit {
-  float: left;
   width: 70%;
   /*margin: 0.5% 0.5% 0.5% 0.5%;*/
 }

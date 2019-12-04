@@ -1,0 +1,274 @@
+* {
+  margin: 0em;
+  /*font-family: Verdana, Geneva, sans-serif;*/
+font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+  /*background-image: url("../img/_template_foto/background.png");*/
+}
+
+/*usr*/
+.usr img {
+  width: 5em;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 1px solid #004c07;
+  margin: 0 0.5em 0 0.5em;
+}
+
+
+
+
+/*content*/
+.content h2 {
+  text-align: center;
+  padding: 0.2em 0 0.2em 0;
+
+  margin: auto;
+  color: #f2f2f2;
+    padding: 0.5em 0 0.5em 0;
+        background-color: #393;
+}
+
+/*pulsanti stile sito*/
+.buttons {
+  font-weight: bold;
+  color: #f2f2f2;
+  background: linear-gradient(to bottom, #393, #007f00);
+  border: 1px outset #444;
+  border-radius: 0.2em;
+  outline: none;
+  box-shadow: 2px 5px 5px 0px #333;
+  outline: none;
+  font-size: 2em;
+}
+
+input::-moz-focus-inner {
+  border: 0;
+}
+
+#doit_button{
+  width: 30%;
+  margin: 0 35% 2% 35%;
+  padding: 0.2em;
+
+}
+
+#titolo_post {
+  text-align: center;
+  width: 75%;
+  display: inline-block;
+  font-size: 300%;
+  padding: 0.5em 0 0.5em 0;
+    color: #f2f2f2;
+    background-color: #37383f;
+    border-bottom: 3px solid #f2f2f2;
+
+
+}
+
+
+#post_immagineiniziale {
+  float: right;
+  max-width: 25%;
+}
+
+/*core*/
+#post_core {
+  width: 75%;
+  background-color: #37383f;
+  margin-bottom: 2%;
+}
+
+
+
+#post_core_descrizione {
+  color: #37383f;
+  background-color: #efd867;
+  margin: 2em 10% 2em 10%;
+  padding: 1em;
+  border-radius: 10px;
+  line-height: 1.5em;
+}
+
+/*Informazioni*/
+#post_informazioni {
+  clear: both;
+  width: 25%;
+    float: right;
+
+
+}
+
+#post_informazioni_lista, #post_informazioni_listavolontari {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+    text-align: center;
+
+}
+
+
+.post_informazioni_record {
+  background-position: center top;
+  background-size: 3em;
+  background-repeat: no-repeat;
+    padding-top: 3em;
+
+}
+
+
+#post_informazioni_utente{
+  background-image: url("../img/utentenero_icon.png");
+
+
+}
+#post_informazioni_data{
+  background-image: url("../img/post_calendario_icon.png");
+}
+#post_informazioni_ora{
+  background-image: url("../img/post_calendario_icon.png");
+
+}
+#post_informazioni_posizione{
+  background-image: url("../img/post_localizzazione_icon.png");
+}
+#post_informazioni_volontari{
+  background-image: url("../img/volontari_icon.png");
+}
+
+#post_informazioni_listavolontari li {
+  margin: 1em auto;
+  border-bottom: 1px solid #e2e2e2;
+  width: 70%;
+  padding: 2%;
+
+}
+/*Foto e commenti*/
+#post_social {
+  width: 75%;
+
+}
+
+.post_infobox {
+  text-align: center;
+  padding: 2%;
+}
+
+#post_social_fotoupload {
+  max-width: 20%;
+  margin-left: 2%;
+  float: left;
+}
+
+#post_social_sfoglia {
+  margin: 2% 0% 2% 2%;
+    width: 20%;
+  clear: left;
+  float: left;
+}
+
+
+#post_social_textarea {
+
+  margin: 0 2% 0 2%;
+  width: 72%;
+  resize:vertical;
+}
+
+#post_social_invia {
+  width: 96%;
+  margin-left: 2%;
+  clear: both;
+}
+
+
+.commento {
+
+  margin: 5% 2% 0 2%;
+  display: inline-block;
+
+}
+
+.autore_commento {
+  display: block;
+  margin: 0 0 2% 2%;
+}
+
+
+.commento p {
+  padding: 1em 2% 1em 2%;
+  margin: 0 2% 0 2%;
+  width: 72%;
+  vertical-align: middle;
+  display: inline-block;
+  background-color: #efd867;
+}
+
+.user_image {
+  max-width: 20%;
+  margin-right: 0;
+  float: right;
+}
+
+
+
+
+#post_immaginepreview {
+  width: 15%;
+  margin: auto;
+  display: block;
+}
+
+#postEdit_core_titolo_input {
+  display: block;
+  margin: auto;
+}
+
+.label {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 1% 0 1% 0;
+}
+
+#post_social_sfoglia2 {
+  display: block;
+  margin: 2% auto;
+}
+
+#postEdit_social_textarea {
+  display: block;
+  margin: 2% 10% 2% 10%;
+  width: 80%;
+  resize:vertical;
+}
+
+#postEdit_informazioni_lista {
+  list-style-type: none;
+  padding: 0;
+
+}
+#postEdit_informazioni_lista li {
+  width: 100%;
+  padding-top: 3em;
+  text-align: center;
+
+}
+
+#postEdit_informazioni_data_input, #postEdit_informazioni_ora_input, #postEdit_informazioni_posizione_input {
+  display: block;
+  margin: 1% auto;
+}
+
+#postEdit_core {
+  width: 50%;
+  display: inline-block;
+}
+
+
+#postEdit_informazioni {
+  width: 50%;
+  float: right;
+}
