@@ -1,5 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
+
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -14,87 +15,170 @@
   <meta name="language" content="italian it" />
 
   <meta name="author" content="Alessandro Chimetto, Daniele Bresciani, Francesco De Salvador, Stefano Biotto" />
-
   <link rel="stylesheet" type="text/css" href="../css/d.css" media="handheld, screen"/>
   <link rel="stylesheet" type="text/css" href="../css/m.css" media="handheld, screen and (max-width:800px), only screen and (max-device-width:800px)" />
   <link rel="stylesheet" type="text/css" href="../css/p.css" media="print"/>
-
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <div class="content">
+  <div id="header">
+    <div id="info_utente">
+      <img src="../img/utente[bianco]_icon.png" alt="" />
+      <p>Nome Cognome</p>
+    </div>
 
-    <h1 id="titolo_post">RACCOLTA RIFIUTI</h1>
-    <img id="post_immagineiniziale" src="../img/_template_foto/rifiuti3.jpg" alt="immagine iniziale post_titolo"/>
+    <a id="hamburger" href="#hamburger"><img src="../img/menu_espandi_icon.png" alt="Menù" /></a>
 
-    <div id="post_informazioni">
-      <h2 class="post_titolo">Informazioni</h2>
-      <ul id="post_informazioni_lista">
-        <li><p class="post_informazioni_record" id="post_informazioni_utente">Post di Paolo Rossi</p></li> <!-- p necessario, span non va bene-->
-        <li><p class="post_informazioni_record" id="post_informazioni_data">Ritrovo in data 10/12/2019 alle ore 13:30</p></li>
-        <li><p class="post_informazioni_record" id="post_informazioni_posizione">In Via Luigi Luzzatti 45, Padova</p></li>
-        <li><p class="post_informazioni_record" id="post_informazioni_volontari">5 volontari aiutano Paolo</p>
-          <ol id="post_informazioni_listavolontari">
-            <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
-            <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
-            <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
-            <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
-            <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
-            <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
-            <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
-            <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
-            <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
-            <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
-            <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
-            <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
-            <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
-            <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
-            <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
-            <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+    <h1 xml:lang="en"><abbr title="do it">DOIT</abbr></h1>
+  </div>
 
-          </ol>
-        </li>
+  <div id="breadcrumb">
+    <p>PAGINA_CORRENTE</p>
+  </div>
+
+  <div id="page_central_part">
+    <div id="menu">
+      <ul id="menu_up">
+        <li id="menu_profilo"><a href="">Il mio profilo</a></li>
+        <li id="menu_bacheca"><a href="">Bacheca</a></li>
+        <li id="menu_nuovo_post"><a href="">Nuovo post</a></li>
+        <li id="menu_help" xml:lang="en"><a href="">Help</a></li>
+      </ul>
+      <ul id="menu_down">
+        <li id="menu_about" xml:lang="en"><a href="about.html">About Us</a></li>
+        <li id="menu_logout" xml:lang="en"><a href="">Log Out</a></li>
       </ul>
     </div>
 
 
-    <div id="post_core">
+    <body>
+      <div class="content">
 
-      <h2 class="post_titolo">Descrizione</h2>
-      <p id="post_core_descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem commodo a. Aenean vitae metus ultricies, hendrerit erat sit amet, placerat libero. Nam dapibus mi vel dui ultrices, nec egestas est ullamcorper. Praesent nec gravida enim, non iaculis mauris. Vivamus convallis condimentum placerat. Maecenas ornare commodo efficitur. Pellentesque convallis imperdiet mi tempor dignissim. Nam sodales consequat elit et porta. Mauris posuere nibh metus, eget tempor eros porta eu. Maecenas tristique, justo vel fermentum sodales, quam metus laoreet elit, eu tristique tortor massa porttitor augue.</p>
-      <form><input type="button" name="DOIT" value="DOIT" id="doit_button" class="buttons"></form>
-    </div>
+        <h1 id="titolo_post">RACCOLTA RIFIUTI</h1>
 
 
+        <div id="post_informazioni">
+          <h2 class="post_titolo">Informazioni</h2>
+          <ul id="post_informazioni_lista"> <!--i p in span-->
+            <li><p class="post_informazioni_record" id="post_informazioni_utente">Post di Paolo Rossi</p></li> <!-- p necessario, span non va bene-->
+            <li><p class="post_informazioni_record" id="post_informazioni_data">Ritrovo in data 10/12/2019<br />alle ore 13:30</p></li>
+            <li><p class="post_informazioni_record" id="post_informazioni_posizione">In Via Luigi Luzzatti 45, Padova</p></li>
+            <li><p class="post_informazioni_record" id="post_informazioni_volontari">5 volontari aiutano Paolo</p>
+              <ol id="post_informazioni_listavolontari">
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>            <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>            <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>            <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>            <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>            <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>            <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_informazioni_volontario"><a href="#" class="usr"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
 
-    <div id="post_social">
-      <h2 class="post_titolo">Foto e commenti</h2>
-      <p class="post_infobox">La sezione commenti permette l'organizzazione dei volontari. Contibuisci anche tu a questa attivit&agrave; di volotariato, lascia un commento e una bella fotografia!</p>
-      <form id="post_social_form" action="#">
-
-        <img id="post_social_fotoupload" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
-        <input id="post_social_sfoglia" class="buttons" type="submit" alt="sfoglia" value="SFOGLIA" />
-        <textarea id="post_social_textarea" rows="10" cols="50">[Messaggio] </textarea>
-        <input id="post_social_invia" class="buttons" type="submit" alt="invia" value="INVIA" />
-      </form>
+              </ol>
+            </li>
+          </ul>
+        </div>
 
 
-      <div class="commento">
-        <a href="#" class="usr autore_commento"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a>
-        <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
+        <div id="post_core">
+          
+          <h2 id="post_titolodescrizione">Descrizione</h2>
+          <p id="post_core_descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem commodo a. Aenean vitae metus ultricies, hendrerit erat sit amet, placerat libero. Nam dapibus mi vel dui ultrices, nec egestas est ullamcorper. Praesent nec gravida enim, non iaculis mauris. Vivamus convallis condimentum placerat. Maecenas ornare commodo efficitur. Pellentesque convallis imperdiet mi tempor dignissim. Nam sodales consequat elit et porta. Mauris posuere nibh metus, eget tempor eros porta eu. Maecenas tristique, justo vel fermentum sodales, quam metus laoreet elit, eu tristique tortor massa porttitor augue.</p>
+          <img id="post_immagineiniziale" src="../img/_template_foto/rifiuti3.jpg" alt="immagine iniziale post_titolo"/>
+          <form><input type="button" name="DOIT" value="DOIT" id="doit_button" class="buttons"></form>
+        </div>
+
+
+
+        <div id="post_social">
+          <h2 class="post_titolo">Foto e commenti</h2>
+          <p class="post_infobox">La sezione commenti permette l'organizzazione dei volontari. Contibuisci anche tu a questa attivit&agrave; di volotariato, lascia un commento e una bella fotografia!</p>
+          <form id="post_social_form" action="#">
+
+            <img id="post_social_fotoupload" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
+            <input id="post_social_sfoglia" class="buttons" type="submit" alt="sfoglia" value="SFOGLIA" />
+            <textarea id="post_social_textarea" rows="5" cols="50">[Messaggio] </textarea>
+            <input id="post_social_invia" class="buttons" type="submit" alt="invia" value="INVIA" />
+          </form>
+
+
+          <div class="commento">
+            <a href="#" class="usr autore_commento"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a>
+            <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
+          </div>
+          <div class="commento">
+            <a href="#" class="usr autore_commento"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a>
+            <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
+          </div>
+          <div class="commento">
+            <a href="#" class="usr autore_commento"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a>
+            <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
+          </div>
+        </div>
       </div>
-      <div class="commento">
-        <a href="#" class="usr autore_commento"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a>
-        <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
-      </div>
-      <div class="commento">
-        <a href="#" class="usr autore_commento"><img src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a>
-        <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
-      </div>
-    </div>
-  </div>
-</body>
+    </body>
