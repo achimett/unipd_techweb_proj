@@ -1,61 +1,60 @@
---Droppa db gia esiste
+DROP DATABASE IF EXISTS doit;
 
-Drop database if exists Doit;
+CREATE DATABASE doit;
 
---Crea db
+USE doit;
 
-Create database Doit;
+SET FOREIGN_KEY_CHECKS = 0; -- Disabilita check su vincoli di integrità referenziale
 
---Passa al db creato
+DROP TABLE IF EXISTS utente, post, commento, img;
 
-Use Doit;
+CREATE TABLE utente (
+  id          INT AUTO_INCREMENT PRIMARY KEY,
+  email       VARCHAR(50) NOT NULL,
+  password    VARCHAR(30) NOT NULL,
+  nome        VARCHAR(30) NOT NULL,
+  cognome     VARCHAR(30) NOT NULL,
+  datanascita DATE NOT NULL,
+  cf          VARCHAR(16) NOT NULL,
+  bio         TEXT NOT NULL,
+  img_path    VARCHAR(256) NOT NULL DEFAULT 'images/default.jpg'
+);
 
--- Disabilita check su vincoli di integrità referenziale
+CREATE TABLE post (
+  id          INT AUTO_INCREMENT PRIMARY KEY,
+  titolo      VARCHAR(50) NOT NULL,
+  id_autore   INT NOT NULL,
+  data        TIMESTAMP NOT NULL,
+  text        TEXT NOT NULL,
+  img_path    VARCHAR(256) NOT NULL DEFAULT 'images/default.jpg',
+  img_closed_path VARCHAR(256) NOT NULL DEFAULT 'images/default_closed.jpg',
+  lat         DECIMAL(10,7),
+  lon         DECIMAL(10,7),
+  chiuso      BOOLEAN NOT NULL DEFAULT 0,
 
-SET FOREIGN_KEY_CHECKS=0;
+  FOREIGN KEY (id_autore) REFERENCES utente(id)
+);
 
--- Ripulisce, eliminando le tabelle qualora esistesserò già
+CREATE TABLE commento (
+  id          INT AUTO_INCREMENT PRIMARY KEY,
+  id_autore   INT NOT NULL,
+  id_post     INT NOT NULL,
+  data        TIMESTAMP NOT NULL,
+  text        TEXT NOT NULL,
 
-Drop table if exists Utente;
+  FOREIGN KEY (id_autore) REFERENCES utente(id),
+  FOREIGN KEY (id_post) REFERENCES post(id)
+);
+CREATE TABLE img (
+  id          INT AUTO_INCREMENT PRIMARY KEY,
+  id_autore   INT NOT NULL,
+  id_post     INT NOT NULL,
+  data        TIMESTAMP NOT NULL,
+  img_path    VARCHAR(256) NOT NULL DEFAULT 'images/default.jpg',
 
-CREATE TABLE Utente(
-                    ID  INT auto_increment PRIMARY KEY,
-                    Email VARCHAR(50) NOT NULL,
-                    Password VARCHAR(30) NOT NULL,
-                    Nome VARCHAR(30) NOT NULL,
-       	            Cognome VARCHAR(30) NOT NULL,
-	                DataNascita DATE NOT NULL,
-	                CF VARCHAR(16) NOT NULL,
-	                Bio TEXT NOT NULL,
-	                Img_path VARCHAR(256) not null DEFAULT 'Immagini/user/default.jpg'
-	                );
-	                
-CREATE TABLE Post(
-                    ID  INT auto_increment PRIMARY KEY,
-                    Titolo VARCHAR(50) NOT NULL,
-                    ID_Autore INT NOT NULL,
-                    Data TIMESTAMP not null,
-                    Text TEXT not null,
-                    Img_path VARCHAR(256) not null DEFAULT 'Immagini/post/default.jpg',
-                    Img_closed_path VARCHAR(256) not null DEFAULT 'Immagini/post/default_closed.jpg',
-                    LAT DECIMAL(10,7),
-                    LON DECIMAL(10,7),
-                    Chiuso BOOLEAN not null default 0,
-                    FOREIGN KEY (ID_Autore) REFERENCES Utente(ID)
-	                );	                
-                   
-CREATE TABLE Commento(
-                    ID  INT auto_increment PRIMARY KEY,
-                    ID_Autore INT NOT NULL,
-                    ID_Post INT NOT NULL,
-                    Data TIMESTAMP not null,
-                    Text TEXT not null,
-                    FOREIGN KEY (ID_Autore) REFERENCES Utente(ID),
-                    FOREIGN KEY (ID_Post) REFERENCES Post(ID)
-	                );	                   
-                
--- Riabilita check
+  FOREIGN KEY (id_autore) REFERENCES utente(id),
+  FOREIGN KEY (id_post) REFERENCES post(id)
+);
 
-SET FOREIGN_KEY_CHECKS=1;
-                   
-                    
+
+SET FOREIGN_KEY_CHECKS = 1; -- Riabilita check
