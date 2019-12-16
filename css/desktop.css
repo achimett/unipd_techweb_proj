@@ -20,6 +20,7 @@ abbr[title] {
 }
 
 #info_utente {
+  padding-left: 5%;
   float: left;
   display: inline-block;
 }
@@ -63,9 +64,6 @@ abbr[title] {
 #menu {
   width: 18%;
   padding: 1em 0em 1em 1em;
-  border-left: 1pt solid #000000;
-  border-right: 1pt solid #000000;
-  border-bottom: 1pt solid #000000;
   margin-bottom: 0.2em;
   line-height: 2em;
   float:left;
