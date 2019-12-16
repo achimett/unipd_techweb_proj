@@ -45,11 +45,9 @@
 
 #profilo_nome_cognome {
   width: 100%;
+  word-break: break-all;
 }
 
-#profilo_data_di_nascita ul {
-  list-style-type: none;
-}
 
 #profilo_data_di_nascita img {
   width: 10%;

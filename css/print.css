@@ -52,42 +52,45 @@ abbr[title] {
 
 /******* CSS PROFILO *******/
 
-#profilo h1 {
-  font-size: 3vw;
+#profilo_nome_cognome {
+  width: 60%;
+  vertical-align: middle;
+  display: inline-block;
 }
 
-#profilo_nome_cognome {
-  width: 100%;
+#profilo h1 {
+  text-align: center;
+}
+
+#profilo h2 {
+  padding: 2%;
+  text-align: center;
+  background-color: #393;
+  color: #FFF;
 }
 
 #profilo_nome_cognome img {
-  vertical-align: middle;
-  height: 400px;
-  width: auto;
-}
-
-#profilo_data_di_nascita ul {
-  list-style-type: none;
+  height: 50%;
+  width: 50%;
+  display: block;
+  margin: 0 auto;
 }
 
 #profilo_data_di_nascita img {
-  width: 2%;
+  width: 10%;
 }
 
 #profilo_data_di_nascita {
-  width: 100%;
+  display: inline-block;
+  list-style-type: none;
+  word-break: break-all;
+  list-style-type: none;
+  width: 39%;
 }
 
 #profilo_biografia {
-  padding-top: 2%;
-}
-
-#profilo_contributi {
-  margin-top: 2%;
-}
-
-#profilo_radio_button {
-  display: none;
+  display: block;
+  clear: right;
 }
 
 #profilo_table_contributi {
@@ -103,8 +106,8 @@ abbr[title] {
   width: 20%;
 }
 
-#profilo_table_contributi tr:nth-child(even) {
-  background: rgba(0, 0, 0, 0.3); /*Durante la stampa questa istruzione viene ignorata*/
+#profilo_table_contributi tr {
+  border: 1px solid;
 }
 
 #profilo_table_contributi td:nth-child(2), td:nth-child(3) {

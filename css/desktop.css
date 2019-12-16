@@ -130,23 +130,20 @@ abbr[title] {
 }
 
 /********** CONTENT **********/
-#content {
+.content {
   margin-left: 20%;
   padding: 1em;
 }
 /********** CONTENT-PROFILO**********/
-#profilo {
-  margin-left: 20.1%;
-}
 
 #profilo_nome_cognome {
-  float: left;
-  width: 70%;
+  width: 60%;
+  vertical-align: middle;
+  display: inline-block;
 }
 
 #profilo h1 {
-  font-size: 2vw;
-  word-wrap: break-word;
+  text-align: center;
 }
 
 #profilo h2 {
@@ -157,13 +154,10 @@ abbr[title] {
 }
 
 #profilo_nome_cognome img {
-  vertical-align: middle;
-  height: 200px;
-  width: auto;
-}
-
-#profilo_data_di_nascita ul {
-  list-style-type: none;
+  height: 50%;
+  width: 50%;
+  display: block;
+  margin: 0 auto;
 }
 
 #profilo_data_di_nascita img {
@@ -171,15 +165,17 @@ abbr[title] {
 }
 
 #profilo_data_di_nascita {
-  float: right;
-  width: 30%;
+  display: inline-block;
+  list-style-type: none;
   word-break: break-all;
+  list-style-type: none;
+  width: 39%;
 }
 
 #profilo_biografia {
   display: block;
   clear: right;
-  padding-top: 23%;
+  /* padding-top: 23%; */
 }
 
 #profilo_table_contributi {
