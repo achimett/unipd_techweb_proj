@@ -9,20 +9,40 @@ abbr[title] {
   text-decoration: none;
 }
 
+body {
+  background-image: url("../img/background_header.png");
+  background-size: 100% 4em;
+  background-repeat: repeat-x;
+  max-width: 1024px;
+  margin: auto;
+}
+
+/********** Targa Utente **********/
+.usr img {
+  width: 2em;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin: 0 0.5em 0 0.5em;
+
+}
+
+.usr {
+  white-space: nowrap;
+  text-decoration: none;
+}
+
 /********** HEADER **********/
 #header {
-  background-color: #339933;
-  color: #FFFFFF;
+  background-color: #70c653;
+  color: #006837;
   text-align: center;
-  padding-bottom: 0.2em;
-  padding-top: 0.2em;
-  line-height: 3em;
+  height: 4em;
 }
 
 #info_utente {
-  padding-left: 5%;
   float: left;
   display: inline-block;
+  margin-top: 0.5em;
 }
 
 #info_utente img {
@@ -37,7 +57,7 @@ abbr[title] {
 }
 
 #header h1 {
-  font-size: 2.5em;
+  font-size: 3em;
   width: 50%;
   margin: 0em auto;
 }
@@ -55,15 +75,14 @@ abbr[title] {
 }
 
 /********** PAGE-CENTRAL-PART **********/
-#page_central_part {
+/* #page_central_part {
   max-width: 1024px;
   margin: auto;
-}
+} */
 
 /********** MENU **********/
 #menu {
   width: 18%;
-  padding: 1em 0em 1em 1em;
   margin-bottom: 0.2em;
   line-height: 2em;
   float:left;
@@ -71,7 +90,10 @@ abbr[title] {
 }
 
 #menu ul#menu_up {
-  margin-bottom: 20em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #339933;
+  margin-bottom: 25%;
 }
 
 #menu ul#menu_down {
@@ -85,6 +107,8 @@ abbr[title] {
 #menu a {
   text-decoration: none;
   font-weight: bold;
+  display: block;
+  width: 100%;
 }
 
 #menu a:link {

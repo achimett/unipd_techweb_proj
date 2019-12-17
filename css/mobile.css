@@ -1,18 +1,5 @@
 /********** HEADER **********/
-#header {
-  line-height: 4.5em;
-}
-
-#info_utente {
-  padding-left: 2%;
-}
-
-#info_utente img {
-  height: 4em;
-  width: 4em;
-}
-
-#info_utente p {
+#info_utente span {
   display: none;
 }
 
@@ -36,8 +23,6 @@
   font-size: 2em;
 }
 
-/********** PAGE-CENTRAL-PART **********/
-
 /********** MENU **********/
 #menu {
   display: none;
@@ -54,8 +39,7 @@
 }
 
 #menu ul#menu_down {
-  padding-left: 0;
-  text-align: center;
+  padding-left: 2.5em;
 }
 
 /********** FOOTER **********/
