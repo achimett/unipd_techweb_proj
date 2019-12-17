@@ -15,9 +15,20 @@
 
   <meta name="author" content="Alessandro Chimetto, Daniele Bresciani, Francesco De Salvador, Stefano Biotto" />
 
-  <link rel="stylesheet" type="text/css" href="../css/desktop.css" media="handheld, screen"/>
+  <meta name="author" content="Alessandro Chimetto, Daniele Bresciani, Francesco De Salvador, Stefano Biotto" />
+
+
+  <link rel="stylesheet" type="text/css" href="../css/d.css" media="handheld, screen" />
+  <link rel="stylesheet" type="text/css" href="../css/m.css" media="handheld, screen and (max-width:800px), only screen and (max-device-width:800px)" />
+
+
+  <link rel="stylesheet" type="text/css" href="../css/desktop.css" media="handheld, screen" />
   <link rel="stylesheet" type="text/css" href="../css/mobile.css" media="handheld, screen and (max-width:800px), only screen and (max-device-width:800px)" />
-  <link rel="stylesheet" type="text/css" href="../css/print.css" media="print"/>
+  <link rel="stylesheet" type="text/css" href="../css/p.css" media="print" />
+
+
+
+
 </head>
 
 <body>
@@ -51,135 +62,162 @@
     </div>
 
 
-    <div class="content">
 
-      <div id="core" class="blocco">
 
-        <h1>Raccolta rifiuti</h1>
-        <img id="foto_iniziale" src="../img/_template_foto/rifiuti1.jpg" alt="immagine di copertina" />
-        <h2>Descrizione</h2>
-        <p id="descrizione">At vero eos et accusamus et iusto odio dign: 10issimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus</p>
 
-        <form action="#" method="post">
 
-          <fieldset>
-            <input id="doit" type="submit" value="DOIT" alt="do it" />
-          </fieldset>
 
-        </form>
-      </div> <!-- fine core -->
 
-      <div id="info" class="blocco">
+      <body>
 
-        <div class="info_box">
-          <h2>Informazioni</h2>
-          <p id="autore_label">Post di Paolo Bianchi</p>
-          <p id="data_label">Ritrovo il 12/02/2019<br />alle ore 15.30</p>
+          <div class="content" id="post">
+            <img id="post_immagineiniziale" src="../img/_template_foto/rifiuti3.jpg" alt="foto iniziale" />
+
+            <h1 id="titolo_post">RACCOLTA RIFIUTI</h1>
+
+
+            <div id="post_informazioni">
+              <h2 class="post_titolo">Informazioni</h2>
+              <ul id="post_informazioni_lista"> <!--i p in span-->
+                <li><p class="post_informazioni_record" id="post_informazioni_utente">Post di<br /><strong>Paolo Rossi</strong></p></li> <!-- p necessario, span non va bene-->
+                <li><p class="post_informazioni_record" id="post_informazioni_data">Ritrovo<br /><strong>Domenica 10/12/2019</strong><br />Ore<br /><strong>13:30</strong></p></li>
+                <li><p class="post_informazioni_record" id="post_informazioni_posizione">Via<br /><strong>Luigi Luzzatti 45</strong>,<br />Padova</p></li>
+                <li><p class="post_informazioni_record" id="post_informazioni_volontari"><strong>5 volontari</strong> aiutano Paolo</p></li>
+              </ul>
+            </div>
+            <form action="#" id="doit"><fieldset><legend class="post_titolo">Partecipa</legend><input type="button" name="DOIT" value="DOIT" /></fieldset></form>
+
+            <div id="post_core">
+              <h2 class="post_titolo" id="post_titolodescrizione">Descrizione</h2>
+              <p id="post_core_descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem commodo a. Aenean vitae metus ultricies, hendrerit erat sit amet, placerat libero. Nam dapibus mi vel dui ultrices, nec egestas est ullamcorper. Praesent nec gravida enim, non iaculis mauris. Vivamus convallis condimentum placerat. Maecenas ornare commodo efficitur. Pellentesque convallis imperdiet mi tempor dignissim. Nam sodales consequat elit et porta. Mauris posuere nibh metus, eget tempor eros porta eu. Maecenas tristique, justo vel fermentum sodales, quam metus laoreet elit, eu tristique tortor massa porttitor augue.</p>
+            </div>
+
+
+            <div id="post_listavolontari">
+              <h2 class="post_titolo">Volontari DOIT</h2>
+              <ol>
+                <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+                <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+              </ol>
+            </div>
+
+            <div id="post_social">
+              <form id="post_social_form" action="#">
+                <fieldset>
+                  <legend class="post_titolo">Foto e commenti</legend>
+                  <p class="post_infobox">La sezione commenti permette l'organizzazione dei volontari. Contibuisci anche tu a questa attivit&agrave; di volotariato</p>
+                  <p class="post_infobox">Scegli una foto</p>
+                  <input id="post_sfoglia" type="file" alt="sfoglia" value="SFOGLIA" />
+                  <p class="post_infobox">Scrivi un messaggio</p>
+                  <textarea id="post_social_textarea" rows="5" cols="50">[Messaggio] </textarea>
+                  <input id="post_social_invia" class="buttons" type="submit" alt="invia" value="INVIA" />
+                </fieldset>
+              </form>
+              <div class="commento">
+                <a href="#" class="usr autore_commento"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi<span>12/12/2001 - 13:30</span></a>
+                <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
+              </div>
+              <div class="commento">
+                <a href="#" class="usr autore_commento"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi<span>12/12/2001 - 13:30</span></a>
+                <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
+              </div>
+              <div class="commento">
+                <a href="#" class="usr autore_commento"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi<span>12/12/2001 - 13:30</span></a>
+                <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
+              </div>
+              <div class="commento">
+                <a href="#" class="usr autore_commento"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi<span>12/12/2001 - 13:30</span></a>
+                <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
+              </div>
+              <div class="commento">
+                <a href="#" class="usr autore_commento"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi<span>12/12/2001 - 13:30</span></a>
+                <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
+              </div>
+              <div class="commento">
+                <a href="#" class="usr autore_commento"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi<span>12/12/2001 - 13:30</span></a>
+                <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
+              </div>
+              <div class="commento">
+                <a href="#" class="usr autore_commento"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi<span>12/12/2001 - 13:30</span></a>
+                <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
+              </div>
+              <div class="commento">
+                <a href="#" class="usr autore_commento"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi<span>12/12/2001 - 13:30</span></a>
+                <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
+              </div>
+              <div class="commento">
+                <a href="#" class="usr autore_commento"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi<span>12/12/2001 - 13:30</span></a>
+                <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
+              </div>
+              <div class="commento">
+                <a href="#" class="usr autore_commento"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi<span>12/12/2001 - 13:30</span></a>
+                <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
+              </div>
+              <div class="commento">
+                <a href="#" class="usr autore_commento"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi<span>12/12/2001 - 13:30</span></a>
+                <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
+              </div>
+              <div class="commento">
+                <a href="#" class="usr autore_commento"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi<span>12/12/2001 - 13:30</span></a>
+                <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
+              </div>
+              <div class="commento">
+                <a href="#" class="usr autore_commento"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi<span>12/12/2001 - 13:30</span></a>
+                <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
+              </div>
+              <div class="commento">
+                <a href="#" class="usr autore_commento"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi<span>12/12/2001 - 13:30</span></a>
+                <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
+              </div>
+
+            </div>
+          </div>
         </div>
 
-        <div class="info_box">
-          <h2>Posizione</h2>
-          <p id="posizione_label">Padova Centro<br />Via Luigi Luzzati 45</p>
-          <iframe id="mappa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d89636.53398772895!2d11.821205683263111!3d45.406482347567035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477eda5841ab30cf%3A0xc18236edaa1a2e2c!2sPadova%20PD!5e0!3m2!1sit!2sit!4v1572906781194!5m2!1sit!2sit">mappa</iframe>
-        </div>
-
-        <div class="info_box">
-          <h2>Volontari</h2>
-          <p id="volontari_label">5 persone aiutano Paolo</p>
-          <ol id="lista_utenti">
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-            <li><a href="#"><img src="../img/_template_foto/gianni_morandi.jpg" />Piero Giovanni</a></li>
-          </ol>
-        </div>
 
 
 
 
+  </div> <!-- fine content -->
 
-      </div> <!-- fine core -->
 
-      <div id="social" class="blocco">
-        <h2>Foto e commenti</h2>
-        <form action="#">
-          <fieldset title="Commento">
-            <h3>Carica una foto e condividi il tuo commento</h3>
-            <textarea id="campo_testo">[Messaggio] </textarea>
-            <input id="sfoglia" type="submit" alt="Sfoglia" value="SFOGLIA"></input>
-            <img id="foto_upload" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
-            <input  id="invia" type="submit" alt="Invia" value="INVIA"></input>
-          </fieldset>
-        </form>
-      </div> <!-- fine commenti -->
 
-      <h4 id="descrizione_commenti">Commenti degli utenti</h4>
-
-      <div class="commit blocco">
-        <h4><strong>Paolo Rossi</strong></h4>
-        <p>Cera una vota maria che si chiamafs pina che aas detto a sara comse sei blla oggi perche dviedo d odddf eera una vota maria che si chiamafs pina che aas detto a sara comse sei blla oggi perche dviedo d odddf eera una vota maria che si chiamafs pina che aas detto a sara comse sei blla oggi perche dviedo d odddf eera una vota maria che si chiamafs pina che aas detto a sara comse sei blla oggi perche dviedo d odddf eera una vota maria che si chiamafs pina che aas detto a sara comse sei blla oggi perche dviedo d odddf eera una vota maria che si chiamafs pina che aas detto a sara comse sei blla oggi perche dviedo d odddf eera una vota maria che si chiamafs pina che aas detto a sara comse sei blla oggi perche dviedo d odddf eera una vota maria che si chiamafs pina che aas detto a sara comse sei blla oggi perche dviedo d odddf eera una vota maria che si chiamafs pina che aas detto a sara comse sei blla oggi perche dviedo d odddf eera una vota maria che si chiamafs pina che aas detto a sara comse sei blla oggi perche dviedo d odddf eera una vota maria che si chiamafs pina che aas detto a sara comse sei blla oggi perche dviedo d odddf eera una vota maria che si chiamafs pina che aas detto a sara comse sei blla oggi perche dviedo d odddf eera una vota maria che si chiamafs pina che aas detto a sara comse sei blla oggi perche dviedo d odddf eera una vota maria che si chiamafs pina che aas detto a sara comse sei blla oggi perche dviedo d odddf eera una vota maria che si chiamafs pina che aas detto a sara comse sei blla oggi perche dviedo d odddf e
-        </p>
-        <img src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
-      </div>
-
-    </div> <!-- fine content -->
-
-    <div id="footer">
-      <p>
-        <a href="http://validator.w3.org/check?uri=referer" xml:lang="en">
-          <img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" />
-        </a>
-        &copy; Alessandro Chimetto, Daniele Bresciani, Francesco De Salvador, Stefano Biotto
-      </p>
-    </div>
+  <div id="footer">
+    <p>
+      <a href="http://validator.w3.org/check?uri=referer" xml:lang="en">
+        <img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" />
+      </a>
+      &copy; Alessandro Chimetto, Daniele Bresciani, Francesco De Salvador, Stefano Biotto
+    </p>
   </div>
+</div>
 </body>
 </html>
