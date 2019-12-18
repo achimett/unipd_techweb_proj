@@ -1,60 +1,51 @@
 /********** HEADER **********/
-#header {
-  line-height: 2em;
-}
-
-#info_utente img {
-  height: 2em;
-  width: 2em;
-}
-
-#info_utente p {
+#info_utente span {
   display: none;
 }
 
 #header h1 {
-  font-size: 1.5em;
+  font-size: 4em;
 }
 
 #hamburger {
+  padding-right: 2%;
   display: inline-block;
   float: right;
 }
 
 #hamburger img {
   vertical-align: middle;
-  height: 1.5em;
-  width: 1.5em;
+  height: 4em;
+  width: 4em;
 }
 
 #breadcrumb {
-  font-size: 0.8em;
-}
-
-/********** PAGE-CENTRAL-PART **********/
-#page_central_part {
-  max-width: none;
-  margin: 0em;
+  font-size: 2em;
 }
 
 /********** MENU **********/
-#hamburger:hover + #menu {
-  visibility: visible;
-  right: 0%;
+#menu {
+  display: none;
+  width: 50%;
+  float: none;
+  border: 0;
+  padding: 0;
+  margin: 0 auto;
+  font-size: 2.3em;
 }
 
-#menu {
-  background-color: #FFFFFF;
-  height: 100%;
-  position: fixed;
-  z-index: 10;
-  top: 0;
-  right: -125%;
-  float:none;
-  transition: 0.5s;
-  -webkit-transition: 0.5s;
-  -moz-transition: 0.5s;
-  -o-transition: 0.5s;
-  -ms-transition: 0.5s;
-  visibility: hidden;
+#menu ul#menu_up {
+  margin-bottom: 3em;
+}
+
+#menu ul#menu_down {
+  padding-left: 2.5em;
+}
+
+/********** FOOTER **********/
+#footer {
+  border-radius: 0;
+}
+#footer a {
+  display: none;
 }

@@ -15,19 +15,27 @@
 
   <meta name="author" content="Alessandro Chimetto, Daniele Bresciani, Francesco De Salvador, Stefano Biotto" />
 
-  <link rel="stylesheet" type="text/css" href="../css/desktop.css" media="handheld, screen"/>
+  <link rel="stylesheet" type="text/css" href="../css/desktop.css" media="handheld, screen" />
   <link rel="stylesheet" type="text/css" href="../css/mobile.css" media="handheld, screen and (max-width:800px), only screen and (max-device-width:800px)" />
-  <link rel="stylesheet" type="text/css" href="../css/print.css" media="print"/>
+  <link rel="stylesheet" type="text/css" href="../css/print.css" media="print" />
+
+  <script type="text/javascript" src="../js/menu.js"></script>
+
+  <noscript>
+    <link rel="stylesheet" type="text/css" href="../css/desktop_nojs.css" media="handheld, screen" />
+    <link rel="stylesheet" type="text/css" href="../css/mobile_nojs.css" media="handheld, screen and (max-width:800px), only screen and (max-device-width:800px)" />
+  </noscript>
+
 </head>
 
 <body>
   <div id="header">
-    <div id="info_utente">
+    <a id="info_utente" class="usr" href="">
       <img src="../img/utente[bianco]_icon.png" alt="" />
-      <p>Nome Cognome</p>
-    </div>
+      <span>Nome Cognome</span>
+    </a>
 
-    <a id="hamburger" href="#hamburger"><img src="../img/menu_espandi_icon.png" alt="Menù" /></a>
+    <a id="hamburger" href="javascript:void(0);" onclick="toggleMenu()"><img src="../img/prova_menu_espandi_icon.png" alt="Menù" /></a>
 
     <h1 xml:lang="en"><abbr title="do it">DOIT</abbr></h1>
   </div>
@@ -36,33 +44,28 @@
     <p>PAGINA_CORRENTE</p>
   </div>
 
-  <div id="page_central_part">
-    <div id="menu">
-      <ul id="menu_up">
-        <li id="menu_profilo"><a href="">Il mio profilo</a></li>
-        <li id="menu_bacheca"><a href="">Bacheca</a></li>
-        <li id="menu_nuovo_post"><a href="">Nuovo post</a></li>
-        <li id="menu_help" xml:lang="en"><a href="">Help</a></li>
-      </ul>
-      <ul id="menu_down">
-        <li id="menu_about" xml:lang="en"><a href="about.html">About Us</a></li>
-        <li id="menu_logout" xml:lang="en"><a href="">Log Out</a></li>
-      </ul>
-    </div>
+  <div id="menu">
+    <ul id="menu_up">
+      <li id="menu_profilo"><a href="">Il mio profilo</a></li>
+      <li id="menu_bacheca"><a href="">Bacheca</a></li>
+      <li id="menu_nuovo_post"><a href="">Nuovo post</a></li>
+      <li id="menu_help" xml:lang="en"><a href="">Help</a></li>
+    </ul>
+    <ul id="menu_down">
+      <li id="menu_about" xml:lang="en"><a href="about.html">About Us</a></li>
+      <li id="menu_logout" xml:lang="en"><a href="">Log Out</a></li>
+    </ul>
+  </div>
 
+  <!-- INSERIRE QUI IL DIV CON CLASS="CONTENT" -->
 
-    <div id="content">
-
-    </div>
-
-    <div id="footer">
-      <p>
-        <a href="http://validator.w3.org/check?uri=referer" xml:lang="en">
-          <img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" />
-        </a>
-        &copy; Alessandro Chimetto, Daniele Bresciani, Francesco De Salvador, Stefano Biotto
-      </p>
-    </div>
+  <div id="footer">
+    <p>
+      <a href="http://validator.w3.org/check?uri=referer" xml:lang="en">
+        <img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" />
+      </a>
+      &copy; Alessandro Chimetto, Daniele Bresciani, Francesco De Salvador, Stefano Biotto
+    </p>
   </div>
 </body>
 </html>
