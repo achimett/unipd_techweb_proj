@@ -42,6 +42,16 @@
   padding-left: 2.5em;
 }
 
+/********** CONTENT **********/
+#error_404 {
+  margin-left: 0%;
+}
+
+#error_404 img {
+  width: 100%;
+  height: auto;
+}
+
 /********** FOOTER **********/
 #footer {
   border-radius: 0;

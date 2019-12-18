@@ -23,7 +23,6 @@ body {
   border-radius: 50%;
   vertical-align: middle;
   margin: 0 0.5em 0 0.5em;
-
 }
 
 .usr {
@@ -74,12 +73,6 @@ body {
   padding-top: 0.1em;
 }
 
-/********** PAGE-CENTRAL-PART **********/
-/* #page_central_part {
-  max-width: 1024px;
-  margin: auto;
-} */
-
 /********** MENU **********/
 #menu {
   width: 18%;
@@ -101,7 +94,7 @@ body {
 }
 
 #menu ul {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 #menu a {
@@ -120,39 +113,53 @@ body {
 }
 
 #menu_profilo {
-    background-image: url("../img/menu_profilo_icon.png");
-    background-position: left center;
-    background-size: 2.5em;
-    background-repeat: no-repeat;
-    padding-left: 2.6em;
+  background-image: url("../img/menu_profilo_icon.png");
+  background-position: left center;
+  background-size: 2.5em;
+  background-repeat: no-repeat;
+  padding-left: 2.6em;
 }
 
 #menu_bacheca {
-    background-image: url("../img/menu_bacheca_icon.png");
-    background-position: left center;
-    background-size: 2.5em;
-    background-repeat: no-repeat;
-    padding-left: 2.6em;
+  background-image: url("../img/menu_bacheca_icon.png");
+  background-position: left center;
+  background-size: 2.5em;
+  background-repeat: no-repeat;
+  padding-left: 2.6em;
 }
 
 #menu_nuovo_post {
-    background-image: url("../img/menu_nuovo_icon.png");
-    background-position: left center;
-    background-size: 2.5em;
-    background-repeat: no-repeat;
-    padding-left: 2.6em;
+  background-image: url("../img/menu_nuovo_icon.png");
+  background-position: left center;
+  background-size: 2.5em;
+  background-repeat: no-repeat;
+  padding-left: 2.6em;
 }
 
 #menu_help {
-    background-image: url("../img/menu_help.png");
-    background-position: left center;
-    background-size: 2.5em;
-    background-repeat: no-repeat;
-    padding-left: 2.6em;
+  background-image: url("../img/menu_help.png");
+  background-position: left center;
+  background-size: 2.5em;
+  background-repeat: no-repeat;
+  padding-left: 2.6em;
 }
 
 /********** CONTENT **********/
+#error_404 {
+  margin-left: 20%;
+  padding: 1em;
+  overflow: hidden;
+}
 
+#error_404 p {
+  margin: 1em;
+  text-align: center;
+  font-size: x-large;
+}
+
+#error_404 img{
+  margin-left: -5%;
+}
 
 /********** FOOTER **********/
 #footer {
