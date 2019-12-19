@@ -8,7 +8,7 @@ require_once('includes/createMenu.php');
 $db = new DB();
 
 // Titolo della pagina
-$title = '404';
+$title = 'Chi Siamo';
 
 // Contengono l'HTML dei tag <head> e <body> che verranno stampati
 $page_head = file_get_contents('includes/head.html');
@@ -24,10 +24,10 @@ $info_utente = createInfoUtente($db);
 $menu = createMenu(true, true, true, true, true, true);
 
 // Codice HTML del breadcrumb
-$breadcrumb = '<p id="breadcrumb">404</p>';
+$breadcrumb = '<p id="breadcrumb">Chi Siamo</p>';
 
 // Codice HTML del content
-$content = file_get_contents('includes/content_404.html');
+$content = file_get_contents('includes/content_about.html');
 
 $page_head = str_replace('<title />', "<title>$title - DOIT</title>", $page_head);
 $page_head = str_replace('<scripts />', $scripts, $page_head);
