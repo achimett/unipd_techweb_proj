@@ -53,6 +53,11 @@ abbr[title] {
   padding-top: 0.1em;
 }
 
+/********** BODY **********/
+body {
+  background-color: #ccc;
+}
+
 /********** PAGE-CENTRAL-PART **********/
 #page_central_part {
   max-width: 1024px;
@@ -63,9 +68,6 @@ abbr[title] {
 #menu {
   width: 18%;
   padding: 1em 0em 1em 1em;
-  border-left: 1pt solid #000000;
-  border-right: 1pt solid #000000;
-  border-bottom: 1pt solid #000000;
   margin-bottom: 0.2em;
   line-height: 2em;
   float:left;
@@ -132,25 +134,33 @@ abbr[title] {
 /********** CONTENT **********/
 .content {
   margin-left: 20%;
-  padding: 1em;
+  padding: 1%;
 }
 /********** CONTENT-PROFILO**********/
-
-#profilo_nome_cognome {
-  width: 60%;
-  vertical-align: middle;
-  display: inline-block;
-}
-
 #profilo h1 {
   text-align: center;
+  font-size: 1.5em;
 }
 
 #profilo h2 {
   padding: 2%;
   text-align: center;
-  background-color: #393;
-  color: #FFF;
+  background-color: #70c653;
+  color: #006837;
+}
+
+#profilo_dati_personali {
+  background-color: #fff;
+  border-radius: 0.5em;
+  margin-bottom: 1%;
+  padding: 2%;
+}
+
+#profilo_nome_cognome {
+  width: 50%;
+  vertical-align: middle;
+  display: inline-block;
+  padding: 2%;
 }
 
 #profilo_nome_cognome img {
@@ -162,20 +172,33 @@ abbr[title] {
 
 #profilo_data_di_nascita img {
   width: 10%;
+  vertical-align: middle;
+}
+
+#profilo_data_di_nascita li {
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 #profilo_data_di_nascita {
   display: inline-block;
   list-style-type: none;
   word-break: break-all;
-  list-style-type: none;
-  width: 39%;
+  width: 45%;
+  vertical-align: middle;
 }
 
 #profilo_biografia {
   display: block;
   clear: right;
-  /* padding-top: 23%; */
+}
+
+#profilo_biografia, #profilo_contributi {
+  background-color: #fff;
+  border-radius: 0.5em;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  padding: 2%;
 }
 
 #profilo_table_contributi {
@@ -187,12 +210,21 @@ abbr[title] {
   margin-bottom: 1vw;
 }
 
-#profilo_colonna_data, #profilo_colonna_stato_attivita {
+#profilo_colhead_data, #profilo_colhead_stato_attivita, #profilo_colfoot_data, #profilo_colfoot_stato_attivita {
   width: 20%;
 }
 
+#profilo_table_contributi th, #profilo_table_contributi td {
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+#profilo_table_contributi tr:hover {
+  background-color: #ddd !important;
+}
+
 #profilo_table_contributi tr:nth-child(even) {
-  background: rgba(51, 153, 51, 0.4);
+  background: rgba(112, 198, 83, 0.4);
 }
 
 #profilo_table_contributi td:nth-child(2), td:nth-child(3) {

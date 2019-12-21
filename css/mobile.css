@@ -43,26 +43,20 @@
   margin-left: auto;
 }
 
-#profilo_nome_cognome {
-  width: 100%;
-  word-break: break-all;
+#profilo h1 {
+  font-size: 1.2em;
 }
 
+#profilo h2 {
+  margin-top: 5%;
+}
 
-#profilo_data_di_nascita img {
-  width: 10%;
+#profilo_nome_cognome {
+  width: 100%;
 }
 
 #profilo_data_di_nascita {
   width: 100%;
-}
-
-#profilo_biografia {
-  padding-top: 5%;
-}
-
-#profilo_contributi {
-  margin-top: 5%;
 }
 
 #profilo_table_contributi {
