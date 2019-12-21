@@ -1,135 +1,62 @@
-
-
-<body>
-
-    <div class="content" id="post">
-      <img id="post_immagineiniziale" src="../img/_template_foto/rifiuti3.jpg" alt="foto iniziale" />
-
-      <h1 id="titolo_post">RACCOLTA RIFIUTI</h1>
-
-
-      <div id="post_informazioni">
-        <h2 class="post_titolo">Informazioni</h2>
-        <ul id="post_informazioni_lista"> <!--i p in span-->
-          <li><p class="post_informazioni_record" id="post_informazioni_utente">Post di<br /><strong>Paolo Rossi</strong></p></li> <!-- p necessario, span non va bene-->
-          <li><p class="post_informazioni_record" id="post_informazioni_data">Ritrovo<br /><strong>Domenica 10/12/2019</strong><br />Ore<br /><strong>13:30</strong></p></li>
-          <li><p class="post_informazioni_record" id="post_informazioni_posizione">Via<br /><strong>Luigi Luzzatti 45</strong>,<br />Padova</p></li>
-          <li><p class="post_informazioni_record" id="post_informazioni_volontari"><strong>5 volontari</strong> aiutano Paolo</p></li>
-        </ul>
-      </div>
-      <form action="#" id="doit"><fieldset><legend class="post_titolo">Partecipa</legend><input type="button" name="DOIT" value="DOIT" /></fieldset></form>
-
-      <div id="post_core">
-        <h2 class="post_titolo" id="post_titolodescrizione">Descrizione</h2>
-        <p id="post_core_descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem commodo a. Aenean vitae metus ultricies, hendrerit erat sit amet, placerat libero. Nam dapibus mi vel dui ultrices, nec egestas est ullamcorper. Praesent nec gravida enim, non iaculis mauris. Vivamus convallis condimentum placerat. Maecenas ornare commodo efficitur. Pellentesque convallis imperdiet mi tempor dignissim. Nam sodales consequat elit et porta. Mauris posuere nibh metus, eget tempor eros porta eu. Maecenas tristique, justo vel fermentum sodales, quam metus laoreet elit, eu tristique tortor massa porttitor augue.</p>
-      </div>
-
-
-      <div id="post_listavolontari">
-        <h2 class="post_titolo">Volontari DOIT</h2>
-        <ol>
-          <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
-          <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
-          <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
-          <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
-          <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
-          <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
-          <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
-          <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
-          <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
-          <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
-          <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
-          <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
-          <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
-          <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
-          <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
-          <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
-        </ol>
-      </div>
-
-      <div id="post_social">
-        <form id="post_social_form" action="#">
-          <fieldset>
-            <legend class="post_titolo">Foto e commenti</legend>
-            <p class="post_infobox">La sezione commenti permette l'organizzazione dei volontari. Contibuisci anche tu a questa attivit&agrave; di volotariato</p>
-            <p class="post_infobox">Scegli una foto</p>
-            <input id="post_sfoglia" type="file" alt="sfoglia" value="SFOGLIA" />
-            <p class="post_infobox">Scrivi un messaggio</p>
-            <textarea id="post_social_textarea" rows="5" cols="50">[Messaggio] </textarea>
-            <input id="post_social_invia" class="buttons" type="submit" alt="invia" value="INVIA" />
-          </fieldset>
-        </form>
-        <div class="commento">
-          <a href="#" class="usr autore_commento"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi<span>12/12/2001 - 13:30</span></a>
-          <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
-        </div>
-        <div class="commento">
-          <a href="#" class="usr autore_commento"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi<span>12/12/2001 - 13:30</span></a>
-          <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
-        </div>
-        <div class="commento">
-          <a href="#" class="usr autore_commento"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi<span>12/12/2001 - 13:30</span></a>
-          <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
-        </div>
-        <div class="commento">
-          <a href="#" class="usr autore_commento"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi<span>12/12/2001 - 13:30</span></a>
-          <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
-        </div>
-        <div class="commento">
-          <a href="#" class="usr autore_commento"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi<span>12/12/2001 - 13:30</span></a>
-          <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
-        </div>
-        <div class="commento">
-          <a href="#" class="usr autore_commento"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi<span>12/12/2001 - 13:30</span></a>
-          <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
-        </div>
-        <div class="commento">
-          <a href="#" class="usr autore_commento"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi<span>12/12/2001 - 13:30</span></a>
-          <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
-        </div>
-        <div class="commento">
-          <a href="#" class="usr autore_commento"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi<span>12/12/2001 - 13:30</span></a>
-          <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
-        </div>
-        <div class="commento">
-          <a href="#" class="usr autore_commento"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi<span>12/12/2001 - 13:30</span></a>
-          <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
-        </div>
-        <div class="commento">
-          <a href="#" class="usr autore_commento"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi<span>12/12/2001 - 13:30</span></a>
-          <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
-        </div>
-        <div class="commento">
-          <a href="#" class="usr autore_commento"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi<span>12/12/2001 - 13:30</span></a>
-          <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
-        </div>
-        <div class="commento">
-          <a href="#" class="usr autore_commento"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi<span>12/12/2001 - 13:30</span></a>
-          <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
-        </div>
-        <div class="commento">
-          <a href="#" class="usr autore_commento"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi<span>12/12/2001 - 13:30</span></a>
-          <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
-        </div>
-        <div class="commento">
-          <a href="#" class="usr autore_commento"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi<span>12/12/2001 - 13:30</span></a>
-          <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
-        </div>
-        
-      </div>
+<div class="content" id="post">
+  <img id="post_immagineiniziale" src="../img/_template_foto/rifiuti3.jpg" alt="foto iniziale" />
+  <h1 class="titolo_post">RACCOLTA RIFIUTI</h1>
+  <div id="post_informazioni">
+    <h2 class="post_titolo">Informazioni</h2>
+    <ul id="post_informazioni_lista">
+      <li><p class="post_informazioni_record" id="post_informazioni_utente">Post di<br /><strong>Paolo Rossi</strong></p></li>
+      <!-- <li><p id="post_informazioni_utente"><form action="#"><input type="submit" name="modifica" value="Modifica post"></form></li> -->
+      <li><p class="post_informazioni_record" id="post_informazioni_data">Ritrovo<br /><strong>Domenica 10/12/2019</strong><br />Ore<br /><strong>13:30</strong></p></li>
+      <li><p class="post_informazioni_record" id="post_informazioni_posizione">Via<br /><strong>Luigi Luzzatti 45</strong>,<br />Padova</p></li>
+      <li><p class="post_informazioni_record" id="post_informazioni_volontari"><strong>5 volontari</strong> aiutano Paolo</p></li>
+    </ul>
+  </div>
+  <form action="#" id="doit"><fieldset><legend class="post_titolo">Partecipa</legend><input type="button" name="DOIT" value="DOIT" /></fieldset></form>
+  <div id="post_core">
+    <h2 class="post_titolo" id="post_titolodescrizione">Descrizione</h2>
+    <p class="post_core_descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem commodo a. Aenean vitae metus ultricies, hendrerit erat sit amet, placerat libero. Nam dapibus mi vel dui ultrices, nec egestas est ullamcorper. Praesent nec gravida enim, non iaculis mauris. Vivamus convallis condimentum placerat. Maecenas ornare commodo efficitur. Pellentesque convallis imperdiet mi tempor dignissim. Nam sodales consequat elit et porta. Mauris posuere nibh metus, eget tempor eros porta eu. Maecenas tristique, justo vel fermentum sodales, quam metus laoreet elit, eu tristique tortor massa porttitor augue.</p>
+  </div>
+  <div id="post_listavolontari">
+    <h2 class="post_titolo">Volontari DOIT</h2>
+    <ol>
+      <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+      <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+      <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+      <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+      <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+      <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+      <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+      <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+      <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+      <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+    </ol>
+  </div>
+  <div id="post_social">
+    <form id="post_social_form" action="#">
+      <fieldset>
+        <legend class="post_titolo">Foto e commenti</legend>
+        <p class="post_infobox">La sezione commenti permette l'organizzazione dei volontari. Contibuisci anche tu a questa attivit&agrave; di volotariato</p>
+        <p class="post_infobox">Scegli una foto</p>
+        <input id="post_sfoglia" type="file" alt="sfoglia" value="SFOGLIA" />
+        <p class="post_infobox">Scrivi un messaggio</p>
+        <textarea id="post_social_textarea" rows="5" cols="50">[Messaggio] </textarea>
+        <input id="post_social_invia" class="buttons" type="submit" alt="invia" value="INVIA" />
+      </fieldset>
+    </form>
+    <div class="commento">
+      <a href="#" class="usr autore_commento"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi<span>12/12/2001 - 13:30</span></a>
+      <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
+    </div>
+    <div class="commento">
+      <a href="#" class="usr autore_commento"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi<span>12/12/2001 - 13:30</span></a>
+      <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
+    </div>
+    <div class="commento">
+      <a href="#" class="usr autore_commento"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi<span>12/12/2001 - 13:30</span></a>
+      <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
     </div>
   </div>
+</div> <!-- fine content -->

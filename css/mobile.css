@@ -1,6 +1,3 @@
-* {
-  font-size: 100%;
-}
 
 
 /********** HEADER **********/
@@ -65,3 +62,94 @@
 }
 
 /* ******************************** */
+
+
+.content {
+
+  width: 100%;
+  margin: 0%; /*no spazio per menu a sx*/
+}
+
+
+
+
+
+#doit fieldset {
+  width: 96%;
+  margin: 0 2% 2% 2%;
+}
+
+
+#post_core {
+  clear: both;
+  margin: 2%;
+  width: 94%;
+}
+
+
+
+/*Informazioni*/
+#post_informazioni {
+  width: 96%;
+  margin: 2%;
+}
+
+
+.post_informazioni_record {
+  float: left;
+  width: 50%;
+}
+
+
+.postEdit_informazioni_record {
+  float: none;
+}
+
+/*Foto e commenti*/
+#post_social {
+  padding: 0;
+  margin: 0 2%;
+  width: 96%;
+}
+
+#post_sfoglia {
+  text-align: left;
+}
+#post_listavolontari {
+  display: none;
+}
+
+
+
+#post_social_textarea {
+  margin: 1% 1%;
+  width: 96%;
+  border: 0;
+}
+
+.user_image {
+  float: none;
+  max-width: 100%;
+}
+
+.commento > p {
+  width: 96%;
+  margin: 0 2% 2% 2%;
+
+}
+
+
+.bacheca_post {
+  width: 96%;
+  padding: 1%;
+  background-color: #70c653;
+  border-radius: 0.5em;
+}
+
+.bacheca_core {
+  display: inline-block;
+  margin-top: 2%;
+  padding: 1%;
+  background-color: #fff;
+  border-radius: 0.5em;
+}

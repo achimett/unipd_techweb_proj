@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+  <title>DOIT</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+  <meta name="title" content="DOIT - Volontariato per tutti" />
+
+  <meta name="description" content="Il social network dove segnalare e/o partecipare ad atti di volontariato per il bene della propria comunità e non solo" />
+
+  <meta name="keywords" content="volontariato, segnalazione, social network, comunità, buone azioni" />
+
+  <meta name="language" content="italian it" />
+
+  <meta name="author" content="Alessandro Chimetto, Daniele Bresciani, Francesco De Salvador, Stefano Biotto" />
+
+  <meta name="author" content="Alessandro Chimetto, Daniele Bresciani, Francesco De Salvador, Stefano Biotto" />
+
+
+
+  <link rel="stylesheet" type="text/css" href="../css/desktop.css" media="handheld, screen" />
+  <link rel="stylesheet" type="text/css" href="../css/mobile.css" media="handheld, screen and (max-width:800px), only screen and (max-device-width:800px)" />
+  <link rel="stylesheet" type="text/css" href="../css/print.css" media="print" />
+
+
+
+
+</head>
+
+<body>
+  <div id="header">
+    <div id="info_utente">
+      <img src="../img/utente[bianco]_icon.png" alt="" />
+      <p>Nome Cognome</p>
+    </div>
+    <a id="hamburger" href="#hamburger"><img src="../img/menu_espandi_icon.png" alt="Menù" /></a>
+    <h1 xml:lang="en"><abbr title="do it">DOIT</abbr></h1>
+  </div>
+
+  <div id="breadcrumb">
+    <p>PAGINA_CORRENTE</p>
+  </div>
+
+  <div id="menu">
+    <ul id="menu_up">
+      <li id="menu_profilo"><a href="">Il mio profilo</a></li>
+      <li id="menu_bacheca"><a href="">Bacheca</a></li>
+      <li id="menu_nuovo_post"><a href="">Nuovo post</a></li>
+      <li id="menu_help" xml:lang="en"><a href="">Help</a></li>
+    </ul>
+    <ul id="menu_down">
+      <li id="menu_about" xml:lang="en"><a href="about.html">About Us</a></li>
+      <li id="menu_logout" xml:lang="en"><a href="">Log Out</a></li>
+    </ul>
+  </div>
+
+  <div class="content" id="post">
+
+        <form id="post_form" action="#">
+          <fieldset><legend class="post_titolo">Post</legend>
+            <label class="label" for="postEdit_core_titolo_input">Titolo del post</label><input type="text" id="postEdit_core_titolo_input" name="titolo" value="" size="40"/>
+            <label class="label" for="post_immaginepreview">Immagine di copertina</label>
+            <input id="postEdit_social_sfoglia" class="buttons" type="file" alt="sfoglia" value="SFOGLIA">
+            <h2 class="post_titolo">Descrizione</h2>
+            <textarea id="postEdit_social_textarea" rows="10" cols="50">[Inserisci qui la descrizione dell'attivit&agrave; che vuoi proporre]</textarea>
+            <h2 class="post_titolo">Informazioni</h2>
+            <ul id="postEdit_informazioni_lista">
+              <li id="post_informazioni_data">
+                <label for="postEdit_informazioni_data_input" class="postEdit_informazioni_record">Ritrovo in data (DD/MM/YYYY)</label><input type="text" id="postEdit_informazioni_data_input" name="data" value="__/__/____" size="10" />
+                <label for="postEdit_informazioni_ora_input" class="postEdit_informazioni_record">Ore (HH:MM)</label> <input type="text" id="postEdit_informazioni_ora_input" name="Ora" /></li>
+              <li  id="post_informazioni_posizione">
+                <label for="via" class="postEdit_informazioni_record">Localit&agrave; (es.: Via Trieste 1)</label><input type="text" class="postEdit_informazioni_posizione_input" id="via" name="posizione" value="" size="30" />
+                <label for="provincia" class="postEdit_informazioni_record" >Provincia (es.: Padova)</label><input type="text" class="postEdit_informazioni_posizione_input" id="provincia" name="posizione" value="" size="30" />
+              </li>
+            </ul>
+          <input type="submit" name="Salva" value="Salva" id="post_social_invia" class="buttons" />
+        </fieldset>
+      </form>
+      </div>
+
+</body>
+</html>
