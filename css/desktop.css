@@ -53,6 +53,12 @@ abbr[title] {
   padding-top: 0.1em;
 }
 
+/********** BODY **********/
+body {
+  background-color: #ccc;
+}
+
+
 /********** PAGE-CENTRAL-PART **********/
 #page_central_part {
   max-width: 1024px;
@@ -63,9 +69,6 @@ abbr[title] {
 #menu {
   width: 18%;
   padding: 1em 0em 1em 1em;
-  border-left: 1pt solid #000000;
-  border-right: 1pt solid #000000;
-  border-bottom: 1pt solid #000000;
   margin-bottom: 0.2em;
   line-height: 2em;
   float:left;
@@ -129,13 +132,13 @@ abbr[title] {
     padding-left: 2.6em;
 }
 
-/********** CONTENT_REGISTRAZIONE**********/
-
-#registrazione_e_login {
-  max-width: 1024px;
+/********** CONTENT **********/
+.content {
   margin-left: 20%;
-  padding: 1em;
+  padding: 1%;
 }
+
+/********** CONTENT_REGISTRAZIONE**********/
 
 #registrazione_e_login textarea {
   resize: none;
@@ -149,39 +152,78 @@ abbr[title] {
   width: auto;
 }
 
-#registrazione_e_login h1, h2{
+#registrazione_e_login h1, h2 {
+  font-size: 1.5em;
+}
+
+#registrazione_e_login h1, h2, legend{
   padding: 2%;
   text-align: center;
-  background-color: #393;
-  color: #FFF;
+  background-color: #70c653;
+  color: #006837;
 
 }
 
-#registrazione_e_login fieldset {
+#registrazione fieldset {
+  display: block;
   border: 0;
-  margin: 1vw;
+  width: 44%;
+  padding:2%;
+  background-color: #fff;
+  border-radius: 0.5em;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+#registrazione ul {
+  list-style-type: none;
+}
+
+#fieldset_login {
+  border:0;
 }
 
 #registrazione_e_login legend {
   margin-left: auto;
   margin-right: auto;
+  font-weight: bold;
 }
 
-#login_email, #login_password, #registrazione_nome, #registrazione_cognome, #registrazione_data_di_nascita, #registrazione_codice_fiscale, #registrazione_email, #registrazione_telefono, #registrazione_password, #registrazione_conferma_password {
-  clear: both;
-  float: right;
+#login {
+  background-color: #fff;
+  border-radius: 0.5em;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  padding: 2%;
+}
+
+
+#login_email, #login_password, #registrazione_nome, #registrazione_cognome, #registrazione_giorno_di_nascita, #registrazione_mese_di_nascita, #registrazione_anno_di_nascita, #registrazione_codice_fiscale, #registrazione_email, #registrazione_telefono, #registrazione_password, #registrazione_conferma_password {
   width: 50%;
   padding: 2%;
   margin-top: 0.5vw;
   margin-bottom: 0.5vw;
+  float:right;
 }
 
-#label_login_email, #label_login_password, #label_registrazione_nome, #label_registrazione_cognome, #label_registrazione_data_di_nascita, #label_registrazione_codice_fiscale, #label_registrazione_email, #label_registrazione_telefono, #label_registrazione_password, #label_registrazione_conferma_password {
-  display: block;
-  clear: left;
+#label_login_email, #label_login_password, #label_registrazione_nome, #label_registrazione_cognome, #label_registrazione_anno_di_nascita, #label_registrazione_codice_fiscale, #label_registrazione_email, #label_registrazione_telefono, #label_registrazione_password, #label_registrazione_conferma_password {
+  margin-top: 1vw;
+  display: inline-block;
+  width: 40%;
+  height: 0;
+}
+
+#label_login_email, #label_login_password {
   padding: 2%;
-  margin-top: 0.5vw;
-  margin-bottom: 0.5vw;
+}
+
+
+#login_riga_email, #registrazione li {
+  overflow: hidden;
+}
+
+#registrazione_giorno_di_nascita, #registrazione_mese_di_nascita, #registrazione_anno_di_nascita {
+  width: 13%;
 }
 
 #registrazione_biografia {
@@ -235,29 +277,30 @@ abbr[title] {
   box-shadow: 2px 5px 5px 0px #333 inset;
 }
 
+#registrazione_riga_1 {
+  overflow: hidden;
+}
+
 #fieldset_dati_anagrafici {
   float: left;
-  width: 45%;
 }
 #fieldset_dati_di_contatto {
   float: right;
-  width: 45%;
 }
 #fieldset_carica_una_foto {
-  float: left;
-  clear: both;
-  width: 45%;
+  float:left;
 }
 #fieldset_biografia {
   float: right;
-  width: 45%;
 }
 
 #login_conferma {
+  display: -webkit-flex;
 	display: flex;
 }
-#registrazione_conferma{
-	clear: both;
+
+#registrazione_conferma {
+  clear: both;
 }
 
 /********** FOOTER **********/

@@ -53,50 +53,81 @@
 				<h1>Effettua il <span xml:lang="en">login</span></h1>
 				<form action="form_login.php" id="login">
 					<fieldset id="fieldset_login" xml:lang="en">
-							<input type="text" id="login_email"></input>
+						<div id="login_riga_email">
 							<label for="login_email" id="label_login_email">E-mail: </label>
-							<input type="password" id="login_password"></input>
+							<input type="text" id="login_email"></input>
+						</div>
+						<div id="login_riga_password">
 							<label for="login_password" id="label_login_password">Password: </label>
+							<input type="password" id="login_password"></input>
+						</div>
 					</fieldset>
 					<div id="login_conferma">
-						<input type="submit" id="login_input_conferma" value="Effettua il Login" /> <!-- Come legge login lo screen reader nel caso dei submit? -->
+						<input type="submit" id="login_input_conferma" value="Effettua il Login" />
 					</div>
 				</form>
 				<h1>Vuoi essere un volontario? Unisciti a noi!</h1>
+				<p> Tutti i campi sono obbligatori. Inserire la data di nascita nel formato gg/mm/aaaa.</p>
 				<form action="form_registrazione.php" id="registrazione">
-					<fieldset id="fieldset_dati_anagrafici">
-						<legend>Dati Anagrafici</legend>
-						<input type="text" id="registrazione_nome"></input>
-						<label for="registrazione_nome" id="label_registrazione_nome">Nome: </label>
-						<input type="text" id="registrazione_cognome"></input>
-						<label for="registrazione_cognome" id="label_registrazione_cognome">Cognome: </label>
-						<input type="text" id="registrazione_data_di_nascita"></input>
-						<label for="registrazione_data_di_nascita" id="label_registrazione_data_di_nascita">Data di nascita: </label>
-						<input type="text" id="registrazione_codice_fiscale"></input>
-						<label for="registrazione_codice_fiscale" id="label_registrazione_codice_fiscale">Codice fiscale: </label>
-					</fieldset>
-					<fieldset id="fieldset_dati_di_contatto">
-						<legend>Dati di Contatto</legend>
-						<input type="text" id="registrazione_email"></input>
-						<label for="registrazione_email" id="label_registrazione_email"><span xml:lang="en">E-mail: </span></label>
-						<input type="text" id="registrazione_telefono"></input>
-						<label for="registrazione_telefono" id="label_registrazione_telefono">Telefono: </label>
-						<input type="password" id="registrazione_password"></input>
-						<label for="registrazione_password" id="label_registrazione_password"><span xml:lang="en">Password: </span></label>
-						<input type="password" id="registrazione_conferma_password"></input>
-						<label for="registrazione_conferma_password" id="label_registrazione_conferma_password">Conferma <span xml:lang="en">password: </span></label>
-					</fieldset>
-					<fieldset id="fieldset_carica_una_foto">
-						<legend>Fatti vedere!</legend>
-						<img id="registrazione_immagine_profilo" src="../img/utentenero_icon.png" alt="La tua foto del profilo"/>
-						<label for="registrazione_foto" id="label_registrazione_foto">Carica una foto</label>
-						<input type="file" id="registrazione_foto"></input>
-					</fieldset>
-					<fieldset id="fieldset_biografia">
-						<legend>Raccontaci di te</legend>
-						<label for="registrazione_biografia" id="label_registrazione_biografia">Biografia: </label><br />
-						<textarea id="registrazione_biografia" rows="13" cols="31"></textarea> <!-- Ho pensato di sostituire Bio con Biografia, perché per alcune persone Bio può essere poco intuitivo, una persona anziana è probabile che sappia il significato di Biografia ma non che Bio è la sua abbreviazione -->
-					</fieldset>
+					<div id="registrazione_riga_1">
+						<fieldset id="fieldset_dati_anagrafici">
+							<legend>Dati Anagrafici</legend>
+							<ul>
+								<li>
+									<label for="registrazione_nome" id="label_registrazione_nome">Nome: </label>
+									<input type="text" id="registrazione_nome"></input>
+								</li>
+								<li>
+									<label for="registrazione_cognome" id="label_registrazione_cognome">Cognome: </label>
+									<input type="text" id="registrazione_cognome"></input>
+								</li>
+								<li>
+									<label for="registrazione_anno_di_nascita" id="label_registrazione_anno_di_nascita">Data di nascita: </label>
+									<input type="text" id="registrazione_anno_di_nascita"></input>
+									<input type="text" id="registrazione_mese_di_nascita"></input>
+									<input type="text" id="registrazione_giorno_di_nascita"></input>
+								</li>
+								<li>
+									<label for="registrazione_codice_fiscale" id="label_registrazione_codice_fiscale">Codice fiscale: </label>
+									<input type="text" id="registrazione_codice_fiscale"></input>
+								</li>
+							</ul>
+						</fieldset>
+						<fieldset id="fieldset_dati_di_contatto">
+							<legend>Dati di Contatto</legend>
+							<ul>
+								<li>
+									<label for="registrazione_email" id="label_registrazione_email"><span xml:lang="en">E-mail: </span></label>
+									<input type="text" id="registrazione_email"></input>
+								</li>
+								<li>
+									<label for="registrazione_telefono" id="label_registrazione_telefono">Telefono: </label>
+									<input type="text" id="registrazione_telefono"></input>
+								</li>
+								<li>
+									<label for="registrazione_password" id="label_registrazione_password"><span xml:lang="en">Password: </span></label>
+									<input type="password" id="registrazione_password"></input>
+								</li>
+								<li>
+									<label for="registrazione_conferma_password" id="label_registrazione_conferma_password">Conferma <span xml:lang="en">password: </span></label>
+									<input type="password" id="registrazione_conferma_password"></input>
+								</li>
+							</ul>
+						</fieldset>
+					</div>
+					<div id="registrazione_riga_2">
+						<fieldset id="fieldset_carica_una_foto">
+							<legend>Fatti vedere!</legend>
+							<img id="registrazione_immagine_profilo" src="../img/utentenero_icon.png" alt="La tua foto del profilo"/>
+							<label for="registrazione_foto" id="label_registrazione_foto">Carica una foto</label>
+							<input type="file" id="registrazione_foto"></input>
+						</fieldset>
+						<fieldset id="fieldset_biografia">
+							<legend>Raccontaci di te</legend>
+							<label for="registrazione_biografia" id="label_registrazione_biografia">Biografia: </label><br />
+							<textarea id="registrazione_biografia" rows="15" cols="1"></textarea>
+						</fieldset>
+					</div>
 					<div id="registrazione_conferma">
 						<input type="submit" id="registrazione_input_conferma" value="Conferma Registrazione" />
 					</div>
