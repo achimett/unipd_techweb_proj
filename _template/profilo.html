@@ -72,11 +72,11 @@
         <div id="profilo_contributi">
           <form id="profilo_radio_button" action="action_page.php">
             <div> <!-- div utile esclusivamente allo scopo di avere il documento xhtml validato-->
-              <input type="radio" name="radio_contibuti" value="value_tutte_le_attivita" checked="checked" id="tutte_le_attivita" />
+              <input type="radio" name="radio_contibuti" value="value_tutte_le_attivita" checked="checked" id="tutte_le_attivita" tabindex="21"/> <!-- L'insieme dei radio button è considerato un solo elemento, quindi va un solo tabindex, le persone che utilizzeranno il tab per spostarsi su questo elemento dovranno poi usare le freccette della tastiera per andare da un radio button all'altro-->
               <label for="tutte_le_attivita"> Tutte le attivit&agrave;</label>
-              <input type="radio" name="radio_contibuti" value="value_aperte" id="aperte" />
+              <input type="radio" name="radio_contibuti" value="value_aperte" id="aperte"/>
               <label for="aperte"> Aperte</label>
-              <input type="radio" name="radio_contibuti" value="value_chiuse" id="chiuse" />
+              <input type="radio" name="radio_contibuti" value="value_chiuse" id="chiuse"/>
               <label for="chiuse"> Chiuse</label>
             </div>
           </form>
