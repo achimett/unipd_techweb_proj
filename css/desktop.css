@@ -254,7 +254,7 @@ body {
 	height: 0.1px; /*Viene data una larghezza e altezza minima all'input di tipo file per non renderlo cliccabile, ma senza renderlo inesistente, (uno screen reader continua a notare l'esistenza di questo input)*/
   opacity: 0; /*Senza questo comando si vedrebbe un puntino, che dovrebbe essere alto 0.1 e largo 0.1 px anche se alla vista è circa 1px, mettendo opacità a 0 il pixel sparisce*/
   overflow: hidden;
-	position: absolute;
+	position: absolute; /*Si ottiene lo stesso risultato sostituendo position:absolute con visibility:hidden, il problema che utilizzando visibility:hidden non è possibile tabulare l'input file con il tabindex*/
 	z-index: -1;
 }
 
