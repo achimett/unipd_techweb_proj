@@ -31,9 +31,9 @@ function createMenu($profilo, $bacheca, $nuovo, $help, $about, $logout) {
 
   if ($profilo == true) {
     if (isset($_SESSION['user_logged']) && $_SESSION['user_logged'] === true) {
-      $in = '<a href=\"profilo.php?id="' . $_SESSION['user_id'] . '\">' . $str_profilo . '</a>';
+      $in = '<a tabindex="11" href=\"profilo.php?id="' . $_SESSION['user_id'] . '\">' . $str_profilo . '</a>';
     } else {
-      $in = "<a href=\"login.php\">$str_profilo</a>";
+      $in = "<a tabindex=\"11\" href=\"login.php\">$str_profilo</a>";
     }
   } else {
     $in = $str_profilo;
@@ -41,28 +41,28 @@ function createMenu($profilo, $bacheca, $nuovo, $help, $about, $logout) {
   $menu_profilo = str_replace('<?>', $in, $menu_profilo);
 
   if ($bacheca == true) {
-    $in = "<a href=\"index.php\">$str_bacheha</a>";
+    $in = "<a tabindex=\"12\" href=\"index.php\">$str_bacheha</a>";
   } else {
     $in = $str_bacheha;
   }
   $menu_bacheca = str_replace('<?>', $in, $menu_bacheca);
 
   if ($nuovo == true) {
-    $in = "<a href=\"editPost.php\">$str_nuovo</a>";
+    $in = "<a tabindex=\"13\" href=\"editPost.php\">$str_nuovo</a>";
   } else {
     $in = $str_nuovo;
   }
   $menu_nuovo = str_replace('<?>', $in, $menu_nuovo);
 
   if ($help == true) {
-    $in = "<a href=\"editPost.php\">$str_help</a>";
+    $in = "<a tabindex=\"14\" href=\"editPost.php\">$str_help</a>";
   } else {
     $in = $str_help;
   }
   $menu_help = str_replace('<?>', $in, $menu_help);
 
   if ($about == true) {
-    $in = "<a href=\"about.php\">$str_about</a>";
+    $in = "<a tabindex=\"15\" href=\"about.php\">$str_about</a>";
   } else {
     $in = $str_about;
   }
@@ -70,9 +70,9 @@ function createMenu($profilo, $bacheca, $nuovo, $help, $about, $logout) {
 
   if ($logout == true) {
     if (isset($_SESSION['user_logged']) && $_SESSION['user_logged'] === true) {
-      $in = "<a href=\"logout.php\">$str_logout</a>";
+      $in = "<a tabindex=\"16\" href=\"logout.php\">$str_logout</a>";
     } else {
-      $in = "<a href=\"logoin.php\">$str_login</a>";
+      $in = "<a tabindex=\"16\" href=\"logoin.php\">$str_login</a>";
     }
   } else {
     $in = '';
