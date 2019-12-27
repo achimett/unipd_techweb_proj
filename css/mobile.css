@@ -52,6 +52,14 @@
   height: auto;
 }
 
+#about ul,ol{
+  margin-left: 0em;
+}
+
+#about p {
+  margin-left: 0em;
+}
+
 /********** FOOTER **********/
 #footer {
   border-radius: 0;
