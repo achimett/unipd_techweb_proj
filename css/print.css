@@ -40,6 +40,16 @@ abbr[title] {
   display: none;
 }
 
+#about p {
+  margin: 0.5em;
+  
+}
+
+#about ul,ol{
+  list-style: none;
+  margin: 0.5em;
+}
+
 #footer {
   text-align: center;
   font-style: italic;
