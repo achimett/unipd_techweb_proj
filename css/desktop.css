@@ -161,6 +161,20 @@ body {
   margin-left: -5%;
 }
 
+#about {
+  padding: 1em;
+  
+}
+
+#about ul,ol{
+  list-style: none;
+  margin-left: 11em;
+}
+
+#about p {
+  margin: 0.5em;
+  margin-left: 11em;
+}
 /********** FOOTER **********/
 #footer {
   clear: left;
