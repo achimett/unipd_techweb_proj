@@ -3,10 +3,6 @@
   display: none;
 }
 
-#header h1 {
-  font-size: 4em;
-}
-
 #hamburger {
   padding-right: 2%;
   display: inline-block;
@@ -19,10 +15,6 @@
   width: 4em;
 }
 
-#breadcrumb {
-  font-size: 2em;
-}
-
 /********** MENU **********/
 #menu {
   display: none;
@@ -31,7 +23,6 @@
   border: 0;
   padding: 0;
   margin: 0 auto;
-  font-size: 2.3em;
 }
 
 #menu ul#menu_up {
