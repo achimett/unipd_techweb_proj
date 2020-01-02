@@ -196,10 +196,10 @@ abbr[title] {
   font-size: 2em;
 }
 
-
-
 .titolo_post {
+  display: block;
   text-align: center;
+  font-weight: bold;
   font-size: 300%;
   background-color: #70c653;
   padding: 0.2em;
@@ -459,6 +459,14 @@ abbr[title] {
   width: 30%;
 }
 
+#ricerca {
+  width: 90%;
+  margin: 2%;
+  padding: 2%;
+  border-radius: 0.5em;
+  border: 2px solid #444444;
+}
+
 .bacheca_informazioni {
   background-color: #fff;
   margin-top: 2%;
@@ -481,7 +489,7 @@ abbr[title] {
     text-align: center;
 }
 
-.bacheca_post {
+.post_card {
   float: left;
   margin: 1%;
   width: 45%;

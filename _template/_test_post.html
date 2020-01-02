@@ -22,9 +22,6 @@
   <link rel="stylesheet" type="text/css" href="../css/mobile.css" media="handheld, screen and (max-width:800px), only screen and (max-device-width:800px)" />
   <link rel="stylesheet" type="text/css" href="../css/print.css" media="print" />
 
-
-
-
 </head>
 
 <body>
@@ -60,14 +57,14 @@
     <div id="post_informazioni">
       <h2 class="post_titolo">Informazioni</h2>
       <ul id="post_informazioni_lista">
-        <li><p class="post_informazioni_record" id="post_informazioni_utente">Post di<br /><strong>Paolo Rossi</strong></p></li>
+        <li><p class="post_informazioni_record" id="post_informazioni_utente">Post di<br /><a href="#"><strong>Paolo Rossi</strong></a></p></li>
         <!-- <li><p id="post_informazioni_utente"><form action="#"><input type="submit" name="modifica" value="Modifica post"></form></li> -->
         <li><p class="post_informazioni_record" id="post_informazioni_data">Ritrovo<br /><strong>Domenica 10/12/2019</strong><br />Ore<br /><strong>13:30</strong></p></li>
-        <li><p class="post_informazioni_record" id="post_informazioni_posizione">Via<br /><strong>Luigi Luzzatti 45</strong>,<br />Padova</p></li>
+        <li><p class="post_informazioni_record" id="post_informazioni_posizione"><a href="#">Via<br /><strong>Luigi Luzzatti 45</strong>,<br />Padova</p></a></li>
         <li><p class="post_informazioni_record" id="post_informazioni_volontari"><strong>5 volontari</strong> aiutano Paolo</p></li>
       </ul>
     </div>
-    <form action="#" id="doit"><fieldset><legend class="post_titolo">Partecipa</legend><input type="button" name="DOIT" value="DOIT" /></fieldset></form>
+    <form action="#" id="doit"><fieldset><legend class="post_titolo">Partecipa</legend><input type="button" name="DOIT" value="DOIT" tabindex="21" /></fieldset></form>
     <div id="post_core">
       <h2 class="post_titolo" id="post_titolodescrizione">Descrizione</h2>
       <p class="post_core_descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem commodo a. Aenean vitae metus ultricies, hendrerit erat sit amet, placerat libero. Nam dapibus mi vel dui ultrices, nec egestas est ullamcorper. Praesent nec gravida enim, non iaculis mauris. Vivamus convallis condimentum placerat. Maecenas ornare commodo efficitur. Pellentesque convallis imperdiet mi tempor dignissim. Nam sodales consequat elit et porta. Mauris posuere nibh metus, eget tempor eros porta eu. Maecenas tristique, justo vel fermentum sodales, quam metus laoreet elit, eu tristique tortor massa porttitor augue.</p>
@@ -93,10 +90,10 @@
           <legend class="post_titolo">Foto e commenti</legend>
           <p class="post_infobox">La sezione commenti permette l'organizzazione dei volontari. Contibuisci anche tu a questa attivit&agrave; di volotariato</p>
           <p class="post_infobox">Scegli una foto</p>
-          <input id="post_sfoglia" type="file" alt="sfoglia" value="SFOGLIA" />
+          <input id="post_sfoglia" type="file" alt="sfoglia" value="SFOGLIA" tabindex="22" />
           <p class="post_infobox">Scrivi un messaggio</p>
-          <textarea id="post_social_textarea" rows="5" cols="50">[Messaggio] </textarea>
-          <input id="post_social_invia" class="buttons" type="submit" alt="invia" value="INVIA" />
+          <textarea id="post_social_textarea" rows="5" cols="50" tabindex="23">[Messaggio] </textarea>
+          <input id="post_social_invia" class="buttons" type="submit" alt="invia" value="INVIA" tabindex="24" />
         </fieldset>
       </form>
       <div class="commento">
