@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+  <title>DOIT</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+  <meta name="title" content="DOIT - Volontariato per tutti" />
+
+  <meta name="description" content="Il social network dove segnalare e/o partecipare ad atti di volontariato per il bene della propria comunità e non solo" />
+
+  <meta name="keywords" content="volontariato, segnalazione, social network, comunità, buone azioni" />
+
+  <meta name="language" content="italian it" />
+
+  <meta name="author" content="Alessandro Chimetto, Daniele Bresciani, Francesco De Salvador, Stefano Biotto" />
+
+  <link rel="stylesheet" type="text/css" href="../css/desktop.css" media="handheld, screen" />
+  <link rel="stylesheet" type="text/css" href="../css/mobile.css" media="handheld, screen and (max-width:800px), only screen and (max-device-width:800px)" />
+  <link rel="stylesheet" type="text/css" href="../css/print.css" media="print" />
+
+  <script type="text/javascript" src="../js/menu.js"></script>
+
+  <noscript>
+    <link rel="stylesheet" type="text/css" href="../css/desktop_nojs.css" media="handheld, screen" />
+    <link rel="stylesheet" type="text/css" href="../css/mobile_nojs.css" media="handheld, screen and (max-width:800px), only screen and (max-device-width:800px)" />
+  </noscript>
+
+</head>
+
+<body>
+  <div id="header">
+    <a id="info_utente" class="usr" href="">
+      <img src="../img/utentebianco_icon.png" alt="" />
+      <span>Nome Cognome</span>
+    </a>
+
+    <a id="hamburger" href="javascript:void(0);" onclick="toggleMenu()"><img src="../img/prova_menu_espandi_icon.png" alt="Menù" /></a>
+
+    <h1 xml:lang="en"><abbr title="do it">DOIT</abbr></h1>
+  </div>
+
+  <div id="breadcrumb">
+    <p>PAGINA_CORRENTE</p>
+  </div>
+
+  <div id="menu">
+    <ul id="menu_up">
+      <li id="menu_profilo"><a href="">Il mio profilo</a></li>
+      <li id="menu_bacheca"><a href="">Bacheca</a></li>
+      <li id="menu_nuovo_post"><a href="">Nuovo post</a></li>
+      <li id="menu_help" xml:lang="en"><a href="">Help</a></li>
+    </ul>
+    <ul id="menu_down">
+      <li id="menu_about" xml:lang="en"><a href="about.html">About Us</a></li>
+      <li id="menu_logout" xml:lang="en"><a href="">Log Out</a></li>
+    </ul>
+  </div>
+
+  <div id="profilo" class="content">
+    <div id="profilo_dati_personali">
+      <div id="profilo_nome_cognome">
+        <h1><img src="../img/utentenero_icon.png" alt="Immagine profilo" />Mariaddolorata Quondamangelomaria</h1>
+      </div>
+
+      <ul id="profilo_data_di_nascita">
+        <li><img src="../img/compleanno_icon.png" alt="Compleanno: " /> 20/12/1954</li>
+        <li><img src="../img/email-icon.png" alt="Email: " /> mariaddolorata.quondamangelomaria@gmail.com</li>
+        <li><img src="../img/Tavola disegno 28.png" alt="Telefono: " /> 383 333333333</li>
+      </ul>
+    </div>
+    <h2>Biografia</h2>
+    <div id="profilo_biografia">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sed tortor eu enim gravida consequat. Nullam volutpat nunc in mauris vehicula aliquam. Nam ante tortor, sollicitudin eu tempor id, accumsan et elit. In laoreet, nulla quis sagittis gravida, sem lacus ultrices libero, a consectetur purus libero sit amet tellus. Morbi scelerisque venenatis laoreet. Sed ultricies lacus sed efficitur rhoncus. Sed vitae faucibus magna.
+      </p>
+    </div>
+    <h2>Contributi</h2>
+    <div id="profilo_contributi">
+      <form id="profilo_radio_button" action="action_page.php">
+        <div> <!-- div utile esclusivamente allo scopo di avere il documento xhtml validato-->
+          <input type="radio" name="radio_contibuti" value="value_tutte_le_attivita" checked="checked" id="tutte_le_attivita" tabindex="21"/> <!-- L'insieme dei radio button è considerato un solo elemento, quindi va un solo tabindex, le persone che utilizzeranno il tab per spostarsi su questo elemento dovranno poi usare le freccette della tastiera per andare da un radio button all'altro-->
+          <label for="tutte_le_attivita"> Tutte le attivit&agrave;</label>
+          <input type="radio" name="radio_contibuti" value="value_aperte" id="aperte"/>
+          <label for="aperte"> Aperte</label>
+          <input type="radio" name="radio_contibuti" value="value_chiuse" id="chiuse"/>
+          <label for="chiuse"> Chiuse</label>
+        </div>
+      </form>
+      <table id="profilo_table_contributi">
+        <thead>
+          <tr>
+            <th id="profilo_colhead_attivita">Attivit&agrave;</th>
+            <th id="profilo_colhead_data">Data</th>
+            <th id="profilo_colhead_stato_attivita">Stato Attivit&agrave;</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th id="profilo_colfoot_attivita">Attivit&agrave;</th>
+            <th id="profilo_colfoot_data">Data</th>
+            <th id="profilo_colfoot_stato_attivita">Stato Attivit&agrave;</th>
+          </tr>
+        </tfoot>
+        <tbody>
+          <tr>
+            <td><a href="link.html">Spazzatura</a></td>
+            <td>02/07/19</td>
+            <td>Aperta</td>
+          </tr>
+          <tr>
+            <td><a href="link.html">Coperte ai bisognosi</a></td>
+            <td>10/10/19</td>
+            <td>Chiusa</td>
+          </tr>
+          <tr>
+            <td><a href="link.html">Pulizia strade</a></td>
+            <td>04/05/20</td>
+            <td>Aperta</td>
+          </tr>
+          <tr>
+            <td><a href="link.html">Attivit&agrave; 1</a></td>
+            <td>11/10/19</td>
+            <td>Aperta</td>
+          </tr>
+          <tr>
+            <td><a href="link.html">Attivit&agrave; 2</a></td>
+            <td>05/05/20</td>
+            <td>Chiusa</td>
+          </tr>
+          <tr>
+            <td><a href="link.html">Attivit&agrave; 3</a></td>
+            <td>12/10/19</td>
+            <td>Aperta</td>
+          </tr>
+          <tr>
+            <td><a href="link.html">Attivit&agrave; 4</a></td>
+            <td>06/05/20</td>
+            <td>Aperta</td>
+          </tr><tr>
+            <td><a href="link.html">Spazzatura</a></td>
+            <td>02/07/19</td>
+            <td>Aperta</td>
+          </tr>
+          <tr>
+            <td><a href="link.html">Coperte ai bisognosi</a></td>
+            <td>10/10/19</td>
+            <td>Chiusa</td>
+          </tr>
+          <tr>
+            <td><a href="link.html">Pulizia strade</a></td>
+            <td>04/05/20</td>
+            <td>Aperta</td>
+          </tr>
+          <tr>
+            <td><a href="link.html">Attivit&agrave; 1</a></td>
+            <td>11/10/19</td>
+            <td>Aperta</td>
+          </tr>
+          <tr>
+            <td><a href="link.html">Attivit&agrave; 2</a></td>
+            <td>05/05/20</td>
+            <td>Chiusa</td>
+          </tr>
+          <tr>
+            <td><a href="link.html">Attivit&agrave; 3</a></td>
+            <td>12/10/19</td>
+            <td>Aperta</td>
+          </tr>
+          <tr>
+            <td><a href="link.html">Attivit&agrave; 4</a></td>
+            <td>06/05/20</td>
+            <td>Aperta</td>
+          </tr>
+          <tr>
+            <td><a href="link.html">Spazzatura</a></td>
+            <td>02/07/19</td>
+            <td>Aperta</td>
+          </tr>
+          <tr>
+            <td><a href="link.html">Coperte ai bisognosi</a></td>
+            <td>10/10/19</td>
+            <td>Chiusa</td>
+          </tr>
+          <tr>
+            <td><a href="link.html">Pulizia strade</a></td>
+            <td>04/05/20</td>
+            <td>Aperta</td>
+          </tr>
+          <tr>
+            <td><a href="link.html">Attivit&agrave; 1</a></td>
+            <td>11/10/19</td>
+            <td>Aperta</td>
+          </tr>
+          <tr>
+            <td><a href="link.html">Attivit&agrave; 2</a></td>
+            <td>05/05/20</td>
+            <td>Chiusa</td>
+          </tr>
+          <tr>
+            <td><a href="link.html">Attivit&agrave; 3</a></td>
+            <td>12/10/19</td>
+            <td>Aperta</td>
+          </tr>
+          <tr>
+            <td><a href="link.html">Attivit&agrave; 4</a></td>
+            <td>06/05/20</td>
+            <td>Aperta</td>
+          </tr>
+          <tr>
+            <td><a href="link.html">Spazzatura</a></td>
+            <td>02/07/19</td>
+            <td>Aperta</td>
+          </tr>
+          <tr>
+            <td><a href="link.html">Coperte ai bisognosi</a></td>
+            <td>10/10/19</td>
+            <td>Chiusa</td>
+          </tr>
+          <tr>
+            <td><a href="link.html">Pulizia strade</a></td>
+            <td>04/05/20</td>
+            <td>Aperta</td>
+          </tr>
+          <tr>
+            <td><a href="link.html">Attivit&agrave; 1</a></td>
+            <td>11/10/19</td>
+            <td>Aperta</td>
+          </tr>
+          <tr>
+            <td><a href="link.html">Attivit&agrave; 2</a></td>
+            <td>05/05/20</td>
+            <td>Chiusa</td>
+          </tr>
+          <tr>
+            <td><a href="link.html">Attivit&agrave; 3</a></td>
+            <td>12/10/19</td>
+            <td>Aperta</td>
+          </tr>
+          <tr>
+            <td><a href="link.html">Attivit&agrave; 4</a></td>
+            <td>06/05/20</td>
+            <td>Aperta</td>
+          </tr>
+        </tbody>
+        </table>
+    </div>
+  </div>
+
+  <div id="footer">
+    <p>
+      <a href="http://validator.w3.org/check?uri=referer" xml:lang="en">
+        <img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" />
+      </a>
+      &copy; Alessandro Chimetto, Daniele Bresciani, Francesco De Salvador, Stefano Biotto
+    </p>
+  </div>
+</body>
+</html>

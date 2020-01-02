@@ -148,25 +148,9 @@ body {
 }
 
 /********** CONTENT **********/
-#error_404 {
-  margin-left: 20%;
-  padding: 1em;
-  overflow: hidden;
-}
-
-#error_404 p {
-  margin: 1em;
-  text-align: center;
-  font-size: x-large;
-}
-
-#error_404 img {
-  margin-left: -5%;
-}
-
 .content {
   color: #004c07;
-  width:80%;
+  width: 80%;
   display: inline-block;
 }
 
@@ -176,11 +160,28 @@ body {
   border: 1px outset #444;
   border-radius: 0.2em;
   outline: none;
-  outline: none;
   padding: 0.3em;
   color: #f2f2f2;
 }
 
+/* 404 */
+#error_404 {
+margin-left: 20%;
+padding: 1em;
+overflow: hidden;
+}
+
+#error_404 p {
+margin: 1em;
+text-align: center;
+font-size: x-large;
+}
+
+#error_404 img {
+margin-left: -5%;
+}
+
+/* Post */
 .post_titolo {
   margin: 0 auto;
   font-weight: bold;
@@ -464,6 +465,7 @@ body {
   width: 30%;
 }
 
+/* Bacheca */
 #ricerca {
   width: 90%;
   margin: 2%;
@@ -503,7 +505,101 @@ body {
   padding: 1%;
   background-color: #fff;
   border-radius: 0.5em;
+}
 
+/* Profilo */
+#profilo h1 {
+  text-align: center;
+  font-size: 1.5em;
+}
+
+#profilo h2 {
+  padding: 2%;
+  text-align: center;
+  background-color: #70c653;
+  color: #006837;
+}
+
+#profilo_dati_personali {
+  background-color: #fff;
+  border-radius: 0.5em;
+  margin-bottom: 1%;
+  padding: 2%;
+}
+
+#profilo_nome_cognome {
+  width: 50%;
+  vertical-align: middle;
+  display: inline-block;
+  padding: 2%;
+}
+
+#profilo_nome_cognome img {
+  height: 50%;
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+#profilo_data_di_nascita img {
+  width: 10%;
+  vertical-align: middle;
+}
+
+#profilo_data_di_nascita li {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+#profilo_data_di_nascita {
+  display: inline-block;
+  list-style-type: none;
+  word-break: break-all;
+  width: 45%;
+  vertical-align: middle;
+}
+
+#profilo_biografia {
+  display: block;
+  clear: right;
+}
+
+#profilo_biografia, #profilo_contributi {
+  background-color: #fff;
+  border-radius: 0.5em;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  padding: 2%;
+}
+
+#profilo_table_contributi {
+  width: 100%;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+}
+
+#profilo_colhead_data, #profilo_colhead_stato_attivita, #profilo_colfoot_data, #profilo_colfoot_stato_attivita {
+  width: 20%;
+}
+
+#profilo_table_contributi th, #profilo_table_contributi td {
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+#profilo_table_contributi tr:hover {
+  background-color: #ddd !important;
+}
+
+#profilo_table_contributi tr:nth-child(even) {
+  background: rgba(112, 198, 83, 0.4);
+}
+
+#profilo_table_contributi td:nth-child(2), td:nth-child(3) {
+  text-align: center;
 }
 
 /********** FOOTER **********/
