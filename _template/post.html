@@ -1,121 +1,63 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>
-      Post - Raccolta rifiuti
-    </title>
-  </head>
-  <body>
-    <div id="content">
-      <div id="core">
-        <h1>
-          Raccolta rifiuti
-        </h1>
-        <img src="../img/_template_foto/rifiuti1.jpg" alt="immagine di copertina" />
-        <h2>
-          Descrizione
-        </h2>
-        <p>
-          At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus
-        </p>
-        <form action="/" method="post">
-          <fieldset>
-            <input type="submit" value="DOIT" alt="do it" />
-          </fieldset>
-        </form>
-      </div> <!-- fine core -->
 
-      <div id="info">
-
-        <img src="../img/info_icon.png" alt="icona info" />
-        <h2>
-          Informazioni generali
-        </h2>
-
-        <img src="../img/utentenero_icon.png" alt="icona profilo" />
-        <p>
-          Post di Paolo Bianchi
-        </p>
-        <img src="../img/post_calendario_icon.png" alt="icona calendario" />
-        <p>
-          Pubblicato il 12/02/2019
-        </p>
-        <p>
-          Alle ore 15.30
-        </p>
-        <img src="../img/volontari_icon.png" alt="icona volontari" />
-        <h2>
-          Volontari
-        </h2>
-        <p>
-          5 persone aiutano Paolo
-        </p>
-        <p>
-          Mario Rossi, Giuseppe Verdi, Carlo Rossi, Piero Bianchi, Gioia Sacchi, Pietro Manzi, Roberto Storti
-        </p>
-        <img src="../img/post_localizzazione_icon.png" alt="icona posizione" />
-        <h2>
-          Posizione
-        </h2>
-        <p>
-          Padova Centro
-        </p>
-        <p>
-          Via Luigi Luzzati 45
-        </p>
-        <img src="" alt="indicazioni per via Luigi Luzzati 45" /> <!-- qui ci va la mappa-->
-
-      </div> <!-- fine core -->
-
-
-      <div id="foto">
-
-        <h2>Foto dei partecipanti</h2>
-
-        <div class="utente_foto">
-          <div class="utente_info">
-            <img src="../img/utentenero_icon.png" alt="icona utente" />
-            <p>Paolo Rossi</p>
-          </div> <!-- fine utente_info -->
-            <img src="../img/_template_foto/rifiuti1.jpg" alt="foto" />
-        </div> <!-- fine utente_foto -->
-
-        <form action="/" method="post">
-          <fieldset>
-            <input type="submit" value="Carica" alt="carica" />
-          </fieldset>
-        </form>
-
-      </div> <!-- fine foto -->
-
-
-      <div id="commenti">
-        <img src="../img/commenti_icon.png" alt="icona commenti" />
-        <h2>
-          Commenti
-        </h2>
-
-        <dl>
-          <dt class="utente_info">
-            <img src="../img/utentenero_icon.png" alt="icona profilo" />
-            Roberto Bianchi scrive,
-          </dt>
-          <dd class="commento">
-            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus
-          </dd>
-        </dl>
-
-        <form action="/" method="post">
-          <fieldset>
-            <input type="text" name="testo_commento" />
-            <input type="submit" value="Invia" alt="invia" />
-          </fieldset>
-        </form>
-
-      </div> <!-- fine commenti -->
-
-    </div> <!-- fine content -->
-
-  </body>
-</html>
+  <div class="content" id="post">
+    <img id="post_immagineiniziale" src="../img/_template_foto/rifiuti3.jpg" alt="foto iniziale" />
+    <h1 class="titolo_post">RACCOLTA RIFIUTI</h1>
+    <div id="post_informazioni">
+      <h2 class="post_titolo">Informazioni</h2>
+      <ul id="post_informazioni_lista">
+        <li><p class="post_informazioni_record" id="post_informazioni_utente">Post di<br /><a href="#"><strong>Paolo Rossi</strong></a></p></li>
+        <!-- <li><p id="post_informazioni_utente"><form action="#"><input type="submit" name="modifica" value="Modifica post"></form></li> -->
+        <li><p class="post_informazioni_record" id="post_informazioni_data">Ritrovo<br /><strong>Domenica 10/12/2019</strong><br />Ore<br /><strong>13:30</strong></p></li>
+        <li><p class="post_informazioni_record" id="post_informazioni_posizione"><a href="#">Via<br /><strong>Luigi Luzzatti 45</strong>,<br />Padova</p></a></li>
+        <li><p class="post_informazioni_record" id="post_informazioni_volontari"><strong>5 volontari</strong> aiutano Paolo</p></li>
+      </ul>
+    </div>
+    <form action="#" id="doit"><fieldset><legend class="post_titolo">Partecipa</legend><input type="button" name="DOIT" value="DOIT" tabindex="21" /></fieldset></form>
+    <div id="post_core">
+      <h2 class="post_titolo" id="post_titolodescrizione">Descrizione</h2>
+      <p class="post_core_descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem commodo a. Aenean vitae metus ultricies, hendrerit erat sit amet, placerat libero. Nam dapibus mi vel dui ultrices, nec egestas est ullamcorper. Praesent nec gravida enim, non iaculis mauris. Vivamus convallis condimentum placerat. Maecenas ornare commodo efficitur. Pellentesque convallis imperdiet mi tempor dignissim. Nam sodales consequat elit et porta. Mauris posuere nibh metus, eget tempor eros porta eu. Maecenas tristique, justo vel fermentum sodales, quam metus laoreet elit, eu tristique tortor massa porttitor augue.</p>
+    </div>
+    <div id="post_listavolontari">
+      <h2 class="post_titolo">Volontari DOIT</h2>
+      <ol>
+        <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+        <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+        <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+        <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+        <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+        <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+        <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+        <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+        <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+        <li class="post_listavolontario"><a href="#" class="usr"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi</a></li>
+      </ol>
+    </div>
+    <div id="post_social">
+      <form id="post_social_form" action="#">
+        <fieldset>
+          <legend class="post_titolo">Foto e commenti</legend>
+          <p class="post_infobox">La sezione commenti permette l'organizzazione dei volontari. Contibuisci anche tu a questa attivit&agrave; di volotariato</p>
+          <p class="post_infobox">Scegli una foto</p>
+          <input id="post_sfoglia" type="file" alt="sfoglia" value="SFOGLIA" tabindex="22" />
+          <p class="post_infobox">Scrivi un messaggio</p>
+          <textarea id="post_social_textarea" rows="5" cols="50" tabindex="23">[Messaggio] </textarea>
+          <input id="post_social_invia" class="buttons" type="submit" alt="invia" value="INVIA" tabindex="24" />
+        </fieldset>
+      </form>
+      <div class="commento">
+        <a href="#" class="usr autore_commento"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi<span>12/12/2001 - 13:30</span></a>
+        <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
+      </div>
+      <div class="commento">
+        <a href="#" class="usr autore_commento"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi<span>12/12/2001 - 13:30</span></a>
+        <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
+      </div>
+      <div class="commento">
+        <a href="#" class="usr autore_commento"><img alt="giuseppe verdi" src="../img/_template_foto/gianni_morandi.jpg" />Giuseppe Verdi<span>12/12/2001 - 13:30</span></a>
+        <img class="user_image" src="../img/_template_foto/back.jpeg" alt="immagine di copertina" />
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem co</p>
+      </div>
+    </div>
+  </div> <!-- fine content -->

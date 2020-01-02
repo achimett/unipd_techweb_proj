@@ -1,14 +1,15 @@
 * {
-    padding: 0em;
-    margin: 0em;
-    font-family: "Times New Roman", Times, serif;
+  padding: 0em;
+  margin: 0em;
+  font-family: Verdana, Geneva, sans-serif;
+  color: #000;
 }
 
 body {
-    margin-top: 10mm;
-    margin-left: 10mm;
-    margin-right: 10mm;
-    margin-bottom: 7mm;
+  margin-top: 10mm;
+  margin-left: 10mm;
+  margin-right: 10mm;
+  margin-bottom: 7mm;
 }
 
 abbr[title] {
@@ -17,11 +18,11 @@ abbr[title] {
 }
 
 #header {
-    text-align: center;
+  text-align: center;
 }
 
 #header h1 {
-  font-family: Verdana, Geneva, sans-serif;
+  font-family: "Times New Roman", Times, serif;
 }
 
 #info_utente {
@@ -33,12 +34,227 @@ abbr[title] {
 }
 
 #breadcrumb {
-    text-align: center;
+  text-align: center;
 }
 
 #menu {
   display: none;
 }
+
+/**/
+
+/*targhetta utente*/
+.usr img {
+  width: 2em;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin: 0 0.5em 0 0.5em;
+
+}
+
+.usr {
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+/*content*/
+.content {
+  width: 100%;
+  display: inline-block;
+}
+
+.post_titolo {
+  color: #000;
+  text-align: center;
+}
+
+#doit {
+  display: none;
+}
+
+#titolo_post {
+  text-align: center;
+  font-size: 200%;
+}
+
+#post_immagineiniziale {
+display: none;
+}
+
+#post_core {
+  display: block;
+  width: 90%;
+  padding: 5% 5% 0 5%;
+}
+
+#post_informazioni {
+  float: left;
+  width: 100%;
+}
+
+#post_informazioni li {
+    list-style-type: none;
+  float: left;
+    width: 25%;
+    text-align: center;
+}
+
+
+.post_informazioni_record {
+  background-position: center top;
+  background-size: 3em;
+  background-repeat: no-repeat;
+  padding: 3em 0 1em;
+}
+
+#post_informazioni_utente{
+  background-image: url("../img/utentenero_icon.png");
+}
+
+#post_informazioni_data{
+  background-image: url("../img/post_calendario_icon.png");
+}
+
+#post_informazioni_ora{
+  background-image: url("../img/post_calendario_icon.png");
+
+}
+
+#post_informazioni_posizione{
+  background-image: url("../img/post_localizzazione_icon.png");
+}
+
+#post_informazioni_volontari{
+  background-image: url("../img/volontari_icon.png");
+}
+
+#post_listavolontari {
+  width: 100%;
+}
+
+#post_listavolontari ol {
+  list-style-type: none;
+  width: 100%;
+}
+
+#post_listavolontari li {
+  float: left;
+  margin: 0em auto;
+  width: 25%;
+  padding: 2% 0%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+#post_listavolontari a {
+  width: 92%;
+  margin: 0 4%;
+}
+
+#post_social {
+  display: none;
+}
+
+#post_immaginepreview {
+  display: none;
+}
+
+#postEdit_core_titolo_input {
+  display: block;
+  margin: auto;
+}
+
+#postEdit_social_sfoglia {
+  display: none;
+}
+
+#post_form fieldset {
+  border: 0;
+}
+
+#post_social_invia {
+    display: none;
+}
+.label {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 1% 0 1% 0;
+}
+
+#postEdit_social_textarea {
+  display: block;
+  width: 100%;
+  resize:vertical;
+}
+
+#postEdit_informazioni_lista {
+  list-style-type: none;
+  padding: 0;
+
+}
+#postEdit_informazioni_lista li {
+  width: 100%;
+  padding: 3em 0 0 0;
+  text-align: center;
+}
+
+#postEdit_informazioni_data_input, #postEdit_informazioni_ora_input, .postEdit_informazioni_posizione_input {
+  display: block;
+  margin: 1% auto;
+}
+
+#postEdit_core {
+  width: 50%;
+  display: inline-block;
+}
+
+#postEdit_informazioni {
+  width: 50%;
+  float: right;
+}
+
+
+.post {
+  width: 30%;
+}
+
+.bacheca_informazioni {
+  background-color: #fff;
+  margin-top: 2%;
+  padding-bottom: 2%;
+  float: left;
+  width: 100%;
+  border-radius: 0.5em;
+}
+
+.bacheca_informazioni li {
+
+    list-style-type: none;
+  float: left;
+    width: 33%;
+    text-align: center;
+}
+
+.bacheca_post {
+  float: left;
+  margin: 2.5%;
+  width: 95%;
+  padding: 1%;
+}
+
+.bacheca_core {
+  display: inline-block;
+  margin-top: 2%;
+  padding: 1%;
+  background-color: #fff;
+  border-radius: 0.5em;
+  width: 100%;
+
+}
+
+
+/**/
 
 #footer {
   text-align: center;

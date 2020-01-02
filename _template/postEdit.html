@@ -1,0 +1,23 @@
+<div class="content" id="post">
+
+      <form id="post_form" action="#">
+        <fieldset><legend class="post_titolo">Post</legend>
+          <label class="label" for="postEdit_core_titolo_input">Titolo del post</label><input type="text" id="postEdit_core_titolo_input" name="titolo" value="" size="40"/>
+          <label class="label" for="post_immaginepreview">Immagine di copertina</label>
+          <input id="postEdit_social_sfoglia" class="buttons" type="file" alt="sfoglia" value="SFOGLIA">
+          <h2 class="post_titolo">Descrizione</h2>
+          <textarea id="postEdit_social_textarea" rows="10" cols="50">[Inserisci qui la descrizione dell'attivit&agrave; che vuoi proporre]</textarea>
+          <h2 class="post_titolo">Informazioni</h2>
+          <ul id="postEdit_informazioni_lista">
+            <li id="post_informazioni_data">
+              <label for="postEdit_informazioni_data_input" class="postEdit_informazioni_record">Ritrovo in data (DD/MM/YYYY)</label><input type="text" id="postEdit_informazioni_data_input" name="data" value="__/__/____" size="10" />
+              <label for="postEdit_informazioni_ora_input" class="postEdit_informazioni_record">Ore (HH:MM)</label> <input type="text" id="postEdit_informazioni_ora_input" name="Ora" /></li>
+            <li  id="post_informazioni_posizione">
+              <label for="via" class="postEdit_informazioni_record">Localit&agrave; (es.: Via Trieste 1)</label><input type="text" class="postEdit_informazioni_posizione_input" id="via" name="posizione" value="" size="30" />
+              <label for="provincia" class="postEdit_informazioni_record" >Provincia (es.: Padova)</label><input type="text" class="postEdit_informazioni_posizione_input" id="provincia" name="posizione" value="" size="30" />
+            </li>
+          </ul>
+        <input type="submit" name="Salva" value="Salva" id="post_social_invia" class="buttons" />
+      </fieldset>
+    </form>
+    </div>
