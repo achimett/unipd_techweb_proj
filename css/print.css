@@ -41,9 +41,7 @@ abbr[title] {
   display: none;
 }
 
-/**/
-
-/*targhetta utente*/
+/********** Targa Utente **********/
 .usr img {
   width: 2em;
   border-radius: 50%;
@@ -57,12 +55,13 @@ abbr[title] {
   text-decoration: none;
 }
 
-/*content*/
+/********** Content **********/
 .content {
   width: 100%;
   display: inline-block;
 }
 
+/* Post */
 .post_titolo {
   color: #000;
   text-align: center;
@@ -98,7 +97,6 @@ display: none;
     width: 25%;
     text-align: center;
 }
-
 
 .post_informazioni_record {
   background-position: center top;
@@ -175,6 +173,7 @@ display: none;
 #post_social_invia {
     display: none;
 }
+
 .label {
   display: block;
   width: 100%;
@@ -214,11 +213,11 @@ display: none;
   float: right;
 }
 
-
 .post {
   width: 30%;
 }
 
+/* Bacheca */
 .bacheca_informazioni {
   background-color: #fff;
   margin-top: 2%;
@@ -253,21 +252,7 @@ display: none;
 
 }
 
-
-/**/
-
-#footer {
-  text-align: center;
-  font-style: italic;
-  padding-top: 0.25em;
-}
-
-#footer a {
-  display: none;
-}
-
-/******* CSS PROFILO *******/
-
+/* Profilo */
 #profilo_nome_cognome {
   width: 60%;
   vertical-align: middle;
@@ -326,4 +311,87 @@ display: none;
 
 #profilo_table_contributi td:nth-child(2), td:nth-child(3) {
   text-align: center;
+}
+
+/* Login e Registrazione */
+#login, #registrazione_e_login h1, #registrazione_e_login input[type=submit], #fieldset_carica_una_foto legend, #fieldset_carica_una_foto label, #fieldset_biografia legend, #registrazione_foto {
+  display: none;
+}
+
+#registrazione ul {
+  list-style-type: none;
+}
+
+#login_riga_email, #registrazione li {
+  overflow: hidden;
+}
+
+#login_email, #login_password, #registrazione_nome, #registrazione_cognome, #registrazione_giorno_di_nascita, #registrazione_mese_di_nascita, #registrazione_anno_di_nascita, #registrazione_codice_fiscale, #registrazione_email, #registrazione_telefono, #registrazione_password, #registrazione_conferma_password {
+  width: 50%;
+  padding: 2%;
+  margin-top: 1mm;
+  margin-bottom: 1mm;
+  float: right;
+}
+
+#label_login_email, #label_login_password, #label_registrazione_nome, #label_registrazione_cognome, #label_registrazione_anno_di_nascita, #label_registrazione_codice_fiscale, #label_registrazione_email, #label_registrazione_telefono, #label_registrazione_password, #label_registrazione_conferma_password {
+  width: 30%;
+  padding: 2%;
+  margin-top: 1.5mm;
+  margin-bottom: 1.5mm;
+}
+
+#registrazione_giorno_di_nascita, #registrazione_mese_di_nascita, #registrazione_anno_di_nascita {
+  width: 13.5% !important;
+}
+
+#registrazione_e_login fieldset {
+  border: 0pt;
+}
+
+#registrazione_immagine_profilo {
+  margin-left: 30mm;
+  height: 400px;
+  width: auto;
+}
+
+#registrazione_biografia {
+  width: 100%;
+}
+
+#fieldset_dati_anagrafici legend {
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+#fieldset_dati_di_contatto legend {
+  font-size: 2em;
+  font-weight: bold;
+  margin-top: 0.1em;
+  margin-bottom: 0.5em;
+}
+
+#fieldset_biografia label {
+  font-size: 2em;
+  font-weight: bold;
+  margin-top: 0.1em;
+}
+
+#fieldset_login legend {
+  font-size: 2em;
+  font-weight: bold;
+  margin-top: 0.1em;
+  margin-bottom: 0.5em;
+}
+
+/********** FOOTER **********/
+#footer {
+  text-align: center;
+  font-style: italic;
+  padding-top: 0.25em;
+}
+
+#footer a {
+  display: none;
 }
