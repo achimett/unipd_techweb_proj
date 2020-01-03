@@ -348,6 +348,17 @@ abbr[title] {
   float: left;
 }
 
+#postEdit {
+  margin-top: 2%;
+  background-color: #fff;
+  border-radius: 0.5em;
+}
+
+#postEdit input[type="text"] {
+  padding: 1%;
+  border: 1px solid #004c07;
+}
+
 #postEdit_social_sfoglia {
   padding: 2%;
   display: block;
@@ -425,8 +436,10 @@ abbr[title] {
 
 #postEdit_social_textarea {
   display: block;
-  width: 100%;
-  resize:vertical;
+  width: 90%;
+  border: 1px solid #004c07;
+  margin: auto;
+  resize: vertical;
 }
 
 #postEdit_informazioni_lista {
