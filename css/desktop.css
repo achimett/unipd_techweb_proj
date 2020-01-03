@@ -140,7 +140,7 @@ body {
 
 /********** CONTENT_REGISTRAZIONE**********/
 
-#registrazione_e_login textarea {
+#registrazione_e_login textarea, #modifica_profilo textarea {
   resize: none;
 }
 
@@ -152,22 +152,20 @@ body {
   width: auto;
 }
 
-#registrazione_e_login h1, #registrazione_e_login h2 {
-  font-size: 1.5em;
-}
-
-#registrazione_e_login h1, #registrazione_e_login h2 {
+#registrazione_e_login h1, #registrazione_e_login h2, #modifica_profilo h1, #modifica_profilo h2 {
   padding: 2%;
   text-align: center;
   background-color: #70c653;
   color: #006837;
+  font-size: 1.5em;
 }
 
-#registrazione_e_login legend {
+#registrazione_e_login legend, #modifica_profilo legend {
   padding: 2%;
   text-align: center;
   background-color: #ecc5c5;
   color: #c04040;
+  font-weight: bold;
 }
 
 #registrazione_e_login p {
@@ -196,12 +194,6 @@ body {
 
 #fieldset_login {
   border:0;
-}
-
-#registrazione_e_login legend {
-  margin-left: auto;
-  margin-right: auto;
-  font-weight: bold;
 }
 
 #login {
@@ -247,7 +239,7 @@ body {
   border-color: #004c07;
 }
 
-#registrazione_e_login input[type=submit] {
+#registrazione_e_login input[type=submit], #modifica_profilo input[type=submit] {
   display: block;
   margin: auto;
   padding: 2%;
@@ -261,7 +253,7 @@ body {
   margin-bottom: 1.5vw;
 }
 
-#registrazione_e_login input[type=submit]:active {
+#registrazione_e_login input[type=submit]:active, #modifica_profilo input[type=submit]:active {
   box-shadow: 2px 5px 5px 0px #333 inset;
 }
 

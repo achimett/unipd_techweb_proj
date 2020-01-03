@@ -52,7 +52,7 @@ abbr[title] {
 
 /******* REGISTRAZIONE *******/
 
-#login, #registrazione_e_login h1, #registrazione_e_login input[type=submit], #fieldset_carica_una_foto legend, #fieldset_carica_una_foto label, #fieldset_biografia legend, #registrazione_foto, #registrazione_e_login p  {
+#login, #registrazione_e_login h1, #modifica_profilo h1, #registrazione_e_login input[type=submit], #modifica_profilo input[type=submit], #fieldset_carica_una_foto legend, #fieldset_carica_una_foto label, #fieldset_biografia legend, #registrazione_foto, #registrazione_e_login p  {
   display: none;
 }
 
@@ -79,7 +79,7 @@ abbr[title] {
   margin-bottom: 1.5mm;
 }
 
-#registrazione_e_login fieldset {
+#registrazione_e_login fieldset, #modifica_profilo fieldset {
   border: 0pt;
 }
 
