@@ -52,7 +52,7 @@ abbr[title] {
 
 /******* REGISTRAZIONE *******/
 
-#login, #registrazione_e_login h1, #registrazione_e_login input[type=submit], #fieldset_carica_una_foto legend, #fieldset_carica_una_foto label, #fieldset_biografia legend, #registrazione_foto {
+#login, #registrazione_e_login h1, #registrazione_e_login input[type=submit], #fieldset_carica_una_foto legend, #fieldset_carica_una_foto label, #fieldset_biografia legend, #registrazione_foto, #registrazione_e_login p  {
   display: none;
 }
 
@@ -64,7 +64,7 @@ abbr[title] {
   overflow: hidden;
 }
 
-#login_email, #login_password, #registrazione_nome, #registrazione_cognome, #registrazione_giorno_di_nascita, #registrazione_mese_di_nascita, #registrazione_anno_di_nascita, #registrazione_codice_fiscale, #registrazione_email, #registrazione_telefono, #registrazione_password, #registrazione_conferma_password {
+#login_email, #login_password, #registrazione_nome, #registrazione_cognome, #registrazione_data_di_nascita, #registrazione_codice_fiscale, #registrazione_email, #registrazione_telefono, #registrazione_password, #registrazione_conferma_password {
   width: 50%;
   padding: 2%;
   margin-top: 1mm;
@@ -72,15 +72,11 @@ abbr[title] {
   float: right;
 }
 
-#label_login_email, #label_login_password, #label_registrazione_nome, #label_registrazione_cognome, #label_registrazione_anno_di_nascita, #label_registrazione_codice_fiscale, #label_registrazione_email, #label_registrazione_telefono, #label_registrazione_password, #label_registrazione_conferma_password {
+#label_login_email, #label_login_password, #label_registrazione_nome, #label_registrazione_cognome, #label_registrazione_data_di_nascita, #label_registrazione_codice_fiscale, #label_registrazione_email, #label_registrazione_telefono, #label_registrazione_password, #label_registrazione_conferma_password {
   width: 30%;
   padding: 2%;
   margin-top: 1.5mm;
   margin-bottom: 1.5mm;
-}
-
-#registrazione_giorno_di_nascita, #registrazione_mese_di_nascita, #registrazione_anno_di_nascita {
-  width: 13.5% !important;
 }
 
 #registrazione_e_login fieldset {
