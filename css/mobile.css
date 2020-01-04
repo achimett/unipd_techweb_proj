@@ -42,13 +42,9 @@
 }
 
 /* 404 */
-#error_404 {
-  margin-left: 0%;
-}
-
 #error_404 img {
   width: 100%;
-  height: auto;
+  margin-left: 0;
 }
 
 /* Post */
@@ -124,52 +120,43 @@
 }
 
 /* Login e Registrazione */
-#registrazione_e_login {
-max-width: 1024px;
-margin-left: 0%;
-padding: 0em;
+#registrazione_e_login, #modifica_profilo {
+  max-width: 1024px;
+  margin-left: 0%;
+  padding: 0em;
 }
 
 #registrazione_immagine_profilo {
-display: block;
-margin-left: auto;
-margin-right: auto;
-height: 100px;
-width: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100px;
+  width: auto;
 }
 
-#registrazione_e_login h1, h2{
-font-size: 1.5em;
+#registrazione_e_login h1, #registrazione_e_login h2, #modifica_profilo h1, #modifica_profilo h2{
+  font-size: 1.5em;
 }
 
 
-#login_email, #login_password, #registrazione_nome, #registrazione_cognome, #registrazione_giorno_di_nascita, #registrazione_mese_di_nascita, #registrazione_anno_di_nascita, #registrazione_codice_fiscale, #registrazione_email, #registrazione_telefono, #registrazione_password, #registrazione_conferma_password {
-padding: 1%;
+#login_email, #login_password, #registrazione_nome, #registrazione_cognome, #registrazione_data_di_nascita, #registrazione_codice_fiscale, #registrazione_email, #registrazione_telefono, #registrazione_password, #registrazione_conferma_password {
+  padding: 1%;
 }
 
-#label_login_email, #label_login_password, #label_registrazione_nome, #label_registrazione_cognome, #label_registrazione_anno_di_nascita, #label_registrazione_codice_fiscale, #label_registrazione_email, #label_registrazione_telefono, #label_registrazione_password, #label_registrazione_conferma_password {
-padding: 1%;
+#label_login_email, #label_login_password, #label_registrazione_nome, #label_registrazione_cognome, #label_registrazione_data_di_nascita, #label_registrazione_codice_fiscale, #label_registrazione_email, #label_registrazione_telefono, #label_registrazione_password, #label_registrazione_conferma_password {
+  padding: 1%;
 }
 
-#registrazione_giorno_di_nascita, #registrazione_mese_di_nascita, #registrazione_anno_di_nascita {
-width: 14.8%;
-}
-
-@media (max-width: 459px) {
-#registrazione_giorno_di_nascita, #registrazione_mese_di_nascita, #registrazione_anno_di_nascita {
-width: 14.7%;
-}
-}
-
-#registrazione_e_login input[type=submit] {
-margin-top: 3.5vw;
-margin-bottom: 3.5vw;
+#registrazione_e_login input[type=submit], #modifica_profilo input[type=submit] {
+  margin-top: 3.5vw;
+  margin-bottom: 3.5vw;
 }
 
 #registrazione fieldset {
-width: 96%;
-padding: 2%;
+  width: 96%;
+  padding: 2%;
 }
+
 
 /********** FOOTER **********/
 #footer {

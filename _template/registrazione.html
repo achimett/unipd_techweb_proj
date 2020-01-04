@@ -75,7 +75,7 @@
 			</div>
 		</form>
 		<h1>Vuoi essere un volontario? Unisciti a noi!</h1>
-		<p> Tutti i campi sono obbligatori. Inserire la data di nascita nel formato gg/mm/aaaa.</p>
+		<p>Tutti i campi sono obbligatori.<br />Il campo data deve essere nella forma gg/mm/aaaa.</p>
 		<form action="form_registrazione.php" id="registrazione">
 			<div id="registrazione_riga_1">
 				<fieldset id="fieldset_dati_anagrafici">
@@ -90,14 +90,12 @@
 							<input type="text" id="registrazione_cognome" tabindex="25"></input>
 						</li>
 						<li>
-							<label for="registrazione_anno_di_nascita" id="label_registrazione_anno_di_nascita">Data di nascita: </label>
-							<input type="text" id="registrazione_anno_di_nascita" tabindex="28"></input>
-							<input type="text" id="registrazione_mese_di_nascita" tabindex="27"></input>
-							<input type="text" id="registrazione_giorno_di_nascita" tabindex="26"></input>
+							<label for="registrazione_data_di_nascita" id="label_registrazione_data_di_nascita">Data di nascita:</label>
+							<input type="text" id="registrazione_data_di_nascita" tabindex="26"></input>
 						</li>
 						<li>
 							<label for="registrazione_codice_fiscale" id="label_registrazione_codice_fiscale">Codice fiscale: </label>
-							<input type="text" id="registrazione_codice_fiscale" tabindex="29"></input>
+							<input type="text" id="registrazione_codice_fiscale" tabindex="27"></input>
 						</li>
 					</ul>
 				</fieldset>
@@ -106,19 +104,19 @@
 					<ul>
 						<li>
 							<label for="registrazione_email" id="label_registrazione_email"><span xml:lang="en">E-mail: </span></label>
-							<input type="text" id="registrazione_email" tabindex="30"></input>
+							<input type="text" id="registrazione_email" tabindex="28"></input>
 						</li>
 						<li>
 							<label for="registrazione_telefono" id="label_registrazione_telefono">Telefono: </label>
-							<input type="text" id="registrazione_telefono" tabindex="31"></input>
+							<input type="text" id="registrazione_telefono" tabindex="29"></input>
 						</li>
 						<li>
 							<label for="registrazione_password" id="label_registrazione_password"><span xml:lang="en">Password: </span></label>
-							<input type="password" id="registrazione_password" tabindex="32"></input>
+							<input type="password" id="registrazione_password" tabindex="30"></input>
 						</li>
 						<li>
 							<label for="registrazione_conferma_password" id="label_registrazione_conferma_password">Conferma <span xml:lang="en">password: </span></label>
-							<input type="password" id="registrazione_conferma_password" tabindex="33"></input>
+							<input type="password" id="registrazione_conferma_password" tabindex="31"></input>
 						</li>
 					</ul>
 				</fieldset>
@@ -127,17 +125,16 @@
 				<fieldset id="fieldset_carica_una_foto">
 					<legend>Fatti vedere!</legend>
 					<img id="registrazione_immagine_profilo" src="../img/utentenero_icon.png" alt="La tua foto del profilo"/>
-					<label for="registrazione_foto" id="label_registrazione_foto">Carica una foto</label>
-					<input type="file" id="registrazione_foto" tabindex="34"></input>
+					<input type="file" id="registrazione_foto" tabindex="32"></input>
 				</fieldset>
 				<fieldset id="fieldset_biografia">
 					<legend>Raccontaci di te</legend>
 					<label for="registrazione_biografia" id="label_registrazione_biografia">Biografia: </label><br />
-					<textarea id="registrazione_biografia" rows="15" cols="1" tabindex="35"></textarea>
+					<textarea id="registrazione_biografia" rows="13" cols="1" tabindex="33"></textarea>
 				</fieldset>
 			</div>
 			<div id="registrazione_conferma">
-				<input type="submit" id="registrazione_input_conferma" value="Conferma Registrazione" tabindex="36"/>
+				<input type="submit" id="registrazione_input_conferma" value="Conferma Registrazione" tabindex="34"/>
 			</div>
 		</form>
 	</div>
