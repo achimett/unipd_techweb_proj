@@ -21,7 +21,7 @@ $scripts = file_get_contents('includes/menuScript.html'); // . file_get_contents
 $info_utente = createInfoUtente($db);
 
 // Codice HTML del menu
-$menu = createMenu(true, true, true, true, true, true);
+$menu = createMenu(true, true, true, true, false, true);
 
 // Codice HTML del breadcrumb
 $breadcrumb = '<p id="breadcrumb">Chi Siamo</p>';
@@ -29,6 +29,7 @@ $breadcrumb = '<p id="breadcrumb">Chi Siamo</p>';
 // Codice HTML del content
 $content = file_get_contents('includes/content_about.html');
 
+// Rimpiazzo dei segnaposto sull'intera pagina
 $page_head = str_replace('<title />', "<title>$title - DOIT</title>", $page_head);
 $page_head = str_replace('<scripts />', $scripts, $page_head);
 $page_body = str_replace('<info_utente />', $info_utente, $page_body);
