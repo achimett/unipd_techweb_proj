@@ -168,6 +168,12 @@ body {
   box-shadow: 2px 5px 5px 0px #333 inset;
 }
 
+.error {
+  color: #FA3F00;
+  font-weight: bold;
+  padding-left: 1.5em;
+}
+
 /* 404 */
 #error_404 p {
   margin: 1em;
@@ -738,10 +744,6 @@ body {
 #login_conferma {
   display: -webkit-flex;
   display: flex;
-}
-
-#registrazione_conferma {
-  clear: both;
 }
 
 /********** FOOTER **********/

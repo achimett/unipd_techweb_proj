@@ -13,9 +13,9 @@ function createInfoUtente($db) {
     $usr = $db->getUser($_SESSION['user_id']);
 
     $result = '<a id="info_utente" class="usr" tabindex="1"
-    href="profilo.php?user_id=' . $_SESSION['user_id'] . '">
-    <img src="' . $usr['img'] . '" alt="" />
-    <span>' . $usr['name'] . ' ' . $usr['surname'] . '</span></a>';
+    href="profilo.php?id=' . $_SESSION['user_id'] . '">
+    <img src="' . $usr['img_path'] . '" alt="" />
+    <span>' . $usr['nome'] . ' ' . $usr['cognome'] . '</span></a>';
   }
 
   return $result;
