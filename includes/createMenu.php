@@ -31,7 +31,7 @@ function createMenu($profilo, $bacheca, $nuovo, $help, $about, $logout) {
 
   if ($profilo == true) {
     if (isset($_SESSION['user_id']) === true) {
-      $in = '<a tabindex="11" href=\"profilo.php?id="' . $_SESSION['user_id'] . '\">' . $str_profilo . '</a>';
+      $in = '<a tabindex="11" href="profilo.php?id="' . $_SESSION['user_id'] . '\">' . $str_profilo . '</a>';
     } else {
       $in = "<a tabindex=\"11\" href=\"login.php\">$str_profilo</a>";
     }
@@ -70,9 +70,9 @@ function createMenu($profilo, $bacheca, $nuovo, $help, $about, $logout) {
 
   if ($logout == true) {
     if (isset($_SESSION['user_id']) === true) {
-      $in = "<a tabindex=\"16\" href=\"logout.php\">$str_logout</a>";
+      $in = "<a tabindex=\"16\" href=\"login.php\">$str_logout</a>";
     } else {
-      $in = "<a tabindex=\"16\" href=\"logoin.php\">$str_login</a>";
+      $in = "<a tabindex=\"16\" href=\"login.php\">$str_login</a>";
     }
   } else {
     $in = '';
