@@ -1,0 +1,64 @@
+<div id="modifica_profilo" class="content">
+  <h1>Cambia qui i tuoi dati</h1>
+  <p>Tutti i campi sono obbligatori.<br />Il campo data deve essere nella forma gg/mm/aaaa.</p>
+  <error />
+  <form id="registrazione" action="profiloEdit.php?id=12" method="post" enctype="multipart/form-data">
+    <div id="registrazione_riga_1">
+      <fieldset id="fieldset_dati_anagrafici">
+        <legend>Dati Anagrafici</legend>
+        <ul>
+          <li>
+            <label for="registrazione_nome" id="label_registrazione_nome">Nome: </label>
+            <input type="text" id="registrazione_nome" name="nome" value="<nome />" tabindex="21"></input>
+          </li>
+          <li>
+            <label for="registrazione_cognome" id="label_registrazione_cognome">Cognome: </label>
+            <input type="text" id="registrazione_cognome" name="cognome" value="<cognome />" tabindex="22"></input>
+          </li>
+          <li>
+            <label for="registrazione_data_di_nascita" id="label_registrazione_data_di_nascita">Data di nascita:</label>
+            <input type="text" id="registrazione_data_di_nascita" name="datanascita" value="<datanascita />" tabindex="23"></input>
+          </li>
+          <li>
+            <label for="registrazione_codice_fiscale" id="label_registrazione_codice_fiscale">Codice fiscale: </label>
+            <input type="text" id="registrazione_codice_fiscale" name="cf" value="<cf />" tabindex="24"></input>
+          </li>
+        </ul>
+      </fieldset>
+      <fieldset id="fieldset_dati_di_contatto">
+        <legend>Dati di Contatto</legend>
+        <ul>
+          <li>
+            <label for="registrazione_email" id="label_registrazione_email"><span xml:lang="en">E-mail: </span></label>
+            <input type="text" id="registrazione_email" name="email" value="<email />" tabindex="25"></input>
+          </li>
+          <li>
+            <label for="registrazione_telefono" id="label_registrazione_telefono">Telefono: </label>
+            <input type="text" id="registrazione_telefono" name="telefono" value="<telefono />" tabindex="26"></input>
+          </li>
+          <li>
+            <label for="registrazione_password" id="label_registrazione_password"><span xml:lang="en">Password: </span></label>
+            <input type="password" id="registrazione_password" name="password" value="<password />" tabindex="27"></input>
+          </li>
+          <li>
+            <label for="registrazione_conferma_password" id="label_registrazione_conferma_password">Conferma <span xml:lang="en">password: </span></label>
+            <input type="password" id="registrazione_conferma_password" name="conf_password" value="<password />" tabindex="28"></input>
+          </li>
+        </ul>
+      </fieldset>
+    </div>
+    <div id="registrazione_riga_2">
+      <fieldset id="fieldset_carica_una_foto">
+        <legend>Fatti vedere!</legend>
+        <img id="registrazione_immagine_profilo" src="<img_path />" alt="La tua foto del profilo"/>
+        <input type="file" id="registrazione_foto" name="img" tabindex="29"></input>
+      </fieldset>
+      <fieldset id="fieldset_biografia">
+        <legend>Raccontaci di te</legend>
+        <label for="registrazione_biografia" id="label_registrazione_biografia">Biografia: </label><br />
+        <textarea id="registrazione_biografia" name="bio" rows="13" cols="1" tabindex="30"><bio /></textarea>
+      </fieldset>
+    </div>
+      <input type="submit" id="registrazione_input_conferma" value="Conferma Modifica" tabindex="31"/>
+  </form>
+</div>

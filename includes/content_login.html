@@ -1,0 +1,83 @@
+<div id="registrazione_e_login" class="content">
+  <h1>Effettua il <span xml:lang="en">login</span></h1>
+  <errorLogin />
+  <form id="login" action="login.php" method="post">
+    <fieldset id="fieldset_login" xml:lang="en">
+      <div id="login_riga_email">
+        <label for="login_email" id="label_login_email">E-mail: </label>
+        <input type="text" id="login_email" name="email" tabindex="21"></input>
+      </div>
+      <div id="login_riga_password">
+        <label for="login_password" id="label_login_password">Password: </label>
+        <input type="password" id="login_password" name="password" tabindex="22"></input>
+      </div>
+    </fieldset>
+    <div id="login_conferma">
+      <input type="submit" id="login_input_conferma" name="login" value="Effettua il Login" tabindex="23"/>
+    </div>
+  </form>
+  <h1>Vuoi essere un volontario? Unisciti a noi!</h1>
+  <p>Tutti i campi sono obbligatori.<br />Il campo data deve essere nella forma gg/mm/aaaa.</p>
+  <errorRegistrazione />
+  <form id="registrazione" action="login.php" method="post">
+    <div id="registrazione_riga_1">
+      <fieldset id="fieldset_dati_anagrafici">
+        <legend>Dati Anagrafici</legend>
+        <ul>
+          <li>
+            <label for="registrazione_nome" id="label_registrazione_nome">Nome: </label>
+            <input type="text" id="registrazione_nome" name="nome" value="<nome />" tabindex="24"></input>
+          </li>
+          <li>
+            <label for="registrazione_cognome" id="label_registrazione_cognome">Cognome: </label>
+            <input type="text" id="registrazione_cognome" name="cognome" value="<cognome />" tabindex="25"></input>
+          </li>
+          <li>
+            <label for="registrazione_data_di_nascita" id="label_registrazione_data_di_nascita">Data di nascita:</label>
+            <input type="text" id="registrazione_data_di_nascita" name="datanascita" value="<datanascita />" tabindex="26"></input>
+          </li>
+          <li>
+            <label for="registrazione_codice_fiscale" id="label_registrazione_codice_fiscale">Codice fiscale: </label>
+            <input type="text" id="registrazione_codice_fiscale" name="cf" value="<cf />" tabindex="27"></input>
+          </li>
+        </ul>
+      </fieldset>
+      <fieldset id="fieldset_dati_di_contatto">
+        <legend>Dati di Contatto</legend>
+        <ul>
+          <li>
+            <label for="registrazione_email" id="label_registrazione_email"><span xml:lang="en">E-mail: </span></label>
+            <input type="text" id="registrazione_email" name="email" value="<email />" tabindex="28"></input>
+          </li>
+          <li>
+            <label for="registrazione_telefono" id="label_registrazione_telefono">Telefono: </label>
+            <input type="text" id="registrazione_telefono" name="telefono" value="<telefono />" tabindex="29"></input>
+          </li>
+          <li>
+            <label for="registrazione_password" id="label_registrazione_password"><span xml:lang="en">Password: </span></label>
+            <input type="password" id="registrazione_password" name="password" tabindex="30"></input>
+          </li>
+          <li>
+            <label for="registrazione_conferma_password" id="label_registrazione_conferma_password">Conferma <span xml:lang="en">password: </span></label>
+            <input type="password" id="registrazione_conferma_password" name="conf_password" tabindex="31"></input>
+          </li>
+        </ul>
+      </fieldset>
+    </div>
+    <div id="registrazione_riga_2">
+      <fieldset id="fieldset_carica_una_foto">
+        <legend>Fatti vedere!</legend>
+        <img id="registrazione_immagine_profilo" src="img/utentenero_icon.png" alt="La tua foto del profilo"/>
+        <input type="file" id="registrazione_foto" name="img" tabindex="32"></input>
+      </fieldset>
+      <fieldset id="fieldset_biografia">
+        <legend>Raccontaci di te</legend>
+        <label for="registrazione_biografia" id="label_registrazione_biografia">Biografia: </label><br />
+        <textarea id="registrazione_biografia" name="bio" rows="13" cols="1" tabindex="33"><bio /></textarea>
+      </fieldset>
+    </div>
+    <div id="registrazione_conferma">
+      <input type="submit" id="registrazione_input_conferma" name="registrazione" value="Conferma Registrazione" tabindex="34"/>
+    </div>
+  </form>
+</div>
