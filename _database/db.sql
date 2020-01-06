@@ -14,6 +14,7 @@ CREATE TABLE utente (
   password    VARCHAR(30) NOT NULL,
   nome        VARCHAR(30) NOT NULL,
   cognome     VARCHAR(30) NOT NULL,
+  telefono	  VARCHAR(30) NOT NULL,
   datanascita DATE NOT NULL,
   cf          VARCHAR(16) NOT NULL,
   bio         TEXT NOT NULL,
