@@ -171,6 +171,9 @@ body {
 .error {
   color: #FA3F00;
   font-weight: bold;
+}
+
+ul.error {
   padding-left: 1.5em;
 }
 
@@ -606,7 +609,7 @@ body {
 }
 
 #profilo_table_contributi tr:hover {
-  background-color: #ddd !important;
+  background-color: #ddd;
 }
 
 #profilo_table_contributi tr:nth-child(even) {
@@ -648,7 +651,7 @@ body {
   font-weight: bold;
 }
 
-#registrazione_e_login p {
+#registrazione_e_login p, #modifica_profilo p {
   color: #c04040;
   font-weight: bold;
   text-align:center;

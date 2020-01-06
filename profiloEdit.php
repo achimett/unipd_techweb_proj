@@ -4,7 +4,7 @@ require_once('includes/DB.php');
 require_once('includes/createInfoUtente.php');
 require_once('includes/createMenu.php');
 require_once('includes/createFormErrors.php');
-require_once('includes/createPostEditBreadcrumb.php');
+require_once('includes/createProfiloEditBreadcrumb.php');
 
 // Oggetto di accesso al database
 $db = new DB();
@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $img_path = $_FILES['img']['tmp_name'];
   }
 
-  $result = $db->setProfilo(NULL,
+  $result = $db->setProfilo($_SESSION['user_id'],
                             $_POST['email'],
                             $_POST['password'],
                             $_POST['conf_password'],

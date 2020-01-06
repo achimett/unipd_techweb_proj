@@ -28,8 +28,17 @@ class DB {
   public function setProfilo($id, $email, $password, $conf_password, $nome,
   $cognome, $datanascita, $cf, $bio, $img_path, $telefono) {
     //return 12;
-    echo $img_path;
     return array('errore 1', 'errore 2', 'errore 3');
+  }
+
+  public function login($email, $password) {
+    $_SESSION['user_id'] = 12;
+    return true;
+    //return false;
+  }
+
+  public function logout() {
+    unset($_SESSION['user_id']);
   }
 }
 ?>
