@@ -81,8 +81,9 @@ body {
   width: 18%;
   margin-bottom: 0.2em;
   line-height: 2em;
-  float:left;
+  float: left;
   overflow: hidden;
+  font-weight: bold;
 }
 
 #menu ul#menu_up {
@@ -102,7 +103,7 @@ body {
 
 #menu a {
   text-decoration: none;
-  font-weight: bold;
+  /* font-weight: bold; */
   display: block;
   width: 100%;
 }
@@ -162,6 +163,10 @@ body {
   outline: none;
   padding: 0.3em;
   color: #f2f2f2;
+}
+
+.content input[type="button"].delete_buttons, .content input[type="submit"].delete_buttons {
+  background: linear-gradient(to bottom, #FA3F00, #d63500);
 }
 
 .content input[type="button"]:active, .content input[type="submit"]:active {

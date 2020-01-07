@@ -1,7 +1,7 @@
 <?php
 /* CLASSE MOCK PER DB */
 class DB {
-  public function getUser($mock = NULL) {
+  public function getUser($id) {
     return [
       'img_path' => 'img/utentebianco_icon.png',
       'nome' => 'Francesco',
@@ -11,7 +11,7 @@ class DB {
     return $usr;
   }
 
-  public function getProfilo($mock = NULL) {
+  public function getProfilo($id) {
     return [
       'nome' => 'Gianfranco',
       'cognome' => 'Piruvato',
@@ -31,6 +31,10 @@ class DB {
     return array('errore 1', 'errore 2', 'errore 3');
   }
 
+  public function deleteProfilo($id) {
+    unset($_SESSION['user_id']);
+  }
+
   public function login($email, $password) {
     $_SESSION['user_id'] = 12;
     return true;
@@ -39,6 +43,31 @@ class DB {
 
   public function logout() {
     unset($_SESSION['user_id']);
+  }
+
+  public function getPost($id = NULL) {
+    return [
+      'id' => $id,
+      'titolo' => 'Coperte ai senzatetto',
+      'id_autore' => 12,
+      'data' => '12/12/2020',
+      'ora' => '20:30',
+      'descrizione' => 'Minima ipsa eos consequuntur. Iure vel commodi in magni autem non. Fuga exercitationem nesciunt unde accusantium molestias eligendi voluptatem voluptatem. Non ut dicta perspiciatis ea consequatur dolor. Adipisci et provident velit ducimus est temporibus nisi.',
+      'img_path' => 'img/_template_foto/rifiuti3.jpg',
+      'via' => 'Via dei Cipressi, 25',
+      'provincia' => 'Padova',
+      'chiuso' => false,
+    ];
+  }
+
+  public function setPost($id, $titolo, $id_autore, $data, $ora, $descrizione,
+  $img_path, $via, $provincia) {
+    //return 24;
+    return array('errore 1', 'errore 2', 'errore 3');
+  }
+
+  public function deletePost($id) {
+
   }
 }
 ?>

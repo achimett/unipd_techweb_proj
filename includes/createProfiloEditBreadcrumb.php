@@ -4,6 +4,7 @@
 * Ha come imput un oggetto di tipo DB per relazionarsi con il database.
 *
 * Restituisce lo snippet di codice HTML del div con id="breadcrumb" per
+* la pagina di profiloEdit
 */
 function createPostEditBreadcrumb($db) {
   return '<p id="breadcrumb">' .
