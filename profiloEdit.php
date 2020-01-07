@@ -16,31 +16,36 @@ if (!(isset($_GET['id']) &&
   header('Location: 404.php');
 }
 
-// Inserimento nel database ed eventuale generazione di stringhe di errore
+// Gestione del metodo POST
 $errors = '';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $img_path = '';
+  if (isset($_POST['salva'])) {
+    $img_path = '';
 
-  if (is_uploaded_file($_FILES['img']['tmp_name'])) {
-    $img_path = $_FILES['img']['tmp_name'];
-  }
+    if (is_uploaded_file($_FILES['img']['tmp_name'])) {
+      $img_path = $_FILES['img']['tmp_name'];
+    }
 
-  $result = $db->setProfilo($_SESSION['user_id'],
-                            $_POST['email'],
-                            $_POST['password'],
-                            $_POST['conf_password'],
-                            $_POST['nome'],
-                            $_POST['cognome'],
-                            $_POST['datanascita'],
-                            $_POST['cf'],
-                            $_POST['bio'],
-                            $img_path,
-                            $_POST['telefono']);
+    $result = $db->setProfilo($_SESSION['user_id'],
+                              $_POST['email'],
+                              $_POST['password'],
+                              $_POST['conf_password'],
+                              $_POST['nome'],
+                              $_POST['cognome'],
+                              $_POST['datanascita'],
+                              $_POST['cf'],
+                              $_POST['bio'],
+                              $img_path,
+                              $_POST['telefono']);
 
-  if ($result == $_SESSION['user_id']) {
-    header('Location: profilo.php?id=' . $_SESSION['user_id']);
-  } else {
-    $errors = createFormErrors($result);
+    if ($result == $_SESSION['user_id']) {
+      header('Location: profilo.php?id=' . $_SESSION['user_id']);
+    } else {
+      $errors = createFormErrors($result);
+    }
+  } else if (isset($_POST['elimina'])) {
+    $db->deleteProfilo($_SESSION['user_id']);
+    header('Location: index.php');
   }
 }
 

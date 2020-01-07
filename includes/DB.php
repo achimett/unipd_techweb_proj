@@ -1,7 +1,7 @@
 <?php
 /* CLASSE MOCK PER DB */
 class DB {
-  public function getUser($mock = NULL) {
+  public function getUser($id) {
     return [
       'img_path' => 'img/utentebianco_icon.png',
       'nome' => 'Francesco',
@@ -11,7 +11,7 @@ class DB {
     return $usr;
   }
 
-  public function getProfilo($mock = NULL) {
+  public function getProfilo($id) {
     return [
       'nome' => 'Gianfranco',
       'cognome' => 'Piruvato',
@@ -29,6 +29,10 @@ class DB {
   $cognome, $datanascita, $cf, $bio, $img_path, $telefono) {
     //return 12;
     return array('errore 1', 'errore 2', 'errore 3');
+  }
+
+  public function deleteProfilo($id) {
+    unset($_SESSION['user_id']);
   }
 
   public function login($email, $password) {
@@ -60,6 +64,10 @@ class DB {
   $img_path, $via, $provincia) {
     //return 24;
     return array('errore 1', 'errore 2', 'errore 3');
+  }
+
+  public function deletePost($id) {
+
   }
 
   getPostcard($page, $postcard_per_page, &$page_count, $filter = NULL) {
