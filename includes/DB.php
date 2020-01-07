@@ -61,5 +61,9 @@ class DB {
     //return 24;
     return array('errore 1', 'errore 2', 'errore 3');
   }
+
+  getPostcard($page, $postcard_per_page, &$page_count, $filter = NULL) {
+    
+  }
 }
 ?>
