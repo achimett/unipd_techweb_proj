@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 require_once('includes/DB.php');
 require_once('includes/createInfoUtente.php');
 require_once('includes/createMenu.php');
@@ -15,8 +14,8 @@ if (!isset($_SESSION['user_id'])) {
   header('Location: 404.php');
 }
 
-$post_id = NULL;
-$post = NULL; // Contiene le informazioni del post
+$post_id = NULL; // Id del post da modificare. Se resta NULL questa pagina farà inserimento
+$post = NULL; // Contiene le informazioni del post da modificare oppure le info scritte prima che il submit ritornasse errore
 
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
   $post_id = $_GET['id'];
@@ -30,28 +29,34 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 // Inserimento nel database ed eventuale generazione di stringhe di errore
 $errors = '';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $img_path = '';
+  if (isset($_POST['salva'])) {
+    $img_path = '';
 
-  if (is_uploaded_file($_FILES['img']['tmp_name'])) {
-    $img_path = $_FILES['img']['tmp_name'];
+    if (is_uploaded_file($_FILES['img']['tmp_name'])) {
+      $img_path = $_FILES['img']['tmp_name'];
+    }
+
+    $post = $_POST;
+
+    $result = $db->setPost($post_id,
+                           $_POST['titolo'],
+                           $_SESSION['user_id'],
+                           $_POST['data'],
+                           $_POST['ora'],
+                           $_POST['descrizione'],
+                           $img_path,
+                           $_POST['via'],
+                           $_POST['provincia']);
+
+    if (is_numeric($result)) {
+      header('Location: post.php?id=' . $result);
+    } else {
+      $errors = createFormErrors($result);
+    }
   }
-
-  $post = $_POST;
-
-  $result = $db->setPost($post_id,
-                         $_POST['titolo'],
-                         $_SESSION['user_id'],
-                         $_POST['data'],
-                         $_POST['ora'],
-                         $_POST['descrizione'],
-                         $img_path,
-                         $_POST['via'],
-                         $_POST['provincia']);
-
-  if (is_numeric($result)) {
-    header('Location: post.php?id=' . $result);
-  } else {
-    $errors = createFormErrors($result);
+  else if (isset($_POST['elimina'])) {
+    $db->deletePost($post_id);
+    header('Location: index.php');
   }
 }
 
@@ -83,6 +88,12 @@ $breadcrumb = createPostEditBreadcrumb($db, $post_id);
 $content = file_get_contents('includes/content_postEdit.html');
 
 $content = str_replace('<error />', $errors, $content);
+
+if ($post_id === NULL) {
+  $content = str_replace('<elimina />', '', $content);
+} else {
+  $content = str_replace('<elimina />', '<input type="submit" name="elimina" value="Elimina Post" id="post_social_invia" class="delete_buttons" />', $content);
+}
 
 if ($post === NULL) {
   $content = str_replace('<action />', 'postEdit.php', $content);

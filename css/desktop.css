@@ -165,6 +165,10 @@ body {
   color: #f2f2f2;
 }
 
+.content input[type="button"].delete_buttons, .content input[type="submit"].delete_buttons {
+  background: linear-gradient(to bottom, #FA3F00, #d63500);
+}
+
 .content input[type="button"]:active, .content input[type="submit"]:active {
   box-shadow: 2px 5px 5px 0px #333 inset;
 }
