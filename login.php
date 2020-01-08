@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (isset($_POST['login'])) {
 
     if ($db->login($_POST['email'], $_POST['password'])) {
-      header('Location: index.php');
+      header('Location: bacheca.php');
     } else {
       $error_login = createFormErrors(array('Utente o <span xml:lang="en">Password</span> errati'));
     }

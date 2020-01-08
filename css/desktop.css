@@ -530,6 +530,11 @@ ul.error {
   border-radius: 0.5em;
 }
 
+#gestione_pagina {
+  clear: both;
+  text-align: center;
+}
+
 /* Profilo */
 #profilo h1 {
   text-align: center;

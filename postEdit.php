@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                            $_POST['ora'],
                            $_POST['descrizione'],
                            $img_path,
-                           $_POST['via'],
+                           $_POST['luogo'],
                            $_POST['provincia']);
 
     if (is_numeric($result)) {
@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
   else if (isset($_POST['elimina'])) {
     $db->deletePost($post_id);
-    header('Location: index.php');
+    header('Location: bacheca.php');
   }
 }
 
@@ -101,7 +101,7 @@ if ($post === NULL) {
   $content = str_replace('<data />', '__/__/____', $content);
   $content = str_replace('<ora />', '__:__', $content);
   $content = str_replace('<descrizione />', "Inserisci qui la descrizione dell'attività che vuoi svolgere", $content);
-  $content = str_replace('<via />', '', $content);
+  $content = str_replace('<luogo />', '', $content);
   $content = str_replace('<provincia />', '', $content);
 } else {
   $content = str_replace('<action />', 'postEdit.php?id=' . $post_id, $content);
@@ -109,7 +109,7 @@ if ($post === NULL) {
   $content = str_replace('<data />', $post['data'], $content);
   $content = str_replace('<ora />', $post['ora'], $content);
   $content = str_replace('<descrizione />', $post['descrizione'], $content);
-  $content = str_replace('<via />', $post['via'], $content);
+  $content = str_replace('<luogo />', $post['luogo'], $content);
   $content = str_replace('<provincia />', $post['provincia'], $content);
 }
 
