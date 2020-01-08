@@ -54,9 +54,10 @@ class DB {
       'ora' => '20:30',
       'descrizione' => 'Minima ipsa eos consequuntur. Iure vel commodi in magni autem non. Fuga exercitationem nesciunt unde accusantium molestias eligendi voluptatem voluptatem. Non ut dicta perspiciatis ea consequatur dolor. Adipisci et provident velit ducimus est temporibus nisi.',
       'img_path' => 'img/_template_foto/rifiuti3.jpg',
-      'via' => 'Via dei Cipressi, 25',
+      'luogo' => 'Via dei Cipressi 25, Borgoricco',
       'provincia' => 'Padova',
       'chiuso' => false,
+      'nvolontari' => 25,
     ];
   }
 
@@ -68,6 +69,59 @@ class DB {
 
   public function deletePost($id) {
 
+  }
+
+  public function getPostcard($page, $postcard_per_page, &$page_count, $filter = NULL) {
+    return array(
+      array(
+        'id' => 7,
+        'titolo' => 'Raccolta Rifiuti',
+        'data' => '12/12/2020',
+        'provincia' => 'Padova',
+        'nvolontari' => 42,
+        'descrizione' => "Ei fu, e adesso non c'è più",
+      ),
+      array(
+        'id' => 14,
+        'titolo' => 'Raccolta Rifiuti',
+        'data' => '12/12/2020',
+        'provincia' => 'Padova',
+        'nvolontari' => 987,
+        'descrizione' => "Ei fu, e adesso non c'è più",
+      ),
+      array(
+        'id' => 21,
+        'titolo' => 'Raccolta Rifiuti',
+        'data' => '12/12/2020',
+        'provincia' => 'Padova',
+        'nvolontari' => 456,
+        'descrizione' => "Ei fu, e adesso non c'è più",
+      ),
+      array(
+        'id' => 28,
+        'titolo' => 'Raccolta Rifiuti',
+        'data' => '12/12/2020',
+        'provincia' => 'Padova',
+        'nvolontari' => 333,
+        'descrizione' => "Ei fu, e adesso non c'è più",
+      ),
+      array(
+        'id' => 35,
+        'titolo' => 'Raccolta Rifiuti',
+        'data' => '12/12/2020',
+        'provincia' => 'Padova',
+        'nvolontari' => 333,
+        'descrizione' => "Ei fu, e adesso non c'è più",
+      ),
+      array(
+        'id' => 42,
+        'titolo' => 'Raccolta Rifiuti',
+        'data' => '12/12/2020',
+        'provincia' => 'Padova',
+        'nvolontari' => 333,
+        'descrizione' => "Ei fu, e adesso non c'è più",
+      ),
+    );
   }
 }
 ?>

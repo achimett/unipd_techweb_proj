@@ -41,7 +41,7 @@ function createMenu($profilo, $bacheca, $nuovo, $help, $about, $logout) {
   $menu_profilo = str_replace('<?>', $in, $menu_profilo);
 
   if ($bacheca == true) {
-    $in = "<a tabindex=\"12\" href=\"index.php\">$str_bacheha</a>";
+    $in = "<a tabindex=\"12\" href=\"bacheca.php\">$str_bacheha</a>";
   } else {
     $in = $str_bacheha;
   }
