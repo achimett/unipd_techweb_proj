@@ -6,7 +6,7 @@ USE doit;
 
 SET FOREIGN_KEY_CHECKS = 0; -- Disabilita check su vincoli di integrità referenziale
 
-DROP TABLE IF EXISTS utente, post, commento;
+DROP TABLE IF EXISTS utente, post, commento, partecipazione;
 
 CREATE TABLE utente (
   id          INT AUTO_INCREMENT PRIMARY KEY,
@@ -46,5 +46,17 @@ CREATE TABLE commento (
   FOREIGN KEY (id_autore) REFERENCES utente(id),
   FOREIGN KEY (id_post) REFERENCES post(id)
 );
+
+CREATE TABLE  partecipazione (
+	id          INT AUTO_INCREMENT PRIMARY KEY,
+	id_post		  INT NOT NULL,
+	id_utente   INT NOT NULL,
+	
+	FOREIGN KEY (id_utente) REFERENCES utente(id),
+  FOREIGN KEY (id_post) REFERENCES post(id) 
+
+);
+
+#maybe i will add some index 
 
 SET FOREIGN_KEY_CHECKS = 1; -- Riabilita check
