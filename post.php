@@ -9,13 +9,18 @@ require_once('includes/createPost.php');
 $_SESSION['user_id'] = 1;
 //unset($_SESSION['user_id']);
  //$_SESSION['post_id'] = 1;
- $_GET['id'] = 23;
 
 // Oggetto di accesso al database
 $db = new DB();
 
+$post = createPost($db);
+if($post == '') {
+  header("location: /unipd_techweb_proj/404.php");
+  return;
+}
+
 // Titolo della pagina
-$title = $db->getPost()['titolo'] . ' - DOIT';
+$title = $db->getPost($_GET['id'])['titolo'] . ' - DOIT';
 
 // Contengono l'HTML dei tag <head> e <body> che verranno stampati
 $page_head = file_get_contents('includes/head.html');
@@ -31,7 +36,10 @@ $info_utente = createInfoUtente($db);
 $menu = createMenu(true, true, true, true, true, true);
 
 // Codice HTML del breadcrumb
-$breadcrumb = '<p id="breadcrumb">Post ' . $db->getPost()['titolo'] . '</p>';
+
+$breadcrumb = '<p id="breadcrumb">' .
+'<a href="bacheca.php">Bacheca</a> &gt;&gt; ' .
+'<a href="post?id=' . $_GET['id'] . '">Post ' . $db->getPost($_GET['id'])['titolo'] . '</a></p>';
 
 $page_head = str_replace('<title />', "<title>$title - DOIT</title>", $page_head);
 $page_head = str_replace('<scripts />', $scripts, $page_head);
@@ -39,8 +47,10 @@ $page_body = str_replace('<info_utente />', $info_utente, $page_body);
 $page_body = str_replace('<breadcrumb />', $breadcrumb, $page_body);
 $page_body = str_replace('<menu />', $menu, $page_body);
 
+
 // Codice HTML del content
-$page_body = str_replace('<content />', createPost($db), $page_body);
+$page_body = str_replace('<content />', $post, $page_body);
 
 echo $page_head . $page_body;
+
 ?>

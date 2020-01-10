@@ -11,7 +11,11 @@ class DB {
     return $usr;
   }
 
-  public function getPost($mock = NULL) {
+  public function doit($id, $user_id, $mock = NULL){
+    echo "DOIT";
+  }
+
+  public function getPost($id, $mock = NULL) {
     $post = [
 
       'link' => 'https://goo.gl/maps/KpxfvzkjXvCUyFcr7',
@@ -36,6 +40,7 @@ class DB {
   public function getCommenti($mock = NULL) {
     $postSocial = array();
     $postSocial[0] = [
+      'user_id' => '89',
       'nome' => 'Gianni',
       'cognome' => 'Bianchi',
       'data' => '12/02/12 - 13:12',
@@ -44,6 +49,8 @@ class DB {
       'img_path' => 'img/_template_foto/back.jpeg',
     ];
     $postSocial[1] = [
+
+      'user_id' => '14',
       'nome' => 'Gianni',
       'cognome' => 'Bianchi',
       'data' => '12/02/13 - 13:12',
