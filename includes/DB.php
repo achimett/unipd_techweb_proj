@@ -1,6 +1,24 @@
 <?php
 /* CLASSE MOCK PER DB */
+
+
 class DB {
+
+  public function abbandona($id, $user_id){ return true;}
+  public function partecipa($id, $user_id){ return true;}
+  public function apri($id, $user_id){ return true;}
+  public function chiudi($id, $user_id){ return true;}
+
+  public function isChiuso($id) {
+    return true;
+  }
+
+  public function isPartecipante($id, $user_id) {
+    return true;
+  }
+  public function isAutore($id, $user_id)  {
+return false;
+  }
   public function getUser($mock = NULL) {
     $usr = [
       'img' => '../img/utentebianco_icon.png',
@@ -19,8 +37,6 @@ class DB {
     $post = [
 
       'link' => 'https://goo.gl/maps/KpxfvzkjXvCUyFcr7',
-      'chiuso' => false,
-      'partecipo' => false,
       'img_path' => 'img/_template_foto/rifiuti3.jpg',
       'titolo' => 'RACCOLTA RIFIUTI',
       'id_autore' => 1,

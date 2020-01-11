@@ -6,7 +6,7 @@ require_once('includes/createMenu.php');
 
 require_once('includes/createPost.php');
 
-$_SESSION['user_id'] = 1;
+$_SESSION['user_id'] = 2;
 //unset($_SESSION['user_id']);
  //$_SESSION['post_id'] = 1;
 
