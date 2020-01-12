@@ -106,5 +106,20 @@ class DB extends mysqli{
 	
 		
 	}
+	
+	public function deleteProfilo($id)
+	{	
+		$clean_id = $this->real_escape_string($id);
+		$delete = 'SET FOREIGN_KEY_CHECKS=0;'; 
+		$delete.= "DELETE FROM utente WHERE id=$clean_id;";
+		$delete.= "DELETE FROM post WHERE id_autore=$clean_id;";
+		$delete.= "DELETE FROM partecipazione WHERE id_utente=$clean_id;";
+		$delete.= 'SET FOREIGN_KEY_CHECKS=1;';
+		
+		return $this->multi_query($delete);
+		
+	
+		
+	}
 }
 ?>
