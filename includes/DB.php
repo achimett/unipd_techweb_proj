@@ -166,5 +166,15 @@ class DB extends mysqli{
 	{
 		unset($_SESSION['user_id']);
 	}
+	
+	public function getPostcard($page, $postcard_per_page, &$page_count, $filter = NULL)
+	{
+		
+	}
+	
+	public function setPost($id, $titolo, $id_autore, $data, $ora, $descrizione, $img_path, $provincia, $luogo, $chiuso=0)
+	{
+		
+	}
 }
 ?>
