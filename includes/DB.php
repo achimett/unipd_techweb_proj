@@ -3,13 +3,13 @@
 class DB extends mysqli{
 	
 	private $imgDir = '../img/upload/';
-	private $namePattern = '/^[a-zA-Z ]{2,}$/' ;
+	private $namePattern = '/^[a-zA-Z ]{2,30}$/' ;
 	private $mailPattern = '/^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,5}$/' ;
 	private $passPattern = '/^(?=.*[0-9])(?=.*[A-Z]).{8,}$/' ; // Almeno 8 caratteri con almeno una maiuscola e un numero
 	private $cfPattern = '/^[a-zA-Z]{6}[0-9]{2}[abcdehlmprstABCDEHLMPRST]{1}[0-9]{2}([a-zA-Z]{1}[0-9]{3})[a-zA-Z]{1}$/' ;
 	private $cellPattern = '/^[0-9]{7,12}$/';
 	
-	public function __construct($host="localhost", $user="user", $pass="password", $db="doit") 
+	public function __construct($host="localhost", $user="root", $pass="", $db="doit") 
 	{
         parent::__construct($host, $user, $pass, $db);
 		
@@ -35,6 +35,9 @@ class DB extends mysqli{
 		/*foreach($usr as $key => $value)
 		{echo "\n".$key."  ".$usr["$key"];} */ /*ciclo per il debug*/
 		
+		$query->close();
+		$result->free();
+		
 		return $usr;
 		
     }
@@ -54,6 +57,9 @@ class DB extends mysqli{
 		
 		/*foreach($usr as $key => $value)
 		{echo "\n".$key."  ".$usr["$key"];} */ /*ciclo per il debug*/
+		
+		$query->close();
+		$result->free();
 		
 		return $usr;
 		
@@ -88,18 +94,28 @@ class DB extends mysqli{
 		
 		if($id==0)
 		{
-			$query = $this->prepare("INSERT INTO utente(email,password,nome,cognome,telefono,datanascita,cf,bio,img_path) VALUES (?,?,?,?,?,?,?,?,?)");
+			$register = "INSERT INTO utente(email,password,nome,cognome,telefono,datanascita,cf,bio,img_path) VALUES (?,?,?,?,?,?,?,?,?)";
+			
+			$query = $this->prepare($register);
 			$query->bind_param("sssssssss", $email, $hashed_pass, $nome, $cognome, $datanascita, $cf, $bio, $img, $telefono);
 			
-			if($query->execute()) {return $this->insert_id;}
+			if($query->execute()) 
+			{
+				$new_id = $this->insert_id; 
+				$_SESSION['user_id']= $new_id; 
+				$query->close();
+				return $new_id;
+			}
 			else {return NULL;}
 		}
 		else
 		{
-			$query = $this->prepare("UPDATE utente SET email = ?,password = ?,nome = ?,cognome = ?,telefono = ?,datanascita = ?,cf = ?,bio = ?,img_path = ?  WHERE id=?");
+			$update = "UPDATE utente SET email = ?,password = ?,nome = ?,cognome = ?,telefono = ?,datanascita = ?,cf = ?,bio = ?,img_path = ?  WHERE id=?";
+			
+			$query = $this->prepare($update);
 			$query->bind_param("sssssssssi", $email, $hashed_pass, $nome, $cognome, $datanascita, $cf, $bio, $img, $telefono,$id);
 			
-			if($query->execute()) {return $id;}
+			if($query->execute()) {$query.close(); return $id;}
 			else {return NULL;}
 			
 		}
@@ -116,10 +132,39 @@ class DB extends mysqli{
 		$delete.= "DELETE FROM partecipazione WHERE id_utente=$clean_id;";
 		$delete.= 'SET FOREIGN_KEY_CHECKS=1;';
 		
-		return $this->multi_query($delete);
+		if($this->multi_query($delete))
+		{
+			unset($_SESSION['user_id']);
+			return TRUE;
+		}
+		else {return FALSE;}
 		
+	}
 	
+	public function login($username, $password)
+	{
+		$hashed_pass = hash('sha256', $password);
 		
+		$query = $this->prepare("SELECT id FROM `utente` WHERE email = ? AND password = ? LIMIT 1;");
+		$query->bind_param("ss", $username,$hashed_pass);
+		$query->execute();
+		$result = $query->get_result();
+		
+		if($result->num_rows === 0) return FALSE;
+		
+		$row = $result->fetch_assoc();
+		
+		$query->close();
+		$result->free();
+		
+		$_SESSION['user_id'] = $row['id'];
+		return TRUE;
+		
+	}
+	
+	public function logout()
+	{
+		unset($_SESSION['user_id']);
 	}
 }
 ?>
