@@ -9,8 +9,8 @@ SET FOREIGN_KEY_CHECKS = 0; -- Disabilita check su vincoli di integrità referen
 DROP TABLE IF EXISTS utente, post, commento, partecipazione;
 
 CREATE TABLE utente (
-  id          INT AUTO_INCREMENT,
-  email       VARCHAR(50) PRIMARY KEY,
+  id          INT AUTO_INCREMENT PRIMARY KEY,
+  email       VARCHAR(50) NOT NULL UNIQUE,
   password    VARCHAR(30) NOT NULL,
   nome        VARCHAR(30) NOT NULL,
   cognome     VARCHAR(30) NOT NULL,
