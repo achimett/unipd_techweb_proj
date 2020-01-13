@@ -2,42 +2,36 @@
 <?php
 
 
-
 function createPost($db) {
 
   $result = '';
 
-  if (isset($_GET['id']) === true) {
+  if (isset($_GET['id']) === true && $db->postExist($_GET['id'])) {
+
     $post = $db->getPost($_GET['id']);
     $volontari = $db->getVolontari($_GET['id']);
-    $commenti = $db->getCommenti($_GET['id']);
 
-    $user_login = isset($_SESSION['user_id']);
-    $user_autore = $user_login && $db->isAutore($_GET['id'], $_SESSION['user_id']);
-    $user_partecipante = $user_login && $db->isPartecipante($_GET['id'], $_SESSION['user_id']);
-    $chiuso = $db->isChiuso($_GET['id']);
 
-    if($user_login === true && isset($_POST['doit'])) {
+    if(isset($_SESSION['user_id']) === true && isset($_POST['doit'])) {
 
-      if($chiuso === false){
-        if($user_autore === true){
+      if($db->isChiuso($_GET['id']) === false){
+        if($db->isAutore($_GET['id'], $_SESSION['user_id']) === true){
           $db->chiudi($_GET['id'], $_SESSION['user_id']);
         }
-        else if($user_partecipante === true){
+        else if($db->isPartecipante($_GET['id'], $_SESSION['user_id']) === true){
           $db->abbandona($_GET['id'], $_SESSION['user_id']);
         }
-        else if($user_partecipante === false){
+        else if($db->isPartecipante($_GET['id'], $_SESSION['user_id']) === false){
           $db->partecipa($_GET['id'], $_SESSION['user_id']);
         }
       } else {
-        if($user_autore === true){
+        if($db->isAutore($_GET['id'], $_SESSION['user_id']) === true){
           $db->apri($_GET['id'], $_SESSION['user_id']);
         }
       }
-      $user_autore = $user_login && $db->isAutore($_GET['id'], $_SESSION['user_id']);
-      $user_partecipante = $user_login && $db->isPartecipante($_GET['id'], $_SESSION['user_id']);
-      $chiuso = $db->isChiuso($_GET['id']);
     }
+
+
 
     // immagine di copertina e titolo
 
@@ -52,7 +46,7 @@ function createPost($db) {
 
     // pulsante di modifica del post
 
-    if ($user_partecipante && $user_autore) {
+    if (isset($_SESSION['user_id']) === true && ($db->isPartecipante($_GET['id'], $_SESSION['user_id']) || $db->isAutore($_GET['id'], $_SESSION['user_id']))) {
       $result .= '<li><form action="/unipd_techweb_proj/postEdit.php"><input type="submit" value="Modifica post" /><input type="hidden" name="id" value="' . $_GET['id'] . '" /></form></li>';
     }
 
@@ -67,16 +61,16 @@ function createPost($db) {
     $legend = '';
     $pulsante = '';
 
-    if($chiuso === false){
-      if($user_autore === true){
+    if($db->isChiuso($_GET['id']) === false){
+      if($db->isAutore($_GET['id'], $_SESSION['user_id']) === true){
         $legend = 'Termina attivita';
         $pulsante = 'Chiudi';
       }
-      else if($user_partecipante === true){
+      else if($db->isPartecipante($_GET['id'], $_SESSION['user_id']) === true){
         $legend = 'Iscrizione';
         $pulsante = 'Abbandona';
       }
-      else if($user_login == true){
+      else if(isset($_SESSION['user_id']) == true){
         $legend = 'Iscrizione';
         $pulsante = 'Partecipa';
       }
@@ -84,7 +78,7 @@ function createPost($db) {
         $result .= '<p class="post_titolo">Registrati per partecipare!</p>';
       }
     } else {
-      if($user_autore === true){
+      if($db->isAutore($_GET['id'], $_SESSION['user_id']) === true){
         $legend = 'Riapri attivita';
         $pulsante = 'Apri';
       } else {
@@ -114,24 +108,53 @@ function createPost($db) {
 
     // Commenti
 
+    $target = "foto_commenti";
+    if(isset($_POST['invia']) === true) {
+
+      if(file_exists($_FILES['sfoglia']['name'])){
+      $info = pathinfo($_FILES['sfoglia']['name']);
+      $ext = $info['extension'];
+      // controlli ...
+
+      $name = '/' . $db->nextImg($_GET['id']) . '.' . $ext;
+      $target .= $name;
+      move_uploaded_file( $_FILES['sfoglia']['tmp_name'], $target);
+    }
+      $db->newCommento($_GET['id'], $_SESSION['user_id'], $_POST['messaggio'], $target);
+      echo $_POST['messaggio'];
+
+    }
+
+
+
+
+    $commenti = $db->getCommenti($_GET['id']);
+    if(isset($_POST['invia']) === true) {
+    echo 'get comm';
+  }
+
     $result .=
     '<div id="post_social">
-    <form id="post_social_form" action="#">
+    <form id="post_social_form" action="" method="post" enctype="multipart/form-data">
     <fieldset>
     <legend class="post_titolo">Foto e commenti</legend>';
 
-    if ($user_partecipante && ($user_autore || $db->isPartecipante($_GET['id'], $_SESSION['user_id']) == true)) {
-      $result .=
-      '<p class="post_infobox">La sezione commenti permette l&#39organizzazione dei volontari. Contibuisci anche tu a questa attivit&agrave; di volotariato.</p>
-      <p class="post_infobox">Scegli una foto</p>
-      <input id="post_sfoglia" type="file" alt="sfoglia" value="SFOGLIA" tabindex="22" />
-      <p class="post_infobox">Scrivi un messaggio</p>
-      <textarea id="post_social_textarea" rows="5" cols="50" tabindex="23">[Messaggio] </textarea>
-      <input id="post_social_invia" class="buttons" type="submit" alt="invia" value="INVIA" tabindex="24" />
-      </fieldset>
-      </form>';
-    } else {
-      $result .= '<p class="post_infobox">La sezione commenti permette l&#39organizzazione dei volontari. Registrati per contribuire anche tu a questa attivit&agrave; di volotariato.</p>';
+    if ($db->isChiuso($_GET['id']) === false) {
+      if (isset($_SESSION['user_id']) === true && ($db->isPartecipante($_GET['id'], $_SESSION['user_id']) === true || $db->isAutore($_GET['id'], $_SESSION['user_id']) === true)) {
+
+        $result .=
+        '<p class="post_infobox">La sezione commenti permette l&#39organizzazione dei volontari. Contibuisci anche tu a questa attivit&agrave; di volotariato.</p>
+        <p class="post_infobox">Scegli una foto</p>
+        <input type="hidden" name="id" value="' . $_GET['id'] . '" />
+        <input id="post_sfoglia" type="file" name="sfoglia" value="SFOGLIA" tabindex="22" />
+        <p class="post_infobox">Scrivi un messaggio</p>
+        <textarea id="post_social_textarea" name="messaggio" rows="5" cols="50" tabindex="23">[Messaggio] </textarea>
+        <input id="post_social_invia" class="buttons" type="submit" name="invia" value="INVIA" tabindex="24" />
+        </fieldset>
+        </form>';
+      } else {
+        $result .= '<p class="post_infobox">La sezione commenti permette l&#39organizzazione dei volontari. Registrati per contribuire anche tu a questa attivit&agrave; di volotariato.</p>';
+      }
     }
 
 
