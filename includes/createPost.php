@@ -47,7 +47,7 @@ function createPost($db) {
     // pulsante di modifica del post
 
     if (isset($_SESSION['user_id']) === true && ($db->isPartecipante($_GET['id'], $_SESSION['user_id']) || $db->isAutore($_GET['id'], $_SESSION['user_id']))) {
-      $result .= '<li><form action="/unipd_techweb_proj/postEdit.php"><input type="submit" value="Modifica post" /><input type="hidden" name="id" value="' . $_GET['id'] . '" /></form></li>';
+      $result .= '<li><form action="/unipd_techweb_proj/postEdit.php"><input type="submit" name="edit" value="Modifica post" /></form></li>';
     }
 
     // Informazioni, Iscrizione e Descrizione
@@ -87,7 +87,7 @@ function createPost($db) {
     }
 
     if($legend !== '') {
-      $result .= '<form action="" id="doit" method="post"><fieldset><legend class="post_titolo">' . $legend . '</legend><input type="submit" name="doit" value="' . $pulsante . '" tabindex="21" /></fieldset></form>';
+      $result .= '<form action="/unipd_techweb_proj/post.php?id=' . $_GET['id'] . '" id="doit" method="post"><fieldset><legend class="post_titolo">' . $legend . '</legend><input type="submit" name="doit" value="' . $pulsante . '" tabindex="21" /></fieldset></form>';
     }
 
 
@@ -108,34 +108,22 @@ function createPost($db) {
 
     // Commenti
 
-    $target = "foto_commenti";
-    if(isset($_POST['invia']) === true) {
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['invia']) === true) {
 
-      if(file_exists($_FILES['sfoglia']['name'])){
-      $info = pathinfo($_FILES['sfoglia']['name']);
-      $ext = $info['extension'];
-      // controlli ...
 
-      $name = '/' . $db->nextImg($_GET['id']) . '.' . $ext;
-      $target .= $name;
-      move_uploaded_file( $_FILES['sfoglia']['tmp_name'], $target);
-    }
-      $db->newCommento($_GET['id'], $_SESSION['user_id'], $_POST['messaggio'], $target);
-      echo $_POST['messaggio'];
+      $db->newCommento($_GET['id'], $_SESSION['user_id'], $_POST['messaggio'], $_FILES['sfoglia']['tmp_name']);
+      unset($_POST);
 
     }
-
 
 
 
     $commenti = $db->getCommenti($_GET['id']);
-    if(isset($_POST['invia']) === true) {
-    echo 'get comm';
-  }
+
 
     $result .=
     '<div id="post_social">
-    <form id="post_social_form" action="" method="post" enctype="multipart/form-data">
+    <form id="post_social_form" action="/unipd_techweb_proj/post.php?id=' . $_GET['id'] . '" method="post" enctype="multipart/form-data">
     <fieldset>
     <legend class="post_titolo">Foto e commenti</legend>';
 
@@ -145,7 +133,6 @@ function createPost($db) {
         $result .=
         '<p class="post_infobox">La sezione commenti permette l&#39organizzazione dei volontari. Contibuisci anche tu a questa attivit&agrave; di volotariato.</p>
         <p class="post_infobox">Scegli una foto</p>
-        <input type="hidden" name="id" value="' . $_GET['id'] . '" />
         <input id="post_sfoglia" type="file" name="sfoglia" value="SFOGLIA" tabindex="22" />
         <p class="post_infobox">Scrivi un messaggio</p>
         <textarea id="post_social_textarea" name="messaggio" rows="5" cols="50" tabindex="23">[Messaggio] </textarea>
@@ -162,7 +149,7 @@ function createPost($db) {
 
       $result .= '<div class="commento">
       <a href="/unipd_techweb_proj/profilo.php?user_id=' . $commento['user_id'] . '" class="usr autore_commento"><img alt="' . $commento['nome'] . ' ' . $commento['cognome'] . '" src="' . $commento['img_usr_path'] . '" />' . $commento['nome'] . ' ' . $commento['cognome'] . '<span>'
-       . $commento['data'] . '</span></a><img class="user_image" src="' . $commento['img_path'] . '" alt="immagine utente" />
+      . $commento['data'] . '</span></a><img class="user_image" src="' . $commento['img_path'] . '" alt="immagine utente" />
       <p>' . $commento['text'] . '</p>
       </div>';
     }

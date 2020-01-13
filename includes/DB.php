@@ -3,9 +3,7 @@
 
 class DB {
   public function postExist($id) {return true;}
-  public function nextImg($id) {return 123;} // ritorna il nome della prossima immagine utente
-
-  public function sCommento($id, $user_id, $messaggio, $fotoPath){
+  public function newCommento($id, $user_id, $messaggio, $foto){
 
     $_SESSION['newCommento'] = '';
     //unset($_SESSION['newCommento']);
