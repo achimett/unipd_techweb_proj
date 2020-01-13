@@ -11,12 +11,12 @@ DROP TABLE IF EXISTS utente, post, commento, partecipazione;
 CREATE TABLE utente (
   id          INT AUTO_INCREMENT PRIMARY KEY,
   email       VARCHAR(50) NOT NULL UNIQUE,
-  password    VARCHAR(30) NOT NULL,
+  password    VARCHAR(64) NOT NULL,
   nome        VARCHAR(30) NOT NULL,
   cognome     VARCHAR(30) NOT NULL,
   telefono	  VARCHAR(30) NOT NULL,
   datanascita DATE NOT NULL,
-  cf          VARCHAR(16) NOT NULL,
+  cf          VARCHAR(16) NOT NULL UNIQUE,
   bio         TEXT NOT NULL,
   img_path    VARCHAR(256) NOT NULL DEFAULT 'img/default.jpg'
 );
