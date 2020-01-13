@@ -21,7 +21,8 @@ class DB extends mysqli{
 	
 	public function getUser($id = NULL) 
 	{
-		$query = $this->prepare("SELECT nome,cognome,img_path FROM `utente` WHERE id=?");
+		$sql = "SELECT nome,cognome,img_path FROM `utente` WHERE id=?";
+		$query = $this->prepare($sql);
 		$query->bind_param("i", $id);
 		$query->execute();
 		$result = $query->get_result();
@@ -44,7 +45,8 @@ class DB extends mysqli{
 	
 	public function getProfilo($id = NULL) 
 	{
-		$query = $this->prepare("SELECT email,nome,cognome,telefono,datanascita,cf,bio,img_path FROM `utente` WHERE id=?");
+		$sql = "SELECT email,nome,cognome,telefono,datanascita,cf,bio,img_path FROM `utente` WHERE id=?";
+		$query = $this->prepare($sql);
 		$query->bind_param("i", $id);
 		$query->execute();
 		$result = $query->get_result();
@@ -127,9 +129,9 @@ class DB extends mysqli{
 	{	
 		$clean_id = $this->real_escape_string($id);
 		$delete = 'SET FOREIGN_KEY_CHECKS=0;'; 
-		$delete.= "DELETE FROM utente WHERE id=$clean_id;";
-		$delete.= "DELETE FROM post WHERE id_autore=$clean_id;";
-		$delete.= "DELETE FROM partecipazione WHERE id_utente=$clean_id;";
+		$delete.= "DELETE FROM utente WHERE id='$clean_id';";
+		$delete.= "DELETE FROM post WHERE id_autore='$clean_id';";
+		$delete.= "DELETE FROM partecipazione WHERE id_utente='$clean_id';";
 		$delete.= 'SET FOREIGN_KEY_CHECKS=1;';
 		
 		if($this->multi_query($delete))
@@ -145,7 +147,8 @@ class DB extends mysqli{
 	{
 		$hashed_pass = hash('sha256', $password);
 		
-		$query = $this->prepare("SELECT id FROM `utente` WHERE email = ? AND password = ? LIMIT 1;");
+		$sql = "SELECT id FROM `utente` WHERE email = ? AND password = ? LIMIT 1;";
+		$query = $this->prepare($sql);
 		$query->bind_param("ss", $username,$hashed_pass);
 		$query->execute();
 		$result = $query->get_result();
@@ -167,14 +170,64 @@ class DB extends mysqli{
 		unset($_SESSION['user_id']);
 	}
 	
+	 public function getPost($id = NULL) 
+	{
+		$sql = "SELECT  p.id,p.titolo,p.id_autore, DATE_FORMAT(data,'%d-%m-%Y') AS data, DATE_FORMAT(data,'%H:%i:%s') AS ora,p.descrizione,p.img_path,p.provincia,p.luogo,p.chiuso, COUNT(*) FROM post p JOIN partecipazione pa ON p.id = pa.id_post WHERE p.id = ? ";
+		$query = $this->prepare($sql);
+		$query->bind_param("i", $id);
+		$query->execute();
+		$result = $query->get_result();
+		
+		if($result->num_rows === 0) return NULL;
+		
+		$post = $result->fetch_assoc(); 
+	
+		$query->close();
+		$result->free();
+		
+		return $post;
+	}
+	
+	public function deletePost($id) 
+	{
+		$clean_id = $this->real_escape_string($id);
+		$delete = 'SET FOREIGN_KEY_CHECKS=0;'; 
+		$delete.= "DELETE FROM post WHERE id='$clean_id';";
+		$delete.= "DELETE FROM partecipazione WHERE id_post='$clean_id';";
+		$delete.= 'SET FOREIGN_KEY_CHECKS=1;';
+		
+		if($this->multi_query($delete))
+		{
+			return TRUE;
+		}
+		else {return FALSE;}
+	}
 	public function getPostcard($page, $postcard_per_page, &$page_count, $filter = NULL)
 	{
 		
 	}
 	
-	public function setPost($id, $titolo, $id_autore, $data, $ora, $descrizione, $img_path, $provincia, $luogo, $chiuso=0)
+	public function setPost($id, $titolo, $id_autore, $data, $ora, $descrizione,$img_path, $via, $provincia)
 	{
+		$newDate = date("Y-m-d", strtotime($data));  
 		
+		if($id==0)
+		{	
+			$insert = "INSERT INTO post(titolo,id_autore,data,descrizione,img_path,luogo,provincia) VALUES (?,?,?,?,?,?,?,?,?)";
+			$query = $this->prepare($insert);
+			$query->bind_param("sibssss", $titolo, $autore, $newDate, $descrizione, $img_path, $luogo, $provincia);
+			if($query->execute()) 
+				{
+					$new_id = $this->insert_id; 
+					$query->close();
+					return $new_id;
+				}
+			else {return NULL;}
+		}
+		else
+		{
+			
+		}
 	}
 }
 ?>
