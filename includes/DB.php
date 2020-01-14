@@ -71,6 +71,7 @@ class DB extends mysqli{
 	{
 		
 		$error = array();
+		$img_format = exif_imagetype($img);
 		
 		if (strlen($email) > 50) {$error[] = "mail tropppo lunga";}
 		if (!preg_match($mailPattern,$mail)) {$error[] = "mail in formato errato";}
@@ -81,8 +82,8 @@ class DB extends mysqli{
 		if (strlen($cf) !== 16) {$error[] = 'cf non valdio';} 
 		if (strlen($bio) > 65535) {$error[] = "biografia troppo lunga";}
 		if (strlen($bio) === 0) {$error[] = "nessuno biografia";}
-		if ($_FILES['file']['size'] > 3000000) {$error[] = 'immagine troppo grande';}
-		if (!exif_imagetype($img)) {$error[] = 'fomrato immagine errato';} // verifica se è un immagine
+		if ($_FILES['img']['size'] > 3000000) {$error[] = 'immagine troppo grande';}
+		if ($img_format==0 || $img_format > 3) {$error[] = 'fomrato immagine errato';} // verifica se è un immagine
 		if (!preg_match($cellPatter,$telefono)) {$error[] = "numero non valido";}
 		
 		if(count($error)) {return $error;} //se non ho passato alcuni check ritorno l'array con gli errori
@@ -207,9 +208,35 @@ class DB extends mysqli{
 		
 	}
 	
-	public function setPost($id, $titolo, $id_autore, $data, $ora, $descrizione,$img_path, $via, $provincia)
+	public function setPost($id, $titolo, $id_autore, $data, $ora, $descrizione, $img, $luogo, $provincia)
 	{
-		$newDate = date("Y-m-d", strtotime($data));  
+		$newDate = date("Y-m-d", strtotime($data)); 
+		
+		$error = array();
+		
+		$img_format = exif_imagetype($img);
+		
+		if (strlen($titolo) === 0) {$error[] = "Titolo mancante";}
+		if (strlen($titolo) > 100) {$error[] = "Titolo troppo lungo";}
+		if (strlen($descrizione) === 0) {$error[] = "Descrizione vuota";}
+		if (strlen($descrizione) > 65535) {$error[] = "Descrizione troppo lunga";}
+		if (strlen($titolo) === 0) {$error[] = "Luogo mancante";}
+		if (strlen($titolo) > 150) {$error[] = "Luogo troppo lungo";}
+		if (strlen($titolo) === 0) {$error[] = "Provincia mancante";}
+		if (strlen($titolo) > 50) {$error[] = "Provincia troppo lunga";}  
+		
+		
+		//50 PER UNA PROVINCIA NON è TROPPO ??????
+		
+		
+		if ($_FILES['img']['size'] > 3000000) {$error[] = 'immagine troppo grande';}
+		if ($img_format==0 || $img_format > 3) {$error[] = 'fomrato immagine errato';} // verifica se è un immagine
+
+		if(count($error)) {return $error;} //se non ho passato alcuni check ritorno l'array con gli errori
+		
+		$hash = hash_file('sha256', $img);
+
+		if (!move_uploaded_file($img, $imgDir.$hash)) {$error[] = "impossibile spostare l'immagine"; return $error;}
 		
 		if($id==0)
 		{	
@@ -226,7 +253,15 @@ class DB extends mysqli{
 		}
 		else
 		{
-			
+			$update = "UPDATE post SET titolo = ?,id_autore = ?,data = ?,descrizione = ?,img_path = ?,luogo = ?,provincia = ?) WHERE ID =?;";
+			$query = $this->prepare($update);
+			$query->bind_param("sibssssi", $titolo, $autore, $newDate, $descrizione, $img_path, $luogo, $provincia, $id);
+			if($query->execute()) 
+				{
+					$query->close();
+					return $id;
+				}
+			else {return NULL;}
 		}
 	}
 }
