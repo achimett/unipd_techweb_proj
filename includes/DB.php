@@ -25,6 +25,35 @@ class DB {
     ];
   }
 
+  public function getProfiloTable($id, $status = 0) {
+    return array (
+      array (
+        'id'=>'2',
+        'titolo'=>'Attivita1',
+        'data'=>'12/12/2012',
+        'chiuso'=>true,
+      ),
+      array (
+        'id'=>'56',
+        'titolo'=>'Attivita2',
+        'data'=>'12/12/2000',
+        'chiuso'=>false,
+      ),
+      array (
+        'id'=>'89',
+        'titolo'=>'Attivita3',
+        'data'=>'12/12/2012',
+        'chiuso'=>true,
+      ),
+      array (
+        'id'=>'42',
+        'titolo'=>'Attivita4',
+        'data'=>'12/12/2012',
+        'chiuso'=>false,
+      ),
+    );
+  }
+
   public function setProfilo($id, $email, $password, $conf_password, $nome,
   $cognome, $datanascita, $cf, $bio, $img_path, $telefono) {
     //return 12;

@@ -310,6 +310,10 @@ abbr[title] {
   text-align: center;
 }
 
+#profilo input[type=submit] {
+  display: none;
+}
+
 /* Login e Registrazione */
 #login, #registrazione_e_login h1, #modifica_profilo h1, #registrazione_e_login input[type=submit], #modifica_profilo input[type=submit], #fieldset_carica_una_foto legend, #fieldset_carica_una_foto label, #fieldset_biografia legend, #registrazione_foto, #registrazione_e_login p  {
   display: none;
