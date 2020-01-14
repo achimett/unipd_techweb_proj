@@ -4,23 +4,18 @@ require_once('includes/DB.php');
 require_once('includes/createInfoUtente.php');
 require_once('includes/createMenu.php');
 require_once('includes/createPost.php');
-
 // Oggetto di accesso al database
 $db = new DB();
 
-$post = createPost($db);
-if($post == '') {
-  header("location: /unipd_techweb_proj/404.php");
-  return;
-}
+$_SESSION['user_id'] = 2;
+
 
 // Titolo della pagina
-$title = $db->getPost($_GET['id'])['titolo'];
+$title = '';//$postInfo['titolo'];
 
 // Contengono l'HTML dei tag <head> e <body> che verranno stampati
 $page_head = file_get_contents('includes/head.html');
 $page_body = file_get_contents('includes/body.html');
-
 // Concatenazione di tutti i JS da includere nell'head
 $scripts = file_get_contents('includes/menuScript.html'); // . file_get_contents(...) . ecc...;
 
@@ -43,7 +38,7 @@ $page_body = str_replace('<breadcrumb />', $breadcrumb, $page_body);
 $page_body = str_replace('<menu />', $menu, $page_body);
 
 // Codice HTML del content
-$page_body = str_replace('<content />', $post, $page_body);
+$page_body = str_replace('<content />', createPost($db), $page_body);
 
 echo $page_head . $page_body;
 
