@@ -23,7 +23,7 @@ CREATE TABLE utente (
 
 CREATE TABLE post (
   id          INT AUTO_INCREMENT PRIMARY KEY,
-  titolo      VARCHAR(50) NOT NULL,
+  titolo      VARCHAR(100) NOT NULL,
   id_autore   INT NOT NULL,
   data        TIMESTAMP NOT NULL,
   descrizione TEXT NOT NULL,
