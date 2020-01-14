@@ -25,7 +25,7 @@ class DB {
     ];
   }
 
-  public function getProfiloTable($id, $open_close) {
+  public function getProfiloTable($id, $status) {
     return array (
       array (
         'id'=>'2',

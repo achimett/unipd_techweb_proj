@@ -7,6 +7,11 @@ require_once('includes/createMenu.php');
 // Oggetto di accesso al database
 $db = new DB();
 
+//Controllo sicurezza
+if (!(isset($_GET['id']) && is_int($_GET['id']))) {
+  header('Location: 404.php');
+}
+
 // Titolo della pagina
 $title = 'Profilo';
 
@@ -32,13 +37,14 @@ $content = file_get_contents('includes/content_profilo.html');
 /*$content = str_replace('<action />', 'profilo.php?id=' . $_SESSION['user_id'], $content);
 $content = str_replace('<error />', $errors, $content);*/
 
-$profilo = $db->getProfilo($_SESSION['user_id']);
+$profilo = $db->getProfilo($_GET['id']);
 $content = str_replace('<img_path />', $profilo['img_path'], $content);
 $content = str_replace('<nome />', $profilo['nome'], $content);
 $content = str_replace('<data_di_nascita />', $profilo['datanascita'], $content);
 $content = str_replace('<email />', $profilo['email'], $content);
 $content = str_replace('<biografia />', $profilo['bio'], $content);
-$content = str_replace('<riga_tabella />', createTableRows($db->getProfiloTable($_GET['id'], $_GET['open_close'])), $content);
+$content = str_replace('<riga_tabella />', createTableRows($db->getProfiloTable($_GET['id'],
+isset($_GET['status']) && is_numeric($_GET['status']) ? $_GET['status'] : NULL)), $content);
 
 $page_head = str_replace('<title />', "<title>$title - DOIT</title>", $page_head);
 $page_head = str_replace('<scripts />', $scripts, $page_head);
