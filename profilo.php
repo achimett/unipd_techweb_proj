@@ -4,7 +4,7 @@ require_once('includes/DB.php');
 require_once('includes/createInfoUtente.php');
 require_once('includes/createMenu.php');
 require_once('includes/createTableRows.php');
-require_once('includes/createEditButton.php');
+require_once('includes/createProfiloEditButton.php');
 
 // Oggetto di accesso al database
 $db = new DB();
@@ -54,7 +54,7 @@ if ($status == 0) {
 $profilo = $db->getProfilo($_GET['id']);
 
 // Codice del pulsante Modifica
-$modifica = createEditButton($_GET['id']);
+$modifica = createProfiloEditButton($_GET['id'], 21);
 
 // Codice HTML del content
 $content = file_get_contents('includes/contentProfilo.html');
@@ -65,7 +65,7 @@ $content = str_replace('<data_di_nascita />', $profilo['datanascita'], $content)
 $content = str_replace('<email />', $profilo['email'], $content);
 $content = str_replace('<telefono />', $profilo['telefono'], $content);
 $content = str_replace('<biografia />', $profilo['bio'], $content);
-$content = str_replace('<riga_tabella />', createTableRows($db->getProfiloTable($_GET['id'], $status), 22), $content);
+$content = str_replace('<riga_tabella />', createTableRows($db->getProfiloTable($_GET['id'], $status), 24), $content);
 $content = str_replace('<action />', 'profilo.php?id=' . $_GET['id'], $content);
 $content = str_replace('<check1 />', $check1, $content);
 $content = str_replace('<check2 />', $check2, $content);

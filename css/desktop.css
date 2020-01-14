@@ -631,6 +631,10 @@ ul.error {
   padding: 1%;
 }
 
+#profilo_modifica_profilo {
+  width: 100%;
+}
+
 /* Login - Registrazione */
 #registrazione_e_login textarea, #modifica_profilo textarea {
   resize: none;

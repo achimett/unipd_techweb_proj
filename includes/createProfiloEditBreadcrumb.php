@@ -8,6 +8,6 @@
 */
 function createPostEditBreadcrumb($db) {
   return '<p id="breadcrumb">' .
-  '<a href="profilo?id=' . $_SESSION['user_id'] . '">Profilo</a> &gt;&gt; Modifica</p>';
+  '<a href="profilo.php?id=' . $_SESSION['user_id'] . '">Profilo</a> &gt;&gt; Modifica</p>';
 }
 ?>
