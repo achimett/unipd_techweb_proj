@@ -15,7 +15,7 @@ $page_head = file_get_contents('includes/head.html');
 $page_body = file_get_contents('includes/body.html');
 
 // Concatenazione di tutti i JS da includere nell'head
-$scripts = file_get_contents('includes/menuScript.html'); // . file_get_contents(...) . ecc...;
+$scripts = file_get_contents('includes/scriptMenu.html'); // . file_get_contents(...) . ecc...;
 
 // Contiene lo snippet di codice per visualizzare l'utente loggato in alto a sinistra
 $info_utente = createInfoUtente($db);
@@ -27,7 +27,7 @@ $menu = createMenu(true, true, true, true, false, true);
 $breadcrumb = '<p id="breadcrumb">Chi Siamo</p>';
 
 // Codice HTML del content
-$content = file_get_contents('includes/content_about.html');
+$content = file_get_contents('includes/contentAbout.html');
 
 // Rimpiazzo dei segnaposto sull'intera pagina
 $page_head = str_replace('<title />', "<title>$title - DOIT</title>", $page_head);

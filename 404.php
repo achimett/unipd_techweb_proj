@@ -15,7 +15,7 @@ $page_head = file_get_contents('includes/head.html');
 $page_body = file_get_contents('includes/body.html');
 
 // Concatenazione di tutti i JS da includere nell'head
-$scripts = file_get_contents('includes/menuScript.html'); // . file_get_contents(...) . ecc...;
+$scripts = file_get_contents('includes/scriptMenu.html'); // . file_get_contents(...) . ecc...;
 
 // Contiene lo snippet di codice per visualizzare l'utente loggato in alto a sinistra
 $info_utente = createInfoUtente($db);
@@ -27,7 +27,7 @@ $menu = createMenu(true, true, true, true, true, true);
 $breadcrumb = '<p id="breadcrumb">404</p>';
 
 // Codice HTML del content
-$content = file_get_contents('includes/content_404.html');
+$content = file_get_contents('includes/content404.html');
 
 $page_head = str_replace('<title />', "<title>$title - DOIT</title>", $page_head);
 $page_head = str_replace('<scripts />', $scripts, $page_head);

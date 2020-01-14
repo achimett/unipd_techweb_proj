@@ -18,7 +18,7 @@ $page_head = file_get_contents('includes/head.html');
 $page_body = file_get_contents('includes/body.html');
 
 // Concatenazione di tutti i JS da includere nell'head
-$scripts = file_get_contents('includes/menuScript.html'); // . file_get_contents(...) . ecc...;
+$scripts = file_get_contents('includes/scriptMenu.html'); // . file_get_contents(...) . ecc...;
 
 // Contiene lo snippet di codice per visualizzare l'utente loggato in alto a sinistra
 $info_utente = createInfoUtente($db);
@@ -36,7 +36,7 @@ if (isset($_GET['page']) && $_GET['page'] > 1) {
 }
 
 // Codice HTML del content
-$content = file_get_contents('includes/content_bacheca.html');
+$content = file_get_contents('includes/contentBacheca.html');
 
 $provincia = ''; // Ricerca per provincia
 if (isset($_GET['provincia'])) {
@@ -49,7 +49,7 @@ $postcard_data = $db->getPostcard($page, POSTCARD_PER_PAGE, $page_count, $provin
 $tabindex = 22; // Valore di tabindex nel titolo delle postcard
 $postlist = ''; // HTML delle postcard;
 foreach ($postcard_data as $postcard) {
-  $result = file_get_contents('includes/content_postcard.html');
+  $result = file_get_contents('includes/contentPostcard.html');
   $result = str_replace('<link />', 'post.php?id=' . $postcard['id'], $result);
   $result = str_replace('<ti />', $tabindex++, $result);
   $result = str_replace('<titolo />', $postcard['titolo'], $result);

@@ -57,7 +57,8 @@ $page_head = file_get_contents('includes/head.html');
 $page_body = file_get_contents('includes/body.html');
 
 // Concatenazione di tutti i JS da includere nell'head
-$scripts = file_get_contents('includes/menuScript.html'); // . file_get_contents(...) . ecc...;
+$scripts = file_get_contents('includes/scriptMenu.html')
+. file_get_contents('includes/scriptConfirmDelete.html');
 
 // Contiene lo snippet di codice per visualizzare l'utente loggato in alto a sinistra
 $info_utente = createInfoUtente($db);
@@ -69,7 +70,7 @@ $menu = createMenu(true, true, true, true, true, true);
 $breadcrumb = createPostEditBreadcrumb($db);
 
 // Codice HTML del content
-$content = file_get_contents('includes/content_profiloEdit.html');
+$content = file_get_contents('includes/contentProfiloEdit.html');
 
 $content = str_replace('<action />', 'profiloEdit.php?id=' . $_SESSION['user_id'], $content);
 $content = str_replace('<error />', $errors, $content);
