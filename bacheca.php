@@ -63,13 +63,13 @@ foreach ($postcard_data as $postcard) {
 $previous = ''; // HTML con link alla pagina precedente
 $next = ''; // HTML con link alla pagina precedente
 if ($page !== 1) {
-  $previous = '<a href="bacheca.php?page=' . ($page - 1) . '&provincia='. $provincia . '&provincia='. $provincia. '">&lt</a>';
+  $previous = '<a href="bacheca.php?page=' . ($page - 1) . '&amp;provincia='. $provincia . '">&lt;</a>';
 }
 if ($page >= $page_count) {
-  $next = '<a href="bacheca.php?page=' . ($page + 1) . '&provincia='. $provincia . '">&gt</a>';
+  $next = '<a href="bacheca.php?page=' . ($page + 1) . '&amp;provincia='. $provincia . '">&gt;</a>';
 }
 
-$content = str_replace('<action />', "bacheca.php?page=$page&provincia=$provincia", $content);
+$content = str_replace('<action />', "bacheca.php?page=$page&amp;provincia=$provincia", $content);
 $content = str_replace('<provincia />', $provincia, $content);
 $content = str_replace('<postlist />', $postlist, $content);
 $content = str_replace('<previous />', $previous, $content);

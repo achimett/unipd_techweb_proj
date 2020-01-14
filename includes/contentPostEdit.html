@@ -1,15 +1,13 @@
 <div class="content" id="postEdit">
   <error />
-  <fieldset>
-
-    <legend class="post_titolo">Post</legend>
-
-    <form id="post_form" action="<action />" method="post" enctype="multipart/form-data">
+  <form id="post_form" action="<action />" method="post" enctype="multipart/form-data">
+    <fieldset>
+      <legend class="post_titolo">Post</legend>
 
       <label class="label" for="postEdit_core_titolo_input">Titolo del post</label>
       <input type="text" id="postEdit_core_titolo_input" name="titolo" value="<titolo />" size="40" />
 
-      <label class="label" for="post_immaginepreview">Immagine di copertina</label>
+      <label class="label" for="postEdit_social_sfoglia">Immagine di copertina</label>
       <input id="postEdit_social_sfoglia" class="buttons" name="img" type="file" alt="sfoglia" />
 
       <h2 class="post_titolo">Descrizione</h2>
@@ -32,11 +30,12 @@
       </ul>
 
       <input type="submit" name="salva" value="Salva" id="post_social_invia" />
-    </form>
+    </fieldset>
+  </form>
 
-    <form action="<action />" onsubmit="return confirmDelete(2)" method="post">
+  <form action="<action />" onsubmit="return confirmDelete(2)" method="post">
+    <fieldset>
       <elimina />
-    </form>
-
-  </fieldset>
+    </fieldset>
+  </form>
 </div>

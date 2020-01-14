@@ -389,7 +389,7 @@ ul.error {
   background-color: #70c653;
 }
 
-#post_social_invia {
+#post_social_invia, #post_social_elimina {
   width: 98%;
   margin: 1%;
   clear: both;
@@ -747,19 +747,17 @@ ul.error {
 #fieldset_dati_anagrafici {
   float: left;
 }
+
 #fieldset_dati_di_contatto {
   float: right;
 }
+
 #fieldset_carica_una_foto {
   float:left;
 }
+
 #fieldset_biografia {
   float: right;
-}
-
-#login_conferma {
-  display: -webkit-flex;
-  display: flex;
 }
 
 /********** FOOTER **********/

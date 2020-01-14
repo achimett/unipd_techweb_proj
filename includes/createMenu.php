@@ -48,14 +48,14 @@ function createMenu($profilo, $bacheca, $nuovo, $help, $about, $logout) {
   $menu_bacheca = str_replace('<?>', $in, $menu_bacheca);
 
   if ($nuovo == true) {
-    $in = "<a tabindex=\"13\" href=\"editPost.php\">$str_nuovo</a>";
+    $in = "<a tabindex=\"13\" href=\"postEdit.php\">$str_nuovo</a>";
   } else {
     $in = $str_nuovo;
   }
   $menu_nuovo = str_replace('<?>', $in, $menu_nuovo);
 
   if ($help == true) {
-    $in = "<a tabindex=\"14\" href=\"editPost.php\">$str_help</a>";
+    $in = "<a tabindex=\"14\" href=\"help.php\">$str_help</a>";
   } else {
     $in = $str_help;
   }

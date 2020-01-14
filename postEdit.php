@@ -10,10 +10,6 @@ require_once('includes/createPostEditBreadcrumb.php');
 $db = new DB();
 
 // Controlli sicurezza
-if (!isset($_SESSION['user_id'])) {
-  header('Location: 404.php');
-}
-
 $post_id = NULL; // Id del post da modificare. Se resta NULL questa pagina farà inserimento
 $post = NULL; // Contiene le informazioni del post da modificare oppure le info scritte prima che il submit ritornasse errore
 
@@ -93,7 +89,7 @@ $content = str_replace('<error />', $errors, $content);
 if ($post_id === NULL) {
   $content = str_replace('<elimina />', '', $content);
 } else {
-  $content = str_replace('<elimina />', '<input type="submit" name="elimina" value="Elimina Post" id="post_social_invia" class="delete_buttons" />', $content);
+  $content = str_replace('<elimina />', '<input type="submit" name="elimina" value="Elimina Post" id="post_social_elimina" class="delete_buttons" />', $content);
 }
 
 if ($post === NULL) {
