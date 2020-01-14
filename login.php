@@ -61,7 +61,7 @@ $page_head = file_get_contents('includes/head.html');
 $page_body = file_get_contents('includes/body.html');
 
 // Concatenazione di tutti i JS da includere nell'head
-$scripts = file_get_contents('includes/menuScript.html'); // . file_get_contents(...) . ecc...;
+$scripts = file_get_contents('includes/scriptMenu.html'); // . file_get_contents(...) . ecc...;
 
 // Contiene lo snippet di codice per visualizzare l'utente loggato in alto a sinistra
 $info_utente = createInfoUtente($db);
@@ -73,7 +73,7 @@ $menu = createMenu(true, true, true, true, true, false);
 $breadcrumb = "<p id=\"breadcrumb\">$title</p>";
 
 // Codice HTML del content
-$content = file_get_contents('includes/content_login.html');
+$content = file_get_contents('includes/contentLogin.html');
 
 $content = str_replace('<errorLogin />', $error_login, $content);
 $content = str_replace('<errorRegistrazione />', $error_registrazione, $content);
