@@ -4,6 +4,7 @@ require_once('includes/DB.php');
 require_once('includes/createInfoUtente.php');
 require_once('includes/createMenu.php');
 require_once('includes/createTableRows.php');
+require_once('includes/createEditButton.php');
 
 // Oggetto di accesso al database
 $db = new DB();
@@ -49,10 +50,14 @@ if ($status == 0) {
   $check3 = 'checked="checked"';
 }
 
+// Dati del profilo
+$profilo = $db->getProfilo($_GET['id']);
+
+// Codice del pulsante Modifica
+$modifica = createEditButton($_GET['id']);
+
 // Codice HTML del content
 $content = file_get_contents('includes/contentProfilo.html');
-
-$profilo = $db->getProfilo($_GET['id']);
 $content = str_replace('<img_path />', $profilo['img_path'], $content);
 $content = str_replace('<nome />', $profilo['nome'], $content);
 $content = str_replace('<cognome />', $profilo['cognome'], $content);
@@ -65,6 +70,7 @@ $content = str_replace('<action />', 'profilo.php?id=' . $_GET['id'], $content);
 $content = str_replace('<check1 />', $check1, $content);
 $content = str_replace('<check2 />', $check2, $content);
 $content = str_replace('<check3 />', $check3, $content);
+$content = str_replace('<modifica />', $modifica, $content);
 
 $page_head = str_replace('<title />', "<title>$title - DOIT</title>", $page_head);
 $page_head = str_replace('<scripts />', $scripts, $page_head);
