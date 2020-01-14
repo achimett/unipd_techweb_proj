@@ -21,7 +21,7 @@ $page_head = file_get_contents('includes/head.html');
 $page_body = file_get_contents('includes/body.html');
 
 // Concatenazione di tutti i JS da includere nell'head
-$scripts = file_get_contents('includes/menuScript.html'); // . file_get_contents(...) . ecc...;
+$scripts = file_get_contents('includes/scriptMenu.html'); // . file_get_contents(...) . ecc...;
 
 // Contiene lo snippet di codice per visualizzare l'utente loggato in alto a sinistra
 $info_utente = createInfoUtente($db);
@@ -50,7 +50,7 @@ if ($status == 0) {
 }
 
 // Codice HTML del content
-$content = file_get_contents('includes/content_profilo.html');
+$content = file_get_contents('includes/contentProfilo.html');
 
 $profilo = $db->getProfilo($_GET['id']);
 $content = str_replace('<img_path />', $profilo['img_path'], $content);
