@@ -32,6 +32,23 @@ $menu = createMenu(false, true, true, true, true, true);
 // Codice HTML del breadcrumb
 $breadcrumb = '<p id="breadcrumb">Profilo</p>';
 
+// Attributo checked filtro
+$check1 = '';
+$check2 = '';
+$check3 = '';
+$status = 0;
+if (isset($_POST['status'])) {
+  $status = $_POST['status'];
+}
+
+if ($status == 0) {
+  $check1 = 'checked="checked"';
+} else if ($status > 0) {
+  $check2 = 'checked="checked"';
+} else if ($status < 0) {
+  $check3 = 'checked="checked"';
+}
+
 // Codice HTML del content
 $content = file_get_contents('includes/content_profilo.html');
 
@@ -43,8 +60,11 @@ $content = str_replace('<data_di_nascita />', $profilo['datanascita'], $content)
 $content = str_replace('<email />', $profilo['email'], $content);
 $content = str_replace('<telefono />', $profilo['telefono'], $content);
 $content = str_replace('<biografia />', $profilo['bio'], $content);
-$content = str_replace('<riga_tabella />', createTableRows($db->getProfiloTable($_GET['id'],
-isset($_GET['status']) ? $_GET['status'] : NULL), 22), $content);
+$content = str_replace('<riga_tabella />', createTableRows($db->getProfiloTable($_GET['id'], $status), 22), $content);
+$content = str_replace('<action />', 'profilo.php?id=' . $_GET['id'], $content);
+$content = str_replace('<check1 />', $check1, $content);
+$content = str_replace('<check2 />', $check2, $content);
+$content = str_replace('<check3 />', $check3, $content);
 
 $page_head = str_replace('<title />', "<title>$title - DOIT</title>", $page_head);
 $page_head = str_replace('<scripts />', $scripts, $page_head);
