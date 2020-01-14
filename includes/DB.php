@@ -263,6 +263,49 @@ class DB extends mysqli{
 			else {return NULL;}
 		}
 	}
+	public function abbandona($id_post, $id_utente)
+	{ 
+		$sql = "DELETE FROM partecipazione WHERE id_post = ? AND id_utente = ?;";
+		$query = $this->prepare($sql);
+		$query->bind_param("ii", $id_post,$id_utente);
+		
+		if($query->execute())
+		{
+			 return $this->affected_rows;
+		}
+		
+		return NULL;
+	}
+	
+	public function partecipa($id_post, $id_utente)
+	{ 
+	return true;
+	}
+	
+	public function apri($id_post, $id_utente)
+	{ 
+	return true;
+	}
+	
+	public function chiudi($id_post, $id_utente)
+	{
+		return true;
+	}
+	
+
+	public function isChiuso($id_post) 
+	{
+    return true;
+	}
+
+	public function isPartecipante($id_post, $id_utente) 
+	{
+    return true;
+	}
+	public function isAutore($id_post, $id_utente)  
+	{
+	return false;
+	}
 	
 	public function getPostcard($page, $postcard_per_page, &$page_count, $filter = NULL)
 	{
