@@ -51,7 +51,7 @@ class DB {
         'data'=>'12/12/2012',
         'chiuso'=>false,
       ),
-    )
+    );
   }
 
   public function setProfilo($id, $email, $password, $conf_password, $nome,

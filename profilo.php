@@ -29,18 +29,23 @@ $breadcrumb = '<p id="breadcrumb">Profilo</p>';
 // Codice HTML del content
 $content = file_get_contents('includes/content_profilo.html');
 
+/*$content = str_replace('<action />', 'profilo.php?id=' . $_SESSION['user_id'], $content);
+$content = str_replace('<error />', $errors, $content);*/
+
+$profilo = $db->getProfilo($_SESSION['user_id']);
+$content = str_replace('<img_path />', $profilo['img_path'], $content);
+$content = str_replace('<nome />', $profilo['nome'], $content);
+$content = str_replace('<data_di_nascita />', $profilo['datanascita'], $content);
+$content = str_replace('<email />', $profilo['email'], $content);
+$content = str_replace('<biografia />', $profilo['bio'], $content);
+$content = str_replace('<riga_tabella />', createTableRows($db->getProfiloTable($_GET['id'], $_GET['open_close'])), $content);
+
 $page_head = str_replace('<title />', "<title>$title - DOIT</title>", $page_head);
 $page_head = str_replace('<scripts />', $scripts, $page_head);
 $page_body = str_replace('<info_utente />', $info_utente, $page_body);
 $page_body = str_replace('<breadcrumb />', $breadcrumb, $page_body);
 $page_body = str_replace('<menu />', $menu, $page_body);
 $page_body = str_replace('<content />', $content, $page_body);
-$page_body = str_replace('<img_path />', $content, $page_body);
-$page_body = str_replace('<nome />', $content, $page_body);
-$page_body = str_replace('<data_di_nascita />', $content, $page_body);
-$page_body = str_replace('<email />', $content, $page_body);
-$page_body = str_replace('<telefono />', $content, $page_body);
-$page_body = str_replace('<biografia />', $content, $page_body);
 
 echo $page_head . $page_body;
 ?>
