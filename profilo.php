@@ -35,17 +35,16 @@ $breadcrumb = '<p id="breadcrumb">Profilo</p>';
 // Codice HTML del content
 $content = file_get_contents('includes/content_profilo.html');
 
-/*$content = str_replace('<action />', 'profilo.php?id=' . $_SESSION['user_id'], $content);
-$content = str_replace('<error />', $errors, $content);*/
-
 $profilo = $db->getProfilo($_GET['id']);
 $content = str_replace('<img_path />', $profilo['img_path'], $content);
 $content = str_replace('<nome />', $profilo['nome'], $content);
+$content = str_replace('<cognome />', $profilo['cognome'], $content);
 $content = str_replace('<data_di_nascita />', $profilo['datanascita'], $content);
 $content = str_replace('<email />', $profilo['email'], $content);
+$content = str_replace('<telefono />', $profilo['telefono'], $content);
 $content = str_replace('<biografia />', $profilo['bio'], $content);
 $content = str_replace('<riga_tabella />', createTableRows($db->getProfiloTable($_GET['id'],
-isset($_GET['status']) ? $_GET['status'] : NULL)), $content);
+isset($_GET['status']) ? $_GET['status'] : NULL), 22), $content);
 
 $page_head = str_replace('<title />', "<title>$title - DOIT</title>", $page_head);
 $page_head = str_replace('<scripts />', $scripts, $page_head);
