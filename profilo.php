@@ -3,12 +3,13 @@ session_start();
 require_once('includes/DB.php');
 require_once('includes/createInfoUtente.php');
 require_once('includes/createMenu.php');
+require_once('includes/createTableRows.php');
 
 // Oggetto di accesso al database
 $db = new DB();
 
 //Controllo sicurezza
-if (!(isset($_GET['id']) && is_int($_GET['id']))) {
+if (!isset($_GET['id'])) {
   header('Location: 404.php');
 }
 
@@ -44,7 +45,7 @@ $content = str_replace('<data_di_nascita />', $profilo['datanascita'], $content)
 $content = str_replace('<email />', $profilo['email'], $content);
 $content = str_replace('<biografia />', $profilo['bio'], $content);
 $content = str_replace('<riga_tabella />', createTableRows($db->getProfiloTable($_GET['id'],
-isset($_GET['status']) && is_numeric($_GET['status']) ? $_GET['status'] : NULL)), $content);
+isset($_GET['status']) ? $_GET['status'] : NULL)), $content);
 
 $page_head = str_replace('<title />', "<title>$title - DOIT</title>", $page_head);
 $page_head = str_replace('<scripts />', $scripts, $page_head);
