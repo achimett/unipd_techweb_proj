@@ -8,6 +8,9 @@ class DB extends mysqli{
 	private $passPattern = '/^(?=.*[0-9])(?=.*[A-Z]).{8,}$/' ; // Almeno 8 caratteri con almeno una maiuscola e un numero
 	private $cfPattern = '/^[a-zA-Z]{6}[0-9]{2}[abcdehlmprstABCDEHLMPRST]{1}[0-9]{2}([a-zA-Z]{1}[0-9]{3})[a-zA-Z]{1}$/' ;
 	private $cellPattern = '/^[0-9]{7,12}$/';
+	private $max_img_size = 3000000; // 3MB
+	private $perm_img_format = array(IMAGETYPE_GIF , IMAGETYPE_JPEG ,IMAGETYPE_PNG , IMAGETYPE_BMP);
+	
 	
 	public function __construct($host="localhost", $user="root", $pass="", $db="doit") 
 	{
@@ -82,8 +85,8 @@ class DB extends mysqli{
 		if (strlen($cf) !== 16) {$error[] = 'cf non valdio';} 
 		if (strlen($bio) > 65535) {$error[] = "biografia troppo lunga";}
 		if (strlen($bio) === 0) {$error[] = "nessuno biografia";}
-		if ($_FILES['img']['size'] > 3000000) {$error[] = 'immagine troppo grande';}
-		if ($img_format==0 || $img_format > 3) {$error[] = 'fomrato immagine errato';} // verifica se è un immagine
+		if ($_FILES['img']['size'] > $max_img_size) {$error[] = 'immagine troppo grande';}
+		if(!in_array($img_format , $perm_img_format)) {$error[] = 'fomrato immagine errato';} // verifica se è un immagine
 		if (!preg_match($cellPatter,$telefono)) {$error[] = "numero non valido";}
 		
 		if(count($error)) {return $error;} //se non ho passato alcuni check ritorno l'array con gli errori
@@ -173,15 +176,15 @@ class DB extends mysqli{
 	
 	 public function getPost($id = NULL) 
 	{
-		$sql = "SELECT  p.id,p.titolo,p.id_autore, DATE_FORMAT(data,'%d-%m-%Y') AS data, DATE_FORMAT(data,'%H:%i:%s') AS ora,p.descrizione,p.img_path,p.provincia,p.luogo,p.chiuso, COUNT(*) FROM post p JOIN partecipazione pa ON p.id = pa.id_post WHERE p.id = ? ";
+		$sql = "SELECT  p.id,p.titolo,p.id_autore, DATE_FORMAT(data,'%d-%m-%Y') AS data, DATE_FORMAT(data,'%H:%i:%s') AS ora,p.descrizione,p.img_path,p.provincia,p.luogo,p.chiuso, COUNT(*) as nvolontari FROM post p JOIN partecipazione pa ON p.id = pa.id_post WHERE p.id = ? ";
 		$query = $this->prepare($sql);
 		$query->bind_param("i", $id);
 		$query->execute();
 		$result = $query->get_result();
 		
-		if($result->num_rows === 0) return NULL;
+		$post = $result->fetch_assoc();
 		
-		$post = $result->fetch_assoc(); 
+		if($post['id'] === NULL) {return NULL;}
 	
 		$query->close();
 		$result->free();
@@ -202,10 +205,6 @@ class DB extends mysqli{
 			return TRUE;
 		}
 		else {return FALSE;}
-	}
-	public function getPostcard($page, $postcard_per_page, &$page_count, $filter = NULL)
-	{
-		
 	}
 	
 	public function setPost($id, $titolo, $id_autore, $data, $ora, $descrizione, $img, $luogo, $provincia)
@@ -229,8 +228,8 @@ class DB extends mysqli{
 		//50 PER UNA PROVINCIA NON è TROPPO ??????
 		
 		
-		if ($_FILES['img']['size'] > 3000000) {$error[] = 'immagine troppo grande';}
-		if ($img_format==0 || $img_format > 3) {$error[] = 'fomrato immagine errato';} // verifica se è un immagine
+		if ($_FILES['img']['size'] > $max_img_size) {$error[] = 'immagine troppo grande';}
+		if(!in_array($img_format , $perm_img_format)) {$error[] = 'fomrato immagine errato';} // verifica se è un immagine
 
 		if(count($error)) {return $error;} //se non ho passato alcuni check ritorno l'array con gli errori
 		
@@ -264,10 +263,11 @@ class DB extends mysqli{
 			else {return NULL;}
 		}
 	}
+	
+	public function getPostcard($page, $postcard_per_page, &$page_count, $filter = NULL)
+	{
+		
+	}
+	
 }
 ?>
-/* if(in_array($image_type , array(IMAGETYPE_GIF , IMAGETYPE_JPEG ,IMAGETYPE_PNG , IMAGETYPE_BMP)))
-    {
-        return true;
-    }
-    return false;  more good looking code */
