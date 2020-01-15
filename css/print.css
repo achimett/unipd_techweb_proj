@@ -11,6 +11,11 @@ body {
   margin-bottom: 7mm;
 }
 
+
+#entra {
+  display: none;
+}
+
 abbr[title] {
   border-bottom: none;
   text-decoration: none;
