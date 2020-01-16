@@ -1,34 +1,35 @@
+<div class="content" id="post">
+  <img id="post_immagineiniziale" src="<img_path />" alt="foto iniziale" />
+  <h1 class="titolo_post"><titolo /></h1>
+  <div id="post_informazioni">
+    <h2 class="post_titolo">Informazioni</h2>
+    <ul id="post_informazioni_lista">
+      <modifica />
+      <li><p class="post_informazioni_record" id="post_informazioni_utente">Post di<br /><a href="<linkProfilo />" tabindex="22"><strong><autore /></strong></a></p></li>
+      <li><p class="post_informazioni_record" id="post_informazioni_data">Ritrovo<br /><strong><data /></strong><br />Ore<br /><strong><ora /></strong></p></li>
+      <li><p class="post_informazioni_record" id="post_informazioni_posizione"><strong><luogo /></strong><br /><provincia /></p></li>
+      <li><p class="post_informazioni_record" id="post_informazioni_volontari"><strong><nvolontari /> volontari</strong> aiutano<br /> <autore /></p></li>
+    </ul>
+  </div>
 
-  <div class="content" id="post">
-    <img id="post_immagineiniziale" src="<img_path />" alt="foto iniziale" />
-    <h1 class="titolo_post"><titolo /></h1>
-    <div id="post_informazioni">
-      <h2 class="post_titolo">Informazioni</h2>
-      <ul id="post_informazioni_lista">
-        <modifica />
-        <li><p class="post_informazioni_record" id="post_informazioni_utente">Post di<br /><a href="<linkProfilo />""><strong><autore /></strong></a></p></li>
-        <!-- <li><p id="post_informazioni_utente"><form action="#"><input type="submit" name="modifica" value="Modifica post"></form></li> -->
-        <li><p class="post_informazioni_record" id="post_informazioni_data">Ritrovo<br /><strong><data /></strong><br />Ore<br /><strong><ora /></strong></p></li>
-        <li><p class="post_informazioni_record" id="post_informazioni_posizione"><strong><luogo /></strong><br /><provincia /></p></li>
-        <li><p class="post_informazioni_record" id="post_informazioni_volontari"><strong><nvolontari /> volontari</strong> aiutano<br /> <autore /></p></li>
-      </ul>
-    </div>
+  <formPartecipa />
 
-    <formPartecipa />
+  <div id="post_core">
+    <h2 class="post_titolo" id="post_titolodescrizione">Descrizione</h2>
+    <p class="post_core_descrizione"><descrizione /></p>
+  </div>
+  <div id="post_listavolontari">
+    <h2 class="post_titolo">Volontari DOIT</h2>
+    <ol>
+      <volontari />
+    </ol>
+  </div>
+  <div id="post_social">
+    <h2 class="post_titolo">Sezione relazioni</h2>
+    <p class="post_infobox">La sezione commenti permette l&#39;organizzazione dei volontari. Contribuisci anche tu a questa attivit&agrave; di volotariato.</p>
 
-    <div id="post_core">
-      <h2 class="post_titolo" id="post_titolodescrizione">Descrizione</h2>
-      <p class="post_core_descrizione"><descrizione /></p>
-      </div>
-    <div id="post_listavolontari">
-      <h2 class="post_titolo">Volontari DOIT</h2>
-      <ol>
-        <volontari />
-      </ol>
-    </div>
-    <div id="post_social">
-      <formSocial />
-
-      <commenti />
-    </div>
-  </div> <!-- fine content -->
+    <formSocial />
+    <h2 class="post_titolo">Foto e commenti degli utenti</h2>
+    <commenti />
+  </div>
+</div> <!-- fine content -->
