@@ -17,8 +17,7 @@ require_once('includes/createPost.php');
 // Oggetto di accesso al database
 $db = new DB();
 
-
-$post = file_get_contents('includes/content_post.html');
+$post = file_get_contents('includes/contentPost.html');
 
 $getPost = $db->getPost($_GET['id']);
 
@@ -37,8 +36,9 @@ $title = $getPost['titolo'];//$postInfo['titolo'];
 // Contengono l'HTML dei tag <head> e <body> che verranno stampati
 $page_head = file_get_contents('includes/head.html');
 $page_body = file_get_contents('includes/body.html');
+
 // Concatenazione di tutti i JS da includere nell'head
-$scripts = file_get_contents('includes/menuScript.html'); // . file_get_contents(...) . ecc...;
+$scripts = file_get_contents('includes/scriptMenu.html'); // . file_get_contents(...) . ecc...;
 
 // Contiene lo snippet di codice per visualizzare l'utente loggato in alto a sinistra
 $info_utente = createInfoUtente($db);
