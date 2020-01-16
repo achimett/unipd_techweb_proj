@@ -429,7 +429,7 @@ ul.error {
   background-color: #70c653;
 }
 
-#post_social_invia, #post_social_elimina {
+#post_social_conferma_modifica, #post_social_elimina {
   width: 98%;
   margin: 1%;
   clear: both;

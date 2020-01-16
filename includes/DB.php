@@ -33,26 +33,6 @@ return true;
     echo "DOIT";
   }
 
-  public function getPost($id, $mock = NULL) {
-    $post = [
-
-      'link' => 'https://goo.gl/maps/KpxfvzkjXvCUyFcr7',
-      'img_path' => '../img/_template_foto/rifiuti3.jpg',
-      'titolo' => 'RACCOLTA RIFIUTI',
-      'id_autore' => 1,
-      'nome' => 'Paolo',
-      'cognome' => 'Rossi',
-      'nvolontari' => 6,
-      'data' => '12/02/2020',
-      'ora' => '12:00',
-      'luogo' => 'Via Luigi Luzzatti',
-      'provincia' => 'Padova',
-      'descrizione' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem commodo a. Aenean vitae mer augue.'
-    ];
-
-    return $post;
-  }
-
   public function getCommenti($mock = NULL) {
 
     $postSocial = array();
@@ -176,21 +156,40 @@ return true;
     unset($_SESSION['user_id']);
   }
 
-  public function getPost($id = NULL) {
-    return [
-      'id' => $id,
-      'titolo' => 'Coperte ai senzatetto',
-      'id_autore' => 12,
-      'data' => '12/12/2020',
-      'ora' => '20:30',
-      'descrizione' => 'Minima ipsa eos consequuntur. Iure vel commodi in magni autem non. Fuga exercitationem nesciunt unde accusantium molestias eligendi voluptatem voluptatem. Non ut dicta perspiciatis ea consequatur dolor. Adipisci et provident velit ducimus est temporibus nisi.',
-      'img_path' => 'img/_template_foto/rifiuti3.jpg',
-      'luogo' => 'Via dei Cipressi 25, Borgoricco',
+  public function getPost($id, $mock = NULL) {
+    $post = [
+      'link' => 'https://goo.gl/maps/KpxfvzkjXvCUyFcr7',
+      'img_path' => '../img/_template_foto/rifiuti3.jpg',
+      'titolo' => 'RACCOLTA RIFIUTI',
+      'id_autore' => 1,
+      'nome' => 'Paolo',
+      'cognome' => 'Rossi',
+      'nvolontari' => 6,
+      'data' => '12/02/2020',
+      'ora' => '12:00',
+      'luogo' => 'Via Luigi Luzzatti',
       'provincia' => 'Padova',
-      'chiuso' => false,
-      'nvolontari' => 25,
+      'descrizione' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem commodo a. Aenean vitae mer augue.'
     ];
+
+    return $post;
   }
+
+  // public function getPost($id = NULL) {
+  //   return [
+  //     'id' => $id,
+  //     'titolo' => 'Coperte ai senzatetto',
+  //     'id_autore' => 12,
+  //     'data' => '12/12/2020',
+  //     'ora' => '20:30',
+  //     'descrizione' => 'Minima ipsa eos consequuntur. Iure vel commodi in magni autem non. Fuga exercitationem nesciunt unde accusantium molestias eligendi voluptatem voluptatem. Non ut dicta perspiciatis ea consequatur dolor. Adipisci et provident velit ducimus est temporibus nisi.',
+  //     'img_path' => 'img/_template_foto/rifiuti3.jpg',
+  //     'luogo' => 'Via dei Cipressi 25, Borgoricco',
+  //     'provincia' => 'Padova',
+  //     'chiuso' => false,
+  //     'nvolontari' => 25,
+  //   ];
+  // }
 
   public function setPost($id, $titolo, $id_autore, $data, $ora, $descrizione,
   $img_path, $via, $provincia) {
