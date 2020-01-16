@@ -48,7 +48,7 @@
 }
 
 /* Post */
-#doit fieldset {
+#azione {
   width: 96%;
   margin: 0 2% 2% 2%;
 }
@@ -62,6 +62,11 @@
 #post_informazioni {
   width: 96%;
   margin: 2%;
+}
+
+#modificaButton {
+  width: 30%;
+  height: 4em;
 }
 
 .post_informazioni_record {
@@ -79,8 +84,10 @@
   width: 96%;
 }
 
+
 #post_sfoglia {
   text-align: left;
+  margin-left: 10%;
 }
 
 #post_listavolontari {
@@ -88,9 +95,17 @@
 }
 
 #post_social_textarea {
-  margin: 1% 1%;
+    display: block;
+    margin: 4% auto;
   width: 96%;
   border: 0;
+}
+
+
+#post_social_invia {
+  width: 96%;
+  margin: 0 2%;
+  height: 3em;
 }
 
 .user_image {

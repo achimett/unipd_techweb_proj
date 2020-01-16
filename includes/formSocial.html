@@ -1,13 +1,11 @@
 
-<form id="post_social_form" action="/post.php?id=' . $_GET['id'] . '" method="post" enctype="multipart/form-data">
+<form id="post_social_form" action="<link />" method="post" enctype="multipart/form-data">
 <fieldset>
-<legend class="post_titolo">Foto e commenti</legend>'
-
-<p class="post_infobox">La sezione commenti permette l&#39organizzazione dei volontari. Contibuisci anche tu a questa attivit&agrave; di volotariato.</p>
-<p class="post_infobox">Scegli una foto</p>
-<input id="post_sfoglia" type="file" name="sfoglia" value="SFOGLIA" tabindex="22" />
-<p class="post_infobox">Scrivi un messaggio</p>
-<textarea id="post_social_textarea" name="messaggio" rows="5" cols="50" tabindex="23">[Messaggio] </textarea>
-<input id="post_social_invia" class="buttons" type="submit" name="invia" value="INVIA" tabindex="24" />
+  <legend class="post_titolo">Scrivi un commento</legend>
+  <p class="post_infobox">Carica una foto:</p>
+  <input id="post_sfoglia" type="file" name="sfoglia" tabindex="24" />
+  <p class="post_infobox">Lascia un messaggio nel riquadro qui sotto:</p>
+  <textarea id="post_social_textarea" name="messaggio" rows="5" cols="50" tabindex="25">[Messaggio] </textarea>
+  <input id="post_social_invia" class="buttons" type="submit" name="invia" value="INVIA" tabindex="26" />
 </fieldset>
 </form>

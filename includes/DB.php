@@ -1,43 +1,42 @@
 <?php
 /* CLASSE MOCK PER DB */
 class DB {
-  public function postExist($id) {return true;}
-  public function newCommento($id, $user_id, $messaggio, $foto){}
 
-  public function abbandona($id, $user_id){ return true;}
-  public function partecipa($id, $user_id){ return true;}
-  public function apri($id, $user_id){ return true;}
-  public function chiudi($id, $user_id){ return true;}
+  public function deleteCommento($id, $id_commento, $user_id) {echo "del commento";}
+  public function postExist($id) {return true;}
+  public function newCommento($id, $user_id, $messaggio, $foto) {echo "new commento";}
+
+  public function abbandona($id, $user_id){echo "abbandona"; return true;}
+  public function partecipa($id, $user_id){echo "partecipa"; return true;}
+  public function apri($id, $user_id){echo "apri"; return true;}
+  public function chiudi($id, $user_id){echo "chiudi"; return true;}
 
   public function isChiuso($id) {
-    return false;
+    return true;
   }
 
   public function isPartecipante($id, $user_id) {
-    return true;
+    return false;
   }
   public function isAutore($id, $user_id)  {
-return true;
+return false;
   }
-  public function getUser($mock = NULL) {
-    $usr = [
-      'img_path' => 'img/utentebianco_icon.png',
-      'nome' => 'Francesco',
-      'cognome' => 'De Salvador',
-    ];
+  public function getUser($id) {
+     return [
+       'img_path' => 'img/utentebianco_icon.png',
+       'nome' => 'Francesco',
+       'cognome' => 'De Salvador',
+     ];
+     return $usr;
+   }
 
-    return $usr;
-  }
-
-  public function doit($id, $user_id, $mock = NULL){
-    echo "DOIT";
-  }
 
   public function getCommenti($mock = NULL) {
 
     $postSocial = array();
     $postSocial[0] = [
-      'user_id' => '89',
+      'id' => 23,
+      'id_autore' => 2,
       'nome' => 'Gianni',
       'cognome' => 'Bianchi',
       'data' => '12/02/12 - 13:12',
@@ -45,9 +44,8 @@ return true;
       'img_user_path' => '../img/_template_foto/gianni_morandi.jpg',
       'img_path' => '../img/_template_foto/back.jpeg',
     ];
-    $postSocial[1] = [
-
-      'user_id' => '14',
+    $postSocial[1] = [      'id' => 23,
+          'id_autore' => 345,
       'nome' => 'Gianni',
       'cognome' => 'Bianchi',
       'data' => '12/02/13 - 13:12',
