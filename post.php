@@ -17,9 +17,6 @@ require_once('includes/createPost.php');
 // Oggetto di accesso al database
 $db = new DB();
 
-$_SESSION['user_id'] = 2;
-//unset($_SESSION['user_id']);
-
 
 $post = file_get_contents('includes/content_post.html');
 
