@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+if (isset($_SESSION['user_id'])) {
+  header("Location: bacheca.php");
+}
+
 // Titolo della pagina
 $title = 'Benvenuto';
 
