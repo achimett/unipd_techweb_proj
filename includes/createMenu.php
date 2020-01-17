@@ -29,14 +29,14 @@ function createMenu($profilo, $bacheca, $nuovo, $help, $about, $logout) {
 
   $in = '';
 
-  if ($profilo == true) {
-    if (isset($_SESSION['user_id']) === true) {
+  if (isset($_SESSION['user_id']) === true) {
+    if ($profilo == true) {
       $in = '<a tabindex="11" href="profilo.php?id=' . $_SESSION['user_id'] . '">' . $str_profilo . '</a>';
     } else {
-      $in = "<a tabindex=\"11\" href=\"login.php\">$str_profilo</a>";
+      $in = $str_profilo;
     }
   } else {
-    $in = $str_profilo;
+    $in = '';
   }
   $menu_profilo = str_replace('<?>', $in, $menu_profilo);
 
@@ -47,10 +47,14 @@ function createMenu($profilo, $bacheca, $nuovo, $help, $about, $logout) {
   }
   $menu_bacheca = str_replace('<?>', $in, $menu_bacheca);
 
-  if ($nuovo == true) {
-    $in = "<a tabindex=\"13\" href=\"postEdit.php\">$str_nuovo</a>";
+  if (isset($_SESSION['user_id']) === true) {
+    if ($nuovo == true) {
+      $in = "<a tabindex=\"13\" href=\"postEdit.php\">$str_nuovo</a>";
+    } else {
+      $in = $str_nuovo;
+    }
   } else {
-    $in = $str_nuovo;
+    $in = '';
   }
   $menu_nuovo = str_replace('<?>', $in, $menu_nuovo);
 

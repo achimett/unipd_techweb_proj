@@ -28,7 +28,8 @@ $scripts = file_get_contents('includes/scriptMenu.html'); // . file_get_contents
 $info_utente = createInfoUtente($db);
 
 // Codice HTML del menu
-$menu = createMenu(false, true, true, true, true, true);
+$menu_profilo = isset($_SESSION['user_id']) && $_SESSION['user_id'] != $_GET['id'];
+$menu = createMenu($menu_profilo, true, true, true, true, true);
 
 // Codice HTML del breadcrumb
 $breadcrumb = '<p id="breadcrumb">Profilo</p>';

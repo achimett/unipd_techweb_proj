@@ -10,6 +10,10 @@ require_once('includes/createPostEditBreadcrumb.php');
 $db = new DB();
 
 // Controlli sicurezza
+if (!isset($_SESSION['user_id'])) {
+  header('Location: 404.php');
+}
+
 $post_id = NULL; // Id del post da modificare. Se resta NULL questa pagina farà inserimento
 $post = NULL; // Contiene le informazioni del post da modificare oppure le info scritte prima che il submit ritornasse errore
 
