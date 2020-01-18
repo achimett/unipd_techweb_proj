@@ -271,7 +271,8 @@ class DB extends mysqli{
 		
 		if($query->execute())
 		{
-			 return $this->affected_rows;
+			$query->close();
+			return $this->affected_rows;
 		}
 		
 		return NULL;
@@ -279,38 +280,125 @@ class DB extends mysqli{
 	
 	public function partecipa($id_post, $id_utente)
 	{ 
-	return true;
+		$sql = "INSERT INTO partecipazione(id_post,id_utente) VALUES (?,?);";
+		$query = $this->prepare($sql);
+		$query->bind_param("ii", $id_post,$id_utente);
+		
+		if($query->execute())
+		{
+			$query->close();
+			return $this->affected_rows;
+		}
+		
+		return NULL;
 	}
 	
-	public function apri($id_post, $id_utente)
+	public function apri($id_post)
 	{ 
-	return true;
+		$sql = "UPDATE post SET chiuso = 0 WHERE id = ?;";  
+		$query = $this->prepare($sql);
+		$query->bind_param("i", $id_post);
+		
+		if($query->execute())
+		{
+			$query->close();
+			return $this->affected_rows;
+		}
+		
+		return NULL;
 	}
 	
-	public function chiudi($id_post, $id_utente)
+	
+	public function chiudi($id_post)
 	{
-		return true;
+		$sql = "UPDATE post SET chiuso = 1 WHERE id = ?;";  
+		$query = $this->prepare($sql);
+		$query->bind_param("i", $id_post);
+		
+		if($query->execute())
+		{
+			$query->close();
+			return $this->affected_rows;
+		}
+		
+		return NULL;
 	}
 	
 
 	public function isChiuso($id_post) 
 	{
-    return true;
+		$sql = "SELECT chiuso FROM post WHERE id = ?;";
+		$query = $this->prepare($sql);
+		$query->bind_param("i", $id_post);
+		
+		if($query->execute())
+		{
+			$isChiuso = $query->get_result()->num_rows;
+			$query->close();
+			return $isChiuso;
+		}
+		
+		return NULL;
 	}
 
 	public function isPartecipante($id_post, $id_utente) 
 	{
-    return true;
+		$sql = "SELECT id FROM partecipazione WHERE id_post = ? AND id_utente = ?;";
+		$query = $this->prepare($sql);
+		$query->bind_param("ii", $id_post,$id_utente);
+		
+		if($query->execute())
+		{
+			$isPartecipante = $query->get_result()->num_rows;
+			$query->close();
+			return $isPartecipante;
+		}
+		
+		return NULL;
 	}
 	public function isAutore($id_post, $id_utente)  
 	{
-	return false;
-	}
-	
-	public function getPostcard($page, $postcard_per_page, &$page_count, $filter = NULL)
-	{
+		$sql = "SELECT chiuso FROM post WHERE id = ? AND id_autore = ?;";
+		$query = $this->prepare($sql);
+		$query->bind_param("ii", $id_post,$id_utente);
 		
+		if($query->execute())
+		{
+			$isAutore = $query->get_result()->num_rows;
+			$query->close();
+			return $isAutore;
+		}
+		
+		return NULL;
 	}
 	
+	public function postExist($id) 
+	{
+		$sql = "SELECT chiuso FROM post WHERE id = ?;";
+		$query = $this->prepare($sql);
+		$query->bind_param("i", $id);
+		
+		if($query->execute())
+		{
+			$exist = $query->get_result()->num_rows;
+			$query->close();
+			return $exist;
+		}
+		
+		return NULL;
+	}
+	
+	
+	public function getPostcard($page, $postcard_per_page, &$page_count, $filter = NULL){}
+	
+	public function deleteCommento($id, $id_commento, $user_id) {echo "del commento";}
+	
+	public function setCommento($id, $user_id, $messaggio, $foto) {echo "new commento";}
+	
+	public function getCommenti($mock = NULL) {}
+	
+	public function getProfiloTable($id, $status = 0){}
+	
+	public function getVolontari($mock = NULL) {}
 }
 ?>
