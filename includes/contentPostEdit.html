@@ -1,41 +1,48 @@
 <div class="content" id="postEdit">
   <error />
-  <form id="post_form" action="<action />" method="post" enctype="multipart/form-data">
-    <fieldset>
-      <legend class="post_titolo">Post</legend>
+  <form id="post_form" action="<action />" method="post" onsubmit="return validatePostEdit() != 0" enctype="multipart/form-data">
+  <fieldset>
+    <legend class="post_titolo">Nuovo post</legend>
 
-      <label class="label" for="postEdit_core_titolo_input">Titolo del post</label>
-      <input type="text" id="postEdit_core_titolo_input" name="titolo" value="<titolo />" size="40" />
+    <ul id="postEdit_informazioni_lista">
+      <li>
+        <label class="label" for="postEdit_core_titolo_input">Titolo del post:</label>
+        <input type="text" id="postEdit_core_titolo_input" name="titolo" value="<titolo />" size="40" tabindex="21"/>
 
-      <label class="label" for="postEdit_social_sfoglia">Immagine di copertina</label>
-      <input id="postEdit_social_sfoglia" class="buttons" name="img" type="file" alt="sfoglia" />
+      </li>
+      <li>
+        <label class="label" for="postEdit_social_sfoglia">Scegli l'immagine di copertina:</label>
+        <input id="postEdit_social_sfoglia" class="buttons" name="img" type="file" alt="sfoglia" onchange="checkImg()" tabindex="22"/>
+      </li>
+      <li>
+        <label class="label" for="postEdit_social_sfoglia">Inserisci qui la descrizione:</label>
+        <textarea id="postEdit_social_textarea" name="descrizione" rows="10" cols="50" tabindex="23"><descrizione /></textarea>
+      </li>
+      <li id="post_informazioni_data">
+        <label class="label" for="data">Ritrovo in data (DD/MM/YYYY):</label>
+        <input type="text" class="postEdit_informazioni_input" id="data" name="data" value="<data />" size="10" tabindex="24"/>
+      </li>
+      <li>
+        <label class="label" for="ora">Alle ore (HH:MM):</label>
+        <input type="text" class="postEdit_informazioni_input" id="ora" name="ora" value="<ora />" tabindex="25"/>
+      </li>
+      <li  id="post_informazioni_posizione">
+        <label class="label" for="luogo">Località (es.: Via Trieste 1):</label>
+        <input type="text" class="postEdit_informazioni_input" id="luogo" name="luogo" value="<luogo />" size="30" tabindex="26"/>
+      </li>
+      <li>
+        <label class="label" for="provincia" >Provincia (es.: Padova):</label>
+        <input type="text" class="postEdit_informazioni_input" id="provincia" name="provincia" value="<provincia />" size="30" tabindex="27"/>
+      </li>
+    </ul>
 
-      <h2 class="post_titolo">Descrizione</h2>
-      <textarea id="postEdit_social_textarea" name="descrizione" rows="10" cols="50"><descrizione /></textarea>
+    <input type="submit" name="salva" value="Salva" id="post_social_conferma_modifica" />
+  </fieldset>
+</form>
 
-      <h2 class="post_titolo">Informazioni</h2>
-      <ul id="postEdit_informazioni_lista">
-        <li id="post_informazioni_data">
-          <label for="postEdit_informazioni_data_input" class="postEdit_informazioni_record">Ritrovo in data (DD/MM/YYYY)</label>
-          <input type="text" id="postEdit_informazioni_data_input" name="data" value="<data />" size="10" />
-          <label for="postEdit_informazioni_ora_input" class="postEdit_informazioni_record">Ore (HH:MM)</label>
-          <input type="text" id="postEdit_informazioni_ora_input" name="ora" value="<ora />" />
-        </li>
-        <li  id="post_informazioni_posizione">
-          <label for="luogo" class="postEdit_informazioni_record">Località (es.: Via Trieste 1)</label>
-          <input type="text" class="postEdit_informazioni_posizione_input" id="luogo" name="luogo" value="<luogo />" size="30" />
-          <label for="provincia" class="postEdit_informazioni_record" >Provincia (es.: Padova)</label>
-          <input type="text" class="postEdit_informazioni_posizione_input" id="provincia" name="provincia" value="<provincia />" size="30" />
-        </li>
-      </ul>
-
-      <input type="submit" name="salva" value="Salva" id="post_social_conferma_modifica" />
-    </fieldset>
-  </form>
-
-  <form action="<action />" onsubmit="return confirmDelete(2)" method="post">
-    <fieldset>
-      <elimina />
-    </fieldset>
-  </form>
+<form action="<action />" onsubmit="return confirmDelete(2)" method="post">
+<fieldset>
+  <elimina />
+</fieldset>
+</form>
 </div>

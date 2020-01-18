@@ -200,6 +200,12 @@ body {
   outline: none;
   padding: 0.3em;
   color: #f2f2f2;
+
+}
+
+#post_social_conferma_modifica {
+  font-size: 100%;
+  height: 3em;
 }
 
 .content input[type="button"].delete_buttons, .content input[type="submit"].delete_buttons {
@@ -537,9 +543,14 @@ clear: both;
   text-align: center;
 }
 
-#postEdit_informazioni_data_input, #postEdit_informazioni_ora_input, .postEdit_informazioni_posizione_input {
+.postEdit_informazioni_input {
   display: block;
-  margin: 1% auto;
+  margin: 0% auto;
+}
+
+.label {
+  display: block;
+  margin-bottom: 2%;
 }
 
 #postEdit_core {

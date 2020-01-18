@@ -9,6 +9,8 @@ require_once('includes/createPostEditBreadcrumb.php');
 // Oggetto di accesso al database
 $db = new DB();
 
+$_SESSION['user_id'] = 2;
+
 // Controlli sicurezza
 $post_id = NULL; // Id del post da modificare. Se resta NULL questa pagina farà inserimento
 $post = NULL; // Contiene le informazioni del post da modificare oppure le info scritte prima che il submit ritornasse errore
@@ -70,7 +72,8 @@ $page_body = file_get_contents('includes/body.html');
 
 // Concatenazione di tutti i JS da includere nell'head
 $scripts = file_get_contents('includes/scriptMenu.html')
-. file_get_contents('includes/scriptConfirmDelete.html');
+. file_get_contents('includes/scriptConfirmDelete.html')
+. file_get_contents('includes/scriptValidatePostEdit.html');
 
 // Contiene lo snippet di codice per visualizzare l'utente loggato in alto a sinistra
 $info_utente = createInfoUtente($db);
