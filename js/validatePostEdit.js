@@ -80,7 +80,7 @@ function checkTitolo(input) {
     return false;
 
   } else if (input.value.length <= 0) {
-    mostraErrore(input, "Titolo vuota");
+    mostraErrore(input, "Titolo vuoto");
     return false;
   }
 
@@ -107,7 +107,7 @@ function mostraErrore(input, testoErrore) {
   togliErrore(input);
   var p = input.parentNode;
   var span = document.createElement('span');
-  span.className = "errore";
+  span.className = "error";
   span.innerText = testoErrore;
   p.appendChild(span);
 

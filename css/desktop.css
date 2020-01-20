@@ -224,6 +224,8 @@ a:visited {
 .error {
   color: #FA3F00;
   font-weight: bold;
+  padding: 2%;
+  display: block;
 }
 
 ul.error {
@@ -415,7 +417,7 @@ ul.error {
 
 #post_sfoglia {
   padding: 3%;
-  width: 66%;
+  width: 100%;
   text-align: center;
 }
 

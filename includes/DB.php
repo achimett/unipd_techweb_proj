@@ -16,7 +16,7 @@ class DB {
   }
 
   public function isPartecipante($id, $user_id) {
-    return false;
+    return true;
   }
   public function isAutore($id, $user_id)  {
     return false;

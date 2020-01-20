@@ -1,4 +1,4 @@
-<?php
+c<?php
 session_start();
 require_once('includes/DB.php');
 require_once('includes/createInfoUtente.php');
@@ -38,7 +38,8 @@ $page_head = file_get_contents('includes/head.html');
 $page_body = file_get_contents('includes/body.html');
 
 // Concatenazione di tutti i JS da includere nell'head
-$scripts = file_get_contents('includes/scriptMenu.html'); // . file_get_contents(...) . ecc...;
+$scripts = file_get_contents('includes/scriptMenu.html')
+. file_get_contents('includes/scriptValidateCommento.html'); // . file_get_contents(...) . ecc...;
 
 // Contiene lo snippet di codice per visualizzare l'utente loggato in alto a sinistra
 $info_utente = createInfoUtente($db);
