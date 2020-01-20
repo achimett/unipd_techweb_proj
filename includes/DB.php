@@ -85,7 +85,7 @@ class DB extends mysqli{
 		if (strlen($cf) !== 16) {$error[] = 'cf non valdio';} 
 		if (strlen($bio) > 65535) {$error[] = "biografia troppo lunga";}
 		if (strlen($bio) === 0) {$error[] = "nessuno biografia";}
-		if ($_FILES['img']['size'] > $max_img_size) {$error[] = 'immagine troppo grande';}
+		if (filesize($img) > $max_img_size) {$error[] = 'immagine troppo grande';}
 		if(!in_array($img_format , $perm_img_format)) {$error[] = 'fomrato immagine errato';} // verifica se è un immagine
 		if (!preg_match($cellPatter,$telefono)) {$error[] = "numero non valido";}
 		
@@ -103,7 +103,7 @@ class DB extends mysqli{
 			$register = "INSERT INTO utente(email,password,nome,cognome,telefono,datanascita,cf,bio,img_path) VALUES (?,?,?,?,?,?,?,?,?)";
 			
 			$query = $this->prepare($register);
-			$query->bind_param("sssssssss", $email, $hashed_pass, $nome, $cognome, $datanascita, $cf, $bio, $img, $telefono);
+			$query->bind_param("sssssssss", $email, $hashed_pass, $nome, $cognome, $datanascita, $cf, $bio, $imgDir.$hash, $telefono);
 			
 			if($query->execute()) 
 			{
@@ -119,7 +119,7 @@ class DB extends mysqli{
 			$update = "UPDATE utente SET email = ?,password = ?,nome = ?,cognome = ?,telefono = ?,datanascita = ?,cf = ?,bio = ?,img_path = ?  WHERE id=?";
 			
 			$query = $this->prepare($update);
-			$query->bind_param("sssssssssi", $email, $hashed_pass, $nome, $cognome, $datanascita, $cf, $bio, $img, $telefono,$id);
+			$query->bind_param("sssssssssi", $email, $hashed_pass, $nome, $cognome, $datanascita, $cf, $bio, $imgDir.$hash, $telefono,$id);
 			
 			if($query->execute()) {$query.close(); return $id;}
 			else {return NULL;}
@@ -131,20 +131,39 @@ class DB extends mysqli{
 	
 	public function deleteProfilo($id)
 	{	
-		$clean_id = $this->real_escape_string($id);
-		$delete = 'SET FOREIGN_KEY_CHECKS=0;'; 
-		$delete.= "DELETE FROM utente WHERE id='$clean_id';";
-		$delete.= "DELETE FROM post WHERE id_autore='$clean_id';";
-		$delete.= "DELETE FROM partecipazione WHERE id_utente='$clean_id';";
-		$delete.= 'SET FOREIGN_KEY_CHECKS=1;';
+		$sql  = "DELETE pa FROM partecipazione pa JOIN post po ON pa.id_post = po.id WHERE pa.id_utente = ? OR po.id_autore = ?;";
+		$sql2 = "DELETE FROM post WHERE id_autore= ?;";
+		$sql3 = "DELETE FROM utente WHERE id= ? ;";
+
 		
-		if($this->multi_query($delete))
+		$query =  $this->prepare($sql);
+		$query2 = $this->prepare($sql2);
+		$query3 = $this->prepare($sql3);
+		
+		$query->bind_param("ii", $id, $id);
+		$query2->bind_param("i", $id);
+		$query3->bind_param("i", $id);
+		
+		
+		if(!$query->execute())
 		{
-			unset($_SESSION['user_id']);
-			return TRUE;
+			return NULL;
 		}
-		else {return FALSE;}
+		$query->close();
 		
+		if(!$query2->execute())
+		{
+			return NULL;
+		}
+		$query2->close();
+		
+		if($query3->execute())
+		{
+			$res = $this->affected_rows;
+			$query3->close();
+			return (bool)$res;
+		}		
+		return NULL;
 	}
 	
 	public function login($username, $password)
@@ -154,7 +173,7 @@ class DB extends mysqli{
 		$sql = "SELECT id FROM `utente` WHERE email = ? AND password = ? LIMIT 1;";
 		$query = $this->prepare($sql);
 		$query->bind_param("ss", $username,$hashed_pass);
-		$query->execute();
+		if(!$query->execute()) {return NULL;}
 		$result = $query->get_result();
 		
 		if($result->num_rows === 0) return FALSE;
@@ -194,17 +213,31 @@ class DB extends mysqli{
 	
 	public function deletePost($id) 
 	{
-		$clean_id = $this->real_escape_string($id);
-		$delete = 'SET FOREIGN_KEY_CHECKS=0;'; 
-		$delete.= "DELETE FROM post WHERE id='$clean_id';";
-		$delete.= "DELETE FROM partecipazione WHERE id_post='$clean_id';";
-		$delete.= 'SET FOREIGN_KEY_CHECKS=1;';
+	
+		$sql = "DELETE FROM partecipazione WHERE id_post= ? ;";
+		$sql2 = "DELETE FROM post WHERE id= ?;";
 		
-		if($this->multi_query($delete))
+		$query = $this->prepare($sql);
+		$query2 = $this->prepare($sql2);
+		
+		$query->bind_param("i", $id);
+		$query2->bind_param("i", $id);
+		
+		
+		if(!$query->execute())
 		{
-			return TRUE;
+			$query->close();
+			return NULL;
 		}
-		else {return FALSE;}
+		
+		$query->close();
+		
+		if($query2->execute())
+		{
+			$res = $this->affected_rows;
+			$query2->close();
+			return (bool)$res;
+		}
 	}
 	
 	public function setPost($id, $titolo, $id_autore, $data, $ora, $descrizione, $img, $luogo, $provincia)
@@ -228,7 +261,7 @@ class DB extends mysqli{
 		//50 PER UNA PROVINCIA NON è TROPPO ??????
 		
 		
-		if ($_FILES['img']['size'] > $max_img_size) {$error[] = 'immagine troppo grande';}
+		if (filesize($img) > $max_img_size) {$error[] = 'immagine troppo grande';}
 		if(!in_array($img_format , $perm_img_format)) {$error[] = 'fomrato immagine errato';} // verifica se è un immagine
 
 		if(count($error)) {return $error;} //se non ho passato alcuni check ritorno l'array con gli errori
@@ -271,8 +304,9 @@ class DB extends mysqli{
 		
 		if($query->execute())
 		{
+			$res = $this->affected_rows;
 			$query->close();
-			return $this->affected_rows;
+			return (bool)$res;
 		}
 		
 		return NULL;
@@ -286,8 +320,9 @@ class DB extends mysqli{
 		
 		if($query->execute())
 		{
+			$res = $this->affected_rows;
 			$query->close();
-			return $this->affected_rows;
+			return (bool)$res;
 		}
 		
 		return NULL;
@@ -301,8 +336,9 @@ class DB extends mysqli{
 		
 		if($query->execute())
 		{
+			$res = $this->affected_rows;
 			$query->close();
-			return $this->affected_rows;
+			return (bool)$res;
 		}
 		
 		return NULL;
@@ -317,8 +353,9 @@ class DB extends mysqli{
 		
 		if($query->execute())
 		{
+			$res = $this->affected_rows;
 			$query->close();
-			return $this->affected_rows;
+			return (bool)$res;
 		}
 		
 		return NULL;
@@ -335,7 +372,7 @@ class DB extends mysqli{
 		{
 			$isChiuso = $query->get_result()->num_rows;
 			$query->close();
-			return $isChiuso;
+			return (bool)$isChiuso;
 		}
 		
 		return NULL;
@@ -351,7 +388,7 @@ class DB extends mysqli{
 		{
 			$isPartecipante = $query->get_result()->num_rows;
 			$query->close();
-			return $isPartecipante;
+			return (bool)$isPartecipante;
 		}
 		
 		return NULL;
@@ -366,7 +403,7 @@ class DB extends mysqli{
 		{
 			$isAutore = $query->get_result()->num_rows;
 			$query->close();
-			return $isAutore;
+			return (bool)$isAutore;
 		}
 		
 		return NULL;
@@ -382,23 +419,88 @@ class DB extends mysqli{
 		{
 			$exist = $query->get_result()->num_rows;
 			$query->close();
-			return $exist;
+			return (bool)$exist;
 		}
 		
 		return NULL;
 	}
 	
+	public function deleteCommento($id) 
+	{
+		$sql = "DELETE FROM commento WHERE id = ?;";
+		$query = $this->prepare($sql);
+		$query->bind_param("i", $id);
+		
+		if($query->execute())
+		{
+			$res=$this->affected_rows;
+			$query->close();
+			return (bool)$res;
+		}
+		
+		return NULL;
+	}
 	
-	public function getPostcard($page, $postcard_per_page, &$page_count, $filter = NULL){}
+	public function getCommenti($id)
+	{
+		
+		$sql = "SELECT c.id, c.id_autore,u.nome,u.cognome,CONCAT(DATE_FORMAT(data,'%d-%m-%Y'),' ', DATE_FORMAT(data,'%H:%i:%s')) AS data,";
+		$sql.= "c.text,c.img_path AS img_user_path,c.img_path FROM commento c JOIN utente u ON c.id_autore = u.id WHERE c.id_post = ?;"; 
+		$query = $this->prepare($sql);
+		$query->bind_param("i", $id);
+		
+		if($query->execute())
+		{
+			$result = $query->get_result();
+			$postSocial = array();
+			
+			 while ($row = $result->fetch_assoc()) 
+			{
+				$postSocial[] = $row;
+			}
+			
+			$query->close();
+			$result->free();
+			return $postSocial;
+		
+		}
+		
+		return NULL;
+	}
 	
-	public function deleteCommento($id, $id_commento, $user_id) {echo "del commento";}
+	public function getProfiloTable($id, $status = 0)
+	{
+		$sql = "SELECT id, titolo, CONCAT(DATE_FORMAT(data,'%d-%m-%Y'),' ', DATE_FORMAT(data,'%H:%i:%s')) AS data, chiuso FROM post WHERE id_autore = ? ";
+		
+		if($status ===  1 ) {$sql .= "AND chiuso = 0";}
+		if($status === -1 ) {$sql .= "AND chiuso = 1";}
+		
+		$query = $this->prepare($sql);
+		$query->bind_param("i", $id);
+		
+		if($query->execute())
+		{
+			$result = $query->get_result();
+			$profTable = array();
+			
+			 while ($row = $result->fetch_assoc()) 
+			{
+				$profTable[] = $row;
+			}
+			
+			$query->close();
+			$result->free();
+			return $profTable;
+		
+		}
+		
+		return NULL;
+	}
+	
+	public function getVolontari($mock = NULL) {}
 	
 	public function setCommento($id, $user_id, $messaggio, $foto) {echo "new commento";}
 	
-	public function getCommenti($mock = NULL) {}
-	
-	public function getProfiloTable($id, $status = 0){}
-	
-	public function getVolontari($mock = NULL) {}
+	public function getPostcard($page, $postcard_per_page, &$page_count, $filter = NULL){}
 }
 ?>
