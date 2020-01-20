@@ -22,6 +22,12 @@ class DB extends mysqli{
         }
 	}
 	
+	function validateDate($date, $format = 'Y-m-d H:i:s')
+	{
+		$d = DateTime::createFromFormat($format, $date);
+		return $d && $d->format($format) == $date;
+	}
+	
 	public function getUser($id = NULL) 
 	{
 		$sql = "SELECT nome,cognome,img_path FROM `utente` WHERE id=?";
@@ -77,33 +83,38 @@ class DB extends mysqli{
 		$img_format = exif_imagetype($img);
 		
 		if (strlen($email) > 50) {$error[] = "mail tropppo lunga";}
-		if (!preg_match($mailPattern,$mail)) {$error[] = "mail in formato errato";}
-		if (!preg_match($passPattern,$password)) {$error[] = "password in formato errato";}
+		if (!preg_match($this->mailPattern,$mail)) {$error[] = "mail in formato errato";}
+		if (!preg_match($this->passPattern,$password)) {$error[] = "password in formato errato";}
 		If ($password !== $conf_password) {$error[] = "le password non coincidono";}
-		if (!preg_match($namePattern, $nome)) {$error[] = "nome non valido";};
-		if (!preg_match($nomePattern, $cognome)) {$error[] = "cognome non valido";};
+		if (!preg_match($this->namePattern, $nome)) {$error[] = "nome non valido";};
+		if (!preg_match($nomePattern, $cognome)) {$error[] = "cognome non valido";}
+		if (!checkdate($data , "d/m/Y")){$error[] = "data non valida";}
+		if (!checkdate($data , "H:i:s")){$error[] = "ora non valida";}
 		if (strlen($cf) !== 16) {$error[] = 'cf non valdio';} 
 		if (strlen($bio) > 65535) {$error[] = "biografia troppo lunga";}
 		if (strlen($bio) === 0) {$error[] = "nessuno biografia";}
-		if (filesize($img) > $max_img_size) {$error[] = 'immagine troppo grande';}
-		if(!in_array($img_format , $perm_img_format)) {$error[] = 'fomrato immagine errato';} // verifica se è un immagine
+		if (filesize($img) > $this->max_img_size) {$error[] = 'immagine troppo grande';}
+		if(!in_array($img_format , $this->perm_img_format)) {$error[] = 'formato immagine errato';} // verifica se è un immagine
 		if (!preg_match($cellPatter,$telefono)) {$error[] = "numero non valido";}
 		
 		if(count($error)) {return $error;} //se non ho passato alcuni check ritorno l'array con gli errori
+		
+		$date = str_replace('/', '-', $datanascita);
+		$datanascita = date('Y-m-d', strtotime($date));
 		
 		$hash = hash_file('sha256', $img);
 		$hashed_pass = hash('sha256', $password);
 		
 		
 		
-		if (!move_uploaded_file($img, $imgDir.$hash)) {$error[] = "impossibile spostare l'immagine"; return $error;}
+		if (!move_uploaded_file($img, $this->imgDir.$hash)) {$error[] = "impossibile spostare l'immagine"; return $error;}
 		
 		if($id==0)
 		{
 			$register = "INSERT INTO utente(email,password,nome,cognome,telefono,datanascita,cf,bio,img_path) VALUES (?,?,?,?,?,?,?,?,?)";
 			
 			$query = $this->prepare($register);
-			$query->bind_param("sssssssss", $email, $hashed_pass, $nome, $cognome, $datanascita, $cf, $bio, $imgDir.$hash, $telefono);
+			$query->bind_param("sssssssss", $email, $hashed_pass, $nome, $cognome, $datanascita, $cf, $bio, $this->imgDir.$hash, $telefono);
 			
 			if($query->execute()) 
 			{
@@ -119,7 +130,7 @@ class DB extends mysqli{
 			$update = "UPDATE utente SET email = ?,password = ?,nome = ?,cognome = ?,telefono = ?,datanascita = ?,cf = ?,bio = ?,img_path = ?  WHERE id=?";
 			
 			$query = $this->prepare($update);
-			$query->bind_param("sssssssssi", $email, $hashed_pass, $nome, $cognome, $datanascita, $cf, $bio, $imgDir.$hash, $telefono,$id);
+			$query->bind_param("sssssssssi", $email, $hashed_pass, $nome, $cognome, $datanascita, $cf, $bio, $this->imgDir.$hash, $telefono,$id);
 			
 			if($query->execute()) {$query.close(); return $id;}
 			else {return NULL;}
@@ -195,7 +206,7 @@ class DB extends mysqli{
 	
 	 public function getPost($id = NULL) 
 	{
-		$sql = "SELECT  p.id,p.titolo,p.id_autore, DATE_FORMAT(data,'%d-%m-%Y') AS data, DATE_FORMAT(data,'%H:%i:%s') AS ora,p.descrizione,p.img_path,p.provincia,p.luogo,p.chiuso, COUNT(*) as nvolontari FROM post p JOIN partecipazione pa ON p.id = pa.id_post WHERE p.id = ? ";
+		$sql = "SELECT  p.id,p.titolo,p.id_autore, DATE_FORMAT(data,'%d/%m/%Y') AS data, DATE_FORMAT(data,'%H:%i:%s') AS ora,p.descrizione,p.img_path,p.provincia,p.luogo,p.chiuso, COUNT(*) as nvolontari FROM post p JOIN partecipazione pa ON p.id = pa.id_post WHERE p.id = ? ";
 		$query = $this->prepare($sql);
 		$query->bind_param("i", $id);
 		$query->execute();
@@ -242,14 +253,14 @@ class DB extends mysqli{
 	
 	public function setPost($id, $titolo, $id_autore, $data, $ora, $descrizione, $img, $luogo, $provincia)
 	{
-		$newDate = date("Y-m-d", strtotime($data)); 
-		
 		$error = array();
 		
 		$img_format = exif_imagetype($img);
 		
 		if (strlen($titolo) === 0) {$error[] = "Titolo mancante";}
 		if (strlen($titolo) > 100) {$error[] = "Titolo troppo lungo";}
+		if (!checkdate($data , "d/m/Y")){$error[] = "data non valida";};
+		if (!checkdate($ora , "H:i:s")){$error[] = "ora non valida";};
 		if (strlen($descrizione) === 0) {$error[] = "Descrizione vuota";}
 		if (strlen($descrizione) > 65535) {$error[] = "Descrizione troppo lunga";}
 		if (strlen($titolo) === 0) {$error[] = "Luogo mancante";}
@@ -260,21 +271,24 @@ class DB extends mysqli{
 		
 		//50 PER UNA PROVINCIA NON è TROPPO ??????
 		
+		$date = str_replace('/', '-', $data);
+		$date = date('Y-m-d', strtotime($date));
+		$dataora = $date." ".$ora;
 		
-		if (filesize($img) > $max_img_size) {$error[] = 'immagine troppo grande';}
-		if(!in_array($img_format , $perm_img_format)) {$error[] = 'fomrato immagine errato';} // verifica se è un immagine
+		if (filesize($img) > $this->max_img_size) {$error[] = 'immagine troppo grande';}
+		if(!in_array($img_format , $this->perm_img_format)) {$error[] = 'formato immagine errato';} // verifica se è un immagine
 
 		if(count($error)) {return $error;} //se non ho passato alcuni check ritorno l'array con gli errori
 		
 		$hash = hash_file('sha256', $img);
 
-		if (!move_uploaded_file($img, $imgDir.$hash)) {$error[] = "impossibile spostare l'immagine"; return $error;}
+		if (!move_uploaded_file($img, $this->imgDir.$hash)) {$error[] = "impossibile spostare l'immagine"; return $error;}
 		
 		if($id==0)
 		{	
 			$insert = "INSERT INTO post(titolo,id_autore,data,descrizione,img_path,luogo,provincia) VALUES (?,?,?,?,?,?,?,?,?)";
 			$query = $this->prepare($insert);
-			$query->bind_param("sibssss", $titolo, $autore, $newDate, $descrizione, $img_path, $luogo, $provincia);
+			$query->bind_param("sisssss", $titolo, $autore, $dataora, $descrizione, $this->imgDir.$hash, $luogo, $provincia);
 			if($query->execute()) 
 				{
 					$new_id = $this->insert_id; 
@@ -287,7 +301,7 @@ class DB extends mysqli{
 		{
 			$update = "UPDATE post SET titolo = ?,id_autore = ?,data = ?,descrizione = ?,img_path = ?,luogo = ?,provincia = ?) WHERE ID =?;";
 			$query = $this->prepare($update);
-			$query->bind_param("sibssssi", $titolo, $autore, $newDate, $descrizione, $img_path, $luogo, $provincia, $id);
+			$query->bind_param("sisssssi", $titolo, $autore, $dataora, $descrizione, $img_path, $luogo, $provincia, $id);
 			if($query->execute()) 
 				{
 					$query->close();
@@ -444,7 +458,7 @@ class DB extends mysqli{
 	public function getCommenti($id)
 	{
 		
-		$sql = "SELECT c.id, c.id_autore,u.nome,u.cognome,CONCAT(DATE_FORMAT(data,'%d-%m-%Y'),' ', DATE_FORMAT(data,'%H:%i:%s')) AS data,";
+		$sql = "SELECT c.id, c.id_autore,u.nome,u.cognome,CONCAT(DATE_FORMAT(data,'%d/%m/%Y'),' ', DATE_FORMAT(data,'%H:%i:%s')) AS data,";
 		$sql.= "c.text,c.img_path AS img_user_path,c.img_path FROM commento c JOIN utente u ON c.id_autore = u.id WHERE c.id_post = ?;"; 
 		$query = $this->prepare($sql);
 		$query->bind_param("i", $id);
@@ -470,7 +484,7 @@ class DB extends mysqli{
 	
 	public function getProfiloTable($id, $status = 0)
 	{
-		$sql = "SELECT id, titolo, CONCAT(DATE_FORMAT(data,'%d-%m-%Y'),' ', DATE_FORMAT(data,'%H:%i:%s')) AS data, chiuso FROM post WHERE id_autore = ? ";
+		$sql = "SELECT id, titolo, CONCAT(DATE_FORMAT(data,'%d/%m/%Y'),' ', DATE_FORMAT(data,'%H:%i:%s')) AS data, chiuso FROM post WHERE id_autore = ? ";
 		
 		if($status ===  1 ) {$sql .= "AND chiuso = 0";}
 		if($status === -1 ) {$sql .= "AND chiuso = 1";}
@@ -497,9 +511,69 @@ class DB extends mysqli{
 		return NULL;
 	}
 	
-	public function getVolontari($mock = NULL) {}
+	public function getVolontari($id)
+	{
+		$sql = "SELECT u.id,u.nome,u.cognome, u.img_path FROM partecipazione p JOIN utente u ON p.id_utente = u.id WHERE p.id_post = ?";
+			
+		$query = $this->prepare($sql);
+		$query->bind_param("i", $id);
+		
+		if($query->execute())
+		{
+			$result = $query->get_result();
+			$volontari = array();
+			
+			 while ($row = $result->fetch_assoc()) 
+			{
+				$volontari[] = $row;
+			}
+			
+			$query->close();
+			$result->free();
+			return $volontari;
+		
+		}
+			
+		return NULL;
+	}
 	
-	public function setCommento($id, $user_id, $messaggio, $foto) {echo "new commento";}
+	public function newCommento($id, $user_id, $messaggio, $foto)
+	{
+		$error = array();
+		$immagine = NULL;
+		
+		if(empty($messaggio) && empty($foto)) {return "Parametri invalidi";}
+		
+		if(!empty($foto))
+		{
+			$img_format = exif_imagetype($foto);
+		
+			if (filesize($foto) > $this->max_img_size) {$error[] = 'immagine troppo grande';}
+			if(!in_array($img_format , $this->perm_img_format)) {$error[] = 'formato immagine errato';}
+		
+			if(count($error)) {return $error;}
+				
+			$hash = hash_file('sha256', $foto);
+				
+			if (!move_uploaded_file($foto, $this->imgDir.$hash)) {$error[] = "impossibile spostare l'immagine"; return $error;}
+			
+			$immagine = $this->imgDir.$hash;
+		
+		}	
+			$sql = "INSERT INTO commento(id_autore,id_post,text,img_path) VALUES(?, ?, ? ,?);";
+			
+			$query = $this->prepare($sql);
+
+			$query->bind_param('iiss',$user_id,$id,$messaggio,$immagine);
+			
+			if($query->execute()) 
+			{
+				$new_id = $this->insert_id; 
+				$query->close();
+				return $new_id;
+			}
+			else {return NULL;}
+	}
 	
 	public function getPostcard($page, $postcard_per_page, &$page_count, $filter = NULL){}
 }
