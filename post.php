@@ -48,7 +48,7 @@ $menu = createMenu(true, true, true, true, true, true);
 
 // Codice HTML del breadcrumb
 
-$breadcrumb = '<p id="breadcrumb">Bacheca &gt;&gt; Post ' . $title . '</p>';
+$breadcrumb = '<p id="breadcrumb"><a href="bacheca.php">Bacheca</a> &gt;&gt; Post ' . $title . '</p>';
 
 $page_head = str_replace('<title />', "<title>$title - DOIT</title>", $page_head);
 $page_head = str_replace('<scripts />', $scripts, $page_head);
