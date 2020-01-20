@@ -609,7 +609,7 @@ class DB extends mysqli{
 			return $selcard;
 		
 		}
-			
+	
 		return NULL;
 	}
 }
