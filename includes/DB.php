@@ -575,6 +575,42 @@ class DB extends mysqli{
 			else {return NULL;}
 	}
 	
-	public function getPostcard($page, $postcard_per_page, &$page_count, $filter = NULL){}
+	public function getPostcard($page, $postcard_per_page, &$page_count, $filter = NULL)
+	{
+		$sql = "SELECT po.id,po.titolo,po.data,po.provincia,po.luogo, COUNT(*) AS nvolontari, po.descrizione FROM post po JOIN partecipazione pa ON po.id = pa.id_post GROUP BY po.id HAVING po.id = ? ";
+		
+		if(!empty($filter)) {$sql .= "AND po.titolo LIKE '%".mysql_real_escape_string($filter)."%'";}
+		
+		$query = $this->prepare($sql);
+		$query->bind_param("i", $id);
+		
+		if($query->execute())
+		{
+			$result = $query->get_result();
+			$card = array();
+			
+			 while ($row = $result->fetch_assoc())  //se ho tempo ottimizzio la query per pescare direttamente solo i post richiesti
+			{
+				if(strlen($row['descrizione'] > 215))
+				{
+					$row['descrizione'] = substr($row['descrizione'] ,0,215).'...';
+				}
+				
+					$card[] = $row['descrizione'];
+				
+			}
+			
+			$page_count = ceil($result->num_rows/$postcard_per_page);
+			
+			$selcard = array_slice($card, ($page-1)*$postcard_per_page, $postcard_per_page);
+			
+			$query->close();
+			$result->free();
+			return $selcard;
+		
+		}
+			
+		return NULL;
+	}
 }
 ?>
