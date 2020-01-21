@@ -234,10 +234,6 @@ display: none;
   font-size: 2em;
 }
 
-.bacheca_informazioni_lista li{
-  clear: both;
-  display: block;
-}
 
 .bacheca_informazioni {
   background-color: #fff;
