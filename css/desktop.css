@@ -10,9 +10,16 @@ abbr[title] {
   text-decoration: none;
 }
 
+/*
+background-image: url("../img/back.png");
+background-attachment:fixed;
+background-position:center top;
+background-color: #fff; //#232323;
+/*  background-size: 100% 4em;
+background-repeat: repeat-x;*/
 body {
   background-image: url("../img/background_header.png");
-  background-color: #f0f0f0;
+  background-color: #f2f2f2; //#232323;
   background-size: 100% 4em;
   background-repeat: repeat-x;
   max-width: 1024px;
@@ -193,7 +200,7 @@ a:visited {
 
 /********** CONTENT **********/
 .content {
-  width: 80%;
+  width: 82%;
   display: inline-block;
 }
 
@@ -466,6 +473,7 @@ clear: both;
   float: right;
   clear: both;
   height: 3em;
+  font-size: 100%;
 }
 
 .commento {
@@ -544,12 +552,8 @@ clear: both;
 
 #postEdit_informazioni_lista {
   list-style-type: none;
-  padding: 0;
-}
-
-#postEdit_informazioni_lista li {
   width: 100%;
-  padding: 3em 0 0 0;
+  padding: 2% 0 0 0;
   text-align: center;
 }
 
@@ -593,7 +597,6 @@ clear: both;
 }
 
 .bacheca_informazioni {
-  margin-top: 2%;
   padding-bottom: 2%;
   float: left;
   width: 100%;
@@ -618,8 +621,7 @@ clear: both;
   background-color: #fff;
   text-align: center;
 
-  border-bottom: 5px solid #70c653;
-  border-top: 5px solid #70c653;
+  border-bottom: 7px dashed #70c653;
 }
 
 .titolo_postcard {

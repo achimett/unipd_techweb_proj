@@ -75,7 +75,7 @@ abbr[title] {
   display: none;
 }
 
-#titolo_post {
+.titolo_post {
   text-align: center;
   font-size: 200%;
 }
@@ -222,6 +222,23 @@ abbr[title] {
 }
 
 /* Bacheca */
+.postcardImg {
+display: none;
+}
+
+.titolo_postcard {
+  margin-top: 2%;
+  text-align: center;
+  display: block;
+  width: 100%;
+  font-size: 2em;
+}
+
+.bacheca_informazioni_lista li{
+  clear: both;
+  display: block;
+}
+
 .bacheca_informazioni {
   background-color: #fff;
   margin-top: 2%;
