@@ -1,8 +1,8 @@
 function toggleMenu() {
   var m = document.getElementById("menu");
-  if (m.style.display === "block") {
-    m.style.display = "none";
+  if (window.getComputedStyle(m, null).getPropertyValue("display") === "none") {
+    m.className = "menuo";
   } else {
-    m.style.display = "block";
+    m.className = "menuc";
   }
 }
