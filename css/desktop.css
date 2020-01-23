@@ -116,7 +116,16 @@ body {
 }
 
 /********** MENU **********/
-#menu {
+.menuc {
+  width: 18%;
+  margin-bottom: 0.2em;
+  line-height: 2em;
+  float: left;
+  overflow: hidden;
+  font-weight: bold;
+}
+
+.menuo {
   width: 18%;
   margin-bottom: 0.2em;
   line-height: 2em;
