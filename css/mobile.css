@@ -18,7 +18,7 @@
 }
 
 /********** MENU **********/
-#menu {
+.menuc {
   display: none;
   width: 50%;
   float: none;
@@ -26,6 +26,16 @@
   padding: 0;
   margin: 0 auto;
 }
+
+.menuo {
+  display: block;
+  width: 50%;
+  float: none;
+  border: 0;
+  padding: 0;
+  margin: 0 auto;
+}
+
 
 #menu ul#menu_up {
   margin-bottom: 3em;
