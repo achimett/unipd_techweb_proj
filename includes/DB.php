@@ -92,7 +92,11 @@ class DB extends mysqli{
 		if (strlen($bio) > 65535) {$error[] = "biografia troppo lunga";}
 		if (strlen($bio) === 0) {$error[] = "nessuno biografia";}
 		if (!preg_match($this->cellPattern,$telefono)) {$error[] = "numero non valido";}
-	
+		if ($er = alreadyReg($email,$cf)) 
+		{
+			foreach($er as $e)
+			{$error[] = $e;}
+		}
 		
 		$date = str_replace('/', '-', $datanascita);
 		$datanascita = date('Y-m-d', strtotime($date));
@@ -686,6 +690,53 @@ class DB extends mysqli{
 		}
 			
 		return NULL;
+	}
+	
+	public function alreadyReg($mail , $cf)
+	{
+		$error = array();
+		
+		$sql = "SELECT id FROM utente WHERE email = ?;";
+		$query = $this->prepare($sql);
+		$query->bind_param("s", $mail);
+		
+		if($query->execute())
+		{
+			if($query->get_result()->num_rows)
+			{
+				$query->close();
+				$error[] = "mail già presente";
+			}
+			
+			
+		}
+		else
+		{
+			$error[] = "Impossibile contattare il db per verificare l'unicità dell'account";
+		}
+		
+		$sql1 = "SELECT id FROM utente WHERE cf = ?;";
+		$query = $this->prepare($sql1);
+		$query->bind_param("s", $cf);
+		
+		if($query->execute())
+		{
+			if($query->get_result()->num_rows)
+			{
+				$query->close();
+				$error[] = "cf già presente";
+			}
+			
+			
+		}
+		else
+		{
+			$error[] = "Impossibile contattare il db per verificare l'unicità dell'account";
+		}
+		
+		if(count($error)) {return $error;}
+		
+		return FALSE;
 	}
 }
 ?>
