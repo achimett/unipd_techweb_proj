@@ -92,7 +92,7 @@ class DB extends mysqli{
 		if (strlen($bio) > 65535) {$error[] = "biografia troppo lunga";}
 		if (strlen($bio) === 0) {$error[] = "nessuno biografia";}
 		if (!preg_match($this->cellPattern,$telefono)) {$error[] = "numero non valido";}
-		if ($er = alreadyReg($email,$cf)) 
+		if ($er = $this->alreadyReg($email,$cf)) 
 		{
 			foreach($er as $e)
 			{$error[] = $e;}
@@ -338,7 +338,7 @@ class DB extends mysqli{
 			{
 				$insert = "INSERT INTO post(titolo,id_autore,data,descrizione,img_path,luogo,provincia) VALUES (?,?,?,?,?,?,?)";
 				$query = $this->prepare($insert);
-				$query->bind_param("sisssss", $titolo, $autore, $dataora, $descrizione, $img_path, $luogo, $provincia);
+				$query->bind_param("sisssss", $titolo, $id_autore, $dataora, $descrizione, $img_path, $luogo, $provincia);
 				if($query->execute()) 
 					{
 						$new_id = $this->insert_id; 
@@ -351,7 +351,7 @@ class DB extends mysqli{
 			{
 				$insert = "INSERT INTO post(titolo,id_autore,data,descrizione,luogo,provincia) VALUES (?,?,?,?,?,?)";
 				$query = $this->prepare($insert);
-				$query->bind_param("sissss", $titolo, $autore, $dataora, $descrizione,$luogo, $provincia);
+				$query->bind_param("sissss", $titolo, $id_autore, $dataora, $descrizione,$luogo, $provincia);
 				if($query->execute()) 
 					{
 						$new_id = $this->insert_id; 
@@ -367,7 +367,7 @@ class DB extends mysqli{
 			{
 				$update = "UPDATE post SET titolo = ?,id_autore = ?,data = ?,descrizione = ?,img_path = ?,luogo = ?,provincia = ? WHERE ID =?;";
 				$query = $this->prepare($update);
-				$query->bind_param("sisssssi", $titolo, $autore, $dataora, $descrizione, $img_path, $luogo, $provincia, $id);
+				$query->bind_param("sisssssi", $titolo, $id_autore, $dataora, $descrizione, $img_path, $luogo, $provincia, $id);
 				if($query->execute()) 
 					{
 						$query->close();
@@ -379,7 +379,10 @@ class DB extends mysqli{
 			{
 				$update = "UPDATE post SET titolo = ?,id_autore = ?,data = ?,descrizione = ?,luogo = ?,provincia = ? WHERE ID =?;";
 				$query = $this->prepare($update);
-				$query->bind_param("sissssi", $titolo, $autore, $dataora, $descrizione,$luogo, $provincia, $id);
+				$query->bind_param("sissssi", $titolo, $id_autore, $dataora, $descrizione,$luogo, $provincia, $id);
+				
+				//echo $titolo.'--'.$id_autore.'--'.$dataora.'--'.$descrizione.'--'.$luogo.'--'.$provincia.'--'.$id;
+				
 				if($query->execute()) 
 					{
 						$query->close();
