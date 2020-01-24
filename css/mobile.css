@@ -106,7 +106,13 @@
   height: 3em;
 }
 
-.user_image {
+#attivita_terminata {
+  width: 100%;
+  display: block;
+float: none;
+}
+
+.post_commento_image {
   float: none;
   max-width: 100%;
 }

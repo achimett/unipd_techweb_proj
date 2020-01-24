@@ -19,7 +19,7 @@ class DB {
     return true;
   }
   public function isAutore($id, $user_id)  {
-    return false;
+    return true;
   }
   public function getUser($id) {
     return [
@@ -36,7 +36,7 @@ class DB {
     $postSocial = array();
     $postSocial[0] = [
       'id' => 23,
-      'id_autore' => 2,
+      'id_autore' => 1,
       'nome' => 'Gianni',
       'cognome' => 'Bianchi',
       'data' => '12/02/12 - 13:12',

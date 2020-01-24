@@ -464,7 +464,7 @@ ul.error {
 #post_social_conferma_modifica, #post_social_elimina {
   width: 98%;
   margin: 1%;
-clear: both;
+  clear: both;
 }
 
 #post_social_invia {
@@ -476,52 +476,53 @@ clear: both;
   font-size: 100%;
 }
 
-.commento {
-  width: 96%;
-  margin: 2% 2% 1% 2%;
-  display: inline-block;
-  padding-bottom: 2%;
-  border-bottom: 2px double #ccc;
+
+
+
+
+
+.impostazioni {
+  width: 100%;
+  padding-top: 2%;
+  border-top: 1px dashed #000;
+  border-bottom: 1px dashed #000;
 }
 
-.autore_commento {
+
+#commenti dt {
   width: 100%;
   padding: 0.5em 0;
   background-color: #70c653;
+  display: block;
+  margin-bottom: 1%;
 }
 
-.commento a {
-  display: inline-block;
+#commenti dd {
+  margin-bottom: 1%;
 }
 
-.commento span {
-  float: right;
-  font-size: 0.7em;
-  padding-right: 2%;
+.post_commento_data {
+  padding: 1% 2% 1% 2%;
+  font-size: 80%;
+  border-bottom: 1px dashed #000;
 }
 
-.commento > p {
-  width: 66%;
-  padding: 2% 0 0 0;
-}
-
-.user_image {
-  max-width: 30%;
-  margin-right: 0;
-  float: right;
-  margin: 2% 0;
-}
-
-#impostazioni {
+.post_commento_testo {
+  padding: 1% 0% 2% 0%;
   width: 100%;
-  clear: both;
-  padding-top: 2%;
+
 }
 
-.formCommentoButton {
+.post_commento_image {
+  max-width: 30%;
+  margin-top: 1%;
+}
+
+.post_commentiForm_buttons {
   font-size: 100%;
-  width: 30%;
-  height: 2em;
+  font-weight: normal;
+  width: 20%;
+  margin-bottom: 1%;
 }
 
 #post_immaginepreview {
@@ -608,7 +609,7 @@ clear: both;
   float: left;
   width: 31.3%;
   text-align: center;
-    background-color: #70c653;
+  background-color: #70c653;
   padding: 3% 1%;
 
   overflow: hidden;
