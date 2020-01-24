@@ -22,7 +22,7 @@ class DB extends mysqli{
         }
 	}
 	
-	function validateDate($date, $format = 'Y-m-d H:i:s')
+	public function validateDate($date, $format = 'Y-m-d H:i:s')
 	{
 		$d = DateTime::createFromFormat($format, $date);
 		return $d && $d->format($format) == $date;
@@ -80,60 +80,96 @@ class DB extends mysqli{
 	{
 		
 		$error = array();
-		$img_format = exif_imagetype($img);
 		
 		if (strlen($email) > 50) {$error[] = "mail tropppo lunga";}
-		if (!preg_match($this->mailPattern,$mail)) {$error[] = "mail in formato errato";}
+		if (!preg_match($this->mailPattern,$email)) {$error[] = "mail in formato errato";}
 		if (!preg_match($this->passPattern,$password)) {$error[] = "password in formato errato";}
 		If ($password !== $conf_password) {$error[] = "le password non coincidono";}
 		if (!preg_match($this->namePattern, $nome)) {$error[] = "nome non valido";};
-		if (!preg_match($nomePattern, $cognome)) {$error[] = "cognome non valido";}
-		if (!checkdate($data , "d/m/Y")){$error[] = "data non valida";}
-		if (!checkdate($data , "H:i:s")){$error[] = "ora non valida";}
+		if (!preg_match($this->namePattern, $cognome)) {$error[] = "cognome non valido";}
+		if (!$this->validateDate($datanascita , "d/m/Y")){$error[] = "data non valida";}
 		if (strlen($cf) !== 16) {$error[] = 'cf non valdio';} 
 		if (strlen($bio) > 65535) {$error[] = "biografia troppo lunga";}
 		if (strlen($bio) === 0) {$error[] = "nessuno biografia";}
-		if (filesize($img) > $this->max_img_size) {$error[] = 'immagine troppo grande';}
-		if(!in_array($img_format , $this->perm_img_format)) {$error[] = 'formato immagine errato';} // verifica se è un immagine
-		if (!preg_match($cellPatter,$telefono)) {$error[] = "numero non valido";}
-		
-		if(count($error)) {return $error;} //se non ho passato alcuni check ritorno l'array con gli errori
+		if (!preg_match($this->cellPattern,$telefono)) {$error[] = "numero non valido";}
+	
 		
 		$date = str_replace('/', '-', $datanascita);
 		$datanascita = date('Y-m-d', strtotime($date));
 		
-		$hash = hash_file('sha256', $img);
 		$hashed_pass = hash('sha256', $password);
 		
+		$img_path = '';
 		
-		
-		if (!move_uploaded_file($img, $this->imgDir.$hash)) {$error[] = "impossibile spostare l'immagine"; return $error;}
-		
-		if($id==0)
+		if(!empty($img))
 		{
-			$register = "INSERT INTO utente(email,password,nome,cognome,telefono,datanascita,cf,bio,img_path) VALUES (?,?,?,?,?,?,?,?,?)";
-			
-			$query = $this->prepare($register);
-			$query->bind_param("sssssssss", $email, $hashed_pass, $nome, $cognome, $datanascita, $cf, $bio, $this->imgDir.$hash, $telefono);
-			
-			if($query->execute()) 
+			$img_format = exif_imagetype($img);
+			if(!in_array($img_format , $this->perm_img_format)) {$error[] = 'formato immagine errato';} 	 // verifica se è un immagine
+			if (filesize($img) > $this->max_img_size) {$error[] = 'immagine troppo grande';}
+			$hash = hash_file('sha256', $img);
+			if (!move_uploaded_file($img, $this->imgDir.$hash)) {$error[] = "impossibile spostare l'immagine";}
+			$img_path = $this->imgDir.$hash;
+		}		
+
+		if(count($error)) {return $error;} 	 //se non ho passato alcuni check ritorno l'array con gli errori
+
+		if($id==0) //new profilo
+		{
+			if(!empty($img_path)) //aggiorno l'immagine
 			{
-				$new_id = $this->insert_id; 
-				$_SESSION['user_id']= $new_id; 
-				$query->close();
-				return $new_id;
+				$register = "INSERT INTO utente(email,password,nome,cognome,telefono,datanascita,cf,bio,img_path) VALUES (?,?,?,?,?,?,?,?,?)";
+				
+				$query = $this->prepare($register);
+				$query->bind_param("sssssssss", $email, $hashed_pass, $nome, $cognome,$telefono, $datanascita, $cf, $bio, $img_path);
+				
+				if($query->execute()) 
+				{
+					$new_id = $this->insert_id; 
+					$_SESSION['user_id']= $new_id; 
+					$query->close();
+					return $new_id;
+				}
+				else {return NULL;}
 			}
-			else {return NULL;}
+			else //new con immagine di default
+			{
+				$register = "INSERT INTO utente(email,password,nome,cognome,telefono,datanascita,cf,bio) VALUES (?,?,?,?,?,?,?,?)";
+				
+				$query = $this->prepare($register);
+				$query->bind_param("ssssssss", $email, $hashed_pass, $nome, $cognome,$telefono, $datanascita, $cf, $bio);
+				
+				if($query->execute()) 
+				{
+					$new_id = $this->insert_id; 
+					$_SESSION['user_id']= $new_id; 
+					$query->close();
+					return $new_id;
+				}
+				else {return NULL;}
+			}
 		}
-		else
+		else //edit profilo
 		{
-			$update = "UPDATE utente SET email = ?,password = ?,nome = ?,cognome = ?,telefono = ?,datanascita = ?,cf = ?,bio = ?,img_path = ?  WHERE id=?";
+			if(!empty($img_path)) //aggiorno l'immagine
+			{
+				$update = "UPDATE utente SET email = ?,password = ?,nome = ?,cognome = ?,telefono = ?,datanascita = ?,cf = ?,bio = ?,img_path = ?  WHERE id=?";
 			
-			$query = $this->prepare($update);
-			$query->bind_param("sssssssssi", $email, $hashed_pass, $nome, $cognome, $datanascita, $cf, $bio, $this->imgDir.$hash, $telefono,$id);
+				$query = $this->prepare($update);
+				$query->bind_param("sssssssssi", $email, $hashed_pass, $nome, $cognome,$telefono, $datanascita, $cf, $bio, $img_path,$id);
 			
-			if($query->execute()) {$query.close(); return $id;}
-			else {return NULL;}
+				if($query->execute()) {$query.close(); return $id;}
+				else {return NULL;}
+			}
+			else //lascio img vecchia
+			{
+				$update = "UPDATE utente SET email = ?,password = ?,nome = ?,cognome = ?,telefono = ?,datanascita = ?,cf = ?,bio = ? WHERE id=?";
+			
+				$query = $this->prepare($update);
+				$query->bind_param("ssssssssi", $email, $hashed_pass, $nome, $cognome,$telefono, $datanascita, $cf, $bio,$id);
+			
+				if($query->execute()) {$query->close(); return $id;}
+				else {return NULL;}
+			}
 			
 		}
 	
@@ -255,12 +291,12 @@ class DB extends mysqli{
 	{
 		$error = array();
 		
-		$img_format = exif_imagetype($img);
+		
 		
 		if (strlen($titolo) === 0) {$error[] = "Titolo mancante";}
 		if (strlen($titolo) > 100) {$error[] = "Titolo troppo lungo";}
-		if (!checkdate($data , "d/m/Y")){$error[] = "data non valida";};
-		if (!checkdate($ora , "H:i:s")){$error[] = "ora non valida";};
+		if (!$this->validateDate($data , "d/m/Y")){$error[] = "data non valida";};
+		if (!$this->validateDate($ora , "H:i:s")){$error[] = "ora non valida";};
 		if (strlen($descrizione) === 0) {$error[] = "Descrizione vuota";}
 		if (strlen($descrizione) > 65535) {$error[] = "Descrizione troppo lunga";}
 		if (strlen($titolo) === 0) {$error[] = "Luogo mancante";}
@@ -275,39 +311,78 @@ class DB extends mysqli{
 		$date = date('Y-m-d', strtotime($date));
 		$dataora = $date." ".$ora;
 		
-		if (filesize($img) > $this->max_img_size) {$error[] = 'immagine troppo grande';}
-		if(!in_array($img_format , $this->perm_img_format)) {$error[] = 'formato immagine errato';} // verifica se è un immagine
+		$img_path = '';
+		
+		if(!empty($img))
+		{
+			$img_format = exif_imagetype($img);
+			if(!in_array($img_format , $this->perm_img_format)) {$error[] = 'formato immagine errato';} // verifica se è un immagine
+			if (filesize($img) > $this->max_img_size) {$error[] = 'immagine troppo grande';}		
+			$hash = hash_file('sha256', $img);
+			if (!move_uploaded_file($img, $this->imgDir.$hash)) {$error[] = "impossibile spostare l'immagine";}
+			$img_path = $this->imgDir.$hash;
+		}
 
 		if(count($error)) {return $error;} //se non ho passato alcuni check ritorno l'array con gli errori
 		
-		$hash = hash_file('sha256', $img);
-
-		if (!move_uploaded_file($img, $this->imgDir.$hash)) {$error[] = "impossibile spostare l'immagine"; return $error;}
 		
-		if($id==0)
+		
+		if($id==0) //nuovo post
 		{	
-			$insert = "INSERT INTO post(titolo,id_autore,data,descrizione,img_path,luogo,provincia) VALUES (?,?,?,?,?,?,?,?,?)";
-			$query = $this->prepare($insert);
-			$query->bind_param("sisssss", $titolo, $autore, $dataora, $descrizione, $this->imgDir.$hash, $luogo, $provincia);
-			if($query->execute()) 
-				{
-					$new_id = $this->insert_id; 
-					$query->close();
-					return $new_id;
-				}
-			else {return NULL;}
+	
+			if(!empty($img_path)) //con immagine
+			{
+				$insert = "INSERT INTO post(titolo,id_autore,data,descrizione,img_path,luogo,provincia) VALUES (?,?,?,?,?,?,?)";
+				$query = $this->prepare($insert);
+				$query->bind_param("sisssss", $titolo, $autore, $dataora, $descrizione, $img_path, $luogo, $provincia);
+				if($query->execute()) 
+					{
+						$new_id = $this->insert_id; 
+						$query->close();
+						return $new_id;
+					}
+				else {return NULL;}
+			}
+			else //senza img
+			{
+				$insert = "INSERT INTO post(titolo,id_autore,data,descrizione,luogo,provincia) VALUES (?,?,?,?,?,?)";
+				$query = $this->prepare($insert);
+				$query->bind_param("sissss", $titolo, $autore, $dataora, $descrizione,$luogo, $provincia);
+				if($query->execute()) 
+					{
+						$new_id = $this->insert_id; 
+						$query->close();
+						return $new_id;
+					}
+				else {return NULL;}
+			}
 		}
-		else
+		else //edit post
 		{
-			$update = "UPDATE post SET titolo = ?,id_autore = ?,data = ?,descrizione = ?,img_path = ?,luogo = ?,provincia = ?) WHERE ID =?;";
-			$query = $this->prepare($update);
-			$query->bind_param("sisssssi", $titolo, $autore, $dataora, $descrizione, $img_path, $luogo, $provincia, $id);
-			if($query->execute()) 
-				{
-					$query->close();
-					return $id;
-				}
-			else {return NULL;}
+			if(!empty($img_path)) //con immagine
+			{
+				$update = "UPDATE post SET titolo = ?,id_autore = ?,data = ?,descrizione = ?,img_path = ?,luogo = ?,provincia = ? WHERE ID =?;";
+				$query = $this->prepare($update);
+				$query->bind_param("sisssssi", $titolo, $autore, $dataora, $descrizione, $img_path, $luogo, $provincia, $id);
+				if($query->execute()) 
+					{
+						$query->close();
+						return $id;
+					}
+				else {return NULL;}
+			}
+			else //senza img
+			{
+				$update = "UPDATE post SET titolo = ?,id_autore = ?,data = ?,descrizione = ?,luogo = ?,provincia = ? WHERE ID =?;";
+				$query = $this->prepare($update);
+				$query->bind_param("sissssi", $titolo, $autore, $dataora, $descrizione,$luogo, $provincia, $id);
+				if($query->execute()) 
+					{
+						$query->close();
+						return $id;
+					}
+				else {return NULL;}
+			}
 		}
 	}
 	public function abbandona($id_post, $id_utente)
@@ -609,7 +684,7 @@ class DB extends mysqli{
 			return $selcard;
 		
 		}
-	
+			
 		return NULL;
 	}
 }
