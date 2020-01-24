@@ -1,16 +1,17 @@
 <div id="registrazione_e_login" class="content">
   <h1>Effettua il <span xml:lang="en">login</span></h1>
   <errorLogin />
-  <form id="login" action="login.php" method="post">
+  <form id="login" action="login.php" method="post" onsubmit="return validateLogin()">
     <fieldset id="fieldset_login" xml:lang="en">
-      <div id="login_riga_email">
+      <ul>
+      <li id="login_riga_email">
         <label for="login_email" id="label_login_email">E-mail: </label>
         <input type="text" id="login_email" name="email" tabindex="21"></input>
-      </div>
-      <div id="login_riga_password">
+      </li>
+      <li id="login_riga_password">
         <label for="login_password" id="label_login_password">Password: </label>
         <input type="password" id="login_password" name="password" tabindex="22"></input>
-      </div>
+      </li>
     </fieldset>
     <div id="login_conferma">
       <input type="submit" id="login_input_conferma" name="login" value="Effettua il Login" tabindex="23"/>
