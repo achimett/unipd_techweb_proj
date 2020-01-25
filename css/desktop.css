@@ -30,7 +30,6 @@ body {
 }
 
 #frase {
-
   text-align: center;
   background-color: #70c653;
   padding: 2%;
@@ -116,16 +115,7 @@ body {
 }
 
 /********** MENU **********/
-.menuc {
-  width: 18%;
-  margin-bottom: 0.2em;
-  line-height: 2em;
-  float: left;
-  overflow: hidden;
-  font-weight: bold;
-}
-
-.menuo {
+#menu {
   width: 18%;
   margin-bottom: 0.2em;
   line-height: 2em;
