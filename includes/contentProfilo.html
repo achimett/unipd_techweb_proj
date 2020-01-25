@@ -1,48 +1,51 @@
 <div id="profilo" class="content">
   <div id="profilo_dati_personali">
-    <div id="profilo_nome_cognome">
-      <h1><img src="<img_path />" alt="Immagine profilo" /><nome /> <cognome /></h1>
-    </div>
 
-    <ul id="profilo_data_di_nascita">
+        <h1 class="post_titolo">Il mio profilo</h1>
+      <h2 id="profilo_nc"><img src="<img_path />" alt="Immagine profilo" /><nome /> <cognome /></h2>
+
+
+    <ul id="profilo_info">
       <li><img src="../img/compleanno_icon.png" alt="Compleanno: " /><data_di_nascita /></li>
       <li><img src="../img/email-icon.png" alt="Email: " /><email /></li>
       <li><img src="../img/Tavola disegno 28.png" alt="Telefono: " /><telefono /></li>
     </ul>
+
     <modifica />
-  </div>
-  <h2>Biografia</h2>
-  <div id="profilo_biografia">
+
+    <h3 class="post_titolo">Biografia</h3>
     <p>
       <biografia />
     </p>
   </div>
-  <h2>Contributi</h2>
+
+
   <div id="profilo_contributi">
+      <h1 class="post_titolo">Contributi</h1>
     <form id="profilo_radio_button" action="<action />" method="post">
       <div>
         <input type="radio" name="status" value="0" id="tutte_le_attivita" tabindex="22" <check1 /> />
-        <label for="tutte_le_attivita"> Tutte le attivit&agrave;</label>
+        <label class="filtro" for="tutte_le_attivita"> Tutte le attivit&agrave;</label>
         <input type="radio" name="status" value="1" id="aperte" <check2 /> />
-        <label for="aperte"> Aperte</label>
+        <label class="filtro" for="aperte"> Aperte</label>
         <input type="radio" name="status" value="-1" id="chiuse" <check3 /> />
-        <label for="chiuse"> Chiuse</label>
-        <input type="submit" value="Applica Filtro" tabindex="23" />
+        <label class="filtro" for="chiuse"> Chiuse</label>
+        <input type="submit" class="bottone" value="Applica Filtro" tabindex="23" />
       </div>
     </form>
     <table id="profilo_table_contributi">
       <thead>
         <tr>
-          <th id="profilo_colhead_attivita">Attivit&agrave;</th>
-          <th id="profilo_colhead_data">Data</th>
-          <th id="profilo_colhead_stato_attivita">Stato Attivit&agrave;</th>
+          <th class="profilo_colhead_attivita">Attivit&agrave;</th>
+          <th class="profilo_colhead_data">Data</th>
+          <th class="profilo_colhead_statoattivita">Stato Attivit&agrave;</th>
         </tr>
       </thead>
       <tfoot>
         <tr>
-          <th id="profilo_colfoot_attivita">Attivit&agrave;</th>
-          <th id="profilo_colfoot_data">Data</th>
-          <th id="profilo_colfoot_stato_attivita">Stato Attivit&agrave;</th>
+          <th class="profilo_colhead_attivita">Attivit&agrave;</th>
+          <th class="profilo_colhead_data">Data</th>
+          <th class="profilo_colhead_statoattivita">Stato Attivit&agrave;</th>
         </tr>
       </tfoot>
       <tbody>

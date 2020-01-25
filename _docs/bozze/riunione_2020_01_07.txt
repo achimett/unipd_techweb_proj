@@ -1,0 +1,1 @@
+ - mi serve img_usr_path in commenti per distinguerlo da img_path (immagine del commento)

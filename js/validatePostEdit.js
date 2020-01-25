@@ -146,7 +146,8 @@ function validatePostEdit() {
   // var risPeso = checkPeso(peso);
   // var risDescr = checkDescrizione(descrizione);
   //return (false & false);
-  return checkImg() & checkTitolo(titolo) & checkDescrizione(descrizione) & checkData(data) & checkOra(ora) & checkLuogo(luogo) & checkProvincia(provincia);
+  //return checkImg() &
+  return checkTitolo(titolo) & checkDescrizione(descrizione) & checkData(data) & checkOra(ora) & checkLuogo(luogo) & checkProvincia(provincia);
   // return risNome && risColore && risPeso && risDescrizione;
   //return checkNome(nome) & checkColore(colore) & checkPeso(peso) & checkDescrizione(descrizione);
 }

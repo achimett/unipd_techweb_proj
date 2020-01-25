@@ -35,8 +35,8 @@ class DB {
 
     $postSocial = array();
     $postSocial[0] = [
-      'id' => 23,
-      'id_autore' => 1,
+      'id' => 2,
+      'id_autore' => 2,
       'nome' => 'Gianni',
       'cognome' => 'Bianchi',
       'data' => '12/02/12 - 13:12',
@@ -57,7 +57,7 @@ class DB {
   if(isset($_SESSION['newCommento'])) {
     $postSocial[2] = [
 
-      'user_id' => '14',
+      'user_id' => '2',
       'nome' => 'Gianni',
       'cognome' => 'Bianchi',
       'data' => '12/02/13 - 13:12',
@@ -136,8 +136,8 @@ public function getProfiloTable($id, $status = 0) {
 
 public function setProfilo($id, $email, $password, $conf_password, $nome,
 $cognome, $datanascita, $cf, $bio, $img_path, $telefono) {
-  //return 12;
-  return array('errore 1', 'errore 2', 'errore 3');
+  return 12;
+  //return array('errore 1', 'errore 2', 'errore 3');
 }
 
 public function deleteProfilo($id) {
