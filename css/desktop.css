@@ -21,8 +21,9 @@ body {
   text-align: center;
 }
 
+/* Index */
 #index {
-  background-color: #fff;
+  background-color: #f4f4f4;
   padding-bottom: 2%;
 }
 
@@ -33,7 +34,8 @@ body {
 
 #frase {
   text-align: center;
-  background-color: #70c653;
+  color: #FFF;
+  background-color: #016FB9;
   padding: 2%;
   display: block;
   width: 60%;
@@ -67,8 +69,7 @@ body {
 
 /********** HEADER **********/
 #header {
-  background-color: #70c653;
-  color: #134611;
+  background-color: #016FB9;
   text-align: center;
 
 }
@@ -77,11 +78,20 @@ body {
   font-size: 4em;
   width: 50%;
   margin: 0em auto;
+  color: #fff;
 }
 
 #info_utente {
   float: left;
   display: inline-block;
+}
+
+a:link#info_utente {
+ color: #fff;
+}
+
+a:visited#info_utente {
+ color: #fff;
 }
 
 #info_utente img {
@@ -100,27 +110,30 @@ body {
 }
 
 #breadcrumb {
-  background-color: #fff;
+  background-color: #f4f4f4;
   text-align: center;
-  padding: 1.5%;
-  margin: 1% 0;
+  padding: 1em 0;
+  font-size: 0.8em;
+  margin: 2% 0;
 
 }
 
 /********** MENU **********/
 #menu {
-  width: 18%;
-  margin-bottom: 0.2em;
+  width: 16%;
+  margin: 0% 2% 0.2em 0%;
   line-height: 2em;
   float: left;
   overflow: hidden;
   font-weight: bold;
+  background-color: #f4f4f4;
+  border-radius: 0.5em;
 }
 
 #menu ul#menu_up {
   padding-top: 1em;
   padding-bottom: 1em;
-  border-bottom: 1px dashed #70c653;
+  border-bottom: 1px dashed #016FB9;
   margin-bottom: 1em;
 }
 
@@ -142,13 +155,13 @@ a {
   font-weight: bold;
 }
 
-a:link, a:link.vol {
-  color: #3E8914;
+ a:link, a:link.vol {
+  color: #016FB9;
 }
-
+/*
 a:visited {
   color: #134611;
-}
+} */
 
 #menu_profilo {
   background-image: url("../img/menu_profilo_icon.png");
@@ -186,22 +199,19 @@ a:visited {
 .content {
   width: 82%;
   display: inline-block;
+
 }
 
 .bottone {
   font-size: 100%;
   height: 2.5em;
   font-weight: bold;
-  background: linear-gradient(to bottom, #70c653, #007f00);
+  background: linear-gradient(to bottom, #016FB9, #015B98);
   border: 1px outset #444;
   border-radius: 0.2em;
   outline: none;
   padding: 0.3em;
   color: #f2f2f2;
-}
-
-.registrazione_button {
-  width: 100%;
 }
 
 #post_social_conferma_modifica {
@@ -220,7 +230,8 @@ a:visited {
   color: #FA3F00;
   font-weight: bold;
   padding: 2%;
-  width: 100%;
+  display: block;
+  width: 96%;
 }
 
 .postEdit_error {
@@ -254,7 +265,7 @@ ul.error {
   margin: 0 auto;
   font-weight: bold;
   font-size: 1.5em;
-  color: #3E8914;
+  color: #016FB9;
   text-align: center;
   padding: 0.8em 0;
 }
@@ -273,13 +284,13 @@ ul.error {
 }
 
 .titolo_post {
-  color: #134611;
   display: block;
   text-align: center;
   font-weight: bold;
   font-size: 300%;
   padding: 0.2em;
-  background-color: #70c653;
+  background-color: #016FB9;
+  color: #fff;
 }
 
 #post_immagineiniziale {
@@ -300,7 +311,7 @@ ul.error {
   margin-top: 2%;
   padding: 1%;
   width: 66%;
-  background-color: #fff;
+  background-color: #f4f4f4;
   border-radius: 0.5em;
 }
 
@@ -314,7 +325,7 @@ ul.error {
 }
 
 #post_informazioni {
-  background-color: #fff;
+  background-color: #f4f4f4;
   margin-top: 2%;
   clear: both;
   width: 30%;
@@ -332,6 +343,12 @@ ul.error {
   padding: 0;
   list-style-type: none;
   text-align: center;
+}
+
+#post_informazioni_lista legend {
+  text-align: center;
+width: 100%;
+display: block;
 }
 
 #post_informazioni_utente {
@@ -380,7 +397,7 @@ ul.error {
   clear: both;
   width: 30%;
   float: right;
-  background-color: #fff;
+  background-color: #f4f4f4;
   border-radius: 0.5em;
   list-style-type: none;
 }
@@ -391,7 +408,7 @@ ul.error {
 
 #post_listavolontari li {
   margin: 0em auto;
-  border-bottom: 1px solid #e2e2e2;
+  border-bottom: 1px solid #f4f4f4;
   width: 80%;
   padding: 2% 0%;
   white-space: nowrap;
@@ -404,7 +421,7 @@ ul.error {
 }
 
 #post_social {
-  background-color: #fff;
+  background-color: #f4f4f4;
   border-radius: 0.5em;
   width: 66%;
   display: block;
@@ -424,7 +441,7 @@ ul.error {
 
 #post_sfoglia {
   padding: 3%;
-  width: 100%;
+  width: 94%;
   text-align: center;
 }
 
@@ -436,7 +453,7 @@ ul.error {
 }
 
 #postEdit {
-  background-color: #fff;
+  background-color: #f4f4f4;
   border-radius: 0.5em;
   margin-bottom: 2%;
 }
@@ -450,12 +467,12 @@ ul.error {
 
 #post_social_textarea {
   display: block;
-  padding: 1%;
+  padding: 2%;
   margin: 1% auto;
-  width: 96%;
+  width: 94%;
+  border: 1px solid #000;
   resize: vertical;
   min-height: 3em;
-  background-color: #70c653;
 }
 
 #post_social_conferma_modifica, #post_social_elimina, .registrazione_button {
@@ -465,9 +482,8 @@ ul.error {
 }
 
 #post_social_bottoneinvia {
-  width: 30%;
-  margin: 2% 2%;
-  float: right;
+  width: 98%;
+  margin: 1%;
   clear: both;
 }
 
@@ -481,7 +497,7 @@ ul.error {
 #commenti dt {
   width: 100%;
   padding: 0.5em 0;
-  background-color: #70c653;
+  background-color: #E8E9EB;
   display: block;
   margin-bottom: 1%;
 }
@@ -514,7 +530,7 @@ ul.error {
   border: none;
   text-decoration: underline;
   cursor: pointer;
-  color: #70c653;
+  color: #016FB9;
 }
 
 #post_immaginepreview {
@@ -546,6 +562,7 @@ ul.error {
 }
 
 .postEdit_informazioni_input {
+  max-width: 50%;
   float: left;
   padding: 0.4em;
   border: 1px solid #000;
@@ -576,7 +593,7 @@ ul.error {
 }
 
 .bacheca_ricerca {
-  background-color: #fff;
+  background-color: #f4f4f4;
   border-radius: 0.5em;
   margin-bottom: 2%;
 }
@@ -593,7 +610,6 @@ ul.error {
   float: left;
   width: 31.3%;
   text-align: center;
-  background-color: #70c653;
   padding: 3% 1%;
   overflow: hidden;
 }
@@ -604,7 +620,7 @@ ul.error {
   width: 48.5%;
   background-color: #fff;
   text-align: center;
-  border-bottom: 1px dashed #000;
+  border-radius: 0.5em;
 }
 
 .titolo_postcard {
@@ -615,7 +631,7 @@ ul.error {
 }
 
 .postcardImg {
-  margin-top: 2%;
+  margin-top: 4%;
   width: 100%;
 }
 
@@ -671,7 +687,7 @@ ul.error {
 
 
 #profilo_dati_personali, #profilo_contributi {
-  background-color: #fff;
+  background-color: #f4f4f4;
   border-radius: 0.5em;
   margin-bottom: 2%;
   padding: 2%;
@@ -691,19 +707,15 @@ ul.error {
 
 #profilo_table_contributi td {
   padding: 2%;
+  border: 1px solid #000;
 }
-
-#profilo_table_contributi tr:nth-child(odd) {
-  background-color: #70c653;
-}
-
 #profilo_table_contributi th {
-  background-color: #fff;
   padding: 2%;
 }
 
+
 .profilo_colhead_attivita {
-  width: 70%;
+  width: 60%;
 }
 
 #profilo_modifica_profilo {
@@ -711,7 +723,7 @@ ul.error {
 }
 
 #login_box, #registrazione_box {
-  background-color: #fff;
+  background-color: #f4f4f4;
   border-radius: 0.5em;
   border: 2% 0%;
   margin-bottom: 2%;
@@ -795,12 +807,12 @@ ul.error {
 /********** FOOTER **********/
 #footer {
   clear: left;
-  background-color: #006837;
-  color: #FFFFFF;
+  background-color: #016FB9;
   border-radius: 0.25em;
   text-align: center;
   font-style: italic;
   padding-top: 0.25em;
+  color: #fff;
 }
 
 #footer a {

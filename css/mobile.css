@@ -51,10 +51,14 @@
   padding-left: 2.5em;
 }
 
+#breadcrumb {
+  width: 96%;
+  margin-left: 2%;
+}
 /********** CONTENT **********/
 .content {
   width: 96%;
-  margin: 2%;
+  margin: 0 2%;
 }
 
 /* 404 */
