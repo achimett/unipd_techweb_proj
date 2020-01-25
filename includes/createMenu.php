@@ -83,7 +83,7 @@ function createMenu($profilo, $bacheca, $nuovo, $help, $about, $logout) {
   }
   $menu_logout = str_replace('<?>', $in, $menu_logout);
 
-  $menu = "<div id=\"menu\">\n<ul id=\"menu_up\">\n";
+  $menu = "<div id=\"menu\" class=\"menuc\">\n<ul id=\"menu_up\">\n";
   $menu .= "$menu_profilo\n$menu_bacheca\n$menu_nuovo\n$menu_help\n";
   $menu .= "</ul>\n<ul id=\"menu_down\">\n";
   $menu .= "$menu_about\n$menu_logout\n";

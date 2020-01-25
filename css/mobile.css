@@ -19,12 +19,19 @@
 
 /********** MENU **********/
 #menu {
-  display: none;
   width: 50%;
   float: none;
   border: 0;
   padding: 0;
   margin: 0 auto;
+}
+
+.menuc {
+  display: none;
+}
+
+.menuo {
+  display: block;
 }
 
 #menu ul#menu_up {
@@ -152,7 +159,6 @@
 #registrazione_e_login h1, #registrazione_e_login h2, #modifica_profilo h1, #modifica_profilo h2{
   font-size: 1.5em;
 }
-
 
 #login_email, #login_password, #registrazione_nome, #registrazione_cognome, #registrazione_data_di_nascita, #registrazione_codice_fiscale, #registrazione_email, #registrazione_telefono, #registrazione_password, #registrazione_conferma_password {
   padding: 1%;
