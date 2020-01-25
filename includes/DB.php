@@ -1,747 +1,261 @@
 <?php
 /* CLASSE MOCK PER DB */
-class DB extends mysqli{
-	
-	private $imgDir = '../img/upload/';
-	private $namePattern = '/^[a-zA-Z ]{2,30}$/' ;
-	private $mailPattern = '/^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,5}$/' ;
-	private $passPattern = '/^(?=.*[0-9])(?=.*[A-Z]).{8,}$/' ; // Almeno 8 caratteri con almeno una maiuscola e un numero
-	private $cfPattern = '/^[a-zA-Z]{6}[0-9]{2}[abcdehlmprstABCDEHLMPRST]{1}[0-9]{2}([a-zA-Z]{1}[0-9]{3})[a-zA-Z]{1}$/' ;
-	private $cellPattern = '/^[0-9]{7,12}$/';
-	private $max_img_size = 3000000; // 3MB
-	private $perm_img_format = array(IMAGETYPE_GIF , IMAGETYPE_JPEG ,IMAGETYPE_PNG , IMAGETYPE_BMP);
-	
-	
-	public function __construct($host="localhost", $user="root", $pass="", $db="doit") 
-	{
-        parent::__construct($host, $user, $pass, $db);
-		
-		if (mysqli_connect_error()) {
-            die('Connect Error (' . mysqli_connect_errno() . ') '
-                    . mysqli_connect_error());
-        }
-	}
-	
+class DB {
+  public function deleteCommento($id, $id_commento, $user_id) {echo "del commento";}
+  public function postExist($id) {return true;}
+  public function newCommento($id, $user_id, $messaggio, $foto) {echo "new commento";}
 
-	
-	public function validateDate($date, $format = 'Y-m-d H:i:s')
-	{
-		$d = DateTime::createFromFormat($format, $date);
-		return $d && $d->format($format) == $date;
-	}
-	
-	public function getUser($id = NULL) 
-	{
-		$sql = "SELECT nome,cognome,img_path FROM `utente` WHERE id=?";
-		$query = $this->prepare($sql);
-		$query->bind_param("i", $id);
-		$query->execute();
-		$result = $query->get_result();
-		
-		/*preparo la query, la eseguo e ottengo i risultati*/
-	
-		if($result->num_rows === 0) return NULL; /*check sul risultato ritornato*/
-		
-		$usr = $result->fetch_assoc(); /*traformo il risultato della query in un array associativo*/
-		
-		/*foreach($usr as $key => $value)
-		{echo "\n".$key."  ".$usr["$key"];} */ /*ciclo per il debug*/
-		
-		$query->close();
-		$result->free();
-		
-		return $usr;
-		
-    }
-	
-	public function getProfilo($id = NULL) 
-	{
-		$sql = "SELECT email,nome,cognome,telefono,datanascita,cf,bio,img_path FROM `utente` WHERE id=?";
-		$query = $this->prepare($sql);
-		$query->bind_param("i", $id);
-		$query->execute();
-		$result = $query->get_result();
-		
-		/*preparo la query, la eseguo e ottengo i risultati*/
-	
-		if($result->num_rows === 0) return NULL; /*check sul risultato ritornato*/
-		
-		$usr = $result->fetch_assoc(); /*traformo il risultato della query in un array associativo*/
-		
-		/*foreach($usr as $key => $value)
-		{echo "\n".$key."  ".$usr["$key"];} */ /*ciclo per il debug*/
-		
-		$query->close();
-		$result->free();
-		
-		return $usr;
-		
-    }
-	
-	public function setProfilo($id, $email, $password, $conf_password, $nome, $cognome, $datanascita, $cf, $bio, $img, $telefono)
-	{
-		
-		$error = array();
-		
-		if (strlen($email) > 50) {$error[] = "mail tropppo lunga";}
-		if (!preg_match($this->mailPattern,$email)) {$error[] = "mail in formato errato";}
-		if (!preg_match($this->passPattern,$password)) {$error[] = "password in formato errato";}
-		If ($password !== $conf_password) {$error[] = "le password non coincidono";}
-		if (!preg_match($this->namePattern, $nome)) {$error[] = "nome non valido";};
-		if (!preg_match($this->namePattern, $cognome)) {$error[] = "cognome non valido";}
-		if (!$this->validateDate($datanascita , "d/m/Y")){$error[] = "data non valida";}
-		if (strlen($cf) !== 16) {$error[] = 'cf non valdio';} 
-		if (strlen($bio) > 65535) {$error[] = "biografia troppo lunga";}
-		if (strlen($bio) === 0) {$error[] = "nessuno biografia";}
-		if (!preg_match($this->cellPattern,$telefono)) {$error[] = "numero non valido";}
-		if ($er = $this->alreadyReg($email,$cf)) 
-		{
-			foreach($er as $e)
-			{$error[] = $e;}
-		}
-		
-		$date = str_replace('/', '-', $datanascita);
-		$datanascita = date('Y-m-d', strtotime($date));
-		
-		$hashed_pass = hash('sha256', $password);
-		
-		$img_path = '';
-		
-		if(!empty($img))
-		{
-			$img_format = exif_imagetype($img);
-			if(!in_array($img_format , $this->perm_img_format)) {$error[] = 'formato immagine errato';} 	 // verifica se è un immagine
-			if (filesize($img) > $this->max_img_size) {$error[] = 'immagine troppo grande';}
-			$hash = hash_file('sha256', $img);
-			if (!move_uploaded_file($img, $this->imgDir.$hash)) {$error[] = "impossibile spostare l'immagine";}
-			$img_path = $this->imgDir.$hash;
-		}		
+  public function abbandona($id, $user_id){echo "abbandona"; return true;}
+  public function partecipa($id, $user_id){echo "partecipa"; return true;}
+  public function apri($id, $user_id){echo "apri"; return true;}
+  public function chiudi($id, $user_id){echo "chiudi"; return true;}
 
-		if(count($error)) {return $error;} 	 //se non ho passato alcuni check ritorno l'array con gli errori
+  public function isChiuso($id) {
+    return false;
+  }
 
-		if($id==0) //new profilo
-		{
-			if(!empty($img_path)) //aggiorno l'immagine
-			{
-				$register = "INSERT INTO utente(email,password,nome,cognome,telefono,datanascita,cf,bio,img_path) VALUES (?,?,?,?,?,?,?,?,?)";
-				
-				$query = $this->prepare($register);
-				$query->bind_param("sssssssss", $email, $hashed_pass, $nome, $cognome,$telefono, $datanascita, $cf, $bio, $img_path);
-				
-				if($query->execute()) 
-				{
-					$new_id = $this->insert_id; 
-					$_SESSION['user_id']= $new_id; 
-					$query->close();
-					return $new_id;
-				}
-				else {return NULL;}
-			}
-			else //new con immagine di default
-			{
-				$register = "INSERT INTO utente(email,password,nome,cognome,telefono,datanascita,cf,bio) VALUES (?,?,?,?,?,?,?,?)";
-				
-				$query = $this->prepare($register);
-				$query->bind_param("ssssssss", $email, $hashed_pass, $nome, $cognome,$telefono, $datanascita, $cf, $bio);
-				
-				if($query->execute()) 
-				{
-					$new_id = $this->insert_id; 
-					$_SESSION['user_id']= $new_id; 
-					$query->close();
-					return $new_id;
-				}
-				else {return NULL;}
-			}
-		}
-		else //edit profilo
-		{
-			if(!empty($img_path)) //aggiorno l'immagine
-			{
-				$update = "UPDATE utente SET email = ?,password = ?,nome = ?,cognome = ?,telefono = ?,datanascita = ?,cf = ?,bio = ?,img_path = ?  WHERE id=?";
-			
-				$query = $this->prepare($update);
-				$query->bind_param("sssssssssi", $email, $hashed_pass, $nome, $cognome,$telefono, $datanascita, $cf, $bio, $img_path,$id);
-			
-				if($query->execute()) {$query.close(); return $id;}
-				else {return NULL;}
-			}
-			else //lascio img vecchia
-			{
-				$update = "UPDATE utente SET email = ?,password = ?,nome = ?,cognome = ?,telefono = ?,datanascita = ?,cf = ?,bio = ? WHERE id=?";
-			
-				$query = $this->prepare($update);
-				$query->bind_param("ssssssssi", $email, $hashed_pass, $nome, $cognome,$telefono, $datanascita, $cf, $bio,$id);
-			
-				if($query->execute()) {$query->close(); return $id;}
-				else {return NULL;}
-			}
-			
-		}
-	
-		
-	}
-	
-	public function deleteProfilo($id)
-	{	
-		$sql  = "DELETE pa FROM partecipazione pa JOIN post po ON pa.id_post = po.id WHERE pa.id_utente = ? OR po.id_autore = ?;";
-		$sql2 = "DELETE FROM post WHERE id_autore= ?;";
-		$sql3 = "DELETE FROM utente WHERE id= ? ;";
+  public function isPartecipante($id, $user_id) {
+    return true;
+  }
+  public function isAutore($id, $user_id)  {
+    return true;
+  }
+  public function getUser($id) {
+    return [
+      'img_path' => 'img/utentebianco_icon.png',
+      'nome' => 'Francesco',
+      'cognome' => 'De Salvador',
+    ];
+    return $usr;
+  }
 
-		
-		$query =  $this->prepare($sql);
-		$query2 = $this->prepare($sql2);
-		$query3 = $this->prepare($sql3);
-		
-		$query->bind_param("ii", $id, $id);
-		$query2->bind_param("i", $id);
-		$query3->bind_param("i", $id);
-		
-		
-		if(!$query->execute())
-		{
-			return NULL;
-		}
-		$query->close();
-		
-		if(!$query2->execute())
-		{
-			return NULL;
-		}
-		$query2->close();
-		
-		if($query3->execute())
-		{
-			$res = $this->affected_rows;
-			$query3->close();
-			return (bool)$res;
-		}		
-		return NULL;
-	}
-	
-	public function login($username, $password)
-	{
-		$hashed_pass = hash('sha256', $password);
-		
-		$sql = "SELECT id FROM `utente` WHERE email = ? AND password = ? LIMIT 1;";
-		$query = $this->prepare($sql);
-		$query->bind_param("ss", $username,$hashed_pass);
-		if(!$query->execute()) {return NULL;}
-		$result = $query->get_result();
-		
-		if($result->num_rows === 0) return FALSE;
-		
-		$row = $result->fetch_assoc();
-		
-		$query->close();
-		$result->free();
-		
-		$_SESSION['user_id'] = $row['id'];
-		return TRUE;
-		
-	}
-	
-	public function logout()
-	{
-		unset($_SESSION['user_id']);
-	}
-	
-	 public function getPost($id = NULL) 
-	{
-		$sql = "SELECT  p.id,p.titolo,p.id_autore, DATE_FORMAT(data,'%d/%m/%Y') AS data, DATE_FORMAT(data,'%H:%i:%s') AS ora,p.descrizione,p.img_path,p.provincia,p.luogo,p.chiuso, COUNT(*) as nvolontari FROM post p JOIN partecipazione pa ON p.id = pa.id_post WHERE p.id = ? ";
-		$query = $this->prepare($sql);
-		$query->bind_param("i", $id);
-		$query->execute();
-		$result = $query->get_result();
-		
-		$post = $result->fetch_assoc();
-		
-		if($post['id'] === NULL) {return NULL;}
-	
-		$query->close();
-		$result->free();
-		
-		return $post;
-	}
-	
-	public function deletePost($id) 
-	{
-	
-		$sql = "DELETE FROM partecipazione WHERE id_post= ? ;";
-		$sql2 = "DELETE FROM post WHERE id= ?;";
-		
-		$query = $this->prepare($sql);
-		$query2 = $this->prepare($sql2);
-		
-		$query->bind_param("i", $id);
-		$query2->bind_param("i", $id);
-		
-		
-		if(!$query->execute())
-		{
-			$query->close();
-			return NULL;
-		}
-		
-		$query->close();
-		
-		if($query2->execute())
-		{
-			$res = $this->affected_rows;
-			$query2->close();
-			return (bool)$res;
-		}
-	}
-	
-	public function setPost($id, $titolo, $id_autore, $data, $ora, $descrizione, $img, $luogo, $provincia)
-	{
-		$error = array();
-		
-		
-		
-		if (strlen($titolo) === 0) {$error[] = "Titolo mancante";}
-		if (strlen($titolo) > 100) {$error[] = "Titolo troppo lungo";}
-		if (!$this->validateDate($data , "d/m/Y")){$error[] = "data non valida";};
-		if (!$this->validateDate($ora , "H:i")){$error[] = "ora non valida";};
-		if (strlen($descrizione) === 0) {$error[] = "Descrizione vuota";}
-		if (strlen($descrizione) > 65535) {$error[] = "Descrizione troppo lunga";}
-		if (strlen($titolo) === 0) {$error[] = "Luogo mancante";}
-		if (strlen($titolo) > 150) {$error[] = "Luogo troppo lungo";}
-		if (strlen($titolo) === 0) {$error[] = "Provincia mancante";}
-		if (strlen($titolo) > 50) {$error[] = "Provincia troppo lunga";}  
-		
-		
-		//50 PER UNA PROVINCIA NON è TROPPO ??????
-		
-		$date = str_replace('/', '-', $data);
-		$date = date('Y-m-d', strtotime($date));
-		$dataora = $date." ".$ora;
-		
-		$img_path = '';
-		
-		if(!empty($img))
-		{
-			$img_format = exif_imagetype($img);
-			if(!in_array($img_format , $this->perm_img_format)) {$error[] = 'formato immagine errato';} // verifica se è un immagine
-			if (filesize($img) > $this->max_img_size) {$error[] = 'immagine troppo grande';}		
-			$hash = hash_file('sha256', $img);
-			if (!move_uploaded_file($img, $this->imgDir.$hash)) {$error[] = "impossibile spostare l'immagine";}
-			$img_path = $this->imgDir.$hash;
-		}
 
-		if(count($error)) {return $error;} //se non ho passato alcuni check ritorno l'array con gli errori
-		
-		
-		
-		if($id==0) //nuovo post
-		{	
-	
-			if(!empty($img_path)) //con immagine
-			{
-				$insert = "INSERT INTO post(titolo,id_autore,data,descrizione,img_path,luogo,provincia) VALUES (?,?,?,?,?,?,?)";
-				$query = $this->prepare($insert);
-				$query->bind_param("sisssss", $titolo, $id_autore, $dataora, $descrizione, $img_path, $luogo, $provincia);
-				if($query->execute()) 
-					{
-						$new_id = $this->insert_id; 
-						$query->close();
-						return $new_id;
-					}
-				else {return NULL;}
-			}
-			else //senza img
-			{
-				$insert = "INSERT INTO post(titolo,id_autore,data,descrizione,luogo,provincia) VALUES (?,?,?,?,?,?)";
-				$query = $this->prepare($insert);
-				$query->bind_param("sissss", $titolo, $id_autore, $dataora, $descrizione,$luogo, $provincia);
-				if($query->execute()) 
-					{
-						$new_id = $this->insert_id; 
-						$query->close();
-						return $new_id;
-					}
-				else {return NULL;}
-			}
-		}
-		else //edit post
-		{
-			if(!empty($img_path)) //con immagine
-			{
-				$update = "UPDATE post SET titolo = ?,id_autore = ?,data = ?,descrizione = ?,img_path = ?,luogo = ?,provincia = ? WHERE ID =?;";
-				$query = $this->prepare($update);
-				$query->bind_param("sisssssi", $titolo, $id_autore, $dataora, $descrizione, $img_path, $luogo, $provincia, $id);
-				if($query->execute()) 
-					{
-						$query->close();
-						return $id;
-					}
-				else {return NULL;}
-			}
-			else //senza img
-			{
-				$update = "UPDATE post SET titolo = ?,id_autore = ?,data = ?,descrizione = ?,luogo = ?,provincia = ? WHERE ID =?;";
-				$query = $this->prepare($update);
-				$query->bind_param("sissssi", $titolo, $id_autore, $dataora, $descrizione,$luogo, $provincia, $id);
-				
-				//echo $titolo.'--'.$id_autore.'--'.$dataora.'--'.$descrizione.'--'.$luogo.'--'.$provincia.'--'.$id;
-				
-				if($query->execute()) 
-					{
-						$query->close();
-						return $id;
-					}
-				else {return NULL;}
-			}
-		}
-	}
-	public function abbandona($id_post, $id_utente)
-	{ 
-		$sql = "DELETE FROM partecipazione WHERE id_post = ? AND id_utente = ?;";
-		$query = $this->prepare($sql);
-		$query->bind_param("ii", $id_post,$id_utente);
-		
-		if($query->execute())
-		{
-			$res = $this->affected_rows;
-			$query->close();
-			return (bool)$res;
-		}
-		
-		return NULL;
-	}
-	
-	public function partecipa($id_post, $id_utente)
-	{ 
-		$sql = "INSERT INTO partecipazione(id_post,id_utente) VALUES (?,?);";
-		$query = $this->prepare($sql);
-		$query->bind_param("ii", $id_post,$id_utente);
-		
-		if($query->execute())
-		{
-			$res = $this->affected_rows;
-			$query->close();
-			return (bool)$res;
-		}
-		
-		return NULL;
-	}
-	
-	public function apri($id_post)
-	{ 
-		$sql = "UPDATE post SET chiuso = 0 WHERE id = ?;";  
-		$query = $this->prepare($sql);
-		$query->bind_param("i", $id_post);
-		
-		if($query->execute())
-		{
-			$res = $this->affected_rows;
-			$query->close();
-			return (bool)$res;
-		}
-		
-		return NULL;
-	}
-	
-	
-	public function chiudi($id_post)
-	{
-		$sql = "UPDATE post SET chiuso = 1 WHERE id = ?;";  
-		$query = $this->prepare($sql);
-		$query->bind_param("i", $id_post);
-		
-		if($query->execute())
-		{
-			$res = $this->affected_rows;
-			$query->close();
-			return (bool)$res;
-		}
-		
-		return NULL;
-	}
-	
+  public function getCommenti($mock = NULL) {
 
-	public function isChiuso($id_post) 
-	{
-		$sql = "SELECT chiuso FROM post WHERE id = ?;";
-		$query = $this->prepare($sql);
-		$query->bind_param("i", $id_post);
-		
-		if($query->execute())
-		{
-			$isChiuso = $query->get_result()->num_rows;
-			$query->close();
-			return (bool)$isChiuso;
-		}
-		
-		return NULL;
-	}
+    $postSocial = array();
+    $postSocial[0] = [
+      'id' => 2,
+      'id_autore' => 2,
+      'nome' => 'Gianni',
+      'cognome' => 'Bianchi',
+      'data' => '12/02/12 - 13:12',
+      'text' => 'dksdhtfgjkghjhj uisdfh dsui',
+      'img_user_path' => '../img/_template_foto/gianni_morandi.jpg',
+      'img_path' => '../img/_template_foto/back.jpeg',
+    ];
+    $postSocial[1] = [      'id' => 23,
+    'id_autore' => 345,
+    'nome' => 'Gianni',
+    'cognome' => 'Bianchi',
+    'data' => '12/02/13 - 13:12',
+    'text' => 'dksdhfuiodf usdfh uisdfh dsui',
+    'img_user_path' => '../img/_template_foto/gianni_morandi.jpg',
+    'img_path' => '../img/_template_foto/back.jpeg',
+  ];
 
-	public function isPartecipante($id_post, $id_utente) 
-	{
-		$sql = "SELECT id FROM partecipazione WHERE id_post = ? AND id_utente = ?;";
-		$query = $this->prepare($sql);
-		$query->bind_param("ii", $id_post,$id_utente);
-		
-		if($query->execute())
-		{
-			$isPartecipante = $query->get_result()->num_rows;
-			$query->close();
-			return (bool)$isPartecipante;
-		}
-		
-		return NULL;
-	}
-	public function isAutore($id_post, $id_utente)  
-	{
-		$sql = "SELECT chiuso FROM post WHERE id = ? AND id_autore = ?;";
-		$query = $this->prepare($sql);
-		$query->bind_param("ii", $id_post,$id_utente);
-		
-		if($query->execute())
-		{
-			$isAutore = $query->get_result()->num_rows;
-			$query->close();
-			return (bool)$isAutore;
-		}
-		
-		return NULL;
-	}
-	
-	public function postExist($id) 
-	{
-		$sql = "SELECT chiuso FROM post WHERE id = ?;";
-		$query = $this->prepare($sql);
-		$query->bind_param("i", $id);
-		
-		if($query->execute())
-		{
-			$exist = $query->get_result()->num_rows;
-			$query->close();
-			return (bool)$exist;
-		}
-		
-		return NULL;
-	}
-	
-	public function deleteCommento($id) 
-	{
-		$sql = "DELETE FROM commento WHERE id = ?;";
-		$query = $this->prepare($sql);
-		$query->bind_param("i", $id);
-		
-		if($query->execute())
-		{
-			$res=$this->affected_rows;
-			$query->close();
-			return (bool)$res;
-		}
-		
-		return NULL;
-	}
-	
-	public function getCommenti($id)
-	{
-		
-		$sql = "SELECT c.id, c.id_autore,u.nome,u.cognome,CONCAT(DATE_FORMAT(data,'%d/%m/%Y'),' ', DATE_FORMAT(data,'%H:%i:%s')) AS data,";
-		$sql.= "c.text,c.img_path AS img_user_path,c.img_path FROM commento c JOIN utente u ON c.id_autore = u.id WHERE c.id_post = ?;"; 
-		$query = $this->prepare($sql);
-		$query->bind_param("i", $id);
-		
-		if($query->execute())
-		{
-			$result = $query->get_result();
-			$postSocial = array();
-			
-			 while ($row = $result->fetch_assoc()) 
-			{
-				$postSocial[] = $row;
-			}
-			
-			$query->close();
-			$result->free();
-			return $postSocial;
-		
-		}
-		
-		return NULL;
-	}
-	
-	public function getProfiloTable($id, $status = 0)
-	{
-		$sql = "SELECT id, titolo, CONCAT(DATE_FORMAT(data,'%d/%m/%Y'),' ', DATE_FORMAT(data,'%H:%i:%s')) AS data, chiuso FROM post WHERE id_autore = ? ";
-		
-		if($status ===  1 ) {$sql .= "AND chiuso = 0";}
-		if($status === -1 ) {$sql .= "AND chiuso = 1";}
-		
-		$query = $this->prepare($sql);
-		$query->bind_param("i", $id);
-		
-		if($query->execute())
-		{
-			$result = $query->get_result();
-			$profTable = array();
-			
-			 while ($row = $result->fetch_assoc()) 
-			{
-				$profTable[] = $row;
-			}
-			
-			$query->close();
-			$result->free();
-			return $profTable;
-		
-		}
-		
-		return NULL;
-	}
-	
-	public function getVolontari($id)
-	{
-		$sql = "SELECT u.id,u.nome,u.cognome, u.img_path FROM partecipazione p JOIN utente u ON p.id_utente = u.id WHERE p.id_post = ?";
-			
-		$query = $this->prepare($sql);
-		$query->bind_param("i", $id);
-		
-		if($query->execute())
-		{
-			$result = $query->get_result();
-			$volontari = array();
-			
-			 while ($row = $result->fetch_assoc()) 
-			{
-				$volontari[] = $row;
-			}
-			
-			$query->close();
-			$result->free();
-			return $volontari;
-		
-		}
-			
-		return NULL;
-	}
-	
-	public function newCommento($id, $user_id, $messaggio, $foto)
-	{
-		$error = array();
-		$immagine = NULL;
-		
-		if(empty($messaggio) && empty($foto)) {return "Parametri invalidi";}
-		
-		if(!empty($foto))
-		{
-			$img_format = exif_imagetype($foto);
-		
-			if (filesize($foto) > $this->max_img_size) {$error[] = 'immagine troppo grande';}
-			if(!in_array($img_format , $this->perm_img_format)) {$error[] = 'formato immagine errato';}
-		
-			if(count($error)) {return $error;}
-				
-			$hash = hash_file('sha256', $foto);
-				
-			if (!move_uploaded_file($foto, $this->imgDir.$hash)) {$error[] = "impossibile spostare l'immagine"; return $error;}
-			
-			$immagine = $this->imgDir.$hash;
-		
-		}	
-			$sql = "INSERT INTO commento(id_autore,id_post,text,img_path) VALUES(?, ?, ? ,?);";
-			
-			$query = $this->prepare($sql);
+  if(isset($_SESSION['newCommento'])) {
+    $postSocial[2] = [
 
-			$query->bind_param('iiss',$user_id,$id,$messaggio,$immagine);
-			
-			if($query->execute()) 
-			{
-				$new_id = $this->insert_id; 
-				$query->close();
-				return $new_id;
-			}
-			else {return NULL;}
-	}
-	
-	public function getPostcard($page, $postcard_per_page, &$page_count, $filter = NULL)
-	{
-		$sql = "SELECT po.id,po.titolo,po.data,po.provincia,po.luogo, COUNT(*) AS nvolontari, po.descrizione FROM post po JOIN partecipazione pa ON po.id = pa.id_post GROUP BY po.id HAVING po.id = ? ";
-		
-		if(!empty($filter)) {$sql .= "AND po.titolo LIKE '%".$this->real_escape_string($filter)."%'";}
-		
-		$query = $this->prepare($sql);
-		$query->bind_param("i", $id);
-		
-		if($query->execute())
-		{
-			$result = $query->get_result();
-			$card = array();
-			
-			 while ($row = $result->fetch_assoc())  //se ho tempo ottimizzio la query per pescare direttamente solo i post richiesti
-			{
-				if(strlen($row['descrizione'] > 215))
-				{
-					$row['descrizione'] = substr($row['descrizione'] ,0,215).'...';
-				}
-				
-					$card[] = $row['descrizione'];
-				
-			}
-			
-			$page_count = ceil($result->num_rows/$postcard_per_page);
-			
-			$selcard = array_slice($card, ($page-1)*$postcard_per_page, $postcard_per_page);
-			
-			$query->close();
-			$result->free();
-			return $selcard;
-		
-		}
-			
-		return NULL;
-	}
-	
-	public function alreadyReg($mail , $cf)
-	{
-		$error = array();
-		
-		$sql = "SELECT id FROM utente WHERE email = ?;";
-		$query = $this->prepare($sql);
-		$query->bind_param("s", $mail);
-		
-		if($query->execute())
-		{
-			if($query->get_result()->num_rows)
-			{
-				$query->close();
-				$error[] = "mail già presente";
-			}
-			
-			
-		}
-		else
-		{
-			$error[] = "Impossibile contattare il db per verificare l'unicità dell'account";
-		}
-		
-		$sql1 = "SELECT id FROM utente WHERE cf = ?;";
-		$query = $this->prepare($sql1);
-		$query->bind_param("s", $cf);
-		
-		if($query->execute())
-		{
-			if($query->get_result()->num_rows)
-			{
-				$query->close();
-				$error[] = "cf già presente";
-			}
-			
-			
-		}
-		else
-		{
-			$error[] = "Impossibile contattare il db per verificare l'unicità dell'account";
-		}
-		
-		if(count($error)) {return $error;}
-		
-		return FALSE;
-	}
+      'user_id' => '2',
+      'nome' => 'Gianni',
+      'cognome' => 'Bianchi',
+      'data' => '12/02/13 - 13:12',
+      'text' => 'dksdhfuiodf usdfh uisdfh dsui',
+      'img_usr_path' => 'img/_template_foto/gianni_morandi.jpg',
+      'img_path' => 'img/_template_foto/back.jpeg',
+    ];
+
+    unset($_SESSION['newCommento']);
+  }
+
+  return $postSocial;
+}
+
+public function getVolontari($mock = NULL) {
+  $postVolontari = array();
+  $postVolontari[0] = [
+    'img_path' => 'img/_template_foto/gianni_morandi.jpg',
+    'id' => '23',
+    'nome' => 'ALdo',
+    'cognome' => 'Morin',
+  ];
+  $postVolontari[1] = [
+    'id' => '23',
+    'img_path' => 'img/_template_foto/gianni_morandi.jpg',
+    'nome' => 'Francesco',
+    'cognome' => 'Decet',
+  ];
+  return $postVolontari;
+}
+
+
+
+public function getProfilo($id) {
+  return [
+    'nome' => 'Gianfranco',
+    'cognome' => 'Piruvato',
+    'datanascita' => '11/11/2011',
+    'cf' => 'ZSTHSP82B45H086C',
+    'email' => 'abc@def.gh',
+    'telefono' => '3333333333',
+    'password' => 'unoduetre',
+    'img_path' => 'img/utentenero_icon.png',
+    'bio' => 'Ei fu, e adesso non c\'è più.',
+  ];
+}
+
+public function getProfiloTable($id, $status = 0) {
+  return array (
+    array (
+      'id'=>'2',
+      'titolo'=>'Attivita1',
+      'data'=>'12/12/2012',
+      'chiuso'=>true,
+    ),
+    array (
+      'id'=>'56',
+      'titolo'=>'Attivita2',
+      'data'=>'12/12/2000',
+      'chiuso'=>false,
+    ),
+    array (
+      'id'=>'89',
+      'titolo'=>'Attivita3',
+      'data'=>'12/12/2012',
+      'chiuso'=>true,
+    ),
+    array (
+      'id'=>'42',
+      'titolo'=>'Attivita4',
+      'data'=>'12/12/2012',
+      'chiuso'=>false,
+    ),
+  );
+}
+
+public function setProfilo($id, $email, $password, $conf_password, $nome,
+$cognome, $datanascita, $cf, $bio, $img_path, $telefono) {
+  return 2;
+  //return array('errore 1', 'errore 2', 'errore 3');
+}
+
+public function deleteProfilo($id) {
+  unset($_SESSION['user_id']);
+}
+
+public function login($email, $password) {
+  $_SESSION['user_id'] = 12;
+  return true;
+  //return false;
+}
+
+public function logout() {
+  unset($_SESSION['user_id']);
+}
+
+public function getPost($id, $mock = NULL) {
+  $post = [
+    'chiuso' => 'true',
+    'link' => 'https://goo.gl/maps/KpxfvzkjXvCUyFcr7',
+    'img_path' => '../img/_template_foto/rifiuti3.jpg',
+    'titolo' => 'RACCOLTA RIFIUTI',
+    'id_autore' => 12,
+    'nome' => 'Paolo',
+    'cognome' => 'Rossi',
+    'nvolontari' => 6,
+    'data' => '12/02/2020',
+    'ora' => '12:00',
+    'luogo' => 'Via Luigi Luzzatti',
+    'provincia' => 'Padova',
+    'descrizione' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem commodo a. Aenean vitae mer augue.'
+  ];
+
+  return $post;
+}
+
+// public function getPost($id = NULL) {
+//   return [
+//     'id' => $id,
+//     'titolo' => 'Coperte ai senzatetto',
+//     'id_autore' => 12,
+//     'data' => '12/12/2020',
+//     'ora' => '20:30',
+//     'descrizione' => 'Minima ipsa eos consequuntur. Iure vel commodi in magni autem non. Fuga exercitationem nesciunt unde accusantium molestias eligendi voluptatem voluptatem. Non ut dicta perspiciatis ea consequatur dolor. Adipisci et provident velit ducimus est temporibus nisi.',
+//     'img_path' => 'img/_template_foto/rifiuti3.jpg',
+//     'luogo' => 'Via dei Cipressi 25, Borgoricco',
+//     'provincia' => 'Padova',
+//     'chiuso' => false,
+//     'nvolontari' => 25,
+//   ];
+// }
+
+public function setPost($id, $titolo, $id_autore, $data, $ora, $descrizione,
+$img_path, $via, $provincia) {
+  //return 24;
+  return array('.');
+}
+
+public function deletePost($id) {
+
+}
+
+public function getPostcard($page, $postcard_per_page, &$page_count, $filter = NULL) {
+  return array(
+    array(
+      'img_path' => '../img/_template_foto/rifiuti3.jpg',
+      'id' => 7,
+      'titolo' => 'Raccolta Rifiuti',
+      'data' => '12/12/2020',
+      'provincia' => 'Padova',
+      'nvolontari' => 42,
+      'descrizione' => "Ei fu, e adesso non c'è più",
+    ),
+    array(
+      'img_path' => '../img/_template_foto/rifiuti3.jpg',
+      'id' => 14,
+      'titolo' => 'Raccolta Rifiuti',
+      'data' => '12/12/2020',
+      'provincia' => 'Padova',
+      'nvolontari' => 987,
+      'descrizione' => "Ei fu, e adesso non c'è più",
+    ),
+    array(
+      'img_path' => '../img/_template_foto/rifiuti3.jpg',
+      'id' => 21,
+      'titolo' => 'Raccolta Rifiuti',
+      'data' => '12/12/2020',
+      'provincia' => 'Padova',
+      'nvolontari' => 456,
+      'descrizione' => "Ei fu, e adesso non c'è più",
+    ),
+    array(
+      'img_path' => '../img/_template_foto/rifiuti3.jpg',
+      'id' => 28,
+      'titolo' => 'Raccolta Rifiuti',
+      'data' => '12/12/2020',
+      'provincia' => 'Padova',
+      'nvolontari' => 333,
+      'descrizione' => "Ei fu, e adesso non c'è più",
+    ),
+    array(
+      'img_path' => '../img/_template_foto/rifiuti3.jpg',
+      'id' => 35,
+      'titolo' => 'Raccolta Rifiuti',
+      'data' => '12/12/2020',
+      'provincia' => 'Padova',
+      'nvolontari' => 333,
+      'descrizione' => "Ei fu, e adesso non c'è più",
+    ),
+    array(
+      'img_path' => '../img/_template_foto/rifiuti3.jpg',
+      'id' => 42,
+      'titolo' => 'Raccolta Rifiuti',
+      'data' => '12/12/2020',
+      'provincia' => 'Padova',
+      'nvolontari' => 333,
+      'descrizione' => "Ei fu, e adesso non c'è più",
+    ),
+  );
+}
 }
 ?>
