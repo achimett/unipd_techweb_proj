@@ -663,7 +663,7 @@ class DB extends mysqli{
 	{
 		$sql = "SELECT po.id,po.titolo,po.data,po.provincia,po.luogo, COUNT(*) AS nvolontari, po.descrizione FROM post po JOIN partecipazione pa ON po.id = pa.id_post GROUP BY po.id HAVING po.id = ? ";
 		
-		if(!empty($filter)) {$sql .= "AND po.titolo LIKE '%".mysqli_real_escape_string($filter)."%'";}
+		if(!empty($filter)) {$sql .= "AND po.titolo LIKE '%".$this->real_escape_string($filter)."%'";}
 		
 		$query = $this->prepare($sql);
 		$query->bind_param("i", $id);
