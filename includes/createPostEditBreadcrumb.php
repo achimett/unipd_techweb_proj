@@ -14,7 +14,7 @@ function createPostEditBreadcrumb($db, $id = NULL) {
 
   return '<p id="breadcrumb">' .
   '<a href="bacheca.php">Bacheca</a> &gt;&gt; ' .
-  '<a href="post?id=' . $id . '">Post</a> &gt;&gt; ' .
+  '<a href="post.php?id=' . $id . '">Post</a> &gt;&gt; ' .
   'Modifica</p>';
 }
 ?>
