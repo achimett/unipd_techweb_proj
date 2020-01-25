@@ -1,11 +1,15 @@
 
-<form id="post_social_form" action="<link />" method="post" enctype="multipart/form-data">
+<form id="post_social_form" action="<link />" onsubmit="return validatePostCommento() != 0" method="post" enctype="multipart/form-data">
 <fieldset>
   <legend class="post_titolo">Scrivi un commento</legend>
+  <div>
   <p class="post_infobox">Carica una foto:</p>
-  <input id="post_sfoglia" type="file" name="sfoglia" tabindex="24" />
+  <input id="post_sfoglia" type="file" name="sfoglia" tabindex="24" onchange="checkImg()" />
+  </div>
+  <div>
   <p class="post_infobox">Lascia un messaggio nel riquadro qui sotto:</p>
   <textarea id="post_social_textarea" name="messaggio" rows="5" cols="50" tabindex="25">[Messaggio] </textarea>
-  <input id="post_social_invia" class="buttons" type="submit" name="invia" value="INVIA" tabindex="26" />
+  </div>
+  <input id="post_social_bottoneinvia" class="bottone" type="submit" name="invia" value="INVIA" tabindex="26" />
 </fieldset>
 </form>

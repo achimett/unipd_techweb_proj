@@ -53,6 +53,7 @@ foreach ($postcard_data as $postcard) {
   $result = str_replace('<link />', 'post.php?id=' . $postcard['id'], $result);
   $result = str_replace('<ti />', $tabindex++, $result);
   $result = str_replace('<titolo />', $postcard['titolo'], $result);
+  $result = str_replace('<img_path />', $postcard['img_path'], $result);
   $result = str_replace('<data />', $postcard['data'], $result);
   $result = str_replace('<provincia />', $postcard['provincia'], $result);
   $result = str_replace('<nvolontari />', $postcard['nvolontari'], $result);

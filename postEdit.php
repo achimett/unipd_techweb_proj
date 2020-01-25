@@ -9,6 +9,7 @@ require_once('includes/createPostEditBreadcrumb.php');
 // Oggetto di accesso al database
 $db = new DB();
 
+
 // Controlli sicurezza
 if (!isset($_SESSION['user_id'])) {
   header('Location: 404.php');
@@ -74,7 +75,8 @@ $page_body = file_get_contents('includes/body.html');
 
 // Concatenazione di tutti i JS da includere nell'head
 $scripts = file_get_contents('includes/scriptMenu.html')
-. file_get_contents('includes/scriptConfirmDelete.html');
+. file_get_contents('includes/scriptConfirmDelete.html')
+. file_get_contents('includes/scriptValidatePostEdit.html');
 
 // Contiene lo snippet di codice per visualizzare l'utente loggato in alto a sinistra
 $info_utente = createInfoUtente($db);
@@ -93,7 +95,7 @@ $content = str_replace('<error />', $errors, $content);
 if ($post_id === NULL) {
   $content = str_replace('<elimina />', '', $content);
 } else {
-  $content = str_replace('<elimina />', '<input type="submit" name="elimina" value="Elimina Post" id="post_social_elimina" class="delete_buttons" />', $content);
+  $content = str_replace('<elimina />', '<input type="submit" name="elimina" value="Elimina Post" id="post_social_elimina" class="bottone registrazione_button profiloEdit_delete_buttons" />', $content);
 }
 
 if ($post === NULL) {
@@ -104,6 +106,7 @@ if ($post === NULL) {
   $content = str_replace('<descrizione />', "Inserisci qui la descrizione dell'attività che vuoi svolgere", $content);
   $content = str_replace('<luogo />', '', $content);
   $content = str_replace('<provincia />', '', $content);
+  $content = str_replace('<titoloContainer />', "Nuovo post", $content);
 } else {
   $content = str_replace('<action />', 'postEdit.php?id=' . $post_id, $content);
   $content = str_replace('<titolo />', $post['titolo'], $content);
@@ -112,6 +115,7 @@ if ($post === NULL) {
   $content = str_replace('<descrizione />', $post['descrizione'], $content);
   $content = str_replace('<luogo />', $post['luogo'], $content);
   $content = str_replace('<provincia />', $post['provincia'], $content);
+    $content = str_replace('<titoloContainer />', "Modifica post", $content);
 }
 
 // Rimpiazzo dei segnaposto sull'intera pagina

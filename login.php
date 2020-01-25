@@ -76,6 +76,15 @@ $breadcrumb = "<p id=\"breadcrumb\">$title</p>";
 // Codice HTML del content
 $content = file_get_contents('includes/contentLogin.html');
 
+$content = str_replace('<reg />', file_get_contents('includes/registrazione.html'), $content);
+
+$content = str_replace('<profiloEditTitolo />', "Registrati", $content);
+$content = str_replace('<testoBottone />', "invia", $content);
+$content = str_replace('<nomeSubmit />', "registrazione", $content);
+$content = str_replace('<delButton />', "", $content);
+
+$content = str_replace('<goto />', 'login.php', $content);
+
 $content = str_replace('<errorLogin />', $error_login, $content);
 $content = str_replace('<errorRegistrazione />', $error_registrazione, $content);
 

@@ -37,7 +37,7 @@ abbr[title] {
 }
 
 #breadcrumb {
-  text-align: center;
+  display: none;
 }
 
 #menu {
@@ -74,7 +74,7 @@ abbr[title] {
   display: none;
 }
 
-#titolo_post {
+.titolo_post {
   text-align: center;
   font-size: 200%;
 }
@@ -220,7 +220,28 @@ abbr[title] {
   width: 30%;
 }
 
+#azione fieldset {
+  display: none;
+}
+
+#post_informazioni_lista fieldset {
+  display: none;
+}
+
 /* Bacheca */
+.postcardImg {
+display: none;
+}
+
+.titolo_postcard {
+  margin-top: 2%;
+  text-align: center;
+  display: block;
+  width: 100%;
+  font-size: 2em;
+}
+
+
 .bacheca_informazioni {
   background-color: #fff;
   margin-top: 2%;
@@ -253,137 +274,120 @@ abbr[title] {
   width: 100%;
 }
 
+.bottone {
+  display: none;
+}
+
 /* Profilo */
-#profilo_nome_cognome {
-  width: 60%;
-  vertical-align: middle;
-  display: inline-block;
+#profilo_nc {
+  margin: auto;
 }
 
-#profilo h1 {
-  text-align: center;
-}
-
-#profilo h2 {
-  padding: 2%;
-  text-align: center;
-}
-
-#profilo_nome_cognome img {
-  height: 50%;
-  width: 50%;
-  display: block;
-  margin: 0 auto;
-}
-
-#profilo_data_di_nascita img {
+#profilo_nc img {
   width: 10%;
+  padding: 2%;
+    vertical-align: middle;
 }
 
-#profilo_data_di_nascita {
-  display: inline-block;
-  list-style-type: none;
-  word-break: break-all;
-  list-style-type: none;
-  width: 39%;
+#profilo_info img {
+  display: none;
 }
 
-#profilo_biografia {
-  display: block;
-  clear: right;
+#profilo_info li {
+  padding: 1em;
+
+}
+
+
+.filtro {
+  padding: 2%;
 }
 
 #profilo_table_contributi {
+  margin-top: 2%;
   width: 100%;
+  text-align: left;
   border-collapse: collapse;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 1vw;
-  margin-bottom: 1vw;
 }
 
-#profilo_colonna_data, #profilo_colonna_stato_attivita {
-  width: 20%;
+#profilo_table_contributi td {
+  padding: 2%;
+  border-bottom: 1px solid #000;
 }
 
-#profilo_table_contributi tr {
-  border: 1px solid;
+#profilo_table_contributi th {
+  padding: 2%;
 }
 
-#profilo_table_contributi td:nth-child(2), td:nth-child(3) {
-  text-align: center;
+.profilo_colhead_attivita {
+  width: 70%;
 }
 
-#profilo input[type=submit] {
-  display: none;
+
+.label {
+  width: 40%;
+  text-align: right;
+float: left;
+clear: both;
+padding: 0.4em 0%;
+margin: 0.4em 5% 0 0;
+}
+
+.postEdit_informazioni_input {
+
+float: left;
+padding: 0.4em 0;
+border: 0;
+border-bottom: 1px solid #000;
+margin: 0.4em 0%;
+
 }
 
 /* Login e Registrazione */
-#login, #registrazione_e_login h1, #modifica_profilo h1, #registrazione_e_login input[type=submit], #modifica_profilo input[type=submit], #fieldset_carica_una_foto legend, #fieldset_carica_una_foto label, #fieldset_biografia legend, #registrazione_foto, #registrazione_e_login p  {
+
+#registrazione_field {
   display: none;
 }
 
-#registrazione ul {
-  list-style-type: none;
+#registrazione_foto {
+  display: none;
 }
 
-#login_riga_email, #registrazione li {
-  overflow: hidden;
+.registrazione_button {
+    display: none;
 }
 
-#login_email, #login_password, #registrazione_nome, #registrazione_cognome, #registrazione_data_di_nascita, #registrazione_codice_fiscale, #registrazione_email, #registrazione_telefono, #registrazione_password, #registrazione_conferma_password {
-  width: 50%;
-  padding: 2%;
-  margin-top: 1mm;
-  margin-bottom: 1mm;
-  float: right;
-}
-
-#label_login_email, #label_login_password, #label_registrazione_nome, #label_registrazione_cognome, #label_registrazione_data_di_nascita, #label_registrazione_codice_fiscale, #label_registrazione_email, #label_registrazione_telefono, #label_registrazione_password, #label_registrazione_conferma_password {
-  width: 30%;
-  padding: 2%;
-  margin-top: 1.5mm;
-  margin-bottom: 1.5mm;
-}
-
-#registrazione_e_login fieldset, #modifica_profilo fieldset {
-  border: 0pt;
-}
-
-#registrazione_immagine_profilo {
-  margin-left: 30mm;
-  height: 400px;
-  width: auto;
+#login_box {
+  display: none;
 }
 
 #registrazione_biografia {
   width: 100%;
+  height: 10em;
 }
 
-#fieldset_dati_anagrafici legend {
-  font-size: 2em;
-  font-weight: bold;
-  margin-bottom: 0.5em;
+#gruppo1 li, #gruppo2 li {
+  margin-top: 3em;
 }
 
-#fieldset_dati_di_contatto legend {
-  font-size: 2em;
-  font-weight: bold;
-  margin-top: 0.1em;
-  margin-bottom: 0.5em;
+.registrazione_label {
+  width: 30%;
+  text-align: right;
+  float: left;
+  clear: both;
+
+  padding: 0.4em 2% 0 2%;
+
+  margin: 0.4em 0%;
 }
 
-#fieldset_biografia label {
-  font-size: 2em;
-  font-weight: bold;
-  margin-top: 0.1em;
-}
+.registrazione_field {
+  width: 60%;
+  padding: 0.4em 0;
+  border: 0;
+  border-bottom: 1px solid #000;
 
-#fieldset_login legend {
-  font-size: 2em;
-  font-weight: bold;
-  margin-top: 0.1em;
-  margin-bottom: 0.5em;
+    margin: 0.4em 0%;
 }
 
 /********** FOOTER **********/
@@ -395,4 +399,8 @@ abbr[title] {
 
 #footer a {
   display: none;
+}
+
+#fieldset_registrazione {
+  border: 0;
 }

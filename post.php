@@ -12,7 +12,6 @@ require_once('includes/createFormSocial.php');
 require_once('includes/createListaVolontari.php');
 require_once('includes/createPulsanteModifica.php');
 require_once('includes/createPulsanteDoit.php');
-require_once('includes/createPost.php');
 
 // Oggetto di accesso al database
 $db = new DB();
@@ -38,7 +37,8 @@ $page_head = file_get_contents('includes/head.html');
 $page_body = file_get_contents('includes/body.html');
 
 // Concatenazione di tutti i JS da includere nell'head
-$scripts = file_get_contents('includes/scriptMenu.html'); // . file_get_contents(...) . ecc...;
+$scripts = file_get_contents('includes/scriptMenu.html')
+. file_get_contents('includes/scriptValidateCommento.html'); // . file_get_contents(...) . ecc...;
 
 // Contiene lo snippet di codice per visualizzare l'utente loggato in alto a sinistra
 $info_utente = createInfoUtente($db);
@@ -47,8 +47,7 @@ $info_utente = createInfoUtente($db);
 $menu = createMenu(true, true, true, true, true, true);
 
 // Codice HTML del breadcrumb
-
-$breadcrumb = '<p id="breadcrumb">Bacheca &gt;&gt; Post ' . $title . '</p>';
+$breadcrumb = '<p id="breadcrumb"><a href="bacheca.php">Bacheca</a> &gt;&gt; Post ' . $title . '</p>';
 
 $page_head = str_replace('<title />', "<title>$title - DOIT</title>", $page_head);
 $page_head = str_replace('<scripts />', $scripts, $page_head);
@@ -57,14 +56,9 @@ $page_body = str_replace('<breadcrumb />', $breadcrumb, $page_body);
 $page_body = str_replace('<menu />', $menu, $page_body);
 
 // Codice HTML del content
-
-
-
-
 $k = 27;
 $blob['commenti'] = createCommenti($db, $profilo, $k);
 $blob['volontari'] = createListaVolontari($db, $profilo, $blob['commenti']['k']);
-
 
 $post = str_replace('<img_path />', $getPost['img_path'], $post);
 $post = str_replace('<titolo />', $getPost['titolo'], $post);
@@ -85,5 +79,4 @@ $post = str_replace('<commenti />', $blob['commenti']['html'], $post);
 $page_body = str_replace('<content />', $post, $page_body);
 
 echo $page_head . $page_body;
-
 ?>

@@ -1,14 +1,17 @@
 <div class="content" id="bacheca">
 
+  <div class="bacheca_ricerca">
   <form action="<action />">
     <fieldset>
       <legend class="post_titolo">Ricerca</legend>
-      <label for="ricerca">Ricerca per Provincia</label>
+      <label for="ricerca" id="labelRicerca">Ricerca per Provincia</label>
       <input type="text" id="ricerca" name="provincia" value="<provincia />" tabindex="21" />
     </fieldset>
   </form>
-
+  </div>
+  <div class="bacheca_ricerca">
   <h1 class="post_titolo">I post degli utenti</h1>
   <postlist />
   <p id="gestione_pagina"><previous /> <page /> <next /></p>
+  </div>
 </div>

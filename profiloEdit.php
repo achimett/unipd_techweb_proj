@@ -9,6 +9,7 @@ require_once('includes/createProfiloEditBreadcrumb.php');
 // Oggetto di accesso al database
 $db = new DB();
 
+
 // Controllo sicurezza
 if (!(isset($_GET['id']) &&
       isset($_SESSION['user_id']) &&
@@ -22,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (isset($_POST['salva'])) {
     $img_path = '';
 
-    if (is_uploaded_file($_FILES['img']['tmp_name'])) {
+    if (isset($_FILES['img']) && is_uploaded_file($_FILES['img']['tmp_name'])) {
       $img_path = $_FILES['img']['tmp_name'];
     }
 
@@ -71,6 +72,17 @@ $breadcrumb = createPostEditBreadcrumb($db);
 
 // Codice HTML del content
 $content = file_get_contents('includes/contentProfiloEdit.html');
+
+$content = str_replace('<mod />', file_get_contents('includes/registrazione.html'), $content);
+
+$content = str_replace('<delButton />', file_get_contents('includes/contentProfiloEditDeletebutton.html'), $content);
+
+
+$content = str_replace('<profiloEditTitolo />', "Modifica profilo", $content);
+$content = str_replace('<testoBottone />', "Salva", $content);
+$content = str_replace('<nomeSubmit />', "salva", $content);
+
+$content = str_replace('<goto />', 'profiloEdit.php?id=' . $_SESSION['user_id'], $content);
 
 $content = str_replace('<action />', 'profiloEdit.php?id=' . $_SESSION['user_id'], $content);
 $content = str_replace('<error />', $errors, $content);
