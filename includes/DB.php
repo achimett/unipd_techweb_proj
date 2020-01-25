@@ -22,12 +22,7 @@ class DB extends mysqli{
         }
 	}
 	
-	function __destruct() 
-	{
-    mysqli_stmt_free_result($this->stmt); // making $stmt a variable inside class
-    mysqli_stmt_close($this->stmt);
-    mysqli_close($this->link);
-	}
+
 	
 	public function validateDate($date, $format = 'Y-m-d H:i:s')
 	{
