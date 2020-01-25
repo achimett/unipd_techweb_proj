@@ -661,16 +661,12 @@ class DB extends mysqli{
 	
 	public function getPostcard($page, $postcard_per_page, &$page_count, $filter = NULL)
 	{
-		$sql = "SELECT po.id,po.titolo,po.data,po.provincia,po.luogo, COUNT(*) AS nvolontari, po.descrizione FROM post po JOIN partecipazione pa ON po.id = pa.id_post GROUP BY po.id HAVING po.id = ? ";
+		$sql = "SELECT po.id,po.titolo,po.data,po.provincia,po.luogo, po.img_path, COUNT(pa.id) AS nvolontari, po.descrizione FROM post po LEFT JOIN partecipazione pa ON po.id = pa.id_post GROUP BY po.id ";
 		
-		if(!empty($filter)) {$sql .= "AND po.titolo LIKE '%".$this->real_escape_string($filter)."%'";}
-		
-		$query = $this->prepare($sql);
-		$query->bind_param("i", $id);
-		
-		if($query->execute())
+		if(!empty($filter)) {$sql .= "HAVING po.titolo LIKE '%".$this->real_escape_string($filter)."%'";}
+			
+		if($result = $this->query($sql))
 		{
-			$result = $query->get_result();
 			$card = array();
 			
 			 while ($row = $result->fetch_assoc())  //se ho tempo ottimizzio la query per pescare direttamente solo i post richiesti
@@ -680,7 +676,7 @@ class DB extends mysqli{
 					$row['descrizione'] = substr($row['descrizione'] ,0,215).'...';
 				}
 				
-					$card[] = $row['descrizione'];
+					$card[] = $row;
 				
 			}
 			
@@ -688,7 +684,6 @@ class DB extends mysqli{
 			
 			$selcard = array_slice($card, ($page-1)*$postcard_per_page, $postcard_per_page);
 			
-			$query->close();
 			$result->free();
 			return $selcard;
 		
