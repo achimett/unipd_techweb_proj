@@ -307,7 +307,7 @@ class DB extends mysqli{
 		if (strlen($titolo) === 0) {$error[] = "Titolo mancante";}
 		if (strlen($titolo) > 100) {$error[] = "Titolo troppo lungo";}
 		if (!$this->validateDate($data , "d/m/Y")){$error[] = "data non valida";};
-		if (!$this->validateDate($ora , "H:i:s")){$error[] = "ora non valida";};
+		if (!$this->validateDate($ora , "H:i")){$error[] = "ora non valida";};
 		if (strlen($descrizione) === 0) {$error[] = "Descrizione vuota";}
 		if (strlen($descrizione) > 65535) {$error[] = "Descrizione troppo lunga";}
 		if (strlen($titolo) === 0) {$error[] = "Luogo mancante";}
