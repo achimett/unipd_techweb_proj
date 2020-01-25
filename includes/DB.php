@@ -248,7 +248,7 @@ class DB extends mysqli{
 	
 	 public function getPost($id = NULL) 
 	{
-		$sql = "SELECT  p.id,p.titolo,p.id_autore, DATE_FORMAT(data,'%d/%m/%Y') AS data, DATE_FORMAT(data,'%H:%i:%s') AS ora,p.descrizione,p.img_path,p.provincia,p.luogo,p.chiuso, COUNT(*) as nvolontari FROM post p JOIN partecipazione pa ON p.id = pa.id_post WHERE p.id = ? ";
+		$sql = "SELECT  p.id,p.titolo,p.id_autore, DATE_FORMAT(data,'%d/%m/%Y') AS data, DATE_FORMAT(data,'%H:%i') AS ora,p.descrizione,p.img_path,p.provincia,p.luogo,p.chiuso, COUNT(*) as nvolontari FROM post p JOIN partecipazione pa ON p.id = pa.id_post WHERE p.id = ? ";
 		$query = $this->prepare($sql);
 		$query->bind_param("i", $id);
 		$query->execute();
