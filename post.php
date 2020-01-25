@@ -1,4 +1,4 @@
-c<?php
+<?php
 session_start();
 require_once('includes/DB.php');
 require_once('includes/createInfoUtente.php');
@@ -16,7 +16,6 @@ require_once('includes/createPost.php');
 
 // Oggetto di accesso al database
 $db = new DB();
-$_SESSION['user_id'] = 2;
 $post = file_get_contents('includes/contentPost.html');
 
 $getPost = $db->getPost($_GET['id']);
@@ -58,9 +57,6 @@ $page_body = str_replace('<breadcrumb />', $breadcrumb, $page_body);
 $page_body = str_replace('<menu />', $menu, $page_body);
 
 // Codice HTML del content
-
-
-
 
 $k = 27;
 $blob['commenti'] = createCommenti($db, $profilo, $k);

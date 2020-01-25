@@ -39,7 +39,7 @@ class DB {
       'id_autore' => 2,
       'nome' => 'Gianni',
       'cognome' => 'Bianchi',
-      'data' => '12/02/12 - 13:12',
+      'data' => '2/02/2 - 13:2',
       'text' => 'dksdhtfgjkghjhj uisdfh dsui',
       'img_user_path' => '../img/_template_foto/gianni_morandi.jpg',
       'img_path' => '../img/_template_foto/back.jpeg',
@@ -48,7 +48,7 @@ class DB {
     'id_autore' => 345,
     'nome' => 'Gianni',
     'cognome' => 'Bianchi',
-    'data' => '12/02/13 - 13:12',
+    'data' => '2/02/13 - 13:2',
     'text' => 'dksdhfuiodf usdfh uisdfh dsui',
     'img_user_path' => '../img/_template_foto/gianni_morandi.jpg',
     'img_path' => '../img/_template_foto/back.jpeg',
@@ -60,7 +60,7 @@ class DB {
       'user_id' => '2',
       'nome' => 'Gianni',
       'cognome' => 'Bianchi',
-      'data' => '12/02/13 - 13:12',
+      'data' => '2/02/13 - 13:2',
       'text' => 'dksdhfuiodf usdfh uisdfh dsui',
       'img_usr_path' => 'img/_template_foto/gianni_morandi.jpg',
       'img_path' => 'img/_template_foto/back.jpeg',
@@ -110,25 +110,25 @@ public function getProfiloTable($id, $status = 0) {
     array (
       'id'=>'2',
       'titolo'=>'Attivita1',
-      'data'=>'12/12/2012',
+      'data'=>'2/2/202',
       'chiuso'=>true,
     ),
     array (
       'id'=>'56',
       'titolo'=>'Attivita2',
-      'data'=>'12/12/2000',
+      'data'=>'2/2/2000',
       'chiuso'=>false,
     ),
     array (
       'id'=>'89',
       'titolo'=>'Attivita3',
-      'data'=>'12/12/2012',
+      'data'=>'2/2/202',
       'chiuso'=>true,
     ),
     array (
       'id'=>'42',
       'titolo'=>'Attivita4',
-      'data'=>'12/12/2012',
+      'data'=>'2/2/202',
       'chiuso'=>false,
     ),
   );
@@ -145,7 +145,7 @@ public function deleteProfilo($id) {
 }
 
 public function login($email, $password) {
-  $_SESSION['user_id'] = 12;
+  $_SESSION['user_id'] = 2;
   return true;
   //return false;
 }
@@ -156,7 +156,7 @@ public function logout() {
 
 public function getPost($id, $mock = NULL) {
   $post = [
-    'chiuso' => 'true',
+    'chiuso' => 'false',
     'link' => 'https://goo.gl/maps/KpxfvzkjXvCUyFcr7',
     'img_path' => '../img/_template_foto/rifiuti3.jpg',
     'titolo' => 'RACCOLTA RIFIUTI',
@@ -164,8 +164,8 @@ public function getPost($id, $mock = NULL) {
     'nome' => 'Paolo',
     'cognome' => 'Rossi',
     'nvolontari' => 6,
-    'data' => '12/02/2020',
-    'ora' => '12:00',
+    'data' => '2/02/2020',
+    'ora' => '2:00',
     'luogo' => 'Via Luigi Luzzatti',
     'provincia' => 'Padova',
     'descrizione' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur luctus mi. Nulla id luctus lorem. Suspendisse semper in lectus sed convallis. Sed imperdiet lectus non rhoncus laoreet. Duis condimentum vel mauris facilisis sollicitudin. Mauris nec sapien ipsum. In vulputate tincidunt sapien, et porta lorem commodo a. Aenean vitae mer augue.'
@@ -178,8 +178,8 @@ public function getPost($id, $mock = NULL) {
 //   return [
 //     'id' => $id,
 //     'titolo' => 'Coperte ai senzatetto',
-//     'id_autore' => 12,
-//     'data' => '12/12/2020',
+//     'id_autore' => 2,
+//     'data' => '2/2/2020',
 //     'ora' => '20:30',
 //     'descrizione' => 'Minima ipsa eos consequuntur. Iure vel commodi in magni autem non. Fuga exercitationem nesciunt unde accusantium molestias eligendi voluptatem voluptatem. Non ut dicta perspiciatis ea consequatur dolor. Adipisci et provident velit ducimus est temporibus nisi.',
 //     'img_path' => 'img/_template_foto/rifiuti3.jpg',
@@ -206,7 +206,7 @@ public function getPostcard($page, $postcard_per_page, &$page_count, $filter = N
       'img_path' => '../img/_template_foto/rifiuti3.jpg',
       'id' => 7,
       'titolo' => 'Raccolta Rifiuti',
-      'data' => '12/12/2020',
+      'data' => '2/2/2020',
       'provincia' => 'Padova',
       'nvolontari' => 42,
       'descrizione' => "Ei fu, e adesso non c'è più",
@@ -215,7 +215,7 @@ public function getPostcard($page, $postcard_per_page, &$page_count, $filter = N
       'img_path' => '../img/_template_foto/rifiuti3.jpg',
       'id' => 14,
       'titolo' => 'Raccolta Rifiuti',
-      'data' => '12/12/2020',
+      'data' => '2/2/2020',
       'provincia' => 'Padova',
       'nvolontari' => 987,
       'descrizione' => "Ei fu, e adesso non c'è più",
@@ -224,7 +224,7 @@ public function getPostcard($page, $postcard_per_page, &$page_count, $filter = N
       'img_path' => '../img/_template_foto/rifiuti3.jpg',
       'id' => 21,
       'titolo' => 'Raccolta Rifiuti',
-      'data' => '12/12/2020',
+      'data' => '2/2/2020',
       'provincia' => 'Padova',
       'nvolontari' => 456,
       'descrizione' => "Ei fu, e adesso non c'è più",
@@ -233,7 +233,7 @@ public function getPostcard($page, $postcard_per_page, &$page_count, $filter = N
       'img_path' => '../img/_template_foto/rifiuti3.jpg',
       'id' => 28,
       'titolo' => 'Raccolta Rifiuti',
-      'data' => '12/12/2020',
+      'data' => '2/2/2020',
       'provincia' => 'Padova',
       'nvolontari' => 333,
       'descrizione' => "Ei fu, e adesso non c'è più",
@@ -242,7 +242,7 @@ public function getPostcard($page, $postcard_per_page, &$page_count, $filter = N
       'img_path' => '../img/_template_foto/rifiuti3.jpg',
       'id' => 35,
       'titolo' => 'Raccolta Rifiuti',
-      'data' => '12/12/2020',
+      'data' => '2/2/2020',
       'provincia' => 'Padova',
       'nvolontari' => 333,
       'descrizione' => "Ei fu, e adesso non c'è più",
@@ -251,7 +251,7 @@ public function getPostcard($page, $postcard_per_page, &$page_count, $filter = N
       'img_path' => '../img/_template_foto/rifiuti3.jpg',
       'id' => 42,
       'titolo' => 'Raccolta Rifiuti',
-      'data' => '12/12/2020',
+      'data' => '2/2/2020',
       'provincia' => 'Padova',
       'nvolontari' => 333,
       'descrizione' => "Ei fu, e adesso non c'è più",

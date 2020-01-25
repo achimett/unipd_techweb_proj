@@ -222,10 +222,6 @@ a:visited {
   color: #f2f2f2;
 }
 
-.registrazione_button {
-  width: 100%;
-}
-
 #post_social_conferma_modifica {
   font-size: 100%;
 }
@@ -243,7 +239,8 @@ a:visited {
   color: #FA3F00;
   font-weight: bold;
   padding: 2%;
-  width: 100%;
+  display: block;
+  width: 96%;
 }
 
 
@@ -448,7 +445,7 @@ ul.error {
 
 #post_sfoglia {
   padding: 3%;
-  width: 100%;
+  width: 94%;
   text-align: center;
 }
 
@@ -474,12 +471,12 @@ ul.error {
 
 #post_social_textarea {
   display: block;
-  padding: 1%;
+  padding: 2%;
   margin: 1% auto;
-  width: 96%;
+  width: 94%;
+  border: 1px solid #000;
   resize: vertical;
   min-height: 3em;
-  background-color: #70c653;
 }
 
 #post_social_conferma_modifica, #post_social_elimina, .registrazione_button {
@@ -489,9 +486,8 @@ ul.error {
 }
 
 #post_social_bottoneinvia {
-  width: 30%;
-  margin: 2% 2%;
-  float: right;
+  width: 98%;
+  margin: 1%;
   clear: both;
 }
 
