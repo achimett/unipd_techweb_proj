@@ -136,7 +136,7 @@ public function getProfiloTable($id, $status = 0) {
 
 public function setProfilo($id, $email, $password, $conf_password, $nome,
 $cognome, $datanascita, $cf, $bio, $img_path, $telefono) {
-  return 12;
+  return 2;
   //return array('errore 1', 'errore 2', 'errore 3');
 }
 
@@ -156,10 +156,11 @@ public function logout() {
 
 public function getPost($id, $mock = NULL) {
   $post = [
+    'chiuso' => 'true',
     'link' => 'https://goo.gl/maps/KpxfvzkjXvCUyFcr7',
     'img_path' => '../img/_template_foto/rifiuti3.jpg',
     'titolo' => 'RACCOLTA RIFIUTI',
-    'id_autore' => 1,
+    'id_autore' => 2,
     'nome' => 'Paolo',
     'cognome' => 'Rossi',
     'nvolontari' => 6,

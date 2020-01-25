@@ -5,6 +5,15 @@
   display: none;
 }
 
+#header h1 {
+  font-size: 3em;
+}
+#info_utente img {
+    height: 3em;
+    width: 3em;
+    margin: 0.2em;
+}
+
 #hamburger {
   padding-right: 2%;
   display: inline-block;
@@ -12,9 +21,10 @@
 }
 
 #hamburger img {
-  vertical-align: middle;
-  height: 4em;
-  width: 4em;
+  height: 3em;
+  width: 3em;
+  margin: 0.2em;
+  display: block;
 }
 
 /********** MENU **********/

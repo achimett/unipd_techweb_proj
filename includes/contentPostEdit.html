@@ -2,12 +2,12 @@
   <error />
   <form id="post_form" action="<action />" method="post" onsubmit="return validatePostEdit() != 0" enctype="multipart/form-data">
   <fieldset>
-    <legend class="post_titolo">Nuovo post</legend>
+    <legend class="post_titolo"><titoloContainer /></legend>
 
     <ul id="postEdit_informazioni_lista">
       <li>
         <label class="label" for="postEdit_core_titolo_input">Titolo del post:</label>
-        <input type="text" class="postEdit_informazioni_input" name="titolo" value="<titolo />" size="40" tabindex="50"/>
+        <input type="text" class="postEdit_informazioni_input" id="postEdit_core_titolo_input" name="titolo" value="<titolo />" size="40" tabindex="50"/>
 
       </li>
       <li>

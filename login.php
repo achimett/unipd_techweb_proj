@@ -80,7 +80,7 @@ $content = str_replace('<reg />', file_get_contents('includes/registrazione.html
 $content = str_replace('<profiloEditTitolo />', "Registrati", $content);
 $content = str_replace('<testoBottone />', "invia", $content);
 $content = str_replace('<nomeSubmit />', "registrazione", $content);
-
+$content = str_replace('<delButton />', "", $content);
 
 $content = str_replace('<goto />', 'login.php', $content);
 

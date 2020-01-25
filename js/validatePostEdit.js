@@ -107,7 +107,7 @@ function mostraErrore(input, testoErrore) {
   togliErrore(input);
   var p = input.parentNode;
   var span = document.createElement('span');
-  span.className = "error";
+  span.className = "postEdit_error";
   span.innerText = testoErrore;
   p.appendChild(span);
 
