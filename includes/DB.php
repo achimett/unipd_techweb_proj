@@ -1,7 +1,7 @@
 <?php
 class DB extends mysqli{
 
-	private $imgDir = 'img/';
+	private $imgDir = 'img/upload/';
 	private $namePattern = '/^[a-zA-Z ]{2,30}$/' ;
 	private $mailPattern = '/^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,5}$/' ;
 	private $passPattern = '/^(?=.*[0-9])(?=.*[A-Z]).{8,}$/' ; // Almeno 8 caratteri con almeno una maiuscola e un numero
