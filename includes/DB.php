@@ -10,7 +10,7 @@ class DB extends mysqli{
 	private $max_img_size = 3000000; // 3MB
 	private $perm_img_format = array(IMAGETYPE_GIF , IMAGETYPE_JPEG ,IMAGETYPE_PNG , IMAGETYPE_BMP);
 
-
+	//public function __construct($host="localhost:8889", $user="root", $pass="root", $db="doit")
 	public function __construct($host="localhost", $user="root", $pass="", $db="doit")
 	{
         parent::__construct($host, $user, $pass, $db);
@@ -177,8 +177,6 @@ class DB extends mysqli{
 			}
 
 		}
-
-
 	}
 
 	public function deleteProfilo($id)
@@ -192,10 +190,12 @@ class DB extends mysqli{
 		$query =  $this->prepare($sql);
 		$query2 = $this->prepare($sql2);
 		$query3 = $this->prepare($sql3);
+		$query4 = $this->prepare($sql4);
 
 		$query->bind_param("ii", $id, $id);
 		$query2->bind_param("ii", $id, $id);
 		$query3->bind_param("i", $id);
+		$query4->bind_param("i", $id);
 
 
 		if(!$query->execute())
@@ -252,7 +252,7 @@ class DB extends mysqli{
 		unset($_SESSION['user_id']);
 	}
 
-	 public function getPost($id = NULL)
+	 public function getPost($id)
 	{
 		$sql = "SELECT  p.id,p.titolo,p.id_autore,u.nome,u.cognome, DATE_FORMAT(data,'%d/%m/%Y') AS data, DATE_FORMAT(data,'%H:%i') AS ora,p.descrizione,p.img_path,p.provincia,p.luogo,p.chiuso, COUNT(*) as nvolontari FROM (post p JOIN partecipazione pa ON p.id = pa.id_post) JOIN utente u ON p.id_autore = u.id WHERE p.id = ? ";
 		$query = $this->prepare($sql);
@@ -585,8 +585,8 @@ class DB extends mysqli{
 	{
 		$sql = "SELECT id, titolo, CONCAT(DATE_FORMAT(data,'%d/%m/%Y'),' ', DATE_FORMAT(data,'%H:%i:%s')) AS data, chiuso FROM post WHERE id_autore = ? ";
 
-		if($status ===  1 ) {$sql .= "AND chiuso = 0";}
-		if($status === -1 ) {$sql .= "AND chiuso = 1";}
+		if($status ==  1 ) {$sql .= "AND chiuso = 0";}
+		if($status == -1 ) {$sql .= "AND chiuso = 1";}
 
 		$query = $this->prepare($sql);
 		$query->bind_param("i", $id);
@@ -676,7 +676,7 @@ class DB extends mysqli{
 
 	public function getPostcard($page, $postcard_per_page, &$page_count, $filter = NULL)
 	{
-		$sql = "SELECT po.id,po.titolo,DATE_FORMAT(po.data,'%d/%m/%Y'),po.provincia,po.luogo, po.img_path, COUNT(pa.id) AS nvolontari, po.descrizione FROM post po LEFT JOIN partecipazione pa ON po.id = pa.id_post GROUP BY po.id ";
+		$sql = "SELECT po.id,po.titolo,DATE_FORMAT(po.data,'%d/%m/%Y') AS data,po.provincia,po.luogo, po.img_path, COUNT(pa.id) AS nvolontari, po.descrizione FROM post po LEFT JOIN partecipazione pa ON po.id = pa.id_post GROUP BY po.id ";
 
 		if(!empty($filter)) {$sql .= "HAVING po.provincia LIKE '%".$this->real_escape_string($filter)."%'";}
 

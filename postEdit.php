@@ -95,7 +95,7 @@ $content = str_replace('<error />', $errors, $content);
 if ($post_id === NULL) {
   $content = str_replace('<elimina />', '', $content);
 } else {
-  $content = str_replace('<elimina />', '<input type="submit" name="elimina" value="Elimina Post" id="post_social_elimina" class="bottone registrazione_button profiloEdit_delete_buttons" />', $content);
+  $content = str_replace('<elimina />', '<input type="submit" name="elimina" value="Elimina Post" id="post_social_elimina" class="bottone registrazione_button profiloEdit_delete_buttons" tabindex="31" />', $content);
 }
 
 if ($post === NULL) {

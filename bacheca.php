@@ -65,7 +65,7 @@ $next = ''; // HTML con link alla pagina precedente
 if ($page !== 1) {
   $previous = '<a href="bacheca.php?page=' . ($page - 1) . '&amp;provincia='. $provincia . '">&lt;</a>';
 }
-if ($page >= $page_count) {
+if ($page < $page_count) {
   $next = '<a href="bacheca.php?page=' . ($page + 1) . '&amp;provincia='. $provincia . '">&gt;</a>';
 }
 

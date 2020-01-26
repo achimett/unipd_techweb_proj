@@ -18,7 +18,7 @@ CREATE TABLE utente (
   datanascita DATE NOT NULL,
   cf          VARCHAR(16) NOT NULL UNIQUE,
   bio         TEXT NOT NULL,
-  img_path    VARCHAR(256) NOT NULL DEFAULT 'img/u-default.jpg'
+  img_path    VARCHAR(256) NOT NULL DEFAULT 'img/utentenero_icon.png'
 );
 
 CREATE TABLE post (
@@ -51,12 +51,12 @@ CREATE TABLE  partecipazione (
 	id          INT AUTO_INCREMENT PRIMARY KEY,
 	id_post		  INT NOT NULL,
 	id_utente   INT NOT NULL,
-	
+
 	FOREIGN KEY (id_utente) REFERENCES utente(id),
-  FOREIGN KEY (id_post) REFERENCES post(id) 
+  FOREIGN KEY (id_post) REFERENCES post(id)
 
 );
 
-#maybe i will add some index 
+#maybe i will add some index
 
 SET FOREIGN_KEY_CHECKS = 1; -- Riabilita check

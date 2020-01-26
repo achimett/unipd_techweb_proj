@@ -23,15 +23,16 @@
   <div id="profilo_contributi">
       <h1 class="post_titolo">Contributi</h1>
     <form id="profilo_radio_button" action="<action />" method="post">
-      <div>
+      <fieldset>
+        <legend class="labelFiltro">Filtro</legend>
         <input type="radio" name="status" value="0" id="tutte_le_attivita" tabindex="22" <check1 /> />
-        <label class="filtro" for="tutte_le_attivita"> Tutte le attività</label>
-        <input type="radio" name="status" value="1" id="aperte" <check2 /> />
+        <label class="filtro" for="tutte_le_attivita"> Tutte le attivit&agrave;</label>
+        <input type="radio" name="status" value="1" id="aperte" tabindex="23" <check2 /> />
         <label class="filtro" for="aperte"> Aperte</label>
-        <input type="radio" name="status" value="-1" id="chiuse" <check3 /> />
+        <input type="radio" name="status" value="-1" id="chiuse" tabindex="24" <check3 /> />
         <label class="filtro" for="chiuse"> Chiuse</label>
-        <input type="submit" class="bottone" value="Applica Filtro" tabindex="23" />
-      </div>
+        <input type="submit" class="bottone" value="Applica Filtro" tabindex="25" />
+      </fieldset>
     </form>
     <table id="profilo_table_contributi">
       <thead>
