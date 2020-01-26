@@ -19,7 +19,6 @@ $db = new DB();
 
 $post = file_get_contents('includes/contentPost.html');
 
-$getPost = $db->getPost($_GET['id']);
 
 $postEdit = 'postEdit.php?id=';
 $profilo = "profilo.php?id=";
@@ -30,8 +29,7 @@ controlloPulsanteDoit($db);
 controlloNewCommento($db);
 controlloDeleteCommento($db);
 
-var_dump($db->isPartecipante($_GET["id"], $_SESSION['user_id']));
-
+$getPost = $db->getPost($_GET['id']);
 
 // Titolo della pagina
 $title = $getPost['titolo'];//$postInfo['titolo'];

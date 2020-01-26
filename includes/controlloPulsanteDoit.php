@@ -1,8 +1,5 @@
 <?php
 
-/**
-* La funzione reindirizza l'utente a 404 se il post non esiste
-*/
 function controlloPulsanteDoit($db) {
   if (isset($_GET['id']) === true && $db->postExist($_GET['id'])) {
 
@@ -10,27 +7,21 @@ function controlloPulsanteDoit($db) {
 
       if(isset($_SESSION['user_id']) === true) {
 
-        if($db->isChiuso($_GET['id']) === false){
-          if($db->isAutore($_GET['id'], $_SESSION['user_id']) === true){
-            $db->chiudi($_GET['id'], $_SESSION['user_id']);
+        if($db->isAutore($_GET['id'], $_SESSION['user_id']) === true){
+          if($db->isChiuso($_GET['id']) === false){
+          } else {
+            $db->chiudi($_GET['id'], $_SESSION['user_id']);  $db->apri($_GET['id'], $_SESSION['user_id']);
           }
-          else if($db->isPartecipante($_GET['id'], $_SESSION['user_id']) === true){
+        } else if($db->isAutore($_GET['id'], $_SESSION['user_id']) === false){
+          if($db->isPartecipante($_GET['id'], $_SESSION['user_id']) === true){
             $db->abbandona($_GET['id'], $_SESSION['user_id']);
-            echo "abb";
-          }
-          else if($db->isPartecipante($_GET['id'], $_SESSION['user_id']) === false){
+          } else {
             $db->partecipa($_GET['id'], $_SESSION['user_id']);
-            echo "part";
-          }
-        } else {
-          if($db->isAutore($_GET['id'], $_SESSION['user_id']) === true){
-
-            $db->apri($_GET['id'], $_SESSION['user_id']);
           }
         }
       }
-
     }
   }
 }
- ?>
+
+?>
