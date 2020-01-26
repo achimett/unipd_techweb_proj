@@ -107,7 +107,8 @@ a:visited#info_utente {
 }
 
 #menu ul#menu_down {
-  padding-left: 1em;
+  width: 92%;
+  padding-left: 4%;
 }
 
 #menu ul {
