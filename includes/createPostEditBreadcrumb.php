@@ -9,7 +9,7 @@
 */
 function createPostEditBreadcrumb($db, $id = NULL) {
   if ($id === NULL) {
-    return '<p id="breadcrumb">Crea Nuovo Post</p>';
+    return '<p id="breadcrumb">Crea Nuovo <span xml:lang="en">Post</span></p>';
   }
 
   return '<p id="breadcrumb">' .
