@@ -98,6 +98,9 @@ a:visited#info_utente {
 }
 
 #menu ul#menu_up {
+  width: 96%;
+  margin-right: 2%;
+  margin-left: 2%;
   padding-bottom: 1em;
   border-bottom: 3px solid #E8E9EB;
   margin-bottom: 1em;
