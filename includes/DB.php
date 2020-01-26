@@ -10,8 +10,8 @@ class DB extends mysqli{
 	private $max_img_size = 3000000; // 3MB
 	private $perm_img_format = array(IMAGETYPE_GIF , IMAGETYPE_JPEG ,IMAGETYPE_PNG , IMAGETYPE_BMP);
 
-
-	public function __construct($host="localhost:8889", $user="root", $pass="root", $db="doit")
+	//public function __construct($host="localhost:8889", $user="root", $pass="root", $db="doit")
+	public function __construct($host="localhost", $user="root", $pass="", $db="doit")
 	{
         parent::__construct($host, $user, $pass, $db);
 
@@ -177,8 +177,6 @@ class DB extends mysqli{
 			}
 
 		}
-
-
 	}
 
 	public function deleteProfilo($id)
@@ -192,10 +190,12 @@ class DB extends mysqli{
 		$query =  $this->prepare($sql);
 		$query2 = $this->prepare($sql2);
 		$query3 = $this->prepare($sql3);
+		$query4 = $this->prepare($sql4);
 
 		$query->bind_param("ii", $id, $id);
 		$query2->bind_param("ii", $id, $id);
 		$query3->bind_param("i", $id);
+		$query4->bind_param("i", $id);
 
 
 		if(!$query->execute())
@@ -676,7 +676,7 @@ class DB extends mysqli{
 
 	public function getPostcard($page, $postcard_per_page, &$page_count, $filter = NULL)
 	{
-		$sql = "SELECT po.id,po.titolo,DATE_FORMAT(po.data,'%d/%m/%Y'),po.provincia,po.luogo, po.img_path, COUNT(pa.id) AS nvolontari, po.descrizione FROM post po LEFT JOIN partecipazione pa ON po.id = pa.id_post GROUP BY po.id ";
+		$sql = "SELECT po.id,po.titolo,DATE_FORMAT(po.data,'%d/%m/%Y') AS data,po.provincia,po.luogo, po.img_path, COUNT(pa.id) AS nvolontari, po.descrizione FROM post po LEFT JOIN partecipazione pa ON po.id = pa.id_post GROUP BY po.id ";
 
 		if(!empty($filter)) {$sql .= "HAVING po.provincia LIKE '%".$this->real_escape_string($filter)."%'";}
 

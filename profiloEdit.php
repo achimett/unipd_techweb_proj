@@ -47,6 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
   } else if (isset($_POST['elimina'])) {
     $db->deleteProfilo($_SESSION['user_id']);
+    $db->logout();
     header('Location: index.php');
   }
 }

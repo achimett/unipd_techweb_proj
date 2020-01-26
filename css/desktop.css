@@ -690,7 +690,7 @@ ul.error {
 }
 
 /* Registrazione - Modifica Profilo */
-#login_box, #registrazione_box {
+#login_box, .registrazione_box {
   background-color: #f4f4f4;
   border-radius: 0.5em;
   margin-bottom: 2%;
