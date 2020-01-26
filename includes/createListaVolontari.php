@@ -1,7 +1,7 @@
 
 <?php
 function createListaVolontari($db, $profilo, $k) {
-  $volontari = $db->getVolontari($db);
+  $volontari = $db->getVolontari($_GET['id']);
   $result = '';
   foreach ($volontari as $volontario) {
     $v = file_get_contents("includes/volontario.html");
