@@ -55,7 +55,7 @@ class DB extends mysqli{
 
 	public function getProfilo($id = NULL)
 	{
-		$sql = "SELECT email,nome,cognome,telefono,datanascita,cf,bio,img_path FROM `utente` WHERE id=?";
+		$sql = "SELECT email,nome,cognome,telefono,DATE_FORMAT(datanascita,'%d/%m/%Y') as datanascita,cf,bio,img_path FROM `utente` WHERE id=?";
 		$query = $this->prepare($sql);
 		$query->bind_param("i", $id);
 		$query->execute();
@@ -184,19 +184,22 @@ class DB extends mysqli{
 	public function deleteProfilo($id)
 	{
 		$sql  = "DELETE pa FROM partecipazione pa JOIN post po ON pa.id_post = po.id WHERE pa.id_utente = ? OR po.id_autore = ?;";
-		$sql2 = "DELETE FROM post WHERE id_autore= ?;";
-		$sql3 = "DELETE FROM utente WHERE id= ? ;";
+		$sql2 = "DELETE co FROM commento co JOIN post po ON co.id_post = po.id WHERE po.id_autore = ? OR co.id_autore = ?";
+		$sql3 = "DELETE FROM post WHERE id_autore = ? ;";
+		$sql4 = "DELETE FROM utente WHERE id = ? ;";
 
 
 		$query =  $this->prepare($sql);
 		$query2 = $this->prepare($sql2);
 		$query3 = $this->prepare($sql3);
-
+		$query4 = $this->prepare($sql4);
+		
 		$query->bind_param("ii", $id, $id);
-		$query2->bind_param("i", $id);
+		$query2->bind_param("ii", $id, $id);
 		$query3->bind_param("i", $id);
-
-
+		$query4->bind_param("i", $id);
+		
+		
 		if(!$query->execute())
 		{
 			return NULL;
@@ -208,11 +211,17 @@ class DB extends mysqli{
 			return NULL;
 		}
 		$query2->close();
-
-		if($query3->execute())
+		
+		if(!$query3->execute())
+		{
+			return NULL;
+		}
+		$query3->close();
+		
+		if($query4->execute())
 		{
 			$res = $this->affected_rows;
-			$query3->close();
+			$query4->close();
 			return (bool)$res;
 		}
 		return NULL;
@@ -267,27 +276,36 @@ class DB extends mysqli{
 	{
 
 		$sql = "DELETE FROM partecipazione WHERE id_post= ? ;";
-		$sql2 = "DELETE FROM post WHERE id= ?;";
-
+		$sql2 = "DELETE FROM commento WHERE id_post= ?";
+		$sql3 = "DELETE FROM post WHERE id= ?;";
+		
 		$query = $this->prepare($sql);
 		$query2 = $this->prepare($sql2);
-
+		$query3 = $this->prepare($sql3);
+		
 		$query->bind_param("i", $id);
 		$query2->bind_param("i", $id);
-
-
+		$query3->bind_param("i", $id);
+		
+		
 		if(!$query->execute())
 		{
 			$query->close();
 			return NULL;
 		}
-
+		
+		if(!$query2->execute())
+		{
+			$query2->close();
+			return NULL;
+		}
+		
 		$query->close();
-
-		if($query2->execute())
+		
+		if($query3->execute())
 		{
 			$res = $this->affected_rows;
-			$query2->close();
+			$query3->close();
 			return (bool)$res;
 		}
 	}
@@ -461,7 +479,7 @@ class DB extends mysqli{
 
 	public function isChiuso($id_post)
 	{
-		$sql = "SELECT chiuso FROM post WHERE id = ?;";
+		$sql = "SELECT chiuso FROM post WHERE id = ? AND chiuso = 1;";
 		$query = $this->prepare($sql);
 		$query->bind_param("i", $id_post);
 
@@ -660,10 +678,10 @@ class DB extends mysqli{
 
 	public function getPostcard($page, $postcard_per_page, &$page_count, $filter = NULL)
 	{
-		$sql = "SELECT po.id,po.titolo,po.data,po.provincia,po.luogo, po.img_path, COUNT(pa.id) AS nvolontari, po.descrizione FROM post po LEFT JOIN partecipazione pa ON po.id = pa.id_post GROUP BY po.id ";
-
+		$sql = "SELECT po.id,po.titolo,DATE_FORMAT(po.data,'%d/%m/%Y'),po.provincia,po.luogo, po.img_path, COUNT(pa.id) AS nvolontari, po.descrizione FROM post po LEFT JOIN partecipazione pa ON po.id = pa.id_post GROUP BY po.id ";
+		
 		if(!empty($filter)) {$sql .= "HAVING po.provincia LIKE '%".$this->real_escape_string($filter)."%'";}
-
+			
 		if($result = $this->query($sql))
 		{
 			$card = array();
