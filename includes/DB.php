@@ -277,13 +277,16 @@ class DB extends mysqli{
 	{
 	
 		$sql = "DELETE FROM partecipazione WHERE id_post= ? ;";
-		$sql2 = "DELETE FROM post WHERE id= ?;";
+		$sql2 = "DELETE FROM commento WHERE id_post= ?";
+		$sql3 = "DELETE FROM post WHERE id= ?;";
 		
 		$query = $this->prepare($sql);
 		$query2 = $this->prepare($sql2);
+		$query3 = $this->prepare($sql3);
 		
 		$query->bind_param("i", $id);
 		$query2->bind_param("i", $id);
+		$query3->bind_param("i", $id);
 		
 		
 		if(!$query->execute())
@@ -292,12 +295,18 @@ class DB extends mysqli{
 			return NULL;
 		}
 		
+		if(!$query2->execute())
+		{
+			$query2->close();
+			return NULL;
+		}
+		
 		$query->close();
 		
-		if($query2->execute())
+		if($query3->execute())
 		{
 			$res = $this->affected_rows;
-			$query2->close();
+			$query3->close();
 			return (bool)$res;
 		}
 	}
