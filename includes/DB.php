@@ -185,17 +185,20 @@ class DB extends mysqli{
 	public function deleteProfilo($id)
 	{	
 		$sql  = "DELETE pa FROM partecipazione pa JOIN post po ON pa.id_post = po.id WHERE pa.id_utente = ? OR po.id_autore = ?;";
-		$sql2 = "DELETE FROM post WHERE id_autore= ?;";
-		$sql3 = "DELETE FROM utente WHERE id= ? ;";
+		$sql2 = "DELETE co FROM commento co JOIN post po ON co.id_post = po.id WHERE po.id_autore = ? OR co.id_autore = ?";
+		$sql3 = "DELETE FROM post WHERE id_autore = ? ;";
+		$sql4 = "DELETE FROM utente WHERE id = ? ;";
 
 		
 		$query =  $this->prepare($sql);
 		$query2 = $this->prepare($sql2);
 		$query3 = $this->prepare($sql3);
+		$query4 = $this->prepare($sql4);
 		
 		$query->bind_param("ii", $id, $id);
-		$query2->bind_param("i", $id);
+		$query2->bind_param("ii", $id, $id);
 		$query3->bind_param("i", $id);
+		$query4->bind_param("i", $id);
 		
 		
 		if(!$query->execute())
@@ -210,10 +213,16 @@ class DB extends mysqli{
 		}
 		$query2->close();
 		
-		if($query3->execute())
+		if(!$query3->execute())
+		{
+			return NULL;
+		}
+		$query3->close();
+		
+		if($query4->execute())
 		{
 			$res = $this->affected_rows;
-			$query3->close();
+			$query4->close();
 			return (bool)$res;
 		}		
 		return NULL;
