@@ -462,7 +462,7 @@ class DB extends mysqli{
 
 	public function isChiuso($id_post) 
 	{
-		$sql = "SELECT chiuso FROM post WHERE id = ?;";
+		$sql = "SELECT chiuso FROM post WHERE id = ? AND chiuso = 1;";
 		$query = $this->prepare($sql);
 		$query->bind_param("i", $id_post);
 		
