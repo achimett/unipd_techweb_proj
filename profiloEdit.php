@@ -9,7 +9,6 @@ require_once('includes/createProfiloEditBreadcrumb.php');
 // Oggetto di accesso al database
 $db = new DB();
 
-
 // Controllo sicurezza
 if (!(isset($_GET['id']) &&
       isset($_SESSION['user_id']) &&
@@ -18,6 +17,7 @@ if (!(isset($_GET['id']) &&
 }
 
 // Gestione del metodo POST
+$profilo = '';
 $errors = '';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (isset($_POST['salva'])) {
@@ -42,6 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result == $_SESSION['user_id']) {
       header('Location: profilo.php?id=' . $_SESSION['user_id']);
     } else {
+      $profilo = $_POST;
       $errors = createFormErrors($result);
     }
   } else if (isset($_POST['elimina'])) {
@@ -85,17 +86,19 @@ $content = str_replace('<nomeSubmit />', "salva", $content);
 $content = str_replace('<goto />', 'profiloEdit.php?id=' . $_SESSION['user_id'], $content);
 
 $content = str_replace('<action />', 'profiloEdit.php?id=' . $_SESSION['user_id'], $content);
-$content = str_replace('<error />', $errors, $content);
+$content = str_replace('<errorRegistrazione />', $errors, $content);
 
-$profilo = $db->getProfilo($_SESSION['user_id']);
+if ($profilo == '') {
+  $profilo = $db->getProfilo($_SESSION['user_id']);
+}
 $content = str_replace('<nome />', $profilo['nome'], $content);
 $content = str_replace('<cognome />', $profilo['cognome'], $content);
 $content = str_replace('<datanascita />', $profilo['datanascita'], $content);
 $content = str_replace('<cf />', $profilo['cf'], $content);
 $content = str_replace('<email />', $profilo['email'], $content);
 $content = str_replace('<telefono />', $profilo['telefono'], $content);
-$content = str_replace('<password />', $profilo['password'], $content);
-$content = str_replace('<img_path />', $profilo['img_path'], $content);
+$content = str_replace('<password />', '', $content);
+$content = str_replace('<img_path />', '', $content);
 $content = str_replace('<bio />', $profilo['bio'], $content);
 
 // Rimpiazzo dei segnaposto sull'intera pagina
