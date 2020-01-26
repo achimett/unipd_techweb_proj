@@ -1,5 +1,4 @@
 <?php
-/* CLASSE MOCK PER DB */
 class DB extends mysqli{
 
 	private $imgDir = 'img/';
@@ -94,7 +93,7 @@ class DB extends mysqli{
 		if (strlen($bio) > 65535) {$error[] = "biografia troppo lunga";}
 		if (strlen($bio) === 0) {$error[] = "nessuno biografia";}
 		if (!preg_match($this->cellPattern,$telefono)) {$error[] = "numero non valido";}
-		if (!$id && $er = $this->alreadyReg($email,$cf)) 
+		if (!$id && $er = $this->alreadyReg($email,$cf))
 		{
 			foreach($er as $e)
 			{$error[] = $e;}
@@ -117,7 +116,7 @@ class DB extends mysqli{
 			$img_path = $this->imgDir.$hash;
 		}
 
-		if(count($error)) {return $error;} 	 //se non ho passato alcuni check ritorno l'array con gli errori
+		if(count($error)) {return $error;}
 
 		if($id==0) //new profilo
 		{
@@ -210,13 +209,13 @@ class DB extends mysqli{
 			return NULL;
 		}
 		$query2->close();
-		
+
 		if(!$query3->execute())
 		{
 			return NULL;
 		}
 		$query3->close();
-		
+
 		if($query4->execute())
 		{
 			$res = $this->affected_rows;
@@ -277,30 +276,30 @@ class DB extends mysqli{
 		$sql = "DELETE FROM partecipazione WHERE id_post= ? ;";
 		$sql2 = "DELETE FROM commento WHERE id_post= ?";
 		$sql3 = "DELETE FROM post WHERE id= ?;";
-		
+
 		$query = $this->prepare($sql);
 		$query2 = $this->prepare($sql2);
 		$query3 = $this->prepare($sql3);
-		
+
 		$query->bind_param("i", $id);
 		$query2->bind_param("i", $id);
 		$query3->bind_param("i", $id);
-		
-		
+
+
 		if(!$query->execute())
 		{
 			$query->close();
 			return NULL;
 		}
-		
+
 		if(!$query2->execute())
 		{
 			$query2->close();
 			return NULL;
 		}
-		
+
 		$query->close();
-		
+
 		if($query3->execute())
 		{
 			$res = $this->affected_rows;
@@ -678,7 +677,7 @@ class DB extends mysqli{
 	public function getPostcard($page, $postcard_per_page, &$page_count, $filter = NULL)
 	{
 		$sql = "SELECT po.id,po.titolo,DATE_FORMAT(po.data,'%d/%m/%Y'),po.provincia,po.luogo, po.img_path, COUNT(pa.id) AS nvolontari, po.descrizione FROM post po LEFT JOIN partecipazione pa ON po.id = pa.id_post GROUP BY po.id ";
-		
+
 		if(!empty($filter)) {$sql .= "HAVING po.provincia LIKE '%".$this->real_escape_string($filter)."%'";}
 
 		if($result = $this->query($sql))
