@@ -16,9 +16,11 @@ function controlloPulsanteDoit($db) {
           }
           else if($db->isPartecipante($_GET['id'], $_SESSION['user_id']) === true){
             $db->abbandona($_GET['id'], $_SESSION['user_id']);
+            echo "abb";
           }
           else if($db->isPartecipante($_GET['id'], $_SESSION['user_id']) === false){
             $db->partecipa($_GET['id'], $_SESSION['user_id']);
+            echo "part";
           }
         } else {
           if($db->isAutore($_GET['id'], $_SESSION['user_id']) === true){
@@ -27,7 +29,7 @@ function controlloPulsanteDoit($db) {
           }
         }
       }
-      unset($_POST['action']);
+
     }
   }
 }

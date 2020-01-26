@@ -2,7 +2,7 @@
 /* CLASSE MOCK PER DB */
 class DB extends mysqli{
 
-	private $imgDir = 'img/upload/';
+	private $imgDir = 'img/';
 	private $namePattern = '/^[a-zA-Z ]{2,30}$/' ;
 	private $mailPattern = '/^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,5}$/' ;
 	private $passPattern = '/^(?=.*[0-9])(?=.*[A-Z]).{8,}$/' ; // Almeno 8 caratteri con almeno una maiuscola e un numero
@@ -462,7 +462,7 @@ class DB extends mysqli{
 
 	public function isChiuso($id_post)
 	{
-		$sql = "SELECT chiuso FROM post WHERE id = ?;";
+		$sql = "SELECT chiuso FROM post WHERE id = ? AND chiuso = 1;";
 		$query = $this->prepare($sql);
 		$query->bind_param("i", $id_post);
 

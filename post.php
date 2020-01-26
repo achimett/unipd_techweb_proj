@@ -16,6 +16,7 @@ require_once('includes/createPulsanteDoit.php');
 // Oggetto di accesso al database
 $db = new DB();
 
+
 $post = file_get_contents('includes/contentPost.html');
 
 $getPost = $db->getPost($_GET['id']);
@@ -28,6 +29,9 @@ check($db);
 controlloPulsanteDoit($db);
 controlloNewCommento($db);
 controlloDeleteCommento($db);
+
+var_dump($db->isPartecipante($_GET["id"], $_SESSION['user_id']));
+
 
 // Titolo della pagina
 $title = $getPost['titolo'];//$postInfo['titolo'];
