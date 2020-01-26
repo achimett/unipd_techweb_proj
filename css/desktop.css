@@ -162,6 +162,17 @@ a {
 }
 
 /********** CONTENT **********/
+
+#about {
+  background-color: #f4f4f4;
+  text-align: justify;
+  text-justify: inter-character;
+}
+
+#about p {
+    padding: 0% 3% 3% 3%;
+}
+
 .content {
   width: 80%;
   display: inline-block;
