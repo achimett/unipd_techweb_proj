@@ -94,7 +94,7 @@ class DB extends mysqli{
 		if (strlen($bio) > 65535) {$error[] = "biografia troppo lunga";}
 		if (strlen($bio) === 0) {$error[] = "nessuno biografia";}
 		if (!preg_match($this->cellPattern,$telefono)) {$error[] = "numero non valido";}
-		if ($er = $this->alreadyReg($email,$cf)) 
+		if (!$id && $er = $this->alreadyReg($email,$cf)) 
 		{
 			foreach($er as $e)
 			{$error[] = $e;}
