@@ -56,7 +56,7 @@ class DB extends mysqli{
 	
 	public function getProfilo($id = NULL) 
 	{
-		$sql = "SELECT email,nome,cognome,telefono,datanascita,cf,bio,img_path FROM `utente` WHERE id=?";
+		$sql = "SELECT email,nome,cognome,telefono,DATE_FORMAT(datanascita,'%d/%m/%Y') as datanascita,cf,bio,img_path FROM `utente` WHERE id=?";
 		$query = $this->prepare($sql);
 		$query->bind_param("i", $id);
 		$query->execute();
