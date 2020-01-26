@@ -679,7 +679,7 @@ class DB extends mysqli{
 	
 	public function getPostcard($page, $postcard_per_page, &$page_count, $filter = NULL)
 	{
-		$sql = "SELECT po.id,po.titolo,po.data,po.provincia,po.luogo, po.img_path, COUNT(pa.id) AS nvolontari, po.descrizione FROM post po LEFT JOIN partecipazione pa ON po.id = pa.id_post GROUP BY po.id ";
+		$sql = "SELECT po.id,po.titolo,DATE_FORMAT(po.data,'%d/%m/%Y'),po.provincia,po.luogo, po.img_path, COUNT(pa.id) AS nvolontari, po.descrizione FROM post po LEFT JOIN partecipazione pa ON po.id = pa.id_post GROUP BY po.id ";
 		
 		if(!empty($filter)) {$sql .= "HAVING po.provincia LIKE '%".$this->real_escape_string($filter)."%'";}
 			
