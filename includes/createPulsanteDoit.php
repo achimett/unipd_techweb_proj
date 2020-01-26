@@ -15,7 +15,7 @@ function createPulsanteDoit($db) {
       $legend = 'Vuoi abbondonare?';
       $pulsante = 'Abbandona';
     }
-    else if(isset($_SESSION['user_id']) == true){ // se non partecipa
+    else if(isset($_SESSION['user_id']) == true && $db->isPartecipante($_GET['id'], $_SESSION['user_id']) === false){ // se non partecipa
       $legend = 'Vuoi partecipare?';
       $pulsante = 'Partecipa';
     }

@@ -16,9 +16,9 @@ require_once('includes/createPulsanteDoit.php');
 // Oggetto di accesso al database
 $db = new DB();
 
+
 $post = file_get_contents('includes/contentPost.html');
 
-$getPost = $db->getPost($_GET['id']);
 
 $postEdit = 'postEdit.php?id=';
 $profilo = "profilo.php?id=";
@@ -28,6 +28,8 @@ check($db);
 controlloPulsanteDoit($db);
 controlloNewCommento($db);
 controlloDeleteCommento($db);
+
+$getPost = $db->getPost($_GET['id']);
 
 // Titolo della pagina
 $title = $getPost['titolo'];//$postInfo['titolo'];

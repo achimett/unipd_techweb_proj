@@ -9,7 +9,6 @@ require_once('includes/createPostEditBreadcrumb.php');
 
 // Oggetto di accesso al database
 $db = new DB();
-
 // Titolo della pagina
 $title = 'Bacheca';
 
