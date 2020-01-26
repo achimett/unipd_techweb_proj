@@ -66,7 +66,7 @@ $content = str_replace('<data_di_nascita />', $profilo['datanascita'], $content)
 $content = str_replace('<email />', $profilo['email'], $content);
 $content = str_replace('<telefono />', $profilo['telefono'], $content);
 $content = str_replace('<biografia />', $profilo['bio'], $content);
-$content = str_replace('<riga_tabella />', createTableRows($db->getProfiloTable($_GET['id'], $status), 24), $content);
+$content = str_replace('<riga_tabella />', createTableRows($db->getProfiloTable($_GET['id'], $status), 26), $content);
 $content = str_replace('<action />', 'profilo.php?id=' . $_GET['id'], $content);
 $content = str_replace('<check1 />', $check1, $content);
 $content = str_replace('<check2 />', $check2, $content);
