@@ -9,6 +9,7 @@ require_once('includes/createProfiloEditButton.php');
 // Oggetto di accesso al database
 $db = new DB();
 
+
 //Controllo sicurezza
 if (!isset($_GET['id'])) {
   header('Location: 404.php');

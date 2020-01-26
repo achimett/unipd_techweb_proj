@@ -8,14 +8,14 @@ function createPulsanteDoit($db) {
 
   if($db->isChiuso($_GET['id']) === false){
     if(isset($_SESSION['user_id']) === true && $db->isAutore($_GET['id'], $_SESSION['user_id']) === true){
-      $legend = 'Termina attivita';
+      $legend = 'Termina attività';
       $pulsante = 'Chiudi';
     }
     else if(isset($_SESSION['user_id']) === true && $db->isPartecipante($_GET['id'], $_SESSION['user_id']) === true){
       $legend = 'Vuoi abbondonare?';
       $pulsante = 'Abbandona';
     }
-    else if(isset($_SESSION['user_id']) == true){ // se non partecipa
+    else if(isset($_SESSION['user_id']) == true && $db->isPartecipante($_GET['id'], $_SESSION['user_id']) === false){ // se non partecipa
       $legend = 'Vuoi partecipare?';
       $pulsante = 'Partecipa';
     }
@@ -25,11 +25,11 @@ function createPulsanteDoit($db) {
     }
   } else {
     if(isset($_SESSION['user_id']) === true && $db->isAutore($_GET['id'], $_SESSION['user_id']) === true){
-      $legend = 'Riapri attivita';
+      $legend = 'Riapri attività';
       $pulsante = 'Apri';
     } else {
       $exe = file_get_contents('includes/replaceFormDoit.html');
-      $exe = str_replace("<log />", "Attivita terminata", $exe);
+      $exe = str_replace("<log />", "Attività terminata", $exe);
     }
   }
   if($legend !== '') {

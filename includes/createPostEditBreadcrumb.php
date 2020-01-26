@@ -9,12 +9,12 @@
 */
 function createPostEditBreadcrumb($db, $id = NULL) {
   if ($id === NULL) {
-    return '<p id="breadcrumb">Crea Nuovo Post</p>';
+    return '<p id="breadcrumb">Crea Nuovo <span xml:lang="en">Post</span></p>';
   }
 
   return '<p id="breadcrumb">' .
   '<a href="bacheca.php">Bacheca</a> &gt;&gt; ' .
-  '<a href="post.php?id=' . $id . '">Post</a> &gt;&gt; ' .
+  '<a href="post.php?id=' . $id . '" xml:lang="en">Post</a> &gt;&gt; ' .
   'Modifica</p>';
 }
 ?>

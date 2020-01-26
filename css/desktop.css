@@ -120,8 +120,9 @@ a:visited#info_utente {
 
 /********** MENU **********/
 #menu {
-  width: 16%;
-  margin: 0% 2% 0.2em 0%;
+  padding-bottom: 1%;
+  width: 18%;
+  margin-right: 2%;
   line-height: 2em;
   float: left;
   overflow: hidden;
@@ -131,9 +132,8 @@ a:visited#info_utente {
 }
 
 #menu ul#menu_up {
-  padding-top: 1em;
   padding-bottom: 1em;
-  border-bottom: 1px dashed #016FB9;
+  border-bottom: 3px solid #E8E9EB;
   margin-bottom: 1em;
 }
 
@@ -197,7 +197,7 @@ a:visited {
 
 /********** CONTENT **********/
 .content {
-  width: 82%;
+  width: 80%;
   display: inline-block;
 
 }
@@ -725,7 +725,6 @@ display: block;
 #login_box, #registrazione_box {
   background-color: #f4f4f4;
   border-radius: 0.5em;
-  border: 2% 0%;
   margin-bottom: 2%;
 }
 
