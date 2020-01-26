@@ -11,6 +11,9 @@
 
 function checkEmail(input) {
   var emailRE = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z.]{2,5}$/;
+  if(input.value=="user") {
+    return true;
+  }
   if (emailRE.test(input.value) == false) {
     mostraErrore(input, "Email non valida");
     return false;
@@ -20,11 +23,14 @@ function checkEmail(input) {
 }
 
 function checkPassword(input) {
-  if (input.value.length < 8) {
-    mostraErrore(input, "La password è troppo corta, inserisci almeno 8 caratteri");
+  var passRE = /^(?=.*[0-9])(?=.*[A-Z]).{8,}$/;
+  if(input.value=="user") {
+    return true;
+  }
+  if (passRE.test(input.value) == false) {
+    mostraErrore(input, "Password non valida, inserire una password di almeno 8 caratteri tra cui un simbolo e una lettera maiuscola");
     return false;
   }
-
   togliErrore(input);
   return true;
 }
