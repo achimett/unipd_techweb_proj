@@ -320,10 +320,10 @@ class DB extends mysqli{
 		if (!$this->validateDate($ora , "H:i")){$error[] = "ora non valida";};
 		if (strlen($descrizione) === 0) {$error[] = "Descrizione vuota";}
 		if (strlen($descrizione) > 65535) {$error[] = "Descrizione troppo lunga";}
-		if (strlen($titolo) === 0) {$error[] = "Luogo mancante";}
-		if (strlen($titolo) > 150) {$error[] = "Luogo troppo lungo";}
-		if (strlen($titolo) === 0) {$error[] = "Provincia mancante";}
-		if (strlen($titolo) > 50) {$error[] = "Provincia troppo lunga";}
+		if (strlen($luogo) === 0) {$error[] = "Luogo mancante";}
+		if (strlen($luogo) > 150) {$error[] = "Luogo troppo lungo";}
+		if (strlen($provincia) === 0) {$error[] = "Provincia mancante";}
+		if (strlen($provincia) > 50) {$error[] = "Provincia troppo lunga";}
 
 
 		//50 PER UNA PROVINCIA NON è TROPPO ??????
