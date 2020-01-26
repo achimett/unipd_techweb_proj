@@ -5,8 +5,6 @@ function createCommenti($db, $profilo, $k) {
 
   $commenti = $db->getCommenti($_GET['id']);
 
-  echo "get comme --";
-
   foreach($commenti as $commento) {
     $c = file_get_contents("includes/commento.html");
 
