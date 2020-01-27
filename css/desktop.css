@@ -162,6 +162,60 @@ a {
 }
 
 /********** CONTENT **********/
+#help ul {
+  list-style-type: none;
+  display: block;
+  clear: both;
+}
+
+#help {
+  margin-bottom: 2%;
+  background-color: #f4f4f4;
+}
+
+.helpBlock {
+
+  border-radius: 0.5em;
+}
+
+.helpBlock img {
+  width: 29%;
+  margin-bottom: 1%;
+}
+
+.sx img {
+  float: right;
+  margin-right: 1%;
+}
+
+.dx img {
+  float: left;
+  margin-left: 1%;
+}
+
+.helpBlock p {
+
+  display: inline-block;
+      background-color: #fff;
+  width: 64%;
+  padding: 2%;
+  margin: 0% 1% 1% 1%;
+  border-radius: 0.5em;
+}
+
+#about {
+  background-color: #f4f4f4;
+  text-align: justify;
+  text-justify: inter-character;
+  border-radius: 0.5em;
+  margin-bottom: 2%;
+}
+
+#about p {
+    display: block;
+    padding: 0% 3% 3% 3%;
+}
+
 .content {
   width: 80%;
   display: inline-block;

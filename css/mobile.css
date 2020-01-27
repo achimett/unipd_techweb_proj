@@ -56,6 +56,22 @@
 }
 
 /********** CONTENT **********/
+
+
+.helpBlock img {
+  clear: both;
+  width: 96%;
+  margin: 2%;
+}
+
+
+
+.helpBlock p {
+width: 92%;
+  margin: 2%;
+  padding: 2%;
+}
+
 .content {
   width: 96%;
   margin: 0 2%;

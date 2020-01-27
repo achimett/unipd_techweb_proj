@@ -9,8 +9,9 @@ function controlloPulsanteDoit($db) {
 
         if($db->isAutore($_GET['id'], $_SESSION['user_id']) === true){
           if($db->isChiuso($_GET['id']) === false){
+            $db->chiudi($_GET['id'], $_SESSION['user_id']);
           } else {
-            $db->chiudi($_GET['id'], $_SESSION['user_id']);  $db->apri($_GET['id'], $_SESSION['user_id']);
+            $db->apri($_GET['id'], $_SESSION['user_id']);
           }
         } else if($db->isAutore($_GET['id'], $_SESSION['user_id']) === false){
           if($db->isPartecipante($_GET['id'], $_SESSION['user_id']) === true){
