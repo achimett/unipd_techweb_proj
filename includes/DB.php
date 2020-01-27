@@ -585,8 +585,8 @@ class DB extends mysqli{
 	{
 		$sql = "SELECT id, titolo, CONCAT(DATE_FORMAT(data,'%d/%m/%Y'),' ', DATE_FORMAT(data,'%H:%i:%s')) AS data, chiuso FROM post WHERE id_autore = ? ";
 
-		if($status ==  1 ) {$sql .= "AND chiuso = 0";}
-		if($status == -1 ) {$sql .= "AND chiuso = 1";}
+		if($status ===  1 ) {$sql .= "AND chiuso = 0";}
+		if($status === -1 ) {$sql .= "AND chiuso = 1";}
 
 		$query = $this->prepare($sql);
 		$query->bind_param("i", $id);
@@ -603,8 +603,30 @@ class DB extends mysqli{
 
 			$query->close();
 			$result->free();
-			return $profTable;
 
+			 
+			$sql1 = "SELECT po.id, po.titolo, CONCAT(DATE_FORMAT(po.data,'%d/%m/%Y'),' ', DATE_FORMAT(po.data,'%H:%i:%s')) AS data, po.chiuso FROM partecipazione pa JOIN post po ON pa.id_post = po.id WHERE pa.id_utente = ? ";
+
+			if($status ===  1 ) {$sql1 .= "AND po.chiuso = 0";}
+			if($status === -1 ) {$sql1 .= "AND po.chiuso = 1";}
+
+			$query1 = $this->prepare($sql1);
+			$query1->bind_param("i", $id);
+
+			if($query1->execute())
+			{
+				$result1 = $query1->get_result();
+
+				 while ($row = $result1->fetch_assoc())
+				{
+					$profTable[] = $row;
+				}
+
+				$query1->close();
+				$result1->free();
+				return $profTable;
+
+			} 
 		}
 
 		return NULL;
