@@ -9,12 +9,16 @@ require_once('includes/createPostEditBreadcrumb.php');
 
 // Oggetto di accesso al database
 $db = new DB();
+
 // Titolo della pagina
 $title = 'Bacheca';
 
 // Contengono l'HTML dei tag <head> e <body> che verranno stampati
 $page_head = file_get_contents('includes/head.html');
 $page_body = file_get_contents('includes/body.html');
+
+// Contiene il codice del menù ad hamburger
+$hamburger = file_get_contents('includes/hamburger.html');
 
 // Concatenazione di tutti i JS da includere nell'head
 $scripts = file_get_contents('includes/scriptMenu.html'); // . file_get_contents(...) . ecc...;
@@ -45,7 +49,7 @@ if (isset($_GET['provincia'])) {
 $page_count = 1; // Pagine totali
 $postcard_data = $db->getPostcard($page, POSTCARD_PER_PAGE, $page_count, $provincia); // Tutti i dati delle postcard
 
-$tabindex = 22; // Valore di tabindex nel titolo delle postcard
+$tabindex = 22; // Valore di tabindex nel titolo delle postcard e elementi successivi
 $postlist = ''; // HTML delle postcard;
 foreach ($postcard_data as $postcard) {
   $result = file_get_contents('includes/contentPostcard.html');
@@ -56,17 +60,20 @@ foreach ($postcard_data as $postcard) {
   $result = str_replace('<data />', $postcard['data'], $result);
   $result = str_replace('<provincia />', $postcard['provincia'], $result);
   $result = str_replace('<nvolontari />', $postcard['nvolontari'], $result);
-  $result = str_replace('<descrizione />', $postcard['descrizione'], $result);
+  $result = str_replace('<descrizione />', substr($postcard['descrizione'], 0, ), $result);
   $postlist .= $result . "\n";
 }
 
+// Gestione Pagine
 $previous = ''; // HTML con link alla pagina precedente
 $next = ''; // HTML con link alla pagina precedente
 if ($page !== 1) {
-  $previous = '<a href="bacheca.php?page=' . ($page - 1) . '&amp;provincia='. $provincia . '">&lt;</a>';
+  $previous = '<a href="bacheca.php?page=' . ($page - 1) . '&amp;provincia='. $provincia . '" tabindex="' . $tabindex++ . '">
+  <img src="img/freccia_sx.png" alt="Pagina precedente" /></a>';
 }
 if ($page < $page_count) {
-  $next = '<a href="bacheca.php?page=' . ($page + 1) . '&amp;provincia='. $provincia . '">&gt;</a>';
+  $next = '<a href="bacheca.php?page=' . ($page + 1) . '&amp;provincia='. $provincia . '" tabindex="' . $tabindex++ . '">
+  <img src="img/freccia_dx.png" alt="Pagina successiva" /></a>';
 }
 
 $content = str_replace('<action />', "bacheca.php?page=$page&amp;provincia=$provincia", $content);
@@ -80,6 +87,7 @@ $content = str_replace('<next />', $next, $content);
 $page_head = str_replace('<title />', "<title>$title - DOIT</title>", $page_head);
 $page_head = str_replace('<scripts />', $scripts, $page_head);
 $page_body = str_replace('<info_utente />', $info_utente, $page_body);
+$page_body = str_replace('<hamburger />', $hamburger, $page_body);
 $page_body = str_replace('<breadcrumb />', $breadcrumb, $page_body);
 $page_body = str_replace('<menu />', $menu, $page_body);
 $page_body = str_replace('<content />', $content, $page_body);

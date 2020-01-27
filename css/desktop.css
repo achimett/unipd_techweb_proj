@@ -620,6 +620,11 @@ ul.error {
   padding: 3% 0%;
 }
 
+#gestione_pagina img {
+  height: 2em;
+  vertical-align: middle;
+}
+
 /* Profilo */
 #profilo_nc {
   width: 50%;
@@ -804,7 +809,7 @@ ul.error {
 
 #entra {
   display: block;
-  width: 20%;
+  width: 25%;
   margin: 0 auto;
 }
 

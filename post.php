@@ -38,6 +38,9 @@ $title = $getPost['titolo'];//$postInfo['titolo'];
 $page_head = file_get_contents('includes/head.html');
 $page_body = file_get_contents('includes/body.html');
 
+// Contiene il codice del menù ad hamburger
+$hamburger = file_get_contents('includes/hamburger.html');
+
 // Concatenazione di tutti i JS da includere nell'head
 $scripts = file_get_contents('includes/scriptMenu.html')
 . file_get_contents('includes/scriptValidateCommento.html'); // . file_get_contents(...) . ecc...;
@@ -54,6 +57,7 @@ $breadcrumb = '<p id="breadcrumb"><a href="bacheca.php" tabindex="3">Bacheca</a>
 $page_head = str_replace('<title />', "<title>$title - DOIT</title>", $page_head);
 $page_head = str_replace('<scripts />', $scripts, $page_head);
 $page_body = str_replace('<info_utente />', $info_utente, $page_body);
+$page_body = str_replace('<hamburger />', $hamburger, $page_body);
 $page_body = str_replace('<breadcrumb />', $breadcrumb, $page_body);
 $page_body = str_replace('<menu />', $menu, $page_body);
 

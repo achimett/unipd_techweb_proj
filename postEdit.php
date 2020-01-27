@@ -73,6 +73,9 @@ if ($post === NULL) {
 $page_head = file_get_contents('includes/head.html');
 $page_body = file_get_contents('includes/body.html');
 
+// Contiene il codice del menù ad hamburger
+$hamburger = file_get_contents('includes/hamburger.html');
+
 // Concatenazione di tutti i JS da includere nell'head
 $scripts = file_get_contents('includes/scriptMenu.html')
 . file_get_contents('includes/scriptConfirmDelete.html')
@@ -115,13 +118,14 @@ if ($post === NULL) {
   $content = str_replace('<descrizione />', $post['descrizione'], $content);
   $content = str_replace('<luogo />', $post['luogo'], $content);
   $content = str_replace('<provincia />', $post['provincia'], $content);
-    $content = str_replace('<titoloContainer />', "Modifica post", $content);
+  $content = str_replace('<titoloContainer />', "Modifica post", $content);
 }
 
 // Rimpiazzo dei segnaposto sull'intera pagina
 $page_head = str_replace('<title />', "<title>$title - DOIT</title>", $page_head);
 $page_head = str_replace('<scripts />', $scripts, $page_head);
 $page_body = str_replace('<info_utente />', $info_utente, $page_body);
+$page_body = str_replace('<hamburger />', $hamburger, $page_body);
 $page_body = str_replace('<breadcrumb />', $breadcrumb, $page_body);
 $page_body = str_replace('<menu />', $menu, $page_body);
 $page_body = str_replace('<content />', $content, $page_body);

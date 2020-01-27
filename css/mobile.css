@@ -42,7 +42,6 @@
   border-bottom: 3px solid #E8E9EB;
 }
 
-
 .menuc {
   display: none;
 }
@@ -51,11 +50,11 @@
   display: block;
 }
 
-
 #breadcrumb {
   width: 96%;
   margin-left: 2%;
 }
+
 /********** CONTENT **********/
 .content {
   width: 96%;
@@ -86,7 +85,6 @@
 }
 
 #modificaButton {
-  width: 40%;
   height: 4em;
 }
 
@@ -171,6 +169,11 @@
   border-radius: 0.5em;
 }
 
+#gestione_pagina img {
+  height: 3.5em;
+}
+
+/* Profilo */
 #profilo_nc {
   width: 100%;
   padding: 0;
