@@ -1,27 +1,25 @@
-function mostraErrore(input, testoErrore) {
-  togliErrore(input);
-  var p = input.parentNode;
+function mostraError(input, testoError) {
+
+  //togliError(input);
+  //var p = input.parentNode;
   var span = document.createElement('span');
   span.className = "error";
-  span.innerText = testoErrore;
-  p.appendChild(span);
-
+  span.innerText = testoError;
+  //p.appendChild(span);
+  input.after(span);
+	
 }
 
-function togliErrore(input) {
-  var p = input.parentNode;
-
-  var span = p.getElementsByTagName('span');
-  if (span.length > 0) {
-	console.log(input, " " , p);
-    p.removeChild(span[0]);
-  }
+function togliError() {
+ while (document.getElementsByClassName('error')[0]) {
+        document.getElementsByClassName('error')[0].remove();
+    }
 }
 
 function checkData(input) {
   var d = /^(?:(0[1-9]|1[012])[\/.](0[1-9]|[12][0-9]|3[01])[\/.](19|20)[0-9]{2})$/; ////////da migliorarererererrererer
   if (d.test(input.value) == false) {
-    mostraErrore(input, "Data non valida");
+    mostraError(input, "Data non valida");
     return false;
   }
   return true;
@@ -30,11 +28,11 @@ function checkData(input) {
 function checkPass(input, input2) {
   var d = /^(?=.*[0-9])(?=.*[A-Z]).{8,}$/;
   if (input.value != input2.value) {
-    mostraErrore(input, "Password e Conferma password non coincidono");
+    mostraError(input, "Password e Conferma password non coincidono");
     return false;
   }
   if (d.test(input.value) == false) {
-    mostraErrore(input, "Password non valida : la password deve essere di almeno 8 caratteri e con almeno un alettere maiuscola ed un numero");
+    mostraError(input, "Password non valida : la password deve essere di almeno 8 caratteri e con almeno un alettere maiuscola ed un numero");
     return false;
   }
  return true;
@@ -43,7 +41,7 @@ function checkPass(input, input2) {
 function checkMail(input) {
   var d =   /^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,5}$/;
   if (d.test(input.value) == false) {
-    mostraErrore(input, "Mail non valida");
+    mostraError(input, "Mail non valida");
     return false;
   }
   return true;
@@ -53,7 +51,7 @@ function checkMail(input) {
 function checkTel(input) {
   var d = /^[0-9]{7,12}$/;
   if (d.test(input.value) == false) {
-    mostraErrore(input, "Numero di telefono non valido");
+    mostraError(input, "Numero non valido");
     return false;
   }
   return true;
@@ -62,7 +60,7 @@ function checkTel(input) {
  function checkNome(input) {
   var d = /^[a-zA-Z ]{2,30}$/;
   if (d.test(input.value) == false) {
-    mostraErrore(input, "Nome non valido");
+    mostraError(input, "Nome non valido");
     return false;
   }
   return true;
@@ -70,22 +68,21 @@ function checkTel(input) {
   
   function checkBio(input) {
   if (input.value.length > 65535) {
-    mostraErrore(input, "Hai inserito troppi caratteri");
+    mostraError(input, "Hai inserito troppi caratteri");
     return false;
 
   } else if (input.value.length <= 0) {
-    mostraErrore(input, "Biografia vuoto, raccontaci qualcosa di te :)");
+    mostraError(input, "Biografia vuota, raccontaci qualcosa di te :)");
     return false;
   }
 
-  togliErrore(input);
   return true;
 }
   
   function checkCognome(input) {
   var d = /^[a-zA-Z ]{2,30}$/;
   if (d.test(input.value) == false) {
-    mostraErrore(input, "Nome non valido");
+    mostraError(input, "Cognome non valido");
     return false;
   }
   return true;
@@ -94,7 +91,7 @@ function checkTel(input) {
   function checkCF(input) {
   var d = /^[a-zA-Z]{6}[0-9]{2}[abcdehlmprstABCDEHLMPRST]{1}[0-9]{2}([a-zA-Z]{1}[0-9]{3})[a-zA-Z]{1}$/;
   if (d.test(input.value) == false) {
-    mostraErrore(input, "Codice fiscale non valido");
+    mostraError(input, "CF non valido");
     return false;
   }
   return true;
@@ -105,16 +102,19 @@ function checkTel(input) {
 
   var x = document.getElementById("registrazione_foto").value;
   if (x.split('.').pop() != "png" && x.split('.').pop() != "jpg" && x.split('.').pop() != "jpeg") {
-    mostraErrore(img, "Selezionare un file in formato png o jpeg");
+    mostraError(img, "Selezionare un file in formato png o jpeg");
     return false;
   }
   
-  togliErrore(img);
   return true;
 }
 
 
 function validateProfilo() {   /////cambaire id
+	togliError();
+	//console.log(33);
+	//alert(44);
+	//console.log(55);
   var nome = document.getElementById('registrazione_nome');
   var cognome = document.getElementById("registrazione_cognome");
   var data = document.getElementById("registrazione_data_di_nascita");
@@ -124,6 +124,5 @@ function validateProfilo() {   /////cambaire id
   var pass = document.getElementById("registrazione_password");
   var c_pass = document.getElementById("registrazione_conferma_password");
   var bio = document.getElementById("registrazione_biografia");
-
-  return (checkNome(nome) & checkCognome(cognome) & checkData(data) & checkCF(cf) & checkTel(cell) & checkImg() & checkBio(bio)  & checkPass(pass,c_pass) & checkMail(mail)) != 0;
+  return (checkNome(nome) & checkCognome(cognome) & checkData(data) & checkCF(cf) & checkTel(cell) & checkPass(pass,c_pass) & checkMail(mail)  & checkBio(bio)  & checkImg()) != 0;
 }
