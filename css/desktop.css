@@ -182,6 +182,14 @@ a {
   border-radius: 0.5em;
 }
 
+.sx {
+  float: left;
+}
+
+.dx {
+  float: right;
+}
+
 .helpBlock img {
   width: 29%;
   margin-bottom: 1%;
