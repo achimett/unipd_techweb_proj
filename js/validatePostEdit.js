@@ -1,7 +1,7 @@
 function checkData(input) {
   var d = new RegExp('^(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$');
   if (d.test(input.value) == false) {
-    mostraErrore(input, "Data non valida");
+    mostraErrore(input, "Data non valida, rispettare il formato DD/MM/YYYY");
     return false;
   }
 
@@ -12,7 +12,7 @@ function checkData(input) {
 function checkOra(input) {
   var d = new RegExp('^(0[0-9]|1[0-9]|2[0-3]|[0-9]):[0-5][0-9]$');
   if (d.test(input.value) == false) {
-    mostraErrore(input, "Orario non valido");
+    mostraErrore(input, "Orario non valido, rispettare il formato HH:MM");
     return false;
   }
 
@@ -22,7 +22,7 @@ function checkOra(input) {
 
 function checkLuogo(input) {
   if (input.value.length > 150) {
-    mostraErrore(input, "Luogo troppo lungo");
+    mostraErrore(input, "Luogo troppo lungo (max 150 caratteri)");
     return false;
 
   } else if (input.value.length <= 0) {
@@ -36,7 +36,7 @@ function checkLuogo(input) {
 
 function checkProvincia(input) {
   if (input.value.length > 50) {
-    mostraErrore(input, "Provincia troppo lunga");
+    mostraErrore(input, "Provincia troppo lunga (max 50 caratteri)");
     return false;
 
   } else if (input.value.length <= 0) {
@@ -50,7 +50,7 @@ function checkProvincia(input) {
 
 function checkDescrizione(input) {
   if (input.value.length > 340) {
-    mostraErrore(input, "Hai inserito troppi caratteri");
+    mostraErrore(input, "Hai inserito troppi caratteri (max 340 caratteri)");
     return false;
 
   } else if (input.value.length <= 0) {
@@ -64,7 +64,7 @@ function checkDescrizione(input) {
 
 function checkTitolo(input) {
   if (input.value.length > 100) {
-    mostraErrore(input, "Hai inserito troppi caratteri");
+    mostraErrore(input, "Hai inserito troppi caratteri (max 100 caratteri)");
     return false;
 
   } else if (input.value.length <= 0) {
@@ -113,7 +113,7 @@ function checkImg() {
     mostraErrore(img, "Selezionare un file in formato png o jpeg");
     return false;
   }
-  
+
   togliErrore(img);
   return true;
 }
