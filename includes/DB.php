@@ -83,7 +83,13 @@ class DB extends mysqli{
 
 		if (strlen($email) > 50) {$error[] = "mail tropppo lunga";}
 		if (!preg_match($this->mailPattern,$email)) {$error[] = "mail in formato errato";}
-		if (!preg_match($this->passPattern,$password)) {$error[] = "password in formato errato";}
+		
+		if (!preg_match($this->passPattern,$password)) 
+		{
+			if(!$id || ($id && !empty($password)))
+			{$error[] = "password in formato errato";}
+		}
+		
 		If ($password !== $conf_password) {$error[] = "le password non coincidono";}
 		if (!preg_match($this->namePattern, $nome)) {$error[] = "nome non valido";};
 		if (!preg_match($this->namePattern, $cognome)) {$error[] = "cognome non valido";}
@@ -154,25 +160,51 @@ class DB extends mysqli{
 		}
 		else //edit profilo
 		{
-			if(!empty($img_path)) //aggiorno l'immagine
+			if(empty($password)) //non reimposta
 			{
-				$update = "UPDATE utente SET email = ?,password = ?,nome = ?,cognome = ?,telefono = ?,datanascita = ?,cf = ?,bio = ?,img_path = ?  WHERE id=?";
+					if(!empty($img_path)) //aggiorno l'immagine
+					{
+						$update = "UPDATE utente SET email = ?,nome = ?,cognome = ?,telefono = ?,datanascita = ?,cf = ?,bio = ?,img_path = ?  WHERE id=?";
 
-				$query = $this->prepare($update);
-				$query->bind_param("sssssssssi", $email, $hashed_pass, $nome, $cognome,$telefono, $datanascita, $cf, $bio, $img_path,$id);
+						$query = $this->prepare($update);
+						$query->bind_param("ssssssssi", $email,$nome, $cognome,$telefono, $datanascita, $cf, $bio, $img_path,$id);
 
-				if($query->execute()) {$query->close(); return $id;}
-				else {return NULL;}
+						if($query->execute()) {$query->close(); return $id;}
+						else {return NULL;}
+					}
+					else //lascio img vecchia
+					{
+						$update = "UPDATE utente SET email = ?,nome = ?,cognome = ?,telefono = ?,datanascita = ?,cf = ?,bio = ? WHERE id=?";
+
+						$query = $this->prepare($update);
+						$query->bind_param("sssssssi", $email, $nome, $cognome,$telefono, $datanascita, $cf, $bio,$id);
+
+						if($query->execute()) {$query->close(); return $id;}
+						else {return NULL;}
+					}
 			}
-			else //lascio img vecchia
+			else //reimposta pass
 			{
-				$update = "UPDATE utente SET email = ?,password = ?,nome = ?,cognome = ?,telefono = ?,datanascita = ?,cf = ?,bio = ? WHERE id=?";
+				if(!empty($img_path)) //aggiorno l'immagine
+					{
+						$update = "UPDATE utente SET email = ?,password = ?,nome = ?,cognome = ?,telefono = ?,datanascita = ?,cf = ?,bio = ?,img_path = ?  WHERE id=?";
 
-				$query = $this->prepare($update);
-				$query->bind_param("ssssssssi", $email, $hashed_pass, $nome, $cognome,$telefono, $datanascita, $cf, $bio,$id);
+						$query = $this->prepare($update);
+						$query->bind_param("sssssssssi", $email, $hashed_pass, $nome, $cognome,$telefono, $datanascita, $cf, $bio, $img_path,$id);
 
-				if($query->execute()) {$query->close(); return $id;}
-				else {return NULL;}
+						if($query->execute()) {$query->close(); return $id;}
+						else {return NULL;}
+					}
+				else //lascio img vecchia
+					{
+						$update = "UPDATE utente SET email = ?,password = ?,nome = ?,cognome = ?,telefono = ?,datanascita = ?,cf = ?,bio = ? WHERE id=?";
+
+						$query = $this->prepare($update);
+						$query->bind_param("ssssssssi", $email, $hashed_pass, $nome, $cognome,$telefono, $datanascita, $cf, $bio,$id);
+
+						if($query->execute()) {$query->close(); return $id;}
+						else {return NULL;}
+					}
 			}
 
 		}
