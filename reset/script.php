@@ -15,7 +15,7 @@ $luogo = file("luogo.txt");
 $char = file("char.txt");
 
 $lim = 300;
-$tot = 4;
+$tot = 40;
 
 $db->empty();
 for($i = 0; $i < $tot; $i++) {
@@ -61,8 +61,8 @@ for($i = 0; $i < $tot; $i++) {
   $cf = preg_replace('/\s+/', '', $cf);
 
 
-  $x = $db->setProfilo(NULL, $email[$r["email"]], $password[$r["password"]], $password[$r["password"]], $nome[$r["nome"]], $nome[$r["cognome"]],
-   $r['birthday'], $cf, $text[$r['bio']], NULL, $r['tel']);
+  $x = $db->setProfilo(NULL, trim($email[$r["email"]]), trim($password[$r["password"]]), trim($password[$r["password"]]), trim($nome[$r["nome"]]), trim($nome[$r["cognome"]]),
+   trim($r['birthday']), trim($cf), trim($text[$r['bio']]), NULL, trim($r['tel']));
 
     $y = $db->setPost(NULL, $r['titolo'], 1, $r['data'], $r['ora'], $text[$r['descrizione']], NULL, $luogo[$r['luogo']], $provincia[$r['provincia']]);
 
@@ -70,7 +70,7 @@ for($i = 0; $i < $tot; $i++) {
 $c = rand(50, 100);
 for($k = 0; $k < $c; $k++) {
 
-    $o = $db->partecipa(rand(0, $i), $y);
+    $o = $db->partecipa(rand(0, $i), $x);
 $z = $db->newCommento(rand(0, $i), rand(0, $tot), $text[$r['bio']], NULL);
 }
 
