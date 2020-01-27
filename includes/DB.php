@@ -742,14 +742,19 @@ class DB extends mysqli{
 			else {return NULL;}
 	}
 
-	public function getPostcard($page, $postcard_per_page, &$page_count, $filter = NULL)
+	public function getPostcard($page, $postcard_per_page, $page_count, $filter = NULL)
 	{
-		$sql = "SELECT po.id,po.titolo,DATE_FORMAT(po.data,'%d/%m/%Y') AS data,po.provincia,po.luogo, po.img_path, COUNT(pa.id) AS nvolontari, po.descrizione FROM post po LEFT JOIN partecipazione pa ON po.id = pa.id_post GROUP BY po.id ORDER BY po.id DESC";
+		$sql = "SELECT po.id,po.titolo,DATE_FORMAT(po.data,'%d/%m/%Y') AS data,po.provincia,po.luogo, po.img_path, COUNT(pa.id) AS nvolontari, po.descrizione FROM post po LEFT JOIN partecipazione pa ON po.id = pa.id_post GROUP BY po.id";
 
-		if(!empty($filter)) {$sql .= "HAVING po.provincia LIKE '%".$this->real_escape_string($filter)."%'";}
+		if(!empty($filter)) {$sql .= " HAVING po.provincia LIKE '%".$this->real_escape_string($filter)."%'";}
+
+		$sql .= " ORDER BY po.id DESC";
+
 
 		if($result = $this->query($sql))
 		{
+
+			echo "sdgf";
 			$card = array();
 
 			while ($row = $result->fetch_assoc())
@@ -768,6 +773,7 @@ class DB extends mysqli{
 			$selcard = array_slice($card, ($page-1)*$postcard_per_page, $postcard_per_page);
 
 			$result->free();
+
 			return $selcard;
 
 		}
