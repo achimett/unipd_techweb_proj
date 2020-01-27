@@ -53,8 +53,7 @@ CREATE TABLE  partecipazione (
 	id_utente   INT NOT NULL,
 
 	FOREIGN KEY (id_utente) REFERENCES utente(id),
-  FOREIGN KEY (id_post) REFERENCES post(id),
-  CONSTRAINT Partecipazione_unica UNIQUE (id_post,id_utente)
+  FOREIGN KEY (id_post) REFERENCES post(id)
 
 );
 
