@@ -6,7 +6,7 @@ USE achimett;
 
 SET FOREIGN_KEY_CHECKS = 0; -- Disabilita check su vincoli di integrità referenziale
 
-DROP TABLE IF EXISTS utente, post, commento, partecipazione;
+DROP TABLE IF EXISTS commento, partecipazione, post, utente;
 
 CREATE TABLE utente (
   id          INT AUTO_INCREMENT PRIMARY KEY,
@@ -53,7 +53,8 @@ CREATE TABLE  partecipazione (
 	id_utente   INT NOT NULL,
 
 	FOREIGN KEY (id_utente) REFERENCES utente(id),
-  FOREIGN KEY (id_post) REFERENCES post(id)
+  FOREIGN KEY (id_post) REFERENCES post(id),
+  CONSTRAINT Part_uniq UNIQUE (id_post,id_utente)
 
 );
 
