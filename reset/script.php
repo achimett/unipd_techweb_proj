@@ -18,10 +18,9 @@ $lim = 300;
 $tot = 40;
 
 $db->empty();
+$db->addUserUser();
+
 for($i = 0; $i < $tot; $i++) {
-
-
-
   echo "c";
 
   $r["email"] = rand(0, $lim);
@@ -76,4 +75,8 @@ $z = $db->newCommento(rand(0, $i), rand(0, $tot), $text[$r['bio']], NULL);
 
 }
 
+$db->setProfilo(NULL, "root@root.it", "12345678Aa", "12345678Aa", "root", "root", "11/11/1990", "asdsdf34e45e456e", "bio", NULL, 345345);
+$db->setPost(NULL, "Raccolta rifiuti", 1, "11/11/2019", "12:23", "descrizione", NULL, "Lungo piovego", "Padova (PD)");
+
+echo "Esecuzione terminata"
 ?>

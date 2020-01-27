@@ -30,7 +30,12 @@ class DB extends mysqli{
 		}
 	}
 
-
+	public function addUserUser() {
+		$password = hash('sha256', 'user');
+		$query = "INSERT INTO utente(email, password, nome, cognome, telefono, datanascita, cf, bio) VALUES ('user', '$password', 'Ajeje', 'Brazorf', '333333333', '1999-11-11', 'MMTBBS70T51C217U', 'La mia Biografia')";
+		$this->query($query);
+		print_r($this->error_list);
+	}
 
 	public function validateDate($date, $format = 'Y-m-d H:i:s')
 	{
