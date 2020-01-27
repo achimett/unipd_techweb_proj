@@ -10,8 +10,9 @@ class DB extends mysqli{
 	private $max_img_size = 3000000; // 3MB
 	private $perm_img_format = array(IMAGETYPE_GIF , IMAGETYPE_JPEG ,IMAGETYPE_PNG);
 
-	public function __construct($host="localhost:8889", $user="root", $pass="root", $db="doit")
+	//public function __construct($host="localhost:8889", $user="root", $pass="root", $db="doit")
 	//public function __construct($host="localhost", $user="achimett", $pass="Uegh7teifaCaeH9x", $db="achimett")
+	public function __construct($host="localhost", $user="root", $pass="", $db="doit")
 	{
         parent::__construct($host, $user, $pass, $db);
 
@@ -131,10 +132,9 @@ class DB extends mysqli{
 			if(!in_array($img_format , $this->perm_img_format)) {$error[] = 'formato immagine errato';} 	 // verifica se è un immagine
 			if (filesize($img) > $this->max_img_size) {$error[] = 'immagine troppo grande';}
 			$hash = hash_file('sha256', $img);
-
 			if (!move_uploaded_file($img, $this->imgDir.$hash)) {$error[] = "impossibile spostare l'immagine";}
 			$img_path = $this->imgDir.$hash;
-			$this->crop($img_path);
+			$this->crop($img_path,1);
 		}
 
 		if(count($error)) {return $error;}
@@ -390,7 +390,7 @@ class DB extends mysqli{
 			$hash = hash_file('sha256', $img);
 			if (!move_uploaded_file($img, $this->imgDir.$hash)) {$error[] = "impossibile spostare l'immagine";}
 			$img_path = $this->imgDir.$hash;
-			$this->crop($img_path);
+			$this->crop($img_path,3);
 		}
 
 		if(count($error)) {return $error;} //se non ho passato alcuni check ritorno l'array con gli errori
@@ -725,12 +725,13 @@ class DB extends mysqli{
 			if(count($error)) {return $error;}
 
 			$hash = hash_file('sha256', $foto);
-			$this->crop($img);
+	
 
 
 			if (!move_uploaded_file($foto, $this->imgDir.$hash)) {$error[] = "impossibile spostare l'immagine"; return $error;}
 
 			$immagine = $this->imgDir.$hash;
+			$this->crop($immagine,2);
 
 		}
 			$sql = "INSERT INTO commento(id_autore,id_post,text,img_path) VALUES(?, ?, ? ,?);";
@@ -828,28 +829,30 @@ class DB extends mysqli{
 		return FALSE;
 	}
 
-	public function crop($img, $asp=2)
+	public function crop($img,$rap=1)
 	{
-		//$ext = pathinfo($img,PATHINFO_EXTENSION);
-
 		$im = imagecreatefromstring(file_get_contents($img));
 
 		$size = min(imagesx($im), imagesy($im));
-
-		$crop_img = imagecrop($im, ['x' => 0, 'y' => 0, 'width' => $size, 'height' => $size/$asp]);
-
-	/*	switch ($ext) {
-			case "jpeg":
-			case "jpg":
-			imagejpeg($crop_img, $img);
-			break;
-			case "png": */
-			imagepng($crop_img, $img);
-	/*		break;
-			case "gif":
-				imagegif($crop_img, $img);
-				break;
-			} */
+		
+		$x = imagesx($im);
+		
+		$y = imagesy($im);
+		
+		$media = ($x - $y) / 2;
+		$media2 = ($y - $x)*$rap*2 / 2;
+		
+		if($media > $media2)
+		{
+		$crop_img = imagecrop($im, ['x' => $media, 'y' => 0, 'width' => $size, 'height' => $size/$rap]);
+		}
+		else
+		{
+		$crop_img = imagecrop($im, ['x' => 0, 'y' => $media2, 'width' => $size, 'height' => $size/$rap]);
+		}
+		imagepng($crop_img, $img);
+	
+	
 		}
 }
 ?>
