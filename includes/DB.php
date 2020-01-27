@@ -161,7 +161,7 @@ class DB extends mysqli{
 				$query = $this->prepare($update);
 				$query->bind_param("sssssssssi", $email, $hashed_pass, $nome, $cognome,$telefono, $datanascita, $cf, $bio, $img_path,$id);
 
-				if($query->execute()) {$query.close(); return $id;}
+				if($query->execute()) {$query->close(); return $id;}
 				else {return NULL;}
 			}
 			else //lascio img vecchia
