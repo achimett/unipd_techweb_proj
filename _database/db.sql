@@ -1,8 +1,8 @@
-#DROP DATABASE IF EXISTS doit;
+DROP DATABASE IF EXISTS doit;
 
-#CREATE DATABASE doit;
+CREATE DATABASE doit;
 
-USE achimett;
+USE doit;
 
 SET FOREIGN_KEY_CHECKS = 0; -- Disabilita check su vincoli di integrità referenziale
 

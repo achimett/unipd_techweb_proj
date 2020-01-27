@@ -21,7 +21,6 @@ $db->empty();
 $db->addUserUser();
 
 for($i = 0; $i < $tot; $i++) {
-  echo "c";
 
   $r["email"] = rand(0, $lim);
 
@@ -63,7 +62,7 @@ for($i = 0; $i < $tot; $i++) {
   $x = $db->setProfilo(NULL, trim($email[$r["email"]]), trim($password[$r["password"]]), trim($password[$r["password"]]), trim($nome[$r["nome"]]), trim($nome[$r["cognome"]]),
    trim($r['birthday']), trim($cf), trim($text[$r['bio']]), NULL, trim($r['tel']));
 
-    $y = $db->setPost(NULL, $r['titolo'], 1, $r['data'], $r['ora'], $text[$r['descrizione']], NULL, $luogo[$r['luogo']], $provincia[$r['provincia']]);
+    $y = $db->setPost(NULL, $r['titolo'], $x, $r['data'], $r['ora'], $text[$r['descrizione']], NULL, $luogo[$r['luogo']], $provincia[$r['provincia']]);
 
 
 $c = rand(50, 100);
@@ -76,7 +75,9 @@ $z = $db->newCommento(rand(0, $i), rand(0, $tot), $text[$r['bio']], NULL);
 }
 
 $db->setProfilo(NULL, "root@root.it", "12345678Aa", "12345678Aa", "root", "root", "11/11/1990", "asdsdf34e45e456e", "bio", NULL, 345345);
+unset($_SESSION['user_id']);
 $db->setPost(NULL, "Raccolta rifiuti", 1, "11/11/2019", "12:23", "descrizione", NULL, "Lungo piovego", "Padova (PD)");
 
-echo "Esecuzione terminata"
+
+echo "Reset e ripopolazione database eseguita"
 ?>
