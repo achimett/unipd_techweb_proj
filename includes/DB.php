@@ -11,7 +11,7 @@ class DB extends mysqli{
 	private $perm_img_format = array(IMAGETYPE_GIF , IMAGETYPE_JPEG ,IMAGETYPE_PNG);
 
 	//public function __construct($host="localhost:8889", $user="root", $pass="root", $db="doit")
-	public function __construct($host="localhost", $user="achimett", $pass="Uegh7teifaCaeH9x", $db="achimett")
+	public function __construct($host="localhost", $user="root", $pass="", $db="doit")
 	{
         parent::__construct($host, $user, $pass, $db);
 
@@ -98,13 +98,13 @@ class DB extends mysqli{
 
 		if (strlen($email) > 50) {$error[] = "mail tropppo lunga";}
 		if (!preg_match($this->mailPattern,$email)) {$error[] = "mail in formato errato";}
-		
-		if (!preg_match($this->passPattern,$password)) 
+
+		if (!preg_match($this->passPattern,$password))
 		{
 			if(!$id || ($id && !empty($password)))
 			{$error[] = "password in formato errato";}
 		}
-		
+
 		If ($password !== $conf_password) {$error[] = "le password non coincidono";}
 		if (!preg_match($this->namePattern, $nome)) {$error[] = "nome non valido";};
 		if (!preg_match($this->namePattern, $cognome)) {$error[] = "cognome non valido";}

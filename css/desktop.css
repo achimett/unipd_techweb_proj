@@ -660,6 +660,7 @@ ul.error {
   font-weight: bold;
   margin-top: 4%;
   display: block;
+  padding: 2%;
 }
 
 .postcardImg {

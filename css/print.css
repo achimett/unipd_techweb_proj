@@ -59,9 +59,11 @@ abbr[title] {
 }
 
 /********** Content **********/
+
+
+
 .content {
   width: 100%;
-  display: inline-block;
 }
 
 /* Post */
@@ -229,6 +231,15 @@ abbr[title] {
 }
 
 /* Bacheca */
+
+#gestione_pagina {
+  display: none;
+}
+
+.bacheca_ricerca form {
+    display: none;
+}
+
 .postcardImg {
 display: none;
 }
@@ -243,12 +254,7 @@ display: none;
 
 
 .bacheca_informazioni {
-  background-color: #fff;
-  margin-top: 2%;
-  padding-bottom: 2%;
-  float: left;
-  width: 100%;
-  border-radius: 0.5em;
+  margin: 2%;
 }
 
 .bacheca_informazioni li {

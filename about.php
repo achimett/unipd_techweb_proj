@@ -24,7 +24,7 @@ $scripts = file_get_contents('includes/scriptMenu.html'); // . file_get_contents
 $info_utente = createInfoUtente($db);
 
 // Codice HTML del menu
-$menu = createMenu(false, true, false, true, false, true);
+$menu = createMenu(true, true, true, true, false, true);
 
 // Codice HTML del breadcrumb
 $breadcrumb = '<p id="breadcrumb">Chi siamo</p>';
