@@ -80,6 +80,7 @@ class DB extends mysqli{
 	public function setProfilo($id, $email, $password, $conf_password, $nome, $cognome, $datanascita, $cf, $bio, $img, $telefono)
 	{
 
+
 		$error = array();
 
 		if (strlen($email) > 50) {$error[] = "mail tropppo lunga";}
