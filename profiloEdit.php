@@ -73,7 +73,7 @@ $info_utente = createInfoUtente($db);
 $menu = createMenu(true, true, true, true, true, true);
 
 // Codice HTML del breadcrumb
-$breadcrumb = createPostEditBreadcrumb($db);
+$breadcrumb = createProfiloEditBreadcrumb($db);
 
 // Codice HTML del content
 $content = file_get_contents('includes/contentProfiloEdit.html');

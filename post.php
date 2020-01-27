@@ -52,7 +52,8 @@ $info_utente = createInfoUtente($db);
 $menu = createMenu(true, true, true, true, true, true);
 
 // Codice HTML del breadcrumb
-$breadcrumb = '<p id="breadcrumb"><a href="bacheca.php" tabindex="3">Bacheca</a> &gt;&gt; Post ' . $title . '</p>';
+$breadcrumb = '<p id="breadcrumb"><a href="bacheca.php" tabindex="3">Bacheca</a>
+<img src="img/freccia_dx.png" alt=""> Post ' . $title . '</p>';
 
 $page_head = str_replace('<title />', "<title>$title - DOIT</title>", $page_head);
 $page_head = str_replace('<scripts />', $scripts, $page_head);

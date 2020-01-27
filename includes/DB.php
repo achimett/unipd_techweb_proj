@@ -650,7 +650,7 @@ class DB extends mysqli{
 			$query->close();
 			$result->free();
 
-			 
+
 			$sql1 = "SELECT po.id, po.titolo, CONCAT(DATE_FORMAT(po.data,'%d/%m/%Y'),' ', DATE_FORMAT(po.data,'%H:%i:%s')) AS data, po.chiuso FROM partecipazione pa JOIN post po ON pa.id_post = po.id WHERE pa.id_utente = ? ";
 
 			if($status ===  1 ) {$sql1 .= "AND po.chiuso = 0";}
@@ -672,7 +672,7 @@ class DB extends mysqli{
 				$result1->free();
 				return $profTable;
 
-			} 
+			}
 		}
 
 		return NULL;
@@ -752,11 +752,11 @@ class DB extends mysqli{
 		{
 			$card = array();
 
-			 while ($row = $result->fetch_assoc())  //se ho tempo ottimizzio la query per pescare direttamente solo i post richiesti
+			while ($row = $result->fetch_assoc())
 			{
-				if(strlen($row['descrizione'] > 215))
+				if(strlen($row['descrizione']) > 100)
 				{
-					$row['descrizione'] = substr($row['descrizione'] ,0,215).'...';
+					$row['descrizione'] = substr($row['descrizione'], 0, 100) . '...';
 				}
 
 					$card[] = $row;

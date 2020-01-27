@@ -60,12 +60,7 @@ foreach ($postcard_data as $postcard) {
   $result = str_replace('<data />', $postcard['data'], $result);
   $result = str_replace('<provincia />', $postcard['provincia'], $result);
   $result = str_replace('<nvolontari />', $postcard['nvolontari'], $result);
-
-  $descrizione = $postcard['descrizione'];
-  if (strlen($descrizione) > 200) {
-    $descrizione = substr($descrizione, 0, 197) . '...';
-  }
-  $result = str_replace('<descrizione />', $descrizione, $result);
+  $result = str_replace('<descrizione />', $postcard['descrizione'], $result);
 
   $postlist .= $result . "\n";
 }

@@ -81,7 +81,11 @@ a:visited#info_utente {
   padding: 1em 0;
   font-size: 0.8em;
   margin: 2% 0;
+}
 
+#breadcrumb img {
+  height: 1em;
+  vertical-align: middle;
 }
 
 /********** MENU **********/
@@ -645,6 +649,12 @@ ul.error {
   border-radius: 0.5em;
 }
 
+.post_card a, .post_card ul {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .titolo_postcard {
   font-size: 2em;
   font-weight: bold;
@@ -653,8 +663,14 @@ ul.error {
 }
 
 .postcardImg {
+  display: block;
   margin-top: 4%;
   width: 100%;
+}
+
+.postcard_descrizione {
+  height: 5em;
+  overflow: hidden;
 }
 
 .bacheca_titolo_descrizione {
