@@ -8,7 +8,7 @@ class DB extends mysqli{
 	private $cfPattern = '/^[a-zA-Z]{6}[0-9]{2}[abcdehlmprstABCDEHLMPRST]{1}[0-9]{2}([a-zA-Z]{1}[0-9]{3})[a-zA-Z]{1}$/' ;
 	private $cellPattern = '/^[0-9]{7,12}$/';
 	private $max_img_size = 3000000; // 3MB
-	private $perm_img_format = array(IMAGETYPE_GIF , IMAGETYPE_JPEG ,IMAGETYPE_PNG , IMAGETYPE_BMP);
+	private $perm_img_format = array(IMAGETYPE_GIF , IMAGETYPE_JPEG ,IMAGETYPE_PNG);
 
 	//public function __construct($host="localhost:8889", $user="root", $pass="root", $db="doit")
 	public function __construct($host="localhost", $user="achimett", $pass="Uegh7teifaCaeH9x", $db="achimett")
