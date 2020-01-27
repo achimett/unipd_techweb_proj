@@ -1,11 +1,8 @@
 function mostraError(input, testoError) {
 
-  //togliError(input);
-  //var p = input.parentNode;
   var span = document.createElement('span');
   span.className = "error";
   span.innerText = testoError;
-  //p.appendChild(span);
   input.after(span);
 	
 }
@@ -17,7 +14,7 @@ function togliError() {
 }
 
 function checkData(input) {
-  var d = /^(?:(0[1-9]|1[012])[\/.](0[1-9]|[12][0-9]|3[01])[\/.](19|20)[0-9]{2})$/; ////////da migliorarererererrererer
+  var d = /^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:19|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:19|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:19|[2-9]\d)?\d{2})$/ ;
   if (d.test(input.value) == false) {
     mostraError(input, "Data non valida");
     return false;
@@ -101,20 +98,18 @@ function checkTel(input) {
   var img = document.getElementById("registrazione_foto");
 
   var x = document.getElementById("registrazione_foto").value;
-  if (x.split('.').pop() != "png" && x.split('.').pop() != "jpg" && x.split('.').pop() != "jpeg") {
-    mostraError(img, "Selezionare un file in formato png o jpeg");
-    return false;
-  }
-  
+  if(x !== ""){
+	  if (x.split('.').pop() != "png" && x.split('.').pop() != "jpg" && x.split('.').pop() != "jpeg") {
+		mostraError(img, "Selezionare un file in formato png o jpeg");
+		return false;
+	  }
+  }  
   return true;
 }
 
 
-function validateProfilo() {   /////cambaire id
+function validateProfilo() {  
 	togliError();
-	//console.log(33);
-	//alert(44);
-	//console.log(55);
   var nome = document.getElementById('registrazione_nome');
   var cognome = document.getElementById("registrazione_cognome");
   var data = document.getElementById("registrazione_data_di_nascita");
