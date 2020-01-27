@@ -131,8 +131,10 @@ class DB extends mysqli{
 			if(!in_array($img_format , $this->perm_img_format)) {$error[] = 'formato immagine errato';} 	 // verifica se è un immagine
 			if (filesize($img) > $this->max_img_size) {$error[] = 'immagine troppo grande';}
 			$hash = hash_file('sha256', $img);
+
 			if (!move_uploaded_file($img, $this->imgDir.$hash)) {$error[] = "impossibile spostare l'immagine";}
 			$img_path = $this->imgDir.$hash;
+			$this->crop($img_path);
 		}
 
 		if(count($error)) {return $error;}
@@ -384,10 +386,11 @@ class DB extends mysqli{
 			$img_format = exif_imagetype($img);
 			if(!in_array($img_format , $this->perm_img_format)) {$error[] = 'formato immagine errato';} // verifica se è un immagine
 			if (filesize($img) > $this->max_img_size) {$error[] = 'immagine troppo grande';}
+
 			$hash = hash_file('sha256', $img);
-			$this->crop($img);
 			if (!move_uploaded_file($img, $this->imgDir.$hash)) {$error[] = "impossibile spostare l'immagine";}
 			$img_path = $this->imgDir.$hash;
+			$this->crop($img_path);
 		}
 
 		if(count($error)) {return $error;} //se non ho passato alcuni check ritorno l'array con gli errori
@@ -827,8 +830,7 @@ class DB extends mysqli{
 
 	public function crop($img, $asp=2)
 	{
-
-		$ext = pathinfo($img,PATHINFO_EXTENSION);
+		//$ext = pathinfo($img,PATHINFO_EXTENSION);
 
 		$im = imagecreatefromstring(file_get_contents($img));
 
@@ -836,18 +838,18 @@ class DB extends mysqli{
 
 		$crop_img = imagecrop($im, ['x' => 0, 'y' => 0, 'width' => $size, 'height' => $size/$asp]);
 
-		switch ($ext) {
+	/*	switch ($ext) {
 			case "jpeg":
 			case "jpg":
 			imagejpeg($crop_img, $img);
 			break;
-			case "png":
+			case "png": */
 			imagepng($crop_img, $img);
-			break;
+	/*		break;
 			case "gif":
 				imagegif($crop_img, $img);
 				break;
-			}
+			} */
 		}
 }
 ?>
