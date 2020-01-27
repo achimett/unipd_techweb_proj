@@ -15,9 +15,12 @@ $luogo = file("luogo.txt");
 $char = file("char.txt");
 
 $lim = 300;
-$tot = 40;
+$tot = 4;
 
+$db->empty();
 for($i = 0; $i < $tot; $i++) {
+
+
 
   echo "c";
 

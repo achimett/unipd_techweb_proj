@@ -8,7 +8,7 @@ require_once('includes/createMenu.php');
 $db = new DB();
 
 // Titolo della pagina
-$title = 'Chi Siamo';
+$title = 'Aiuto';
 
 // Contengono l'HTML dei tag <head> e <body> che verranno stampati
 $page_head = file_get_contents('includes/head.html');
@@ -21,7 +21,7 @@ $scripts = file_get_contents('includes/scriptMenu.html'); // . file_get_contents
 $info_utente = createInfoUtente($db);
 
 // Codice HTML del menu
-$menu = createMenu(true, true, true, true, false, true);
+$menu = createMenu(true, true, true, false, true, true);
 
 // Codice HTML del breadcrumb
 $breadcrumb = '<p id="breadcrumb">Aiuto</p>';

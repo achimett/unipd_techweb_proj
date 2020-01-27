@@ -34,7 +34,7 @@ function createPulsanteDoit($db) {
   }
   if($legend !== '') {
     $exe = file_get_contents('includes/formDoit.html');
-    $exe = str_replace('<link />', '/post.php?id=' . $_GET['id'], $exe);
+    $exe = str_replace('<link />', 'post.php?id=' . $_GET['id'], $exe);
     $exe = str_replace('<iscrizione />', $legend, $exe);
     $exe = str_replace('<val />', $pulsante, $exe);
 

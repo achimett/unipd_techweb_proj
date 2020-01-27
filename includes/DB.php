@@ -22,6 +22,12 @@ class DB extends mysqli{
 	}
 
 
+	public function empty() {
+		$sql = "SET FOREIGN_KEY_CHECKS = 0;DELETE FROM commento;ALTER TABLE doit.commento AUTO_INCREMENT = 1;DELETE FROM partecipazione;ALTER TABLE doit.partecipazione AUTO_INCREMENT = 1;DELETE FROM post;ALTER TABLE doit.post AUTO_INCREMENT = 1;DELETE FROM utente;ALTER TABLE doit.utente AUTO_INCREMENT = 1;SET FOREIGN_KEY_CHECKS = 1;";
+$this->query($sql);
+	}
+
+
 
 	public function validateDate($date, $format = 'Y-m-d H:i:s')
 	{

@@ -207,6 +207,8 @@ a {
   background-color: #f4f4f4;
   text-align: justify;
   text-justify: inter-character;
+  border-radius: 0.5em;
+  margin-bottom: 2%;
 }
 
 #about p {
