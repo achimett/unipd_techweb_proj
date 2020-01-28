@@ -55,7 +55,7 @@ function checkTel(input) {
 }
  
  function checkNome(input) {
-  var d = /^[a-zA-Z ]{2,30}$/;
+  var d = /^[a-zA-Z \\'\\s\é\è\ò\à\ù\ì]{2,30}$/;
   if (d.test(input.value) == false) {
     mostraError(input, "Nome non valido");
     return false;
@@ -77,7 +77,7 @@ function checkTel(input) {
 }
   
   function checkCognome(input) {
-  var d = /^[a-zA-Z ]{2,30}$/;
+  var d = /^[a-zA-Z \\'\\s\é\è\ò\à\ù\ì]{2,30}$/;
   if (d.test(input.value) == false) {
     mostraError(input, "Cognome non valido");
     return false;
