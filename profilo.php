@@ -67,6 +67,9 @@ $content = str_replace('<img_path />', $profilo['img_path'], $content);
 $content = str_replace('<nome />', $profilo['nome'], $content);
 $content = str_replace('<cognome />', $profilo['cognome'], $content);
 $content = str_replace('<data_di_nascita />', $profilo['datanascita'], $content);
+
+
+$content = str_replace('<profilo />', "Profilo di " . $profilo['nome'], $content);
 $content = str_replace('<email />', $profilo['email'], $content);
 $content = str_replace('<telefono />', $profilo['telefono'], $content);
 $content = str_replace('<biografia />', $profilo['bio'], $content);

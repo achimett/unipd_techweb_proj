@@ -1,7 +1,7 @@
 <div id="profilo" class="content">
   <div id="profilo_dati_personali">
 
-        <h1 class="post_titolo">Il mio profilo</h1>
+        <h1 class="post_titolo"><profilo /></h1>
       <h2 id="profilo_nc"><img src="<img_path />" alt="Immagine profilo" /><nome /> <cognome /></h2>
 
 
@@ -30,13 +30,14 @@
         <label class="filtro" for="aperte"> Aperte</label>
         <input type="radio" name="status" value="-1" id="chiuse" tabindex="24" <check3 /> />
         <label class="filtro" for="chiuse"> Chiuse</label>
-        <input type="submit" class="bottone" value="Applica Filtro" tabindex="25" />
+        <input type="submit" class="bottone" id="profilo_filtro" value="Applica Filtro" tabindex="25" />
       </fieldset>
     </form>
     <table id="profilo_table_contributi">
 	<caption>Tabella contente i contributi dell'utente</caption>
       <thead>
         <tr>
+          <th scope="col" class="profilo_colhead_num">Num</th>
           <th scope="col" class="profilo_colhead_attivita">Attivià</th>
           <th scope="col" class="profilo_colhead_data">Data</th>
           <th scope="col" class="profilo_colhead_statoattivita">Stato Attività</th>
@@ -44,6 +45,7 @@
       </thead>
       <tfoot>
         <tr>
+          <th scope="col" class="profilo_colhead_num">Num</th>
           <th scope="col" class="profilo_colhead_attivita">Attività</th>
           <th scope="col" class="profilo_colhead_data">Data</th>
           <th scope="col" class="profilo_colhead_statoattivita">Stato Attività</th>
