@@ -2,7 +2,7 @@
 class DB extends mysqli{
 
 	private $imgDir = 'img/upload/';
-	private $namePattern = '/^[a-zA-Z ]{2,30}$/' ;
+	private $namePattern = '/^[a-zA-Z \\'\\s\é\è\ò\à\ù\ì]{2,30}$/' ;
 	private $mailPattern = '/^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,5}$/' ;
 	private $passPattern = '/^(?=.*[0-9])(?=.*[A-Z]).{8,}$/' ; // Almeno 8 caratteri con almeno una maiuscola e un numero
 	private $cfPattern = '/^[a-zA-Z]{6}[0-9]{2}[abcdehlmprstABCDEHLMPRST]{1}[0-9]{2}([a-zA-Z]{1}[0-9]{3})[a-zA-Z]{1}$/' ;
