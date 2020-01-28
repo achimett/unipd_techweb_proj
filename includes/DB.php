@@ -11,6 +11,7 @@ class DB extends mysqli{
 	private $perm_img_format = array(IMAGETYPE_GIF , IMAGETYPE_JPEG ,IMAGETYPE_PNG);
 
 	//public function __construct($host="localhost:8889", $user="root", $pass="root", $db="doit")
+	//public function __construct($host="localhost", $user="achimett", $pass="Uegh7teifaCaeH9x", $db="achimett")
 	public function __construct($host="localhost", $user="root", $pass="", $db="doit")
 	{
         parent::__construct($host, $user, $pass, $db);
@@ -33,7 +34,6 @@ class DB extends mysqli{
 		$password = hash('sha256', 'user');
 		$query = "INSERT INTO utente(email, password, nome, cognome, telefono, datanascita, cf, bio) VALUES ('user', '$password', 'Ajeje', 'Brazorf', '333333333', '1999-11-11', 'MMTBBS70T51C217U', 'La mia Biografia')";
 		$this->query($query);
-		print_r($this->error_list);
 	}
 
 	public function validateDate($date, $format = 'Y-m-d H:i:s')
@@ -134,6 +134,7 @@ class DB extends mysqli{
 			$hash = hash_file('sha256', $img);
 			if (!move_uploaded_file($img, $this->imgDir.$hash)) {$error[] = "impossibile spostare l'immagine";}
 			$img_path = $this->imgDir.$hash;
+			$this->crop($img_path,1);
 		}
 
 		if(count($error)) {return $error;}
@@ -385,9 +386,11 @@ class DB extends mysqli{
 			$img_format = exif_imagetype($img);
 			if(!in_array($img_format , $this->perm_img_format)) {$error[] = 'formato immagine errato';} // verifica se è un immagine
 			if (filesize($img) > $this->max_img_size) {$error[] = 'immagine troppo grande';}
+
 			$hash = hash_file('sha256', $img);
 			if (!move_uploaded_file($img, $this->imgDir.$hash)) {$error[] = "impossibile spostare l'immagine";}
 			$img_path = $this->imgDir.$hash;
+			$this->crop($img_path,3);
 		}
 
 		if(count($error)) {return $error;} //se non ho passato alcuni check ritorno l'array con gli errori
@@ -443,8 +446,6 @@ class DB extends mysqli{
 				$update = "UPDATE post SET titolo = ?,id_autore = ?,data = ?,descrizione = ?,luogo = ?,provincia = ? WHERE ID =?;";
 				$query = $this->prepare($update);
 				$query->bind_param("sissssi", $titolo, $id_autore, $dataora, $descrizione,$luogo, $provincia, $id);
-
-				//echo $titolo.'--'.$id_autore.'--'.$dataora.'--'.$descrizione.'--'.$luogo.'--'.$provincia.'--'.$id;
 
 				if($query->execute())
 					{
@@ -631,8 +632,11 @@ class DB extends mysqli{
 	{
 		$sql = "SELECT id, titolo, CONCAT(DATE_FORMAT(data,'%d/%m/%Y'),' ', DATE_FORMAT(data,'%H:%i:%s')) AS data, chiuso FROM post WHERE id_autore = ? ";
 
-		if($status ===  1 ) {$sql .= "AND chiuso = 0";}
-		if($status === -1 ) {$sql .= "AND chiuso = 1";}
+		if($status > 0 ) {
+			$sql .= "AND chiuso = 0";
+		} else if($status < 0) {
+			$sql .= "AND chiuso = 1";
+		}
 
 		$query = $this->prepare($sql);
 		$query->bind_param("i", $id);
@@ -721,10 +725,13 @@ class DB extends mysqli{
 			if(count($error)) {return $error;}
 
 			$hash = hash_file('sha256', $foto);
+	
+
 
 			if (!move_uploaded_file($foto, $this->imgDir.$hash)) {$error[] = "impossibile spostare l'immagine"; return $error;}
 
 			$immagine = $this->imgDir.$hash;
+			$this->crop($immagine,2);
 
 		}
 			$sql = "INSERT INTO commento(id_autore,id_post,text,img_path) VALUES(?, ?, ? ,?);";
@@ -821,5 +828,31 @@ class DB extends mysqli{
 
 		return FALSE;
 	}
+
+	public function crop($img,$rap=1)
+	{
+		$im = imagecreatefromstring(file_get_contents($img));
+
+		$size = min(imagesx($im), imagesy($im));
+		
+		$x = imagesx($im);
+		
+		$y = imagesy($im);
+		
+		$media = ($x - $y) / 2;
+		$media2 = ($y - $x)*$rap*2 / 2;
+		
+		if($media > $media2)
+		{
+		$crop_img = imagecrop($im, ['x' => $media, 'y' => 0, 'width' => $size, 'height' => $size/$rap]);
+		}
+		else
+		{
+		$crop_img = imagecrop($im, ['x' => 0, 'y' => $media2, 'width' => $size, 'height' => $size/$rap]);
+		}
+		imagepng($crop_img, $img);
+	
+	
+		}
 }
 ?>
