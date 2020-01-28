@@ -380,6 +380,10 @@ class DB extends mysqli{
 		$date = str_replace('/', '-', $data);
 		$date = date('Y-m-d', strtotime($date));
 		$dataora = $date." ".$ora;
+		
+		$date_now = date("Y-m-d H:i");
+		
+		if($dataora < $date_now) {$error[] = "Devi mettere una data futura";}
 
 		$img_path = '';
 
