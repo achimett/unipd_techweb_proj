@@ -645,7 +645,7 @@ class DB extends mysqli{
 
 	public function getProfiloTable($id, $status = 0)
 	{
-		$sql = "SELECT id, titolo, CONCAT(DATE_FORMAT(data,'%d/%m/%Y'),' ', DATE_FORMAT(data,'%H:%i:%s')) AS data, chiuso FROM post WHERE id_autore = ? ";
+		$sql = "SELECT id, titolo,DATE_FORMAT(data,'%d/%m/%Y') AS data, chiuso FROM post WHERE id_autore = ? ";
 
 		if($status > 0 ) {
 			$sql .= "AND chiuso = 0";
@@ -670,7 +670,7 @@ class DB extends mysqli{
 			$result->free();
 
 
-			$sql1 = "SELECT po.id, po.titolo, CONCAT(DATE_FORMAT(po.data,'%d/%m/%Y'),' ', DATE_FORMAT(po.data,'%H:%i:%s')) AS data, po.chiuso FROM partecipazione pa JOIN post po ON pa.id_post = po.id WHERE pa.id_utente = ? ";
+			$sql1 = "SELECT po.id, po.titolo,DATE_FORMAT(po.data,'%d/%m/%Y') AS data, po.chiuso FROM partecipazione pa JOIN post po ON pa.id_post = po.id WHERE pa.id_utente = ? ";
 
 			if($status > 0) {$sql1 .= "AND po.chiuso = 0";}
 			if($status < 0) {$sql1 .= "AND po.chiuso = 1";}
