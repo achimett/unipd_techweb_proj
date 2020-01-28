@@ -661,7 +661,7 @@ class DB extends mysqli{
 			$result = $query->get_result();
 			$profTable = array();
 
-			 while ($row = $result->fetch_assoc())
+			while ($row = $result->fetch_assoc())
 			{
 				$profTable[] = $row;
 			}
@@ -672,8 +672,8 @@ class DB extends mysqli{
 
 			$sql1 = "SELECT po.id, po.titolo, CONCAT(DATE_FORMAT(po.data,'%d/%m/%Y'),' ', DATE_FORMAT(po.data,'%H:%i:%s')) AS data, po.chiuso FROM partecipazione pa JOIN post po ON pa.id_post = po.id WHERE pa.id_utente = ? ";
 
-			if($status ===  1 ) {$sql1 .= "AND po.chiuso = 0";}
-			if($status === -1 ) {$sql1 .= "AND po.chiuso = 1";}
+			if($status > 0) {$sql1 .= "AND po.chiuso = 0";}
+			if($status < 0) {$sql1 .= "AND po.chiuso = 1";}
 
 			$query1 = $this->prepare($sql1);
 			$query1->bind_param("i", $id);
