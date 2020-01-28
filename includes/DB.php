@@ -10,9 +10,9 @@ class DB extends mysqli{
 	private $max_img_size = 3000000; // 3MB
 	private $perm_img_format = array(IMAGETYPE_GIF , IMAGETYPE_JPEG ,IMAGETYPE_PNG);
 
-	//public function __construct($host="localhost:8889", $user="root", $pass="root", $db="doit")
+	public function __construct($host="localhost:8889", $user="root", $pass="root", $db="doit")
 	//public function __construct($host="localhost", $user="achimett", $pass="Uegh7teifaCaeH9x", $db="achimett")
-	public function __construct($host="localhost", $user="root", $pass="", $db="doit")
+	//public function __construct($host="localhost", $user="root", $pass="", $db="doit")
 	{
         parent::__construct($host, $user, $pass, $db);
 
@@ -92,7 +92,7 @@ class DB extends mysqli{
 
 	public function setProfilo($id, $email, $password, $conf_password, $nome, $cognome, $datanascita, $cf, $bio, $img, $telefono)
 	{
-	
+
 
 		$error = array();
 
@@ -123,7 +123,7 @@ class DB extends mysqli{
 		$datanascita = date('Y-m-d', strtotime($date));
 
 		$date_now = date("Y-m-d");
-		
+
 		if($datanascita > $date_now) {$error[] = "Devi mettere una data passata";}
 		//else if((int)($date_now - $datanascita) < 3) {$error[] = "Sei un prodigio per essere un bebè";}
 		//else if((int)($date_now - $datanascita) < 13) {$error[] = "Apprezziamo la buona voltà ma sei troppo giovane per iscriverti a questo sito :(";}
@@ -146,7 +146,7 @@ class DB extends mysqli{
 		if(count($error)) {return $error;}
 
 		$bio=htmlentities($bio);
-		
+
 		if($id==0) //new profilo
 		{
 			if(!empty($img_path)) //aggiorno l'immagine
@@ -386,9 +386,9 @@ class DB extends mysqli{
 		$date = str_replace('/', '-', $data);
 		$date = date('Y-m-d', strtotime($date));
 		$dataora = $date." ".$ora;
-		
+
 		$date_now = date("Y-m-d H:i");
-		
+
 		if($dataora < $date_now) {$error[] = "Devi mettere una data futura";}
 
 		$img_path = '';
@@ -740,7 +740,7 @@ class DB extends mysqli{
 			if(count($error)) {return $error;}
 
 			$hash = hash_file('sha256', $foto);
-	
+
 
 
 			if (!move_uploaded_file($foto, $this->imgDir.$hash)) {$error[] = "impossibile spostare l'immagine"; return $error;}
@@ -749,7 +749,7 @@ class DB extends mysqli{
 			$this->crop($immagine,2);
 
 		}
-		
+
 		$messaggio = htmlentities($messaggio);
 			$sql = "INSERT INTO commento(id_autore,id_post,text,img_path) VALUES(?, ?, ? ,?);";
 
@@ -766,7 +766,7 @@ class DB extends mysqli{
 			else {return NULL;}
 	}
 
-	public function getPostcard($page, $postcard_per_page, $page_count, $filter = NULL)
+	public function getPostcard($page, $postcard_per_page, &$page_count, $filter = NULL)
 	{
 		$sql = "SELECT po.id,po.titolo,DATE_FORMAT(po.data,'%d/%m/%Y') AS data,po.provincia,po.luogo, po.img_path, COUNT(pa.id) AS nvolontari, po.descrizione FROM post po LEFT JOIN partecipazione pa ON po.id = pa.id_post GROUP BY po.id";
 
@@ -774,10 +774,8 @@ class DB extends mysqli{
 
 		$sql .= " ORDER BY po.id DESC";
 
-
 		if($result = $this->query($sql))
 		{
-
 			$card = array();
 
 			while ($row = $result->fetch_assoc())
@@ -792,6 +790,7 @@ class DB extends mysqli{
 			}
 
 			$page_count = ceil($result->num_rows/$postcard_per_page);
+			//print_r(ceil($result->num_rows/$postcard_per_page);
 
 			$selcard = array_slice($card, ($page-1)*$postcard_per_page, $postcard_per_page);
 
@@ -856,14 +855,14 @@ class DB extends mysqli{
 		$im = imagecreatefromstring(file_get_contents($img));
 
 		$size = min(imagesx($im), imagesy($im));
-		
+
 		$x = imagesx($im);
-		
+
 		$y = imagesy($im);
-		
+
 		$media = ($x - $y) / 2;
 		$media2 = ($y - $x)*$rap*2 / 2;
-		
+
 		if($media > $media2)
 		{
 		$crop_img = imagecrop($im, ['x' => $media, 'y' => 0, 'width' => $size, 'height' => $size/$rap]);
@@ -873,8 +872,8 @@ class DB extends mysqli{
 		$crop_img = imagecrop($im, ['x' => 0, 'y' => $media2, 'width' => $size, 'height' => $size/$rap]);
 		}
 		imagepng($crop_img, $img);
-	
-	
+
+
 		}
 }
 ?>
