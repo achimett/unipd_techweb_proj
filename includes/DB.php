@@ -122,6 +122,12 @@ class DB extends mysqli{
 		$date = str_replace('/', '-', $datanascita);
 		$datanascita = date('Y-m-d', strtotime($date));
 
+		$date_now = date("Y-m-d");
+		
+		if($datanascita > $date_now) {$error[] = "Devi mettere una data passata";}
+		//else if((int)($date_now - $datanascita) < 3) {$error[] = "Sei un prodigio per essere un bebè";}
+		//else if((int)($date_now - $datanascita) < 13) {$error[] = "Apprezziamo la buona voltà ma sei troppo giovane per iscriverti a questo sito :(";}
+
 		$hashed_pass = hash('sha256', $password);
 
 		$img_path = '';
