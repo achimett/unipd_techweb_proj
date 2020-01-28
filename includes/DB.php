@@ -92,7 +92,7 @@ class DB extends mysqli{
 
 	public function setProfilo($id, $email, $password, $conf_password, $nome, $cognome, $datanascita, $cf, $bio, $img, $telefono)
 	{
-
+	
 
 		$error = array();
 
@@ -139,6 +139,8 @@ class DB extends mysqli{
 
 		if(count($error)) {return $error;}
 
+		$bio=htmlentities($bio);
+		
 		if($id==0) //new profilo
 		{
 			if(!empty($img_path)) //aggiorno l'immagine
@@ -395,7 +397,10 @@ class DB extends mysqli{
 
 		if(count($error)) {return $error;} //se non ho passato alcuni check ritorno l'array con gli errori
 
-
+		$titolo = htmlentities($titolo); //pulizia input
+		$descrizione = htmlentities($descrizione);
+		$luogo = htmlentities($luogo);
+		$provincia = htmlentities($provincia);
 
 		if($id==0) //nuovo post
 		{
@@ -734,6 +739,8 @@ class DB extends mysqli{
 			$this->crop($immagine,2);
 
 		}
+		
+		$messaggio = htmlentities($messaggio);
 			$sql = "INSERT INTO commento(id_autore,id_post,text,img_path) VALUES(?, ?, ? ,?);";
 
 			$query = $this->prepare($sql);
