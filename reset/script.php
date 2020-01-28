@@ -80,4 +80,5 @@ $db->setPost(NULL, "Raccolta rifiuti", 1, "11/11/2019", "12:23", "descrizione", 
 
 
 echo "Reset e ripopolazione database eseguita"
+
 ?>
