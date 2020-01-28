@@ -6,9 +6,9 @@
 
 
     <ul id="profilo_info">
-      <li><img src="../img/compleanno_icon.png" alt="Compleanno: " /><data_di_nascita /></li>
-      <li><img src="../img/email-icon.png" alt="Email: " /><email /></li>
-      <li><img src="../img/telefono.png" alt="Telefono: " /><telefono /></li>
+      <li><img src="img/compleanno_icon.png" alt="Compleanno: " /><data_di_nascita /></li>
+      <li><img src="img/email-icon.png" alt="Email: " /><email /></li>
+      <li><img src="img/telefono.png" alt="Telefono: " /><telefono /></li>
     </ul>
 
     <modifica />
@@ -19,14 +19,13 @@
     </p>
   </div>
 
-
   <div id="profilo_contributi">
       <h1 class="post_titolo">Contributi</h1>
     <form id="profilo_radio_button" action="<action />" method="post">
       <fieldset>
         <legend class="labelFiltro">Filtro</legend>
         <input type="radio" name="status" value="0" id="tutte_le_attivita" tabindex="22" <check1 /> />
-        <label class="filtro" for="tutte_le_attivita"> Tutte le attivit&agrave;</label>
+        <label class="filtro" for="tutte_le_attivita"> Tutte le attività</label>
         <input type="radio" name="status" value="1" id="aperte" tabindex="23" <check2 /> />
         <label class="filtro" for="aperte"> Aperte</label>
         <input type="radio" name="status" value="-1" id="chiuse" tabindex="24" <check3 /> />
@@ -35,18 +34,19 @@
       </fieldset>
     </form>
     <table id="profilo_table_contributi">
+	<caption>Tabella contente i contributi dell'utente</caption>
       <thead>
         <tr>
-          <th class="profilo_colhead_attivita">Attivià</th>
-          <th class="profilo_colhead_data">Data</th>
-          <th class="profilo_colhead_statoattivita">Stato Attività</th>
+          <th scope="col" class="profilo_colhead_attivita">Attivià</th>
+          <th scope="col" class="profilo_colhead_data">Data</th>
+          <th scope="col" class="profilo_colhead_statoattivita">Stato Attività</th>
         </tr>
       </thead>
       <tfoot>
         <tr>
-          <th class="profilo_colhead_attivita">Attivit&agrave;</th>
-          <th class="profilo_colhead_data">Data</th>
-          <th class="profilo_colhead_statoattivita">Stato Attivit&agrave;</th>
+          <th scope="col" class="profilo_colhead_attivita">Attività</th>
+          <th scope="col" class="profilo_colhead_data">Data</th>
+          <th scope="col" class="profilo_colhead_statoattivita">Stato Attività</th>
         </tr>
       </tfoot>
       <tbody>
