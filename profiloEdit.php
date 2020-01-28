@@ -64,6 +64,7 @@ $hamburger = file_get_contents('includes/hamburger.html');
 
 // Concatenazione di tutti i JS da includere nell'head
 $scripts = file_get_contents('includes/scriptMenu.html')
+. file_get_contents('includes/scriptValidateProfilo.html')
 . file_get_contents('includes/scriptConfirmDelete.html');
 
 // Contiene lo snippet di codice per visualizzare l'utente loggato in alto a sinistra

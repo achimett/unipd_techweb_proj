@@ -65,6 +65,7 @@ $hamburger = file_get_contents('includes/hamburger.html');
 
 // Concatenazione di tutti i JS da includere nell'head
 $scripts = file_get_contents('includes/scriptMenu.html')
+. file_get_contents('includes/scriptValidateProfilo.html')
 . file_get_contents('includes/scriptLogin.html');
 
 // Codice HTML del menu
