@@ -597,7 +597,7 @@ ul.error {
 }
 
 .postEdit_informazioni_input {
-  max-width: 50%;
+  width: 40%;
   float: left;
   padding: 0.4em;
   border: 1px solid #000;
