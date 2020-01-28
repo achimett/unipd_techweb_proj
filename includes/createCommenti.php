@@ -12,7 +12,6 @@ function createCommenti($db, $profilo, $k) {
     $c = str_replace('<autore />', $commento['nome'] . " " . $commento['cognome'], $c);
     $c = str_replace('<data />', $commento['data'], $c);
     $c = str_replace('<text />', $commento['text'], $c);
-    var_dump($commento['img_path']);
     if(empty($commento['img_path']) == false) {
       $c = str_replace('<img_path />', '  <img class="post_commento_image" src="' . $commento['img_path'] . '" alt="immagine di <autore />" />', $c);
       $c = str_replace('<autore />', $commento['nome'], $c);
