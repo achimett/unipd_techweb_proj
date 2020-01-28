@@ -10,9 +10,9 @@ class DB extends mysqli{
 	private $max_img_size = 3000000; // 3MB
 	private $perm_img_format = array(IMAGETYPE_GIF , IMAGETYPE_JPEG ,IMAGETYPE_PNG);
 
-	public function __construct($host="localhost:8889", $user="root", $pass="root", $db="doit")
+	//public function __construct($host="localhost:8889", $user="root", $pass="root", $db="doit")
 	//public function __construct($host="localhost", $user="achimett", $pass="Uegh7teifaCaeH9x", $db="achimett")
-	//public function __construct($host="localhost", $user="root", $pass="", $db="doit")
+	public function __construct($host="localhost", $user="root", $pass="", $db="doit")
 	{
         parent::__construct($host, $user, $pass, $db);
 
@@ -790,7 +790,6 @@ class DB extends mysqli{
 			}
 
 			$page_count = ceil($result->num_rows/$postcard_per_page);
-			//print_r(ceil($result->num_rows/$postcard_per_page);
 
 			$selcard = array_slice($card, ($page-1)*$postcard_per_page, $postcard_per_page);
 

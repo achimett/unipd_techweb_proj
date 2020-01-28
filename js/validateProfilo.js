@@ -4,7 +4,6 @@ function mostraError(input, testoError) {
   span.className = "error";
   span.innerText = testoError;
   input.after(span);
-	
 }
 
 function togliError() {
@@ -23,18 +22,20 @@ function checkData(input) {
 }
 
 function checkPass(input, input2) {
-  var d = /^(?=.*[0-9])(?=.*[A-Z]).{8,}$/;
-  if (input.value != input2.value) {
-    mostraError(input, "Password e Conferma password non coincidono");
-    return false;
-  }
-  if (d.test(input.value) == false) {
-    mostraError(input, "Password non valida : la password deve essere di almeno 8 caratteri e con almeno un alettere maiuscola ed un numero");
-    return false;
+    if (!(input.value == "" && input2.value == "")) {
+    var d = /^(?=.*[0-9])(?=.*[A-Z]).{8,}$/;
+    if (input.value != input2.value) {
+      mostraError(input, "Password e Conferma password non coincidono");
+      return false;
+    }
+    if (d.test(input.value) == false) {
+      mostraError(input, "Password non valida : la password deve essere di almeno 8 caratteri e con almeno un alettere maiuscola ed un numero");
+      return false;
+    }
   }
  return true;
-  }
-  
+}
+
 function checkMail(input) {
   var d =   /^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,5}$/;
   if (d.test(input.value) == false) {
@@ -43,8 +44,8 @@ function checkMail(input) {
   }
   return true;
 }
-  
-  
+
+
 function checkTel(input) {
   var d = /^[0-9]{7,12}$/;
   if (d.test(input.value) == false) {
@@ -53,7 +54,7 @@ function checkTel(input) {
   }
   return true;
 }
- 
+
  function checkNome(input) {
   var d = /^[a-zA-Z \\'\\s\é\è\ò\à\ù\ì]{2,30}$/;
   if (d.test(input.value) == false) {
@@ -62,7 +63,7 @@ function checkTel(input) {
   }
   return true;
  }
-  
+
   function checkBio(input) {
   if (input.value.length > 65535) {
     mostraError(input, "Hai inserito troppi caratteri");
@@ -75,7 +76,7 @@ function checkTel(input) {
 
   return true;
 }
-  
+
   function checkCognome(input) {
   var d = /^[a-zA-Z \\'\\s\é\è\ò\à\ù\ì]{2,30}$/;
   if (d.test(input.value) == false) {
@@ -84,7 +85,7 @@ function checkTel(input) {
   }
   return true;
   }
-  
+
   function checkCF(input) {
   var d = /^[a-zA-Z]{6}[0-9]{2}[abcdehlmprstABCDEHLMPRST]{1}[0-9]{2}([a-zA-Z]{1}[0-9]{3})[a-zA-Z]{1}$/;
   if (d.test(input.value) == false) {
@@ -93,7 +94,7 @@ function checkTel(input) {
   }
   return true;
   }
-  
+
   function checkImg() {
   var img = document.getElementById("registrazione_foto");
 
@@ -103,12 +104,12 @@ function checkTel(input) {
 		mostraError(img, "Selezionare un file in formato png o jpeg");
 		return false;
 	  }
-  }  
+  }
   return true;
 }
 
 
-function validateProfilo() {  
+function validateProfilo() {
 	togliError();
   var nome = document.getElementById('registrazione_nome');
   var cognome = document.getElementById("registrazione_cognome");
