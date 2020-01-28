@@ -698,13 +698,13 @@ ul.error {
   border-radius: 0.5em;
 }
 
-#gestione_pagina {
+.gestione_pagina {
   clear: both;
   text-align: center;
   padding: 3% 0%;
 }
 
-#gestione_pagina img {
+.gestione_pagina img {
   height: 2em;
   vertical-align: middle;
 }

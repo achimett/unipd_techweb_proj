@@ -232,7 +232,7 @@ abbr[title] {
 
 /* Bacheca */
 
-#gestione_pagina {
+.gestione_pagina {
   display: none;
 }
 
