@@ -35,11 +35,15 @@
   margin: 0% 2% 2% 2%;
 }
 
-#menu ul {
-  width: 80%;
-  margin-left: 10%;
+#menu ul#menu_up {
+
   padding-bottom: 1em;
   border-bottom: 3px solid #E8E9EB;
+}
+
+#menu ul#menu_down {
+  width: 92%;
+  padding-left: 5%;
 }
 
 .menuc {
@@ -202,6 +206,21 @@ width: 92%;
 #profilo_info li {
   margin: 0;
 }
+
+
+#profilo_table_contributi th {
+  overflow: hidden;
+  padding: 1%;
+}
+
+.profilo_colhead_attivita {
+  width: 50%;
+}
+
+.profilo_colhead_data {
+  width: 30%;
+}
+
 
 /* Login e Registrazione */
 #gruppo1, #gruppo2 {

@@ -754,7 +754,6 @@ class DB extends mysqli{
 		if($result = $this->query($sql))
 		{
 
-			echo "sdgf";
 			$card = array();
 
 			while ($row = $result->fetch_assoc())

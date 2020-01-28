@@ -11,10 +11,10 @@ function createProfiloEditButton($id, $tabindex) {
   $result = '';
 
   if (isset($_SESSION['user_id']) === true && $_SESSION['user_id'] == $id) {
-    $result = '<form action="profiloEdit.php"><div>' .
+    $result = '<form action="profiloEdit.php">' .
                '<input type="hidden" name="id" value="' . $id . '" />' .
                '<input class="bottone" id="profilo_modifica_profilo" type="submit" value="Modifica il tuo profilo" tabindex="' . $tabindex . '" />' .
-               '</div></form>' . "\n";
+               '</form>' . "\n";
   }
 
   return $result;
