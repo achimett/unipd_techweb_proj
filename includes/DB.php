@@ -11,7 +11,7 @@ class DB extends mysqli{
 	private $perm_img_format = array(IMAGETYPE_GIF , IMAGETYPE_JPEG ,IMAGETYPE_PNG);
 
 	//public function __construct($host="localhost:8889", $user="root", $pass="root", $db="doit")
-	public function __construct($host="localhost", $user="achimett", $pass="Uegh7teifaCaeH9x", $db="achimett")
+	public function __construct($host="localhost", $user="root", $pass="", $db="doit")
 	//public function __construct($host="localhost", $user="root", $pass="", $db="doit")
 	{
         parent::__construct($host, $user, $pass, $db);
@@ -620,7 +620,7 @@ class DB extends mysqli{
 	{
 
 		$sql = "SELECT c.id, c.id_autore,u.nome,u.cognome,CONCAT(DATE_FORMAT(data,'%d/%m/%Y'),' ', DATE_FORMAT(data,'%H:%i:%s')) AS data,";
-		$sql.= "c.text,c.img_path AS img_user_path,c.img_path FROM commento c JOIN utente u ON c.id_autore = u.id WHERE c.id_post = ?;";
+		$sql.= "c.text,u.img_path AS img_user_path,c.img_path FROM commento c JOIN utente u ON c.id_autore = u.id WHERE c.id_post = ?;";
 		$query = $this->prepare($sql);
 		$query->bind_param("i", $id);
 
