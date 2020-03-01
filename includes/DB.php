@@ -11,7 +11,7 @@ class DB extends mysqli{
 	private $perm_img_format = array(IMAGETYPE_GIF , IMAGETYPE_JPEG ,IMAGETYPE_PNG);
 
 	//public function __construct($host="localhost:8889", $user="root", $pass="root", $db="doit")
-	public function __construct($host="localhost", $user="root", $pass="", $db="doit")
+	public function __construct($host="localhost", $user="dbrescia", $pass="kainoolay9ojaeQu", $db="dbrescia")
 	//public function __construct($host="localhost", $user="root", $pass="", $db="doit")
 	{
         parent::__construct($host, $user, $pass, $db);
