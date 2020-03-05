@@ -6,6 +6,7 @@ require_once('includes/createInfoUtente.php');
 require_once('includes/createMenu.php');
 require_once('includes/createFormErrors.php');
 require_once('includes/createPostEditBreadcrumb.php');
+require_once('includes/createGestionePagine.php');
 
 // Oggetto di accesso al database
 $db = new DB();
@@ -47,9 +48,12 @@ if (isset($_GET['provincia'])) {
 }
 
 $page_count = 1; // Pagine totali
-$postcard_data = $db->getPostcard($page, POSTCARD_PER_PAGE, $page_count, $provincia); // Tutti i dati delle postcard
+$postcard_data = $db->getPostcard($page, POSTCARD_PER_PAGE, $page_count, $provincia);
 
-$tabindex = 22; // Valore di tabindex nel titolo delle postcard e elementi successivi
+$tabindex = 23; // Valore di tabindex di partenza di: gestione pagine, titolo delle postcard e elementi successivi
+
+$gestione_pagine_top = createGestionePagine($page, $page_count, $tabindex, $provincia);
+
 $postlist = ''; // HTML delle postcard;
 foreach ($postcard_data as $postcard) {
   $result = file_get_contents('includes/contentPostcard.html');
@@ -65,24 +69,13 @@ foreach ($postcard_data as $postcard) {
   $postlist .= $result . "\n";
 }
 
-// Gestione Pagine
-$previous = ''; // HTML con link alla pagina precedente
-$next = ''; // HTML con link alla pagina precedente
-if ($page !== 1) {
-  $previous = '<a href="bacheca.php?page=' . ($page - 1) . '&amp;provincia='. $provincia . '" tabindex="' . $tabindex++ . '">
-  <img src="img/freccia_sx.png" alt="Pagina precedente" /></a>';
-}
-if ($page < $page_count) {
-  $next = '<a href="bacheca.php?page=' . ($page + 1) . '&amp;provincia='. $provincia . '" tabindex="' . $tabindex++ . '">
-  <img src="img/freccia_dx.png" alt="Pagina successiva" /></a>';
-}
+$gestione_pagine_bottom = createGestionePagine($page, $page_count, $tabindex, $provincia);
 
 $content = str_replace('<action />', "bacheca.php?page=$page&amp;provincia=$provincia", $content);
 $content = str_replace('<provincia />', $provincia, $content);
 $content = str_replace('<postlist />', $postlist, $content);
-$content = str_replace('<previous />', $previous, $content);
-$content = str_replace('<page />', $page, $content);
-$content = str_replace('<next />', $next, $content);
+$content = str_replace('<gestione_pagine_top />', $gestione_pagine_top, $content);
+$content = str_replace('<gestione_pagine_bottom />', $gestione_pagine_bottom, $content);
 
 // Rimpiazzo dei segnaposto sull'intera pagina
 $page_head = str_replace('<title />', "<title>$title - DOIT</title>", $page_head);
