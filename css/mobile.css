@@ -121,8 +121,8 @@ width: 92%;
 
 #post_sfoglia {
   text-align: left;
-  margin-left: 10%;
-  width: 90%;
+  width: 100%;
+  padding: 3% 0;
 }
 
 #post_listavolontari {
