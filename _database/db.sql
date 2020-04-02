@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS doit;
+-- DROP DATABASE IF EXISTS doit;
 
-CREATE DATABASE doit;
+-- CREATE DATABASE doit;
 
-USE doit;
+USE dbrescia;
 
 SET FOREIGN_KEY_CHECKS = 0; -- Disabilita check su vincoli di integrità referenziale
 
@@ -27,7 +27,7 @@ CREATE TABLE post (
   id_autore   INT NOT NULL,
   data        TIMESTAMP NOT NULL,
   descrizione TEXT NOT NULL,
-  img_path    VARCHAR(256) NOT NULL DEFAULT 'img/default.jpg',
+  img_path    VARCHAR(256) NOT NULL DEFAULT 'img/default.png',
   provincia	  VARCHAR(50) NOT NULL,
   luogo		  VARCHAR(150) NOT NULL,
   chiuso      BOOLEAN NOT NULL DEFAULT 0,
@@ -57,7 +57,5 @@ CREATE TABLE  partecipazione (
   CONSTRAINT Part_uniq UNIQUE (id_post,id_utente)
 
 );
-
-#maybe i will add some index
 
 SET FOREIGN_KEY_CHECKS = 1; -- Riabilita check

@@ -1,0 +1,1 @@
+File creato per rendere disponibile la cartella vuota sulla repo git
