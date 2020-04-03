@@ -82,6 +82,7 @@ $content = str_replace('<modifica />', $modifica, $content);
 
 $page_head = str_replace('<title />', "<title>$title - DOIT</title>", $page_head);
 $page_head = str_replace('<scripts />', $scripts, $page_head);
+$page_body = str_replace('<skip />', 'profilo', $page_body);
 $page_body = str_replace('<info_utente />', $info_utente, $page_body);
 $page_body = str_replace('<hamburger />', $hamburger, $page_body);
 $page_body = str_replace('<breadcrumb />', $breadcrumb, $page_body);

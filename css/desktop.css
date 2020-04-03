@@ -20,6 +20,14 @@ a:focus, input:focus, textarea:focus {
   outline: 0.2em dashed #FF0000;
 }
 
+.hiddenLink {
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;height:1px;
+  overflow:hidden;
+}
+
 /********** Targa Utente **********/
 .usr img {
   width: 2em;

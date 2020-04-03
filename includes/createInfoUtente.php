@@ -12,7 +12,7 @@ function createInfoUtente($db) {
   if (isset($_SESSION['user_id']) === true) {
     $usr = $db->getUser($_SESSION['user_id']);
 
-    $result = '<a id="info_utente" class="usr" tabindex="1"
+    $result = '<a id="info_utente" class="usr" tabindex="2"
     href="profilo.php?id=' . $_SESSION['user_id'] . '">
     <img src="' . $usr['img_path'] . '" alt="" />
     <span>' . $usr['nome'] . ' ' . $usr['cognome'] . '</span></a>';

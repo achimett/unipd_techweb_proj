@@ -110,6 +110,7 @@ if (isset($_POST['registrazione'])) {
 // Rimpiazzo dei segnaposto sull'intera pagina
 $page_head = str_replace('<title />', "<title>$title - DOIT</title>", $page_head);
 $page_head = str_replace('<scripts />', $scripts, $page_head);
+$page_body = str_replace('<skip />', 'registrazione_e_login', $page_body);
 $page_body = str_replace('<info_utente />', '', $page_body);
 $page_body = str_replace('<hamburger />', $hamburger, $page_body);
 $page_body = str_replace('<breadcrumb />', $breadcrumb, $page_body);
