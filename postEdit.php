@@ -98,14 +98,14 @@ $content = str_replace('<error />', $errors, $content);
 if ($post_id === NULL) {
   $content = str_replace('<elimina />', '', $content);
 } else {
-  $content = str_replace('<elimina />', '<input type="submit" name="elimina" value="Elimina Post" id="post_social_elimina" class="bottone registrazione_button profiloEdit_delete_buttons" tabindex="31" />', $content);
+  $content = str_replace('<elimina />', file_get_contents('includes/contentEliminaPost.html'), $content);
 }
 
 if ($post === NULL) {
   $content = str_replace('<action />', 'postEdit.php', $content);
   $content = str_replace('<titolo />', '', $content);
-  $content = str_replace('<data />', '__/__/____', $content);
-  $content = str_replace('<ora />', '__:__', $content);
+  $content = str_replace('<data />', '', $content);
+  $content = str_replace('<ora />', '', $content);
   $content = str_replace('<descrizione />', "Inserisci qui la descrizione dell'attività che vuoi svolgere", $content);
   $content = str_replace('<luogo />', '', $content);
   $content = str_replace('<provincia />', '', $content);
