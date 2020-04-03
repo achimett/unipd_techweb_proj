@@ -34,6 +34,7 @@ $content = file_get_contents('includes/content404.html');
 
 $page_head = str_replace('<title />', "<title>$title - DOIT</title>", $page_head);
 $page_head = str_replace('<scripts />', $scripts, $page_head);
+$page_body = str_replace('<skip />', 'error_404', $page_body);
 $page_body = str_replace('<info_utente />', $info_utente, $page_body);
 $page_body = str_replace('<hamburger />', $hamburger, $page_body);
 $page_body = str_replace('<breadcrumb />', $breadcrumb, $page_body);

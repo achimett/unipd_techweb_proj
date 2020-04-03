@@ -35,6 +35,7 @@ $content = file_get_contents('includes/contentAbout.html');
 // Rimpiazzo dei segnaposto sull'intera pagina
 $page_head = str_replace('<title />', "<title>$title - DOIT</title>", $page_head);
 $page_head = str_replace('<scripts />', $scripts, $page_head);
+$page_body = str_replace('<skip />', 'about', $page_body);
 $page_body = str_replace('<info_utente />', $info_utente, $page_body);
 $page_body = str_replace('<hamburger />', $hamburger, $page_body);
 $page_body = str_replace('<breadcrumb />', $breadcrumb, $page_body);

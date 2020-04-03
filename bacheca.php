@@ -80,6 +80,7 @@ $content = str_replace('<gestione_pagine_bottom />', $gestione_pagine_bottom, $c
 // Rimpiazzo dei segnaposto sull'intera pagina
 $page_head = str_replace('<title />', "<title>$title - DOIT</title>", $page_head);
 $page_head = str_replace('<scripts />', $scripts, $page_head);
+$page_body = str_replace('<skip />', 'bacheca', $page_body);
 $page_body = str_replace('<info_utente />', $info_utente, $page_body);
 $page_body = str_replace('<hamburger />', $hamburger, $page_body);
 $page_body = str_replace('<breadcrumb />', $breadcrumb, $page_body);
