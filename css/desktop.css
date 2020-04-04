@@ -21,11 +21,12 @@ a:focus, input:focus, textarea:focus {
 }
 
 .hiddenLink {
-  position:absolute;
-  left:-10000px;
-  top:auto;
-  width:1px;height:1px;
-  overflow:hidden;
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 /********** Targa Utente **********/
