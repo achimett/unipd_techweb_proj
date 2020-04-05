@@ -12,15 +12,12 @@
 function createTableRows($table_data, $tabindex) {
   $result = '';
 
-  $i = count($table_data);
   foreach ($table_data as $row) {
     $result .=  '<tr>
-                 <td>' . $i . '</td>
                  <td><a href="post.php?id=' . $row['id'] . '" tabindex="' . $tabindex++ . '">' .$row['titolo']. '</a></td>
                  <td>' .$row['data']. '</td>
                  <td>' . ($row['chiuso'] ? 'Chiuso' : 'Aperto') . '</td>
                  </tr>' . "\n";
-    $i -= 1;
   }
   return $result;
 }
