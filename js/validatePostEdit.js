@@ -48,8 +48,8 @@ function checkProvincia(input) {
 }
 
 function checkDescrizione(input) {
-  if (input.value.length > 340) {
-    mostraErrore(input, "Hai inserito troppi caratteri (max 340 caratteri)");
+  if (input.value.length > 1000) {
+    mostraErrore(input, "Hai inserito troppi caratteri (max 1000 caratteri)");
     return false;
 
   } else if (input.value.length <= 0) {

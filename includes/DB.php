@@ -96,23 +96,23 @@ class DB extends mysqli{
 
 		$error = array();
 
-		if (strlen($email) > 50) {$error[] = "mail tropppo lunga";}
-		if (!preg_match($this->mailPattern,$email)) {$error[] = "mail in formato errato";}
+		if (strlen($email) > 50) {$error[] = "Mail tropppo lunga (Max: 50 caratteri)";}
+		if (!preg_match($this->mailPattern,$email)) {$error[] = "Mail in formato errato";}
 
 		if (!preg_match($this->passPattern,$password))
 		{
 			if(!$id || ($id && !empty($password)))
-			{$error[] = "password in formato errato";}
+			{$error[] = "Password in formato errato, la password deve essere rispettare i seguenti requisiti: deve essere di almeno 8 caratteri con almeno una maiuscola e un numero";}
 		}
 
-		If ($password !== $conf_password) {$error[] = "le password non coincidono";}
-		if (!preg_match($this->namePattern, $nome)) {$error[] = "nome non valido";};
-		if (!preg_match($this->namePattern, $cognome)) {$error[] = "cognome non valido";}
-		if (!$this->validateDate($datanascita , "d/m/Y")){$error[] = "data non valida";}
-		if (strlen($cf) !== 16) {$error[] = 'cf non valdio';}
-		if (strlen($bio) > 65535) {$error[] = "biografia troppo lunga";}
-		if (strlen($bio) === 0) {$error[] = "nessuno biografia";}
-		if (!preg_match($this->cellPattern,$telefono)) {$error[] = "numero non valido";}
+		If ($password !== $conf_password) {$error[] = "Le password non coincidono";}
+		if (!preg_match($this->namePattern, $nome)) {$error[] = "Nome non valido, non sono concesse lettere accentate (min: 2 caratteri, max: 30 caratteri)";};
+		if (!preg_match($this->namePattern, $cognome)) {$error[] = "Cognome non valido, non sono concesse lettere accentate (min: 2 caratteri, max: 30 caratteri)";}
+		if (!$this->validateDate($datanascita , "d/m/Y")){$error[] = "Data non valida, (formato data: dd/mm/aaaa)";}
+		if (strlen($cf) !== 16) {$error[] = 'Codice fiscale non valido';}
+		if (strlen($bio) > 65535) {$error[] = "Biografia troppo lunga (max: 65535 caratteri)";}
+		if (strlen($bio) === 0) {$error[] = "Biografia mancante, inserire una biografia";}
+		if (!preg_match($this->cellPattern,$telefono)) {$error[] = "Numero di telefono non valido, inserire solo numeri (min: 7 numeri, max: 12 numeri)";}
 		if (!$id && $er = $this->alreadyReg($email,$cf))
 		{
 			foreach($er as $e)
@@ -135,10 +135,10 @@ class DB extends mysqli{
 		if(!empty($img))
 		{
 			$img_format = exif_imagetype($img);
-			if(!in_array($img_format , $this->perm_img_format)) {$error[] = 'formato immagine errato';} 	 // verifica se è un immagine
-			if (filesize($img) > $this->max_img_size) {$error[] = 'immagine troppo grande';}
+			if(!in_array($img_format , $this->perm_img_format)) {$error[] = 'Formato immagine errato, inserire un immagine in formato PNG o JPEG';} 	 // verifica se è un immagine
+			if (filesize($img) > $this->max_img_size) {$error[] = 'Immagine troppo grande (max: 3MB)';}
 			$hash = hash_file('sha256', $img);
-			if (!move_uploaded_file($img, $this->imgDir.$hash)) {$error[] = "impossibile spostare l'immagine";}
+			if (!move_uploaded_file($img, $this->imgDir.$hash)) {$error[] = "Impossibile spostare l'immagine";}
 			$img_path = $this->imgDir.$hash;
 			$this->crop($img_path,1);
 		}
@@ -369,19 +369,16 @@ class DB extends mysqli{
 
 
 
-		if (strlen($titolo) === 0) {$error[] = "Titolo mancante";}
-		if (strlen($titolo) > 100) {$error[] = "Titolo troppo lungo";}
-		if (!$this->validateDate($data , "d/m/Y")){$error[] = "data non valida";};
-		if (!$this->validateDate($ora , "H:i")){$error[] = "ora non valida";};
-		if (strlen($descrizione) === 0) {$error[] = "Descrizione vuota";}
-		if (strlen($descrizione) > 65535) {$error[] = "Descrizione troppo lunga";}
-		if (strlen($luogo) === 0) {$error[] = "Luogo mancante";}
-		if (strlen($luogo) > 150) {$error[] = "Luogo troppo lungo";}
-		if (strlen($provincia) === 0) {$error[] = "Provincia mancante";}
-		if (strlen($provincia) > 50) {$error[] = "Provincia troppo lunga";}
-
-
-		//50 PER UNA PROVINCIA NON è TROPPO ??????
+		if (strlen($titolo) === 0) {$error[] = "Titolo mancante, inserire un titolo";}
+		if (strlen($titolo) > 100) {$error[] = "Titolo troppo lungo (max: 100 caratteri)";}
+		if (!$this->validateDate($data , "d/m/Y")){$error[] = "Data non valida, (formato data: dd/mm/aaaa)";};
+		if (!$this->validateDate($ora , "H:i")){$error[] = "Ora non valida, (formato ora: hh:mm)";};
+		if (strlen($descrizione) === 0) {$error[] = "Descrizione mancante, inserire una descrizione";}
+		if (strlen($descrizione) > 1000) {$error[] = "Descrizione troppo lunga (max: 1000 caratteri)";}
+		if (strlen($luogo) === 0) {$error[] = "Luogo mancante, inserire un luogo";}
+		if (strlen($luogo) > 150) {$error[] = "Luogo troppo lungo (max: 150 caratteri)";}
+		if (strlen($provincia) === 0) {$error[] = "Provincia mancante, inserire una provincia";}
+		if (strlen($provincia) > 50) {$error[] = "Provincia troppo lunga (max: 50 caratteri)";}
 
 		$date = str_replace('/', '-', $data);
 		$date = date('Y-m-d', strtotime($date));
@@ -396,11 +393,11 @@ class DB extends mysqli{
 		if(!empty($img))
 		{
 			$img_format = exif_imagetype($img);
-			if(!in_array($img_format , $this->perm_img_format)) {$error[] = 'formato immagine errato';} // verifica se è un immagine
-			if (filesize($img) > $this->max_img_size) {$error[] = 'immagine troppo grande';}
+			if(!in_array($img_format , $this->perm_img_format)) {$error[] = 'Formato immagine errato, inserire un immagine in formato PNG o JPEG';} // verifica se è un immagine
+			if (filesize($img) > $this->max_img_size) {$error[] = 'Immagine troppo grande (max: 3MB)';}
 
 			$hash = hash_file('sha256', $img);
-			if (!move_uploaded_file($img, $this->imgDir.$hash)) {$error[] = "impossibile spostare l'immagine";}
+			if (!move_uploaded_file($img, $this->imgDir.$hash)) {$error[] = "Impossibile spostare l'immagine";}
 			$img_path = $this->imgDir.$hash;
 			$this->crop($img_path,3);
 		}
@@ -727,14 +724,14 @@ class DB extends mysqli{
 		$error = array();
 		$immagine = NULL;
 
-		if(empty($messaggio) && empty($foto)) {return "Parametri invalidi";}
+		if(empty($messaggio) && empty($foto)) {return "Parametri non validi";}
 
 		if(!empty($foto))
 		{
 			$img_format = exif_imagetype($foto);
 
-			if (filesize($foto) > $this->max_img_size) {$error[] = 'immagine troppo grande';}
-			if(!in_array($img_format , $this->perm_img_format)) {$error[] = 'formato immagine errato';}
+			if (filesize($foto) > $this->max_img_size) {$error[] = 'Immagine troppo grande (max: 3MB)';}
+			if(!in_array($img_format , $this->perm_img_format)) {$error[] = 'Formato immagine errato, inserire un immagine in formato PNG o JPEG';}
 
 			if(count($error)) {return $error;}
 
@@ -742,7 +739,7 @@ class DB extends mysqli{
 
 
 
-			if (!move_uploaded_file($foto, $this->imgDir.$hash)) {$error[] = "impossibile spostare l'immagine"; return $error;}
+			if (!move_uploaded_file($foto, $this->imgDir.$hash)) {$error[] = "Impossibile spostare l'immagine"; return $error;}
 
 			$immagine = $this->imgDir.$hash;
 			$this->crop($immagine,2);
@@ -814,7 +811,7 @@ class DB extends mysqli{
 			if($query->get_result()->num_rows)
 			{
 				$query->close();
-				$error[] = "mail già presente";
+				$error[] = "Mail già presente";
 			}
 
 
@@ -833,7 +830,7 @@ class DB extends mysqli{
 			if($query->get_result()->num_rows)
 			{
 				$query->close();
-				$error[] = "cf già presente";
+				$error[] = "Codice fiscale già presente";
 			}
 
 
