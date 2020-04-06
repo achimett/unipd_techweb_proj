@@ -26,12 +26,12 @@
         <input type="text" class="postEdit_informazioni_input" id="provincia" name="provincia" value="<provincia />" tabindex="25" />
       </li>
       <li>
-        <label class="label" for="postEdit_social_sfoglia">Inserisci qui la descrizione:</label>
-        <textarea id="postEdit_social_textarea" name="descrizione" tabindex="26"><descrizione /></textarea>
+        <label class="label" for="postEdit_social_textarea">Inserisci qui la descrizione (max: 1000 caratteri):</label>
+        <textarea id="postEdit_social_textarea" name="descrizione" cols="1" tabindex="26"><descrizione /></textarea>
       </li>
       <li>
         <label class="label" for="postEdit_social_sfoglia">Immagine di copertina:</label>
-        <input id="postEdit_social_sfoglia" class="buttons" name="img" type="file" alt="sfoglia" onchange="checkImg()" tabindex="27" />
+        <input id="postEdit_social_sfoglia" class="buttons" name="img" type="file" onchange="checkImg()" tabindex="27" />
       </li>
     </ul>
 
