@@ -402,7 +402,7 @@ class DB extends mysqli{
 			$hash = hash_file('sha256', $img);
 			if (!move_uploaded_file($img, $this->imgDir.$hash)) {$error[] = "impossibile spostare l'immagine";}
 			$img_path = $this->imgDir.$hash;
-			$this->crop($img_path,3);
+			$this->crop($img_path,2);
 		}
 
 		if(count($error)) {return $error;} //se non ho passato alcuni check ritorno l'array con gli errori
