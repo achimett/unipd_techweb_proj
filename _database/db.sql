@@ -26,7 +26,7 @@ CREATE TABLE post (
   titolo      VARCHAR(100) NOT NULL,
   id_autore   INT NOT NULL,
   data        TIMESTAMP NOT NULL,
-  descrizione TEXT NOT NULL,
+  descrizione VARCHAR(1000) NOT NULL,
   img_path    VARCHAR(256) NOT NULL DEFAULT 'img/default.png',
   provincia	  VARCHAR(50) NOT NULL,
   luogo		  VARCHAR(150) NOT NULL,

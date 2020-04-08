@@ -307,11 +307,11 @@ class DB extends mysqli{
 		unset($_SESSION['user_id']);
 	}
 
-	 public function getPost($id)
+	public function getPost($id)
 	{
-		$sql = "SELECT  p.id,p.titolo,p.id_autore,u.nome,u.cognome, DATE_FORMAT(data,'%d/%m/%Y') AS data, DATE_FORMAT(data,'%H:%i') AS ora,p.descrizione,p.img_path,p.provincia,p.luogo,p.chiuso, COUNT(*) as nvolontari FROM (post p JOIN partecipazione pa ON p.id = pa.id_post) JOIN utente u ON p.id_autore = u.id WHERE p.id = ? ";
+		$sql = "SELECT  p.id,p.titolo,p.id_autore,u.nome,u.cognome, DATE_FORMAT(data,'%d/%m/%Y') AS data, DATE_FORMAT(data,'%H:%i') AS ora,p.descrizione,p.img_path,p.provincia,p.luogo,p.chiuso, (SELECT COUNT(*) FROM post p JOIN partecipazione pa ON p.id = pa.id_post WHERE p.id = ?)  as nvolontari  FROM post p JOIN utente u ON p.id_autore = u.id WHERE p.id = ?";
 		$query = $this->prepare($sql);
-		$query->bind_param("i", $id);
+		$query->bind_param("ii", $id, $id);
 		$query->execute();
 		$result = $query->get_result();
 
@@ -399,7 +399,7 @@ class DB extends mysqli{
 			$hash = hash_file('sha256', $img);
 			if (!move_uploaded_file($img, $this->imgDir.$hash)) {$error[] = "Impossibile spostare l'immagine";}
 			$img_path = $this->imgDir.$hash;
-			$this->crop($img_path,3);
+			$this->crop($img_path,2);
 		}
 
 		if(count($error)) {return $error;} //se non ho passato alcuni check ritorno l'array con gli errori
