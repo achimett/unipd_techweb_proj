@@ -856,15 +856,15 @@ class DB extends mysqli{
 		$y = imagesy($im);
 
 		$media = ($x - $y) / 2;
-		$media2 = ($y - $x)*$rap*2 / 2;
+		$media2 = ($y - $x)/ 2;
 
 		if($media > $media2)
 		{
-		$crop_img = imagecrop($im, ['x' => $media, 'y' => 0, 'width' => $size, 'height' => $size/$rap]);
+		$crop_img = imagecrop($im, ['x' => $media, 'y' => ($y-($size/$rap))/2, 'width' => $size, 'height' => $size/$rap]);
 		}
 		else
 		{
-		$crop_img = imagecrop($im, ['x' => 0, 'y' => $media2, 'width' => $size, 'height' => $size/$rap]);
+		$crop_img = imagecrop($im, ['x' => 0, 'y' => ($y-($size/$rap))/2, 'width' => $size, 'height' => $size/$rap]);
 		}
 		imagepng($crop_img, $img);
 
