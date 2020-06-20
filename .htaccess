@@ -1,5 +1,5 @@
 ## Configurazione pagina 404
-ErrorDocument 404 /achimett/404.php
+ErrorDocument 404 /dbrescia/404.php
 
 ## PHP Debug
 #php_flag display_startup_errors on
