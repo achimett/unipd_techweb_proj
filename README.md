@@ -1,8 +1,9 @@
 # DOIT
-Progetto per il corso di Tecnologie Web UNIPD A.A. 2019/20, tenuto dalla professoressa Ombretta Gaggi e Matteo Ciman.
+Progetto per il corso di Tecnologie Web UNIPD A.A. 2019/20, tenuto dai professori Ombretta Gaggi e Matteo Ciman.
+
 Si è scelto di realizzare un piccolo social network per la condivisione e partecipazione ad attività di volontariato.
-Il progetto è stato realizzato da Alessandro Chimetto, Francesco De Salvador, Stefano Biotto and Daniele Bresciani ed
-ha ricevuto una valutazione di 27/30.
+
+Il progetto è stato realizzato da Alessandro Chimetto, Francesco De Salvador, Stefano Biotto e Daniele Bresciani.
 
 ## Requisiti
 - Il sito web deve essere realizzato con lo standard XHTML 1.0 Strict, eventuali pagine in HTML5 sono permesse, ma queste devono essere giustificate e degradare in modo elegante (devono rispettare le regole XHTML);
@@ -21,3 +22,14 @@ Viene richiesta un'analisi iniziale delle caratteristiche degli utenti che il si
 
 ## Relazione
 È possibile prenderne visione consultando il file [RELAZIONE.pdf](RELAZIONE.pdf).
+
+## Feedback
+Il progetto è stato valutato positivamente con un voto di 27/30.
+
+Sono state segnalate le seguenti problematiche:
+- La gerarchia degli headings doveva essere più precisa nelle varie pagine; per esempio, nelle pagine post, "sezione relazioni" doveva essere <h2>, mentre commenti <h3>.
+- I tag <meta>, soprattutto keywords, sarebbero dovuti essere diversi per ogni pagina, per esempio nelle pagine di profilo doveva esserci la keyword "profilo utente".
+- Sono stati usati dei tag <br> non necessari che potevano essere sostituiti con un unico tag <dl>.
+- Riguardo ai controlli javascript nei form, quando un utente inserisce dei dati in un <input> non gli si deve dare la possibilità di inserire solo spazi vuoti, ma esclusivamente caratteri alfanumerici.
+- Alcune immagini necessitano di testi alternativi più esplicativi, per esempio l'immagine di profilo doveva avere alt="Immagine profilo di Mario Rossi".
+- Il titolo del sito DOIT è un tag <abbr> per questioni di accessibilità ma, non essendo una abbreviazione, sarebbe stato più corretto l'utilizzo del tag <title>.
