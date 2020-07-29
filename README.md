@@ -27,9 +27,9 @@ Viene richiesta un'analisi iniziale delle caratteristiche degli utenti che il si
 Il progetto è stato valutato positivamente con un voto di 27/30.
 
 Sono state segnalate le seguenti problematiche:
-- La gerarchia degli headings doveva essere più precisa nelle varie pagine; per esempio, nelle pagine post, "sezione relazioni" doveva essere <h2>, mentre commenti <h3>.
-- I tag <meta>, soprattutto keywords, sarebbero dovuti essere diversi per ogni pagina, per esempio nelle pagine di profilo doveva esserci la keyword "profilo utente".
-- Sono stati usati dei tag <br> non necessari che potevano essere sostituiti con un unico tag <dl>.
-- Riguardo ai controlli javascript nei form, quando un utente inserisce dei dati in un <input> non gli si deve dare la possibilità di inserire solo spazi vuoti, ma esclusivamente caratteri alfanumerici.
-- Alcune immagini necessitano di testi alternativi più esplicativi, per esempio l'immagine di profilo doveva avere alt="Immagine profilo di Mario Rossi".
-- Il titolo del sito DOIT è un tag <abbr> per questioni di accessibilità ma, non essendo una abbreviazione, sarebbe stato più corretto l'utilizzo del tag <title>.
+- La gerarchia degli headings dovrebbe essere più precisa nelle varie pagine; per esempio, nelle pagine post, "sezione relazioni" doveva essere _h2_, mentre i commenti _h3_.
+- I tag _meta_, soprattutto keywords, dovrebbero essere diversi per ogni pagina, per esempio nelle pagine di profilo doveva esserci la keyword "profilo utente".
+- Sono stati usati dei tag _br_ non necessari che potrebbero essere sostituiti con un unico tag _dl_.
+- Riguardo ai controlli javascript nei form, quando un utente inserisce dei dati in un _input_ non gli si dovrebbe dare la possibilità di inserire solo spazi vuoti, ma esclusivamente caratteri alfanumerici.
+- Alcune immagini necessiterebbero di testi alternativi più esplicativi, per esempio l'immagine di profilo dovrebbe avere alt="Immagine profilo di Mario Rossi".
+- Il titolo del sito DOIT è un tag _abbr_ per questioni di accessibilità ma, non essendo una abbreviazione, sarebbe stato più corretto l'utilizzo del tag _title_.
